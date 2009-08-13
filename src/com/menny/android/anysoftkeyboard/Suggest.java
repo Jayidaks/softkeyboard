@@ -52,10 +52,10 @@ public class Suggest implements Dictionary.WordCallback {
     private CharSequence mOriginalWord;
     private String mLowerOriginalWord;
 
-    private int mCorrectionMode = CORRECTION_FULL;
+    private int mCorrectionMode = CORRECTION_BASIC;
 
 
-    public Suggest(Context context/*, int dictionaryResId*/) {
+    public Suggest(Context context, int dictionaryResId) {
         mContext = context;
         //mMainDict = new BinaryDictionary(context, dictionaryResId);
         for (int i = 0; i < mPrefMaxSuggestions; i++) {
@@ -134,7 +134,7 @@ public class Suggest implements Dictionary.WordCallback {
         
         // Save a lowercase version of the original word
         mOriginalWord = wordComposer.getTypedWord();
-        if (mOriginalWord.length() > 0) {
+        if (mOriginalWord != null) {
             mOriginalWord = mOriginalWord.toString();
             mLowerOriginalWord = mOriginalWord.toString().toLowerCase();
         } else {

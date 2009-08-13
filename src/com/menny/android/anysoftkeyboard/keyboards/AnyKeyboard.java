@@ -135,7 +135,7 @@ public abstract class AnyKeyboard extends Keyboard
         
         Log.v("AnySoftKeyboard", "Key '"+key.codes[0]+"' will have - width: "+key.width+", height:"+key.height+", text: '"+key.label+"'.");
         
-        setPopupKeyChars(key);
+        setKeyPopup(key, false);
         
         return key;
     }
@@ -266,9 +266,11 @@ public abstract class AnyKeyboard extends Keyboard
 		{
 			Log.v("AnySoftKeyboard", "setShifted: not changed key:"+aKey.label);
 		}
+		
+		setKeyPopup(aKey, shiftState);
 	}
 	
-	protected void setPopupKeyChars(Key aKey) 
+	protected void setKeyPopup(Key aKey, boolean shiftState) 
 	{
 		if ((aKey.codes != null) && (aKey.codes.length > 0))
         {
@@ -354,7 +356,7 @@ public abstract class AnyKeyboard extends Keyboard
 	
 	class AnyKey extends Keyboard.Key {
         
-        //private boolean mShiftLockEnabled;
+        private boolean mShiftLockEnabled;
         
         public AnyKey(Resources res, Keyboard.Row parent, int x, int y, 
                 XmlResourceParser parser) {
@@ -365,18 +367,18 @@ public abstract class AnyKeyboard extends Keyboard
             }
         }
         
-//        void enableShiftLock() {
-//            mShiftLockEnabled = true;
-//        }
-//
-//        @Override
-//        public void onReleased(boolean inside) {
-//            if (!mShiftLockEnabled) {
-//                super.onReleased(inside);
-//            } else {
-//                pressed = !pressed;
-//            }
-//        }
+        void enableShiftLock() {
+            mShiftLockEnabled = true;
+        }
+
+        @Override
+        public void onReleased(boolean inside) {
+            if (!mShiftLockEnabled) {
+                super.onReleased(inside);
+            } else {
+                pressed = !pressed;
+            }
+        }
     }
 	
 	class LessSensitiveAnyKey extends AnyKey {

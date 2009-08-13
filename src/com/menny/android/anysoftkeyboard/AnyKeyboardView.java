@@ -32,8 +32,6 @@ public class AnyKeyboardView extends KeyboardView {
     public AnyKeyboardView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-    
-    
 
     @Override
     protected boolean onLongPress(Key key) {

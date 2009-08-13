@@ -56,9 +56,8 @@ public class SoftKeyboard extends InputMethodService
     private KeyboardView mInputView;
     private CandidateView mCandidateView;
     private CompletionInfo[] mCompletions;
-    private Suggest mSuggest;
-    private WordComposer mWordComposer = new WordComposer();
-    //private StringBuilder mComposing = new StringBuilder();
+    
+    private StringBuilder mComposing = new StringBuilder();
     //private boolean mPredictionOn;
     private boolean mCompletionOn;
     
@@ -71,7 +70,7 @@ public class SoftKeyboard extends InputMethodService
     //private AnyKeyboard mInternetKeyboard;
     private AnyKeyboard mSimpleNumbersKeyboard;
     //my working keyboards
-    private ArrayList<AnyKeyboard> mEnabledKeyboards = null;
+    private ArrayList<AnyKeyboard> mKeyboards = null;
     private int mLastSelectedKeyboard = 0;
     
     private AnyKeyboard mCurKeyboard;
@@ -123,10 +122,10 @@ public class SoftKeyboard extends InputMethodService
      */
     @Override public void onInitializeInterface() 
     {
-    	Log.i("AnySoftKeyboard", "onInitializeInterface: Have keyboards="+(mEnabledKeyboards != null)+". isFullScreen="+super.isFullscreenMode()+". isInputViewShown="+super.isInputViewShown());
+    	Log.i("AnySoftKeyboard", "onInitializeInterface: Have keyboards="+(mKeyboards != null)+". isFullScreen="+super.isFullscreenMode()+". isInputViewShown="+super.isInputViewShown());
     	reloadConfiguration();
         
-        if (mEnabledKeyboards != null) 
+        if (mKeyboards != null) 
         {
             // Configuration changes can happen after the keyboard gets recreated,
             // so we need to be able to re-build the keyboards if the available
@@ -147,9 +146,7 @@ public class SoftKeyboard extends InputMethodService
         //mInternetKeyboard = new InternetKeyboard(this);
         mSimpleNumbersKeyboard = new GenericKeyboard(this, R.xml.simple_numbers, false, -1);
         
-        mEnabledKeyboards = KeyboardFactory.createAlphaBetKeyboards(this);
-        //clearing memory of old keyboards.
-        java.lang.System.gc();
+        mKeyboards = KeyboardFactory.createAlphaBetKeyboards(this);
 	}
 
     private void reloadConfiguration()
@@ -190,20 +187,13 @@ public class SoftKeyboard extends InputMethodService
         //in the weird case (impossible?) that the  'mLastSelectedKeyboard' is enabled, 
         //but the mCurKeyboard is null.
         if ((mCurKeyboard == null)/* || (!mCurKeyboard.isEnabled())*/)
-        	mCurKeyboard = getLastSelectedKeyboard();
+        	mCurKeyboard = mKeyboards.get(mLastSelectedKeyboard);
         
         if (mInputView != null)
         	mInputView.setKeyboard(mCurKeyboard);
 	}
     
-    private AnyKeyboard getLastSelectedKeyboard() {
-    	if (mLastSelectedKeyboard >= mEnabledKeyboards.size())
-    		mLastSelectedKeyboard = 0;
-    	
-    	return mEnabledKeyboards.get(mLastSelectedKeyboard);
-	}
-
-	/**
+    /**
      * Called by the framework when your view for creating input needs to
      * be generated.  This will be called the first time your input method
      * is displayed, and every time it needs to be re-created such as due to
@@ -215,7 +205,7 @@ public class SoftKeyboard extends InputMethodService
     	
     	mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input, null);
         mInputView.setOnKeyboardActionListener(this);
-        mInputView.setKeyboard(getLastSelectedKeyboard());
+        mInputView.setKeyboard(mKeyboards.get(mLastSelectedKeyboard));
         //reloadConfiguration();
         
         return mInputView;
@@ -237,21 +227,12 @@ public class SoftKeyboard extends InputMethodService
     	Log.i("AnySoftKeyboard", "onCreateCandidatesView. mCompletionOn:"+mCompletionOn);
     	if (mCompletionOn)
     	{
-    		mSuggest = new Suggest(this);
-    		mSuggest.setUserDictionary(new UserDictionary(this));
-    		
     		mCandidateView = new CandidateView(this);
     		mCandidateView.setService(this);
-    		
     		return mCandidateView;
     	}
     	else
-    	{
-    		mSuggest = null;
-    		//clearing memory of old suggest and dictionary.
-    		java.lang.System.gc();
     		return null;
-    	}
     }
 
     /**
@@ -266,8 +247,7 @@ public class SoftKeyboard extends InputMethodService
         //reloadConfiguration();
         // Reset our state.  We want to do this even if restarting, because
         // the underlying state of the text editor could have changed in any way.
-        //mComposing.setLength(0);
-        mWordComposer.reset();
+        mComposing.setLength(0);
         updateCandidates();
         
         if (!restarting) 
@@ -301,7 +281,7 @@ public class SoftKeyboard extends InputMethodService
                 // normal alphabetic keyboard, and assume that we should
                 // be doing predictive text (showing candidates as the
                 // user types).
-                mCurKeyboard = getLastSelectedKeyboard();
+                mCurKeyboard = mKeyboards.get(mLastSelectedKeyboard);
                 //mPredictionOn = mShowCandidates;
                 mCompletionOn = mShowCandidates;
                 
@@ -333,7 +313,7 @@ public class SoftKeyboard extends InputMethodService
 //                	else
 //                		mCurKeyboard = mKeyboards.get(mLastSelectedKeyboard);
 //                }
-                mCurKeyboard = getLastSelectedKeyboard();
+                mCurKeyboard = mKeyboards.get(mLastSelectedKeyboard);
                 
                 if ((attribute.inputType&EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE) != 0) {
                     // If this is an auto-complete text view, then our predictions
@@ -354,7 +334,7 @@ public class SoftKeyboard extends InputMethodService
             default:
                 // For all unknown input types, default to the alphabetic
                 // keyboard with no special features.
-                mCurKeyboard = getLastSelectedKeyboard();
+                mCurKeyboard = mKeyboards.get(mLastSelectedKeyboard);
                 updateShiftKeyState(attribute);
         }
         
@@ -372,8 +352,7 @@ public class SoftKeyboard extends InputMethodService
         super.onFinishInput();
         Log.i("AnySoftKeyboard", "onFinishInput");
         // Clear current composing text and candidates.
-        //mComposing.setLength(0);
-        mWordComposer.reset();
+        mComposing.setLength(0);
         updateCandidates();
         
         // We only hide the candidates window when finishing input on
@@ -382,7 +361,7 @@ public class SoftKeyboard extends InputMethodService
         // its window.
         setCandidatesViewShown(false);
         
-        mCurKeyboard = getLastSelectedKeyboard();
+        mCurKeyboard = mKeyboards.get(mLastSelectedKeyboard);
         if (mInputView != null) {
             mInputView.closing();
         }
@@ -410,10 +389,9 @@ public class SoftKeyboard extends InputMethodService
         
         // If the current selection in the text view changes, we should
         // clear whatever candidate text we have.
-        if (mWordComposer.getTypedWord().length() > 0 && (newSelStart != candidatesEnd
+        if (mComposing.length() > 0 && (newSelStart != candidatesEnd
                 || newSelEnd != candidatesEnd)) {
-            //mComposing.setLength(0);
-            mWordComposer.reset();
+            mComposing.setLength(0);
             updateCandidates();
             InputConnection ic = getCurrentInputConnection();
             if (ic != null) {
@@ -441,10 +419,10 @@ public class SoftKeyboard extends InputMethodService
                 return;
             }
             
-            List<CharSequence> stringList = new ArrayList<CharSequence>();
+            List<String> stringList = new ArrayList<String>();
             for (int i=0; i<(completions != null ? completions.length : 0); i++) {
                 CompletionInfo ci = completions[i];
-                if (ci != null) stringList.add(ci.getText());
+                if (ci != null) stringList.add(ci.getText().toString());
             }
             setSuggestions(stringList, true, true);
         }
@@ -474,7 +452,7 @@ public class SoftKeyboard extends InputMethodService
                 // Special handling of the delete key: if we currently are
                 // composing text for the user, we want to modify that instead
                 // of let the application to the delete itself.
-                if (mWordComposer.getTypedWord().length() > 0) {
+                if (mComposing.length() > 0) {
                     onKey(Keyboard.KEYCODE_DELETE, null);
                     return true;
                 }
@@ -543,11 +521,10 @@ public class SoftKeyboard extends InputMethodService
      * Helper function to commit any text being composed in to the editor.
      */
     private void commitTyped(InputConnection inputConnection) {
-        if (mWordComposer.getTypedWord().length() > 0) 
+        if (mComposing.length() > 0) 
         {
-            inputConnection.commitText(mWordComposer.getTypedWord(), mWordComposer.getTypedWord().length());
-            //mComposing.setLength(0);
-            mWordComposer.reset();
+            inputConnection.commitText(mComposing, mComposing.length());
+            mComposing.setLength(0);
             updateCandidates();
         }
     }
@@ -621,8 +598,7 @@ public class SoftKeyboard extends InputMethodService
                     keyDownUp(keyCode - '0' + KeyEvent.KEYCODE_0);
                 } else {
                 	handleTextDirection();
-                	//mComposing.append((char) keyCode);
-                	mWordComposer.add(keyCode, new int[]{keyCode});
+                	mComposing.append((char) keyCode);
                 	commitTyped(getCurrentInputConnection());
                 }
                 break;
@@ -633,10 +609,6 @@ public class SoftKeyboard extends InputMethodService
 
     public void onKey(int primaryCode, int[] keyCodes) 
     {
-    	if (primaryCode > 0)
-    		Log.v("AnySoftKeyboard", "onKey char: "+(char)primaryCode);
-    	else
-    		Log.v("AnySoftKeyboard", "onKey code: "+primaryCode);
     	EditorInfo currentEditorInfo = getCurrentInputEditorInfo();
     	InputConnection currentInputConnection = getCurrentInputConnection();
         if (primaryCode == Keyboard.KEYCODE_DELETE) {
@@ -660,7 +632,7 @@ public class SoftKeyboard extends InputMethodService
         else if (!isAlphabet(primaryCode))
         {
             // Handle separator
-            if (mWordComposer.getTypedWord().length() > 0) {
+            if (mComposing.length() > 0) {
                 commitTyped(currentInputConnection);
             }
             primaryCode = translatePrimaryCodeFromCurrentKeyboard(primaryCode);
@@ -722,15 +694,15 @@ public class SoftKeyboard extends InputMethodService
 			if ((mCurKeyboard == null) || isAlphaBetKeyboard(mCurKeyboard))
 			{
 				Log.d("AnySoftKeyboard", "nextKeyboard: Current keyboard is alphabet (or null), so i'll look for the next");
-				int maxTries = mEnabledKeyboards.size();
+				int maxTries = mKeyboards.size();
 				do
 				{
 					mLastSelectedKeyboard++;
-					if (mLastSelectedKeyboard >= mEnabledKeyboards.size())
+					if (mLastSelectedKeyboard >= mKeyboards.size())
 						mLastSelectedKeyboard = 0;
 					
-					AnyKeyboard aKeyboard = getLastSelectedKeyboard();
-					Log.d("AnySoftKeyboard", "nextKeyboard: testing: "+aKeyboard.getKeyboardName()/*+", which is "+mKeyboards.get(mLastSelectedKeyboard).isEnabled()*/+". index="+mLastSelectedKeyboard);
+					Log.d("AnySoftKeyboard", "nextKeyboard: testing: "+mKeyboards.get(mLastSelectedKeyboard).getKeyboardName()/*+", which is "+mKeyboards.get(mLastSelectedKeyboard).isEnabled()*/+". index="+mLastSelectedKeyboard);
+					AnyKeyboard aKeyboard = mKeyboards.get(mLastSelectedKeyboard);
 					//if (aKeyboard.isEnabled())
 					//{
 						//we found an enabled keyboard - need to check that it OK
@@ -750,7 +722,7 @@ public class SoftKeyboard extends InputMethodService
 					maxTries--;
 				}while(maxTries > 0);
 			}
-			mCurKeyboard = getLastSelectedKeyboard();
+			mCurKeyboard = mKeyboards.get(mLastSelectedKeyboard);
 		}
 		Log.i("AnySoftKeyboard", "nextKeyboard: Setting next keyboard to: "+mCurKeyboard.getKeyboardName());
 		if (mInputView != null)
@@ -797,9 +769,9 @@ public class SoftKeyboard extends InputMethodService
     
     private boolean isAlphaBetKeyboard(AnyKeyboard viewedKeyboard)
     {
-    	for(int i=0; i<mEnabledKeyboards.size(); i++)
+    	for(int i=0; i<mKeyboards.size(); i++)
     	{
-    		if (viewedKeyboard.getKeyboardName().equalsIgnoreCase(mEnabledKeyboards.get(i).getKeyboardName()))
+    		if (viewedKeyboard.getKeyboardName().equalsIgnoreCase(mKeyboards.get(i).getKeyboardName()))
     			return true;
     	}
     	
@@ -810,7 +782,7 @@ public class SoftKeyboard extends InputMethodService
         InputConnection ic = getCurrentInputConnection();
         if (ic == null) return;
         ic.beginBatchEdit();
-        if (mWordComposer.getTypedWord().length() > 0) {
+        if (mComposing.length() > 0) {
             commitTyped(ic);
         }
         ic.commitText(text, 0);
@@ -827,17 +799,16 @@ public class SoftKeyboard extends InputMethodService
     {
         if (mCompletionOn) 
         {
-            if (mWordComposer.getTypedWord().length() > 0) 
+            if (mComposing.length() > 0) 
             {
-//                ArrayList<String> list = new ArrayList<String>();
-//                String currentWord = mComposing.toString();
-//                if (mCurKeyboard.isLeftToRightLanguage())
-//                	currentWord = ((char)8207)+currentWord;
-//                
-//                list.add(currentWord);
+                ArrayList<String> list = new ArrayList<String>();
+                String currentWord = mComposing.toString();
+                if (mCurKeyboard.isLeftToRightLanguage())
+                	currentWord = ((char)8207)+currentWord;
+                
+                list.add(currentWord);
                 //asking current keyboard for suggestions
-                //mCurKeyboard.addSuggestions(currentWord, list);
-                List<CharSequence> list = mSuggest.getSuggestions(mInputView, mWordComposer, true);
+                mCurKeyboard.addSuggestions(currentWord, list);
                 setSuggestions(list, true, true);
             } 
             else 
@@ -847,7 +818,7 @@ public class SoftKeyboard extends InputMethodService
         }
     }
     
-    public void setSuggestions(List<CharSequence> suggestions, boolean completions, boolean typedWordValid) {
+    public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
         if (suggestions != null && suggestions.size() > 0) {
             setCandidatesViewShown(true);
         } else if (isExtractViewShown()) {
@@ -877,9 +848,7 @@ public class SoftKeyboard extends InputMethodService
     }
     
     private void handleCharacter(int primaryCode, int[] keyCodes) {
-    	mWordComposer.add(primaryCode, keyCodes);
         primaryCode = translatePrimaryCodeFromCurrentKeyboard(primaryCode);
-        
         //it is an alphabet character
         CharSequence textToCommit = String.valueOf((char) primaryCode);
         appendCharactersToInput(textToCommit);
@@ -896,14 +865,13 @@ public class SoftKeyboard extends InputMethodService
             		if (aKeyCodes[0] == primaryCode)
             		{
             			if (aKeyCodes.length > 1)
-                    		return aKeyCodes[1];//keyboard specified the shift character
-            			else
-            				return Character.toUpperCase(primaryCode);
+                    		primaryCode = aKeyCodes[1];//keyboard specified the shift character
+                    	else
+                    		primaryCode = Character.toUpperCase(primaryCode);
+            			
+            			break;
             		}
             	}
-            	//if I got here, then I'm shifted, and couldn't locate the key
-            	//Is it pop-up?
-            	return Character.toUpperCase(primaryCode);
             }
         }
 		return primaryCode;
@@ -928,7 +896,7 @@ public class SoftKeyboard extends InputMethodService
     }
     
     
-    public void pickSuggestionManually(CharSequence word) 
+    public void pickSuggestionManually(String word) 
     {
 //        if (mCompletionOn && mCompletions != null && index >= 0
 //                && index < mCompletions.length) {
@@ -945,8 +913,7 @@ public class SoftKeyboard extends InputMethodService
 //            commitTyped(getCurrentInputConnection());
 //        }
     	getCurrentInputConnection().commitText(word, word.length());
-		//mComposing.setLength(0);
-		mWordComposer.reset();
+		mComposing.setLength(0);
 		//simulating space
 		onKey((int)' ', null);
 		if (mCandidateView != null) 
@@ -1026,14 +993,13 @@ public class SoftKeyboard extends InputMethodService
     }    
 
 	public void onRelease(int primaryCode) {
-		Log.v("AnySoftKeyboard", "onRelease:"+primaryCode);
     }
 
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
 		Log.d("AnySoftKeyboard", "onSharedPreferenceChanged - key:"+key);
 		
-		mEnabledKeyboards = null;
+		mKeyboards = null;
 		
 		onInitializeInterface();
 	}
@@ -1047,12 +1013,11 @@ public class SoftKeyboard extends InputMethodService
 	public void appendCharactersToInput(CharSequence textToCommit) 
 	{
 		handleTextDirection();
-		mWordComposer.append(textToCommit);
-        //mComposing.append(textToCommit);
+        mComposing.append(textToCommit);
         
         if (mCompletionOn)
         {
-        	getCurrentInputConnection().setComposingText(mWordComposer.getTypedWord(), textToCommit.length());
+        	getCurrentInputConnection().setComposingText(mComposing, textToCommit.length());
         	updateCandidates();
         }	
         else
@@ -1063,20 +1028,17 @@ public class SoftKeyboard extends InputMethodService
 
 	public void deleteLastCharactersFromInput(int countToDelete) 
 	{
-		final int currentLength = mWordComposer.getTypedWord().length();
+		final int currentLength = mComposing.length();
 		boolean shouldDeleteUsingCompletion;
 		if (currentLength > 0)
 		{
 			shouldDeleteUsingCompletion = true;
 	        if (currentLength > countToDelete) {
-	            //mComposing.delete(currentLength - countToDelete, currentLength);
-	            
-	            mWordComposer.deleteLast(countToDelete);
+	            mComposing.delete(currentLength - countToDelete, currentLength);
 	        } 
 	        else 
 	        {
-	            //mComposing.setLength(0);
-	            mWordComposer.reset();
+	            mComposing.setLength(0);
 	        }
 		}
 		else
@@ -1086,7 +1048,7 @@ public class SoftKeyboard extends InputMethodService
 		
 		if (mCompletionOn && shouldDeleteUsingCompletion)
         {
-        	getCurrentInputConnection().setComposingText(mWordComposer.getTypedWord(), 1);
+        	getCurrentInputConnection().setComposingText(mComposing, 1);
         	updateCandidates();
         }
 		else

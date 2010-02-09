@@ -9,10 +9,10 @@ public class FinnishLanguagePackActivity extends Activity
 {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); 
- 
-        Uri data = Uri.parse("content://com.menny.android.anysoftkeyboard/"); 
-        Intent intentResult = new Intent(null, data);
+        super.onCreate(savedInstanceState);
+        
+        //Uri data = Uri.parse("content://com.menny.android.anysoftkeyboard/"); 
+        Intent intentResult = new Intent("com.menny.android.anysoftkeyboard.KEYBOARD");
  
         intentResult.putExtra("keyboardContentProviderUri", FinnishKeyboardProvider.CONTENT_URI.toString());
         //intentResult.putExtra("dictionaryContentProviderUri", );

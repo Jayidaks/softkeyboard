@@ -2,7 +2,6 @@ package com.menny.anysoftkeyboard.finnish;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 public class FinnishLanguagePackActivity extends Activity 

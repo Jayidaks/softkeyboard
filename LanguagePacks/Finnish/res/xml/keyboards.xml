@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-	<Keyboard nameResId="@string/finnish_keyboard" layoutResId="@xml/fin_swedish_qwerty" enabledPrefStringId="finnish_swedish_keyboard" sortOrder="111" defaultDictionaryName="Swedish" description="Created with jtlallo"/>
-		
-	<!-- Template
-	<Keyboard nameResId="@string/" iconResId="@drawable/" layoutResId="@xml/" landscapeResId="@xml/" enabledPrefStringId="" sortOrder="" defaultDictionaryName="" additionalIsLetterExceptions="" physicalKeyboardMappingResId="@xml/" description=""/>
-	-->
+	<Keyboard nameResId="@string/finnish_keyboard" layoutResId="@xml/finnish_qwerty" enabledPrefStringId="finnish_keyboard" sortOrder="112" defaultDictionaryName="Finnish" description="Created with ssalonen"/>
 </Keyboards>

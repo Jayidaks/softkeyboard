@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-	<Keyboard nameResId="@string/finnish_keyboard" layoutResId="@xml/finnish_qwerty" enabledPrefStringId="finnish_keyboard" sortOrder="112" defaultDictionaryName="Finnish" description="Created with ssalonen"/>
+	<Keyboard nameResId="@string/keyboard" layoutResId="@xml/finnish_qwerty" enabledPrefStringId="finnish_keyboard" sortOrder="112" defaultDictionaryName="fi" description="Created by ssalonen"/>
 </Keyboards>

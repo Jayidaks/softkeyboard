@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Dictionaries>
-	<Dictionary nameResId="@string/finnish_dictionary" key="Finnish" type="binary" dictionaryAssertName="fi_binary.mp3" description=""/>	
-	
-	<!-- Template
-	<Dictionary nameResId="@string/eng_dictionary" key="English" type="binary" dictionaryAssertName="en_binary.mp3" description=""/>
-	-->
+	<Dictionary nameResId="@string/dictionary" key="fi" type="binary" dictionaryAssertName="fi_binary.mp3" description=""/>	
 </Dictionaries>

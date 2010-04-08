@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AnySoftKeyboard - Finnish Language Pack</string>
-    <string name="finnish_keyboard">Finnish keyboard</string>
-    <string name="finnish_dictionary">Finnish</string>
+    <string name="keyboard">Finnish keyboard</string>
+    <string name="dictionary">Finnish</string>
 </resources>

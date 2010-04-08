@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.menny.anysoftkeyboard.finnish"
       android:versionCode="0"
-      android:versionName="20100219-where-no-man-has-gone-before-testers">
+      android:versionName="20100408-where-no-man-has-gone-before-testers">
     <application android:icon="@drawable/flag_fi" android:label="@string/app_name">
     	<receiver android:exported="true" android:name=".FinnishKeyboardBroadcastReceiver">
     		<intent-filter> 
@@ -28,6 +28,6 @@
           android:largeScreens="true" 
           android:normalScreens="true"
           android:smallScreens="true"
-          android:anyDensity="false" />
+          android:anyDensity="true" />
           <!-- http://d.android.com/guide/practices/screens_support.html read about legacy. -->
 </manifest> 

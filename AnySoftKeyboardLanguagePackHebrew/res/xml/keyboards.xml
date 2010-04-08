@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<Keyboard nameResId="@string/keyboard" iconResId="@drawable/he" layoutResId="@xml/heb_qwerty" enabledPrefStringId="heb_keyboard" sortOrder="31" defaultDictionaryName="iw" additionalIsLetterExceptions="&#34;" physicalKeyboardMappingResId="@xml/heb_physical" description="Created by Menny Even Danan"/>
+</Keyboards>

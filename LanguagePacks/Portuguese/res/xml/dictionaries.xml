@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionaries>
+	<Dictionary nameResId="@string/pt_dictionary" key="Portuguese" type="binary" dictionaryAssertName="pt_binary.mp3" description=""/>
+</Dictionaries>

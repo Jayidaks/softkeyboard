@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<Keyboard nameResId="@string/pt_keyboard" layoutResId="@xml/pt_qwerty" enabledPrefStringId="pt_keyboard" sortOrder="111" defaultDictionaryName="Portuguese" description="Created by Hugo Lopes"/>
+	<!--Keyboard nameResId="@string/svorak_keyboard" layoutResId="@xml/svorak" enabledPrefStringId="svorak_keyboard" sortOrder="112" defaultDictionaryName="Swedish" description="Created by Henrik Andersson"/-->
+</Keyboards>

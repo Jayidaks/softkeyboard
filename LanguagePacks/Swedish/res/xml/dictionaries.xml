@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Dictionaries>
-	<Dictionary nameResId="@string/swedish_dictionary" key="Swedish" type="binary" dictionaryAssertName="sv_binary.mp3" description=""/>
+	<Dictionary nameResId="@string/swedish_dictionary" key="se" type="binary" dictionaryAssertName="sv_binary.mp3" description=""/>
 </Dictionaries>

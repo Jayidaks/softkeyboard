@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnySoftKeyboard - Alternative Keyboards Pack</string>
+    <string name="dvorak_keyboard">Dvorak</string>
+    <string name="colemak_keyboard">Colemak</string>
+</resources>

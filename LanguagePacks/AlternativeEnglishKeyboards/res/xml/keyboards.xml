@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<Keyboard nameResId="@string/dvorak_keyboard" iconResId="@drawable/en" layoutResId="@xml/dvorak" enabledPrefStringId="dvorak_keyboard" sortOrder="2" defaultDictionaryName="en" description="Created with Stephen Paul Weber"/>
+	<Keyboard nameResId="@string/colemak_keyboard" iconResId="@drawable/en" layoutResId="@xml/colemak" enabledPrefStringId="colemak_keyboard" sortOrder="3" defaultDictionaryName="en" description="Created with Hugo Lopes"/>
+</Keyboards>

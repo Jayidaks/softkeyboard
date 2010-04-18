@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<Keyboard nameResId="@string/azerty_keyboard" layoutResId="@xml/azerty" enabledPrefStringId="azerty_keyboard" sortOrder="11" defaultDictionaryName="fr" description="Created with norman.obry"/>
+	<Keyboard nameResId="@string/fr_ca_keyboard" layoutResId="@xml/ca_fr_qwerty" enabledPrefStringId="fr_ca_keyboard" sortOrder="151" defaultDictionaryName="fr" description="Created with d.nahmiasleonard"/>
+	<Keyboard nameResId="@string/bepo_keyboard" layoutResId="@xml/bepo" enabledPrefStringId="bepo_keyboard" sortOrder="12" defaultDictionaryName="fr" description=""/>
+</Keyboards>

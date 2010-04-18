@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnySoftKeyboard - French Language Pack</string>
+    <string name="azerty_keyboard">AZERTY</string>
+    <string name="fr_ca_keyboard">French Canadian</string>
+	<string name="bepo_keyboard">B&#233;po</string><!-- BEPO -->
+    <string name="french_dictionary">French</string>
+</resources>

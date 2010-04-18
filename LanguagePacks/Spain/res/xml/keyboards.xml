@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<Keyboard nameResId="@string/es_keyboard" layoutResId="@xml/es_qwerty" enabledPrefStringId="es_keyboard" sortOrder="131" defaultDictionaryName="es" description="Created with Jorge Jiménez"/>
+	<Keyboard nameResId="@string/catalan_keyboard" layoutResId="@xml/catalan" enabledPrefStringId="catalan_keyboard" sortOrder="132" defaultDictionaryName="ca" description="Created with jmontane"/>
+</Keyboards>

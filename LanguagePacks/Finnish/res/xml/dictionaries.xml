@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Dictionaries>
-	<Dictionary nameResId="@string/dictionary" key="fi" type="binary" dictionaryAssertName="fi_binary.mp3" description="Created by ssalonen"/>
+	<Dictionary nameResId="@string/dictionary" locale="fi" id="aa85d1dd-f23b-4fc1-a30c-9a0480866122" type="binary" dictionaryAssertName="fi_binary.mp3" description="Created by ssalonen"/>
 </Dictionaries>

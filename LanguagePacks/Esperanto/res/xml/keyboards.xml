@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-	<Keyboard nameResId="@string/keyboard" layoutResId="@xml/esperanto" enabledPrefStringId="esperanto_keyboard" sortOrder="221" description="Created with Aaron Irvine"/>
+	<Keyboard nameResId="@string/keyboard" layoutResId="@xml/esperanto" id="8f8036da-e788-4b8c-a78c-a45969c73ece" index="221" description="Created with Aaron Irvine"/>
 </Keyboards>

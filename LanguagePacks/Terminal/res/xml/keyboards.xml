@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Keyboards>
-	<Keyboard nameResId="@string/terminal_keyboard" layoutResId="@xml/terminal" enabledPrefStringId="terminal_keyboard" sortOrder="9" defaultDictionaryName="English" description="Created with bittrance"/>
+	<Keyboard nameResId="@string/terminal_keyboard" layoutResId="@xml/terminal" id="e78b28a1-a565-42e9-ac9b-1bc9ffb0396e" index="9" defaultDictionaryName="English" description="Created with bittrance"/>
 </Keyboards>

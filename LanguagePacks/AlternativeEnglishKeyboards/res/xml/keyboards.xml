@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-	<Keyboard nameResId="@string/dvorak_keyboard" iconResId="@drawable/en" layoutResId="@xml/dvorak" enabledPrefStringId="dvorak_keyboard" sortOrder="2" defaultDictionaryName="en" description="Created with Stephen Paul Weber"/>
-	<Keyboard nameResId="@string/colemak_keyboard" iconResId="@drawable/en" layoutResId="@xml/colemak" enabledPrefStringId="colemak_keyboard" sortOrder="3" defaultDictionaryName="en" description="Created with Hugo Lopes"/>
+	<Keyboard nameResId="@string/dvorak_keyboard" iconResId="@drawable/en" layoutResId="@xml/dvorak" id="b329c734-68be-4211-969f-1d251106e491" defaultDictionaryName="en" description="Created with Stephen Paul Weber" sortOrder="2" />
+	<Keyboard nameResId="@string/colemak_keyboard" iconResId="@drawable/en" layoutResId="@xml/colemak" id="3bbddedd-09eb-4605-84f2-560b99bbc5a5" defaultDictionaryName="en" description="Created with Hugo Lopes" sortOrder="3" />
 </Keyboards>

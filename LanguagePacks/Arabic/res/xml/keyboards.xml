@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-	<Keyboard nameResId="@string/arabic_keyboard" iconResId="@drawable/ar" layoutResId="@xml/arabic_qwerty" enabledPrefStringId="arabic_keyboard" sortOrder="51" description=""/>
+	<Keyboard nameResId="@string/arabic_keyboard" iconResId="@drawable/ar" layoutResId="@xml/arabic_qwerty" id="141e77eb-bbe9-4e04-b1cc-8b6fd99a5f09" description="" index="51" />
 </Keyboards>

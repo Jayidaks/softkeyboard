@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-	<Keyboard nameResId="@string/keyboard" iconResId="@drawable/flag_fi" layoutResId="@xml/finnish_qwerty" id="bbc4e54e-1c2a-44d4-9df4-98309c9116de" index="1" defaultDictionaryLocale="fi" description="Created by ssalonen"/>
+	<Keyboard nameResId="@string/keyboard" iconResId="@drawable/flag" layoutResId="@xml/finnish_qwerty" id="bbc4e54e-1c2a-44d4-9df4-98309c9116de" index="1" defaultDictionaryLocale="fi" description="Created by ssalonen"/>
 </Keyboards>

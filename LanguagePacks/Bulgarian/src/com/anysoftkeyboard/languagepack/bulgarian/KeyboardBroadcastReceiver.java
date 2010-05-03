@@ -1,4 +1,4 @@
-package com.anysoftkeyboard.languagepack.your_namespace_here;
+package com.anysoftkeyboard.languagepack.bulgarian;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

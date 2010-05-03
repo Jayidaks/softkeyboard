@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.anysoftkeyboard.languagepack.your_namespace_here"
+      package="com.anysoftkeyboard.languagepack.bulgarian"
       android:versionCode="0"
       android:versionName="20100503-i-want-to-share">
     <application android:icon="@drawable/app_icon" android:label="@string/app_name">

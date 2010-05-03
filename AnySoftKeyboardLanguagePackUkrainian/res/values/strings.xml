@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnySoftKeyboard - Ukranian Language Pack</string>
+    <string name="ukrainian_dictionary">Ukranian</string>
+    <string name="uk_keyboard">Ukrainian</string>
+	<string name="uk_keyboard_4_row">4 rows Ukrainian</string>
+</resources>

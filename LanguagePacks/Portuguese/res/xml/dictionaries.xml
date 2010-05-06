@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Dictionaries>
-	<Dictionary nameResId="@string/pt_dictionary" locale="pt" id="c5b6b495-b347-495b-a0b6-198f12222ddb" type="binary" dictionaryAssertName="pt_binary.mp3" description=""/>
+	<Dictionary nameResId="@string/pt_dictionary_full" locale="pt" id="25e3a292-9342-4c15-9aec-22eda1191fd8" type="binary" dictionaryAssertName="pt_binary_full.mp3" description="Latest pt_PT aspell dictionary"/>
+	<!--Dictionary nameResId="@string/pt_dictionary_small" locale="pt" id="90b33145-a27a-4560-9f8a-8bfcad01b21f" type="binary" dictionaryAssertName="pt_binary_small.mp3" description="A custom selection of words"/-->
 </Dictionaries>

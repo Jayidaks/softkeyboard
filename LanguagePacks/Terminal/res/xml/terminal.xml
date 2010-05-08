@@ -6,15 +6,6 @@
     android:verticalGap="0px"
     android:keyHeight="50dip"
     >
-    
-    <Row android:rowEdgeFlags="top"
-           android:keyWidth="45%p"
-            android:keyHeight="5%p">
-        <Key android:codes="-2" android:keyLabel="&#8592; 123 &#8592;" 
-                android:keyEdgeFlags="left"/>
-        <Key android:codes="-99" android:horizontalGap="10%p" 
-                android:keyLabel="&#8594; ABC &#8594;" android:keyEdgeFlags="right"/>
-    </Row>
 
     <Row>
         <Key android:codes="113" android:keyLabel="q" android:keyEdgeFlags="left"/>
@@ -52,22 +43,5 @@
         <Key android:codes="109" android:keyLabel="m"/>
         <Key android:horizontalGap="2.5%p" android:keyWidth="15%p" 
                 android:codes="-5" android:isRepeatable="true" android:keyEdgeFlags="right"/>
-    </Row>
-
-    <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="-20" android:isModifier="true" android:isSticky="false" android:keyEdgeFlags="left"/>
-
-        <Key android:horizontalGap="2.5%p" android:codes="47" android:keyLabel="/"/>
-        <Key android:codes="45" android:keyLabel="-"/>
-
-        <Key android:horizontalGap="2.5%p" android:codes="32" 
-                android:keyWidth="25%p" android:isRepeatable="true"/>
-
-        <Key android:horizontalGap="2.5%p" android:codes="-20" android:isRepeatable="true"/>
-                
-        <Key android:codes="-21" android:isRepeatable="true"/>
-
-        <Key android:horizontalGap="2.5%p" android:codes="10"
-                android:keyWidth="15%p" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>

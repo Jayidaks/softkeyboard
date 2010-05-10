@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.anysoftkeyboard.languagepack.portuguese"
-      android:versionCode="0"
-      android:versionName="20100418-x-dvtel">
+      android:versionCode="1"
+      android:versionName="20100509">
     <application android:icon="@drawable/icon" android:label="@string/app_name">
     	<receiver android:exported="true" android:name=".KeyboardBroadcastReceiver">
     		<intent-filter> 

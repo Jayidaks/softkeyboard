@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PhysicalTranslation QwertyTranslation="явертъуиопасдфгхйклзьцжбнм">
+	<SequenceMapping keySequence="77" targetChar="&#1095;"/>
+	<SequenceMapping keySequence="31,36" targetChar="&#1095;"/>
+	<SequenceMapping keySequence="47,36" targetChar="&#1096;"/>
+	<SequenceMapping keySequence="47,36,48" targetChar="&#1097;"/>
+	<SequenceMapping keySequence="53,49" targetChar="&#1102;"/>
+</PhysicalTranslation>

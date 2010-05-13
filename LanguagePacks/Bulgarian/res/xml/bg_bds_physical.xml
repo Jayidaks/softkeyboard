@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PhysicalTranslation QwertyTranslation="буеишщксдзьяаожгтнвюйъэфхп">
+	<!-- keycode_comma -->
+	<SequenceMapping keySequence="55" targetChar="&#1088;"/>
+	<SequenceMapping keySequence="56" targetChar="&#1083;"/>
+	<SequenceMapping keySequence="77" shiftModifier="true" targetChar="М"/>
+	<SequenceMapping keySequence="77" targetChar="м"/>
+	<SequenceMapping keySequence="48,47" targetChar="&#1094;"/>
+	<SequenceMapping keySequence="48,31" targetChar="&#1094;"/>
+	<SequenceMapping keySequence="31,36" targetChar="&#1095;"/>
+</PhysicalTranslation>

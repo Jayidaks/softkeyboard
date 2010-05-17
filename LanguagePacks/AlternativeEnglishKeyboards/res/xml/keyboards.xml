@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Keyboards>
-	<Keyboard nameResId="@string/dvorak_keyboard" iconResId="@drawable/en" layoutResId="@xml/dvorak" id="b329c734-68be-4211-969f-1d251106e491" defaultDictionaryLocale="en" description="Created with Stephen Paul Weber" index="1" />
-	<Keyboard nameResId="@string/colemak_keyboard" iconResId="@drawable/en" layoutResId="@xml/colemak" id="3bbddedd-09eb-4605-84f2-560b99bbc5a5" defaultDictionaryLocale="en" description="Created with Hugo Lopes" index="2" />
-</Keyboards>

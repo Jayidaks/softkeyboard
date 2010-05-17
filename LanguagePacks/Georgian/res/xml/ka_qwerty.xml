@@ -8,10 +8,10 @@
     >
     <Row>
 		<Key android:codes="4325" android:popupCharacters="&#49;" android:keyLabel="" android:keyEdgeFlags="left"/>
-		<Key android:codes="4332" android:popupCharacters="&#4333;&#50;" android:keyLabel=""/>
+		<Key android:codes="4332,4333" android:popupCharacters="&#4333;&#50;" android:keyLabel=""/>
 		<Key android:codes="4308" android:popupCharacters="&#51;" android:keyLabel=""/>
-		<Key android:codes="4320" android:popupCharacters="&#4326;&#52;" android:keyLabel=""/>
-		<Key android:codes="4322" android:popupCharacters="&#4311;&#53;" android:keyLabel=""/>
+		<Key android:codes="4320,4326" android:popupCharacters="&#4326;&#52;" android:keyLabel=""/>
+		<Key android:codes="4322,4311" android:popupCharacters="&#4311;&#53;" android:keyLabel=""/>
 		<Key android:codes="4327" android:popupCharacters="&#54;" android:keyLabel=""/>
 		<Key android:codes="4323" android:popupCharacters="&#55;" android:keyLabel=""/>
 		<Key android:codes="4312" android:popupCharacters="&#56;" android:keyLabel=""/>
@@ -21,12 +21,12 @@
     
     <Row>
         <Key android:horizontalGap="5%p" android:codes="4304" android:keyLabel="" android:keyEdgeFlags="left"/>
-        <Key android:codes="4321" android:popupCharacters="&#4328;" android:keyLabel=""/>
+        <Key android:codes="4321,4328" android:popupCharacters="&#4328;" android:keyLabel=""/>
         <Key android:codes="4307" android:keyLabel=""/>
         <Key android:codes="4324" android:keyLabel=""/>
         <Key android:codes="4306" android:keyLabel=""/>
         <Key android:codes="4336" android:keyLabel=""/>
-        <Key android:codes="4335" android:popupCharacters="&#4319;" android:keyLabel=""/>
+        <Key android:codes="4335,4319" android:popupCharacters="&#4319;" android:keyLabel=""/>
         <Key android:codes="4313" android:keyLabel=""/>
         <Key android:codes="4314" android:keyLabel="" android:keyEdgeFlags="right"/>
     </Row>
@@ -34,9 +34,9 @@
     <Row>
         <Key android:codes="-1"
                 android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left"/>
-        <Key android:horizontalGap="5%p" android:codes="4310" android:popupCharacters="&#4331;" android:keyLabel=""/>
+        <Key android:horizontalGap="5%p" android:codes="4310,4331" android:popupCharacters="&#4331;" android:keyLabel=""/>
         <Key android:codes="4334" android:keyLabel=""/>
-        <Key android:codes="4330" android:popupCharacters="&#4329;" android:keyLabel=""/>
+        <Key android:codes="4330,4329" android:popupCharacters="&#4329;" android:keyLabel=""/>
         <Key android:codes="4309" android:keyLabel=""/>
         <Key android:codes="4305" android:keyLabel=""/>
         <Key android:codes="4316" android:keyLabel=""/>

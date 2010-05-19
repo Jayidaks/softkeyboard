@@ -17,14 +17,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 
-public class TutorialsProvider 
+public class TutorialsProvider
 {
 	private static final String TAG = "ASK Turorial";
 
 	private static final int BASE_NOTIFICATION_ID = 1024;
 
 	private static ArrayList<TutorialActivityData> msActivitiesToShow = new ArrayList<TutorialActivityData>();
-	
+
 	public static void ShowTutorialsIfNeeded(Context context)
 	{
 		Log.i(TAG, "TutorialsProvider::ShowTutorialsIfNeeded called");
@@ -34,17 +34,17 @@ public class TutorialsProvider
 			TutorialActivityData data = new TutorialActivityData(R.string.testers_version, R.layout.testers_version);
 			msActivitiesToShow.add(data);
 		}
-		
+
 		if (AnySoftKeyboardConfiguration.getInstance().getDEBUG() || firstTimeVersionLoaded(context))
 		{
 			Log.i(TAG, "changelog added");
 			TutorialActivityData data = new TutorialActivityData(R.string.changelog, R.layout.changelog);
 			msActivitiesToShow.add(data);
 		}
-		
+
 		showNotificationIcon(context);
 	}
-	
+
 	public static void onServiceDestroy()
 	{
 		msActivitiesToShow.clear();
@@ -54,11 +54,11 @@ public class TutorialsProvider
 		SharedPreferences sp = context.getSharedPreferences("tutorials", 0);//private
 		final int lastTutorialVersion = sp.getInt("tutorial_version", 0);
 		final int packageVersion = getPackageVersion(context);
-		
+
 		Editor e = sp.edit();
 		e.putInt("tutorial_version", packageVersion);
 		e.commit();
-		
+
 		return packageVersion != lastTutorialVersion;
 	}
 
@@ -77,11 +77,11 @@ public class TutorialsProvider
 		if (msActivitiesToShow.size() > 0)
 		{
 			Notification notification = new Notification(R.drawable.notification_icon, context.getText(R.string.notification_text), System.currentTimeMillis());
-            
+
             Intent notificationIntent = new Intent(context, TutorialActivity.class);
-            
+
             PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
-            
+
             notification.setLatestEventInfo(context,
                             context.getText(R.string.ime_name), context.getText(R.string.notification_text),
                             contentIntent);
@@ -96,7 +96,7 @@ public class TutorialsProvider
             ((NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE)).notify(BASE_NOTIFICATION_ID+msActivitiesToShow.size(), notification);
 		}
 	}
-	
+
 	public static synchronized TutorialActivityData dequeueTutorial()
 	{
 		if (msActivitiesToShow.size() > 0)
@@ -108,12 +108,12 @@ public class TutorialsProvider
 			return null;
 		}
 	}
-	
+
 	public static class TutorialActivityData
 	{
 		public final int NameResourceId;
 		public final int LayoutResourceId;
-		
+
 		public TutorialActivityData(int nameId, int layoutId)
 		{
 			NameResourceId = nameId;

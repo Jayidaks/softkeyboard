@@ -13,20 +13,20 @@ public class TutorialActivity extends Activity implements OnClickListener{
 
 	public static final String NAME_RESOURCE_ID = "NameResourceId";
 	public static final String LAYOUT_RESOURCE_ID = "LayoutResourceId";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		int titleId = getIntent().getIntExtra(NAME_RESOURCE_ID, -1);
 		int layoutId = getIntent().getIntExtra(LAYOUT_RESOURCE_ID, -1);
-		
+
 		TutorialActivityData data = null;
-		
+
 		if (titleId == -1 || layoutId == -1)
 		{
 			data = TutorialsProvider.dequeueTutorial();
-			
+
 			if (data == null)
 			{
 				finish();
@@ -38,10 +38,10 @@ public class TutorialActivity extends Activity implements OnClickListener{
 				layoutId = data.LayoutResourceId;
 			}
 		}
-		
+
 		setTitle(titleId);
 		View content = getLayoutInflater().inflate(layoutId, null);
-		
+
 		setContentView(content);
 		//now to listen on all known buttons
 		for(View touchable : content.getTouchables())
@@ -54,7 +54,7 @@ public class TutorialActivity extends Activity implements OnClickListener{
 				break;
 			}
 		}
-		
+
 		//next one
 		if (data != null)
 			TutorialsProvider.showNotificationIcon(getApplicationContext());

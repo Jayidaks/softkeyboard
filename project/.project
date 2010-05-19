@@ -3,6 +3,7 @@
 	<name>AnySoftKeyboard</name>
 	<comment></comment>
 	<projects>
+		<project>AnySoftKeyboardPlugin</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

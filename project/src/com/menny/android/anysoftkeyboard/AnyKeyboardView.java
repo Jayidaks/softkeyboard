@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 2008-2009 Google Inc.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -24,53 +24,59 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard;
+import com.menny.android.anysoftkeyboard.theme.ThemeableKeyboardView;
 
-public class AnyKeyboardView extends KeyboardView {
+public class AnyKeyboardView extends ThemeableKeyboardView {
 
 	private final static String TAG = "ASK AnyKeyboardView";
 	static final int KEYCODE_OPTIONS = -100;
     //static final int KEYCODE_SHIFT_LONGPRESS = -101;
 	static final int KEYCODE_SMILEY_LONGPRESS = -102;
-    
+
     private Keyboard mPhoneKeyboard;
 
-    public AnyKeyboardView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initializeStuff();
-    }
+
+
+    public AnyKeyboardView(Context askContext, Context externalContext,
+			AttributeSet attrs, int defStyle) {
+		super(askContext, externalContext, attrs, defStyle);
+		initializeStuff();
+	}
+
+	public AnyKeyboardView(Context askContext, Context externalContext,
+			AttributeSet attrs) {
+		super(askContext, externalContext, attrs);
+		initializeStuff();
+	}
 
 	private void initializeStuff() {
 		setPreviewEnabled(AnySoftKeyboardConfiguration.getInstance().getShowKeyPreview());
 		setProximityCorrectionEnabled(true);
 	}
 
-    public AnyKeyboardView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        initializeStuff();
-    }
-    
+
 //    @Override
 //    public boolean onTouchEvent(MotionEvent me) {
 //    	Log.d(TAG, "onTouchEvent");
 //    	return super.onTouchEvent(me);
 //    }
-//    
+//
 //    @Override
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {
 //    	Log.d(TAG, "onKeyDown:"+keyCode);
 //    	return super.onKeyDown(keyCode, event);
 //    }
-//    
+//
 //    @Override
 //    public boolean onKeyUp(int keyCode, KeyEvent event) {
 //    	Log.d(TAG, "onKeyUp:"+keyCode);
 //    	return super.onKeyUp(keyCode, event);
 //    }
-    
+
     public void setPhoneKeyboard(Keyboard phoneKeyboard) {
         mPhoneKeyboard = phoneKeyboard;
     }
-    
+
     @Override
     protected boolean onLongPress(Key key) {
         if (key.codes[0] == 10) {
@@ -92,12 +98,12 @@ public class AnyKeyboardView extends KeyboardView {
             return super.onLongPress(key);
         }
     }
-    
+
     public void simulateLongPress(int keyCode)
     {
     	if (super.getKeyboard() == null)
     		return;
-    	
+
     	for(Key key : super.getKeyboard().getKeys())
     	{
     		if (key.codes[0] == keyCode)
@@ -107,7 +113,7 @@ public class AnyKeyboardView extends KeyboardView {
     		}
     	}
     }
-    
+
     @Override
     public void setKeyboard(Keyboard keyboard) {
     	if ((keyboard != null) && (keyboard.getMinWidth() != getWidth()))
@@ -117,15 +123,15 @@ public class AnyKeyboardView extends KeyboardView {
     	super.setKeyboard(keyboard);
     }
 
-    
+
     /****************************  INSTRUMENTATION  *******************************/
 
 //    static final boolean DEBUG_AUTO_PLAY = false;
 //    private static final int MSG_TOUCH_DOWN = 1;
 //    private static final int MSG_TOUCH_UP = 2;
-//    
+//
 //    Handler mHandler2;
-//    
+//
 //    private String mStringToPlay;
 //    private int mStringIndex;
 //    private boolean mDownDelivered;
@@ -144,7 +150,7 @@ public class AnyKeyboardView extends KeyboardView {
 //                        removeMessages(MSG_TOUCH_DOWN);
 //                        removeMessages(MSG_TOUCH_UP);
 //                        if (mPlaying == false) return;
-//                        
+//
 //                        switch (msg.what) {
 //                            case MSG_TOUCH_DOWN:
 //                                if (mStringIndex >= mStringToPlay.length()) {
@@ -162,8 +168,8 @@ public class AnyKeyboardView extends KeyboardView {
 //                                }
 //                                int x = mAsciiKeys[c].x + 10;
 //                                int y = mAsciiKeys[c].y + 26;
-//                                MotionEvent me = MotionEvent.obtain(SystemClock.uptimeMillis(), 
-//                                        SystemClock.uptimeMillis(), 
+//                                MotionEvent me = MotionEvent.obtain(SystemClock.uptimeMillis(),
+//                                        SystemClock.uptimeMillis(),
 //                                        MotionEvent.ACTION_DOWN, x, y, 0);
 //                                AnyKeyboardView.this.dispatchTouchEvent(me);
 //                                me.recycle();
@@ -176,9 +182,9 @@ public class AnyKeyboardView extends KeyboardView {
 //                                int x2 = mAsciiKeys[cUp].x + 10;
 //                                int y2 = mAsciiKeys[cUp].y + 26;
 //                                mStringIndex++;
-//                                
-//                                MotionEvent me2 = MotionEvent.obtain(SystemClock.uptimeMillis(), 
-//                                        SystemClock.uptimeMillis(), 
+//
+//                                MotionEvent me2 = MotionEvent.obtain(SystemClock.uptimeMillis(),
+//                                        SystemClock.uptimeMillis(),
 //                                        MotionEvent.ACTION_UP, x2, y2, 0);
 //                                AnyKeyboardView.this.dispatchTouchEvent(me2);
 //                                me2.recycle();
@@ -199,12 +205,12 @@ public class AnyKeyboardView extends KeyboardView {
 //        // Get the keys on this keyboard
 //        for (int i = 0; i < keys.size(); i++) {
 //            int code = keys.get(i).codes[0];
-//            if (code >= 0 && code <= 255) { 
+//            if (code >= 0 && code <= 255) {
 //                mAsciiKeys[code] = keys.get(i);
 //            }
 //        }
 //    }
-    
+
 //    void startPlaying(String s) {
 //        if (!DEBUG_AUTO_PLAY) return;
 //        if (s == null) return;

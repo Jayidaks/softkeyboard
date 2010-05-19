@@ -277,9 +277,8 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
     public ThemeableKeyboardView(Context askContext, Context externalContext, AttributeSet attrs, int defStyle) {
         super(askContext, attrs, defStyle);
 
-        //TODO: shouldn't it be externalContext?
         TypedArray a =
-            askContext.obtainStyledAttributes(
+        	askContext.obtainStyledAttributes(
                 attrs, R.styleable.KeyboardView, defStyle, 0);
 
         LayoutInflater inflate =
@@ -291,12 +290,14 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
         int n = a.getIndexCount();
 
+        mKeyBackground = externalContext.getResources().getDrawable(0x7f020000); // btn_keyboard_key_light.xml
+
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
 
             switch (attr) {
             case R.styleable.KeyboardView_keyBackground:
-                mKeyBackground = a.getDrawable(attr);
+                //mKeyBackground = a.getDrawable(attr);
                 break;
             case R.styleable.KeyboardView_verticalCorrection:
                 mVerticalCorrection = a.getDimensionPixelOffset(attr, 0);

@@ -29,6 +29,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
@@ -41,7 +46,9 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.AutoText;
 import android.text.TextUtils;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.util.Xml;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -60,13 +67,14 @@ import com.menny.android.anysoftkeyboard.dictionary.UserDictionaryBase;
 import com.menny.android.anysoftkeyboard.dictionary.ExternalDictionaryFactory.DictionaryBuilder;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard.HardKeyboardTranslator;
+import com.menny.android.anysoftkeyboard.theme.ThemeableKeyboardView;
 import com.menny.android.anysoftkeyboard.tutorials.TutorialsProvider;
 
 /**
  * Input method implementation for Qwerty'ish keyboard.
  */
 public class AnySoftKeyboard extends InputMethodService implements
-		KeyboardView.OnKeyboardActionListener,
+		ThemeableKeyboardView.OnKeyboardActionListener,
 		OnSharedPreferenceChangeListener, AnyKeyboardContextProvider {
 	private final static String TAG = "ASK";
 
@@ -241,11 +249,43 @@ public class AnySoftKeyboard extends InputMethodService implements
 
 	@Override
 	public View onCreateInputView() {
-		mInputView = (AnyKeyboardView) getLayoutInflater().inflate(
-				//the new layout will solve the "invalidateAllKeys" problem.
-				Workarounds.isDonut()? R.layout.input_donut : R.layout.input_cupcake
-				, null);
+//		mInputView = (AnyKeyboardView) getLayoutInflater().inflate(
+//				//the new layout will solve the "invalidateAllKeys" problem.
+//				Workarounds.isDonut()? R.layout.input_donut : R.layout.input_cupcake
+//				, null);
 //		TODO: use ThemeableKeyboardView with attrs from external package
+
+		PackageManager pm = getPackageManager();
+		List<ResolveInfo> plugins = pm.queryBroadcastReceivers(new Intent(
+				"com.menny.android.anysoftkeyboard.THEME"),
+				PackageManager.GET_META_DATA);
+		if(plugins.size() == 0)
+			Log.e(TAG, "Couldn't find theme plugins");
+
+		ResolveInfo info = plugins.get(0);
+		Log.d(TAG, "Found plugin " + info);
+
+			ActivityInfo activityInfo = info.activityInfo;
+			if (activityInfo == null) {
+				Log.e(TAG, "Ignore bad theme plugin: " + info);
+			}
+
+		  Context externalContext = null;
+		try {
+			externalContext = createPackageContext(
+			          info.activityInfo.packageName, PackageManager.GET_META_DATA);
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if(externalContext == null)
+			Log.e(TAG, "external context is null");
+
+		 AttributeSet attrs = Xml.asAttributeSet(externalContext.getResources().getXml(0x7f030000));
+
+
+		mInputView = new AnyKeyboardView(getApplicationContext(), externalContext, attrs);
 		mKeyboardSwitcher.setInputView(mInputView);
 		mKeyboardSwitcher.makeKeyboards(false);
 		mInputView.setOnKeyboardActionListener(this);

@@ -102,7 +102,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 	private WordComposer mWord = new WordComposer();
 
 	private int mOrientation = Configuration.ORIENTATION_PORTRAIT;
-	
+
 	private int mCommittedLength;
 	private boolean mPredicting;
 	private CharSequence mBestWord;
@@ -180,7 +180,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 				notifyKeyboardChangeIfNeeded();
 			initSuggest(/* getResources().getConfiguration().locale.toString() */);
 		}
-		
+
 		mOrientation = getResources().getConfiguration().orientation;
 
 		SharedPreferences sp = PreferenceManager
@@ -241,11 +241,11 @@ public class AnySoftKeyboard extends InputMethodService implements
 
 	@Override
 	public View onCreateInputView() {
-//		mInputView = (AnyKeyboardView) getLayoutInflater().inflate(
-//				//the new layout will solve the "invalidateAllKeys" problem.
-//				Workarounds.isDonut()? R.layout.input_donut : R.layout.input_cupcake
-//				, null);
-
+		mInputView = (AnyKeyboardView) getLayoutInflater().inflate(
+				//the new layout will solve the "invalidateAllKeys" problem.
+				Workarounds.isDonut()? R.layout.input_donut : R.layout.input_cupcake
+				, null);
+//		TODO: use ThemeableKeyboardView with attrs from external package
 		mKeyboardSwitcher.setInputView(mInputView);
 		mKeyboardSwitcher.makeKeyboards(false);
 		mInputView.setOnKeyboardActionListener(this);

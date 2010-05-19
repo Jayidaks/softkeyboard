@@ -277,6 +277,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
     public ThemeableKeyboardView(Context askContext, Context externalContext, AttributeSet attrs, int defStyle) {
         super(askContext, attrs, defStyle);
 
+        //TODO: shouldn't it be externalContext?
         TypedArray a =
             askContext.obtainStyledAttributes(
                 attrs, R.styleable.KeyboardView, defStyle, 0);
@@ -1078,6 +1079,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
     public boolean onTouchEvent(MotionEvent me) {
         // Convert multi-pointer up/down events to single up/down events to
         // deal with the typical multi-pointer behavior of two-thumb typing
+    	//TODO:FIX THIS
 //        final int pointerCount = me.getPointerCount();
     	final int pointerCount = 1;
         final int action = me.getAction();

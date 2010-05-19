@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  http://stackoverflow.com/questions/1717489/android-hello-gallery-tutorial-r-styleable-cannot-be-resolved -->
+<!-- Changes made: -->
+<!-- * KeyboardView: -->
+<!-- ** explicitly set the format of shadowColor, shadowRadius to avoid compile errors -->
+<!-- * Removed some themes, add them later on if needed. -->
+<!--  view-source:http://android.git.kernel.org/?p=platform/frameworks/base.git;a=blob_plain;f=core/res/res/values/attrs.xml;h=a660fd95f8e1540d7a6741b0a8e4ffeb49495c96;hb=HEAD -->
+	<!--
+		Copyright (C) 2006 The Android Open Source Project Licensed under the
+		Apache License, Version 2.0 (the "License"); you may not use this file
+		except in compliance with the License. You may obtain a copy of the
+		License at http://www.apache.org/licenses/LICENSE-2.0 Unless required
+		by applicable law or agreed to in writing, software distributed under
+		the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License.
+	-->
+
+	<!--
+		Formatting note: terminate all comments with a period, to avoid
+		breaking the documentation output. To suppress comment lines from the
+		documentation output, insert an eat-comment element after the comment
+		lines.
+	-->
+
+<resources>
+	<!--
+		These are the standard attributes that make up a complete theme.
+	-->
+	<declare-styleable name="Theme">
+		<!-- ============== -->
+		<!-- Generic styles -->
+		<!-- ============== -->
+		<eat-comment />
+
+		<!-- Default color of foreground imagery. -->
+		<attr name="colorForeground" format="color" />
+		<!-- Default color of foreground imagery on an inverted background. -->
+		<attr name="colorForegroundInverse" format="color" />
+		<!--
+			Color that matches (as closely as possible) the window background.
+		-->
+		<attr name="colorBackground" format="color" />
+		<!--
+			This is a hint for a solid color that can be used for caching
+			rendered views. This will be the color of the background when there
+			is a solid background color; it will be null when the background is a
+			texture or translucent.
+		-->
+		<attr name="colorBackgroundCacheHint" format="color" />
+		<!--
+			Default disabled alpha for widgets that set enabled/disabled alpha
+			programmatically.
+		-->
+		<attr name="disabledAlpha" format="float" />
+		<!--
+			Default background dim amount when a menu, dialog, or something
+			similar pops up.
+		-->
+		<attr name="backgroundDimAmount" format="float" />
+		<!--
+			Control whether dimming behind the window is enabled. The default
+			theme does not set this value, meaning it is based on whether the
+			window is floating.
+		-->
+		<attr name="backgroundDimEnabled" format="boolean" />
+
+		<!-- =========== -->
+		<!-- Text styles -->
+		<!-- =========== -->
+		<eat-comment />
+
+		<!-- Default appearance of text: color, typeface, size, and style. -->
+		<attr name="textAppearance" format="reference" />
+		<!--
+			Default appearance of text against an inverted background: color,
+			typeface, size, and style.
+		-->
+		<attr name="textAppearanceInverse" format="reference" />
+
+		<!-- The most prominent text color.  -->
+		<attr name="textColorPrimary" format="reference|color" />
+		<!-- Secondary text color. -->
+		<attr name="textColorSecondary" format="reference|color" />
+		<!-- Tertiary text color. -->
+		<attr name="textColorTertiary" format="reference|color" />
+
+		<!-- Primary inverse text color, useful for inverted backgrounds. -->
+		<attr name="textColorPrimaryInverse" format="reference|color" />
+		<!-- Secondary inverse text color, useful for inverted backgrounds. -->
+		<attr name="textColorSecondaryInverse" format="reference|color" />
+		<!-- Tertiary inverse text color, useful for inverted backgrounds. -->
+		<attr name="textColorTertiaryInverse" format="reference|color" />
+
+		<!-- Inverse hint text color. -->
+		<attr name="textColorHintInverse" format="reference|color" />
+
+		<!--
+			Bright text color. Only differentiates based on the disabled state.
+		-->
+		<attr name="textColorPrimaryDisableOnly" format="reference|color" />
+
+		<!--
+			Bright inverse text color. Only differentiates based on the disabled
+			state.
+		-->
+		<attr name="textColorPrimaryInverseDisableOnly" format="reference|color" />
+
+		<!--
+			Bright text color. This does not differentiate the disabled state. As
+			an example, buttons use this since they display the disabled state
+			via the background and not the foreground text color.
+		-->
+		<attr name="textColorPrimaryNoDisable" format="reference|color" />
+		<!-- Dim text color. This does not differentiate the disabled state. -->
+		<attr name="textColorSecondaryNoDisable" format="reference|color" />
+
+		<!--
+			Bright inverse text color. This does not differentiate the disabled
+			state.
+		-->
+		<attr name="textColorPrimaryInverseNoDisable" format="reference|color" />
+		<!--
+			Dim inverse text color. This does not differentiate the disabled
+			state.
+		-->
+		<attr name="textColorSecondaryInverseNoDisable" format="reference|color" />
+
+		<!--
+			Text color for urls in search suggestions, used by things like global
+			search and the browser. @hide
+		-->
+		<attr name="textColorSearchUrl" format="reference|color" />
+		<!-- Search widget more corpus result item background. -->
+		<attr name="searchWidgetCorpusItemBackground" format="reference|color" />
+
+		<!--
+			Text color, typeface, size, and style for "large" text. Defaults to
+			primary text color.
+		-->
+		<attr name="textAppearanceLarge" format="reference" />
+		<!--
+			Text color, typeface, size, and style for "medium" text. Defaults to
+			primary text color.
+		-->
+		<attr name="textAppearanceMedium" format="reference" />
+		<!--
+			Text color, typeface, size, and style for "small" text. Defaults to
+			secondary text color.
+		-->
+		<attr name="textAppearanceSmall" format="reference" />
+
+		<!--
+			Text color, typeface, size, and style for "large" inverse text.
+			Defaults to primary inverse text color.
+		-->
+		<attr name="textAppearanceLargeInverse" format="reference" />
+		<!--
+			Text color, typeface, size, and style for "medium" inverse text.
+			Defaults to primary inverse text color.
+		-->
+		<attr name="textAppearanceMediumInverse" format="reference" />
+		<!--
+			Text color, typeface, size, and style for "small" inverse text.
+			Defaults to secondary inverse text color.
+		-->
+		<attr name="textAppearanceSmallInverse" format="reference" />
+
+		<!--
+			Text color, typeface, size, and style for system search result title.
+			Defaults to primary inverse text color.
+		-->
+		<attr name="textAppearanceSearchResultTitle" format="reference" />
+		<!--
+			Text color, typeface, size, and style for system search result
+			subtitle. Defaults to primary inverse text color.
+		-->
+		<attr name="textAppearanceSearchResultSubtitle" format="reference" />
+
+
+		<!--
+			Text color, typeface, size, and style for the text inside of a
+			button.
+		-->
+		<attr name="textAppearanceButton" format="reference" />
+
+		<!--
+			A styled string, specifying the style to be used for showing inline
+			candidate text when composing with an input method. The text itself
+			will be ignored, but the style spans will be applied to the candidate
+			text as it is edited.
+		-->
+		<attr name="candidatesTextStyleSpans" format="reference|string" />
+
+		<!-- Drawable to use for check marks. -->
+		<attr name="textCheckMark" format="reference" />
+		<attr name="textCheckMarkInverse" format="reference" />
+
+		<!-- Drawable to use for multiple choice indicators. -->
+		<attr name="listChoiceIndicatorMultiple" format="reference" />
+
+		<!-- Drawable to use for single choice indicators. -->
+		<attr name="listChoiceIndicatorSingle" format="reference" />
+
+		<!-- ============= -->
+		<!-- Button styles -->
+		<!-- ============= -->
+		<eat-comment />
+
+		<!-- Normal Button style. -->
+		<attr name="buttonStyle" format="reference" />
+
+		<!-- Small Button style. -->
+		<attr name="buttonStyleSmall" format="reference" />
+
+		<!-- Button style to inset into an EditText. -->
+		<attr name="buttonStyleInset" format="reference" />
+
+		<!-- ToggleButton style. -->
+		<attr name="buttonStyleToggle" format="reference" />
+
+	</declare-styleable>
+	<declare-styleable name="KeyboardView">
+		<!-- Default KeyboardView style. -->
+		<attr name="keyboardViewStyle" format="reference" />
+
+		<!--
+			Image for the key. This image needs to be a StateListDrawable, with
+			the following possible states: normal, pressed, checkable,
+			checkable+pressed, checkable+checked, checkable+checked+pressed.
+		-->
+		<attr name="keyBackground" format="reference" />
+
+		<!-- Size of the text for character keys. -->
+		<attr name="keyTextSize" format="dimension" />
+
+		<!-- Size of the text for custom keys with some text and no icon. -->
+		<attr name="labelTextSize" format="dimension" />
+
+		<!-- Color to use for the label in a key. -->
+		<attr name="keyTextColor" format="color" />
+
+		<!-- Layout resource for key press feedback.-->
+		<attr name="keyPreviewLayout" format="reference" />
+
+		<!-- Vertical offset of the key press feedback from the key. -->
+		<attr name="keyPreviewOffset" format="dimension" />
+
+		<!-- Height of the key press feedback popup. -->
+		<attr name="keyPreviewHeight" format="dimension" />
+
+		<!--
+			Amount to offset the touch Y coordinate by, for bias correction.
+		-->
+		<attr name="verticalCorrection" format="dimension" />
+
+		<!-- Layout resource for popup keyboards. -->
+		<attr name="popupLayout" format="reference" />
+
+		<!-- <attr name="shadowColor" /> -->
+		<attr name="shadowColor" format="color" />
+		<!--  <attr name="shadowRadius" />-->
+		<attr name="shadowRadius" format="float" />
+	</declare-styleable>
+
+	<declare-styleable name="KeyboardViewPreviewState">
+		<!--
+			State for {@link android.inputmethodservice.KeyboardView
+			KeyboardView} key preview background.
+		-->
+		<attr name="state_long_pressable" format="boolean" />
+	</declare-styleable>
+
+	<declare-styleable name="Keyboard">
+		<!--
+			Default width of a key, in pixels or percentage of display width.
+		-->
+		<attr name="keyWidth" format="dimension|fraction" />
+		<!--
+			Default height of a key, in pixels or percentage of display width.
+		-->
+		<attr name="keyHeight" format="dimension|fraction" />
+		<!-- Default horizontal gap between keys. -->
+		<attr name="horizontalGap" format="dimension|fraction" />
+		<!-- Default vertical gap between rows of keys. -->
+		<attr name="verticalGap" format="dimension|fraction" />
+	</declare-styleable>
+
+	<declare-styleable name="Keyboard_Row">
+		<!-- Row edge flags. -->
+		<attr name="rowEdgeFlags">
+			<!-- Row is anchored to the top of the keyboard. -->
+			<flag name="top" value="4" />
+			<!-- Row is anchored to the bottom of the keyboard. -->
+			<flag name="bottom" value="8" />
+		</attr>
+		<!--
+			Mode of the keyboard. If the mode doesn't match the requested
+			keyboard mode, the row will be skipped.
+		-->
+		<attr name="keyboardMode" format="reference" />
+	</declare-styleable>
+
+	<declare-styleable name="Keyboard_Key">
+		<!--
+			The unicode value or comma-separated values that this key outputs.
+		-->
+		<attr name="codes" format="integer|string" />
+		<!-- The XML keyboard layout of any popup keyboard. -->
+		<attr name="popupKeyboard" format="reference" />
+		<!-- The characters to display in the popup keyboard. -->
+		<attr name="popupCharacters" format="string" />
+		<!-- Key edge flags. -->
+		<attr name="keyEdgeFlags">
+			<!-- Key is anchored to the left of the keyboard. -->
+			<flag name="left" value="1" />
+			<!-- Key is anchored to the right of the keyboard. -->
+			<flag name="right" value="2" />
+		</attr>
+		<!-- Whether this is a modifier key such as Alt or Shift. -->
+		<attr name="isModifier" format="boolean" />
+		<!-- Whether this is a toggle key. -->
+		<attr name="isSticky" format="boolean" />
+		<!-- Whether long-pressing on this key will make it repeat. -->
+		<attr name="isRepeatable" format="boolean" />
+		<!-- The icon to show in the popup preview. -->
+		<attr name="iconPreview" format="reference" />
+		<!-- The string of characters to output when this key is pressed. -->
+		<attr name="keyOutputText" format="string" />
+		<!-- The label to display on the key. -->
+		<attr name="keyLabel" format="string" />
+		<!-- The icon to display on the key instead of the label. -->
+		<attr name="keyIcon" format="reference" />
+		<!--
+			Mode of the keyboard. If the mode doesn't match the requested
+			keyboard mode, the key will be skipped.
+		-->
+		<attr name="keyboardMode" />
+	</declare-styleable>
+
+
+	<!-- ========================== -->
+	<!-- State attributes           -->
+	<!-- ========================== -->
+	<eat-comment />
+
+	<!--
+		Drawable states. The mapping of Drawable states to a particular
+		drawables is specified in the "state" elements of a Widget's
+		"selector" element. Possible values: <ul> <li>"state_focused"
+		<li>"state_window_focused" <li>"state_enabled" <li>"state_checked"
+		<li>"state_selected" <li>"state_active" <li>"state_single"
+		<li>"state_first" <li>"state_mid" <li>"state_last" <li>"state_only"
+		<li>"state_pressed" <li>"state_error" <li>"state_circle"
+		<li>"state_rect" <li>"state_grow" <li>"state_move" </ul>
+	-->
+	<declare-styleable name="DrawableStates">
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_focused" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_window_focused" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_enabled" format="boolean" />
+		<!--
+			State identifier indicating that the object <var>may</var> display a
+			check mark. See {@link R.attr#state_checked} for the identifier that
+			indicates whether it is actually checked.
+		-->
+		<attr name="state_checkable" format="boolean" />
+		<!--
+			State identifier indicating that the object is currently checked. See
+			{@link R.attr#state_checkable} for an additional identifier that can
+			indicate if any object may ever display a check, regardless of
+			whether state_checked is currently set.
+		-->
+		<attr name="state_checked" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_selected" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_active" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_single" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_first" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_middle" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_last" format="boolean" />
+		<!--
+			State value for {@link android.graphics.drawable.StateListDrawable
+			StateListDrawable}.
+		-->
+		<attr name="state_pressed" format="boolean" />
+	</declare-styleable>
+	<declare-styleable name="ViewDrawableStates">
+		<attr name="state_pressed" />
+		<attr name="state_focused" />
+		<attr name="state_selected" />
+		<attr name="state_window_focused" />
+		<attr name="state_enabled" />
+	</declare-styleable>
+	<!-- State array representing a menu item that is currently checked. -->
+	<declare-styleable name="MenuItemCheckedState">
+		<attr name="state_checkable" />
+		<attr name="state_checked" />
+	</declare-styleable>
+	<!--
+		State array representing a menu item that is checkable but is not
+		currently checked.
+	-->
+	<declare-styleable name="MenuItemUncheckedState">
+		<attr name="state_checkable" />
+	</declare-styleable>
+	<!--
+		State array representing a menu item that is currently focused and
+		checked.
+	-->
+	<declare-styleable name="MenuItemCheckedFocusedState">
+		<attr name="state_checkable" />
+		<attr name="state_checked" />
+		<attr name="state_focused" />
+	</declare-styleable>
+	<!--
+		State array representing a menu item that is focused and checkable but
+		is not currently checked.
+	-->
+	<declare-styleable name="MenuItemUncheckedFocusedState">
+		<attr name="state_checkable" />
+		<attr name="state_focused" />
+	</declare-styleable>
+	<!-- State array representing an expandable list child's indicator. -->
+	<declare-styleable name="ExpandableListChildIndicatorState">
+		<!--
+			State identifier indicating the child is the last child within its
+			group.
+		-->
+		<attr name="state_last" />
+	</declare-styleable>
+	<!-- State array representing an expandable list group's indicator. -->
+	<declare-styleable name="ExpandableListGroupIndicatorState">
+		<!-- State identifier indicating the group is expanded. -->
+		<attr name="state_expanded" format="boolean" />
+		<!--
+			State identifier indicating the group is empty (has no children).
+		-->
+		<attr name="state_empty" format="boolean" />
+	</declare-styleable>
+	<declare-styleable name="PopupWindowBackgroundState">
+		<!-- State identifier indicating the popup will be above the anchor. -->
+		<attr name="state_above_anchor" format="boolean" />
+	</declare-styleable>
+</resources>

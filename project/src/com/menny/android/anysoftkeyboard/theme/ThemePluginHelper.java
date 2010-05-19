@@ -1,0 +1,299 @@
+/*
+ * Copyright (C) 2009 Myriad Group AG.
+ * Copyright (C) 2009 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+package com.menny.android.anysoftkeyboard.theme;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import com.menny.android.anysoftkeyboard.AnySoftKeyboardConfiguration;
+
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteFullException;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.util.Xml;
+
+public class ThemePluginHelper {
+
+	private static final String TAG = "ThemePluginUtils";
+
+	private Context mContext;
+	private ArrayList<ThemePluginInfo> mPluginsInfo;
+	private ArrayList<ThemePlugin> mPluginObjects;
+	private boolean mLoaded;
+
+	private static ThemePluginHelper sInstance;
+
+	public static ThemePluginHelper getInstance(Context context) {
+		if (sInstance == null) {
+			sInstance = new ThemePluginHelper(context);
+		}
+		return sInstance;
+	}
+
+	private ThemePluginHelper(Context context) {
+		mContext = context;
+		mPluginsInfo = new ArrayList<ThemePluginInfo>();
+		mPluginObjects = new ArrayList<ThemePlugin>();
+	}
+
+	public ArrayList<ThemePluginInfo> getPluginsInfo() {
+		if (!mLoaded) {
+			loadAvailablePlugins();
+		}
+		return mPluginsInfo;
+	}
+
+	public ArrayList<ThemePlugin> getPluginObjects() {
+		if (!mLoaded) {
+			loadAvailablePlugins();
+		}
+		return mPluginObjects;
+	}
+
+	public void loadAvailablePlugins() {
+		if (mLoaded) {
+			return;
+		}
+
+		PackageManager pm = mContext.getPackageManager();
+		List<ResolveInfo> plugins = pm.queryIntentServices(new Intent(
+				ThemePluginConstants.RECEIVER_INTERFACE),
+				PackageManager.GET_META_DATA);
+		for (ResolveInfo info : plugins) {
+			Log.d(TAG, "Found plugin " + info);
+
+			ServiceInfo serviceInfo = info.serviceInfo;
+			if (serviceInfo == null) {
+				Log.e(TAG, "Ignore bad theme plugin: " + info);
+				continue;
+			}
+			String providerName = null;
+			String providerDescription = null;
+			String providerId = null;
+			Bundle metaData = serviceInfo.metaData;
+
+			if (metaData != null) {
+				providerName = metaData
+						.getString(ThemePluginConstants.METADATA_PROVIDER_NAME);
+				providerDescription = metaData
+						.getString(ThemePluginConstants.METADATA_PROVIDER_DESCRIPTION);
+				providerId = metaData
+						.getString(ThemePluginConstants.METADATA_PROVIDER_ID);
+			}
+			if (TextUtils.isEmpty(providerName)
+					|| TextUtils.isEmpty(providerDescription)
+					|| TextUtils.isEmpty(providerId)) {
+				Log.e(TAG, "Ignore bad theme plugin: " + info
+						+ ". Lack of required meta data");
+				continue;
+			}
+
+			if (isPluginDuplicated(providerId)) {
+				Log.e(TAG, "Ignore duplicated theme plugin: " + info);
+				continue;
+			}
+
+			if (!serviceInfo.packageName.equals(mContext.getPackageName())) {
+				Log.e(TAG, "Ignore plugin in package: "
+						+ serviceInfo.packageName);
+				continue;
+			}
+
+			ThemePluginInfo pluginInfo = new ThemePluginInfo(providerName,
+					serviceInfo.packageName, serviceInfo.name,
+					serviceInfo.applicationInfo.sourceDir, providerId);
+
+			ThemePlugin plugin = loadPlugin(pluginInfo);
+			if (plugin == null) {
+				Log.e(TAG, "Ignore bad IM plugin");
+				continue;
+			}
+
+			/*
+			try {
+				updateProviderDb(plugin, pluginInfo, providerFullName,
+						signUpUrl);
+			} catch (SQLiteFullException e) {
+				Log.e(TAG, "Storage full", e);
+				return;
+			}
+			*/
+			mPluginsInfo.add(pluginInfo);
+			mPluginObjects.add(plugin);
+		}
+		mLoaded = true;
+	}
+
+	private boolean isPluginDuplicated(String providerId) {
+		for (ThemePluginInfo plugin : mPluginsInfo) {
+			if (plugin.mId.equals(providerId)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private ThemePlugin loadPlugin(ThemePluginInfo pluginInfo) {
+		// XXX Load the plug-in implementation directly from the apk rather than
+		// binding to the service and call through IPC Binder API. This is much
+		// more effective since we don't need to start the service in other
+		// process. We can not run the plug-in service in the same process as a
+		// local service because that the interface is defined in a shared
+		// library in order to compile the plug-in separately. In this case, the
+		// interface will be loaded by two class loader separately and a
+		// ClassCastException will be thrown if we cast the binder to the
+		// interface.
+		ClassLoader loader = mContext.getClassLoader();
+		try {
+			Class<?> cls = loader.loadClass(pluginInfo.mClassName);
+			return (ThemePlugin) cls.newInstance();
+		} catch (ClassNotFoundException e) {
+			Log.e(TAG, "Could not find plugin class", e);
+		} catch (IllegalAccessException e) {
+			Log.e(TAG, "Could not create plugin instance", e);
+		} catch (InstantiationException e) {
+			Log.e(TAG, "Could not create plugin instance", e);
+		} catch (SecurityException e) {
+			Log.e(TAG, "Could not load plugin", e);
+		} catch (IllegalArgumentException e) {
+			Log.e(TAG, "Could not load plugin", e);
+		}
+		return null;
+	}
+
+
+//	private long updateProviderDb(ThemePlugin plugin, ThemePluginInfo info,
+//			String providerFullName) {
+//		Map<String, String> config = loadConfiguration(plugin, info);
+//		if (config == null) {
+//			return 0;
+//		}
+//
+//		long providerId = 0;
+//		ContentResolver cr = mContext.getContentResolver();
+//		String where = Imps.Provider.NAME + "=?";
+//		String[] selectionArgs = new String[] { info.mProviderName };
+//		Cursor c = cr.query(Imps.Provider.CONTENT_URI, null /* projection */,
+//				where, selectionArgs, null /* sort order */);
+//
+//		boolean pluginChanged;
+//		try {
+//			if (c.moveToFirst()) {
+//				providerId = c.getLong(c
+//						.getColumnIndexOrThrow(Imps.Provider._ID));
+//				pluginChanged = isPluginChanged(cr, providerId, config);
+//				if (pluginChanged) {
+//					// Update the full name, signup url and category each time
+//					// when the plugin change
+//					// instead of specific version change because this is called
+//					// only once.
+//					// It's ok to update them even the values are not changed.
+//					// Note that we don't update the provider name because it's
+//					// used as
+//					// identifier at some place and the plugin should never
+//					// change it.
+//					ContentValues values = new ContentValues(3);
+//					values.put(Imps.Provider.FULLNAME, providerFullName);
+//					values.put(Imps.Provider.SIGNUP_URL, signUpUrl);
+//					values.put(Imps.Provider.CATEGORY, ImApp.IMPS_CATEGORY);
+//					Uri uri = ContentUris.withAppendedId(
+//							Imps.Provider.CONTENT_URI, providerId);
+//					cr.update(uri, values, null, null);
+//				}
+//			} else {
+//				ContentValues values = new ContentValues(3);
+//				values.put(Imps.Provider.NAME, info.mProviderName);
+//				values.put(Imps.Provider.FULLNAME, providerFullName);
+//				values.put(Imps.Provider.CATEGORY, ImApp.IMPS_CATEGORY);
+//				values.put(Imps.Provider.SIGNUP_URL, signUpUrl);
+//
+//				Uri result = cr.insert(Imps.Provider.CONTENT_URI, values);
+//				providerId = ContentUris.parseId(result);
+//				pluginChanged = true;
+//			}
+//		} finally {
+//			if (c != null) {
+//				c.close();
+//			}
+//		}
+//
+//		if (pluginChanged) {
+//			// Remove all the old settings
+//			cr.delete(ContentUris.withAppendedId(
+//					Imps.ProviderSettings.CONTENT_URI, providerId), null, /* where */
+//			null /* selectionArgs */);
+//
+//			ContentValues[] settingValues = new ContentValues[config.size()];
+//
+//			int index = 0;
+//			for (Map.Entry<String, String> entry : config.entrySet()) {
+//				ContentValues settingValue = new ContentValues();
+//				settingValue.put(Imps.ProviderSettings.PROVIDER, providerId);
+//				settingValue.put(Imps.ProviderSettings.NAME, entry.getKey());
+//				settingValue.put(Imps.ProviderSettings.VALUE, entry.getValue());
+//				settingValues[index++] = settingValue;
+//			}
+//			cr.bulkInsert(Imps.ProviderSettings.CONTENT_URI, settingValues);
+//		}
+//
+//		return providerId;
+//	}
+
+//	private Map<String, String> loadConfiguration(ThemePlugin plugin,
+//			ThemePluginInfo info) {
+//		Map<String, String> config = null;
+//
+//		config = plugin.getProviderConfig();
+//
+//		if (config != null) {
+//			config.put(ImConfigNames.PLUGIN_PATH, info.mSrcPath);
+//			config.put(ImConfigNames.PLUGIN_CLASS, info.mClassName);
+//		}
+//		return config;
+//	}
+
+//	private boolean isPluginChanged(ContentResolver cr, long providerId,
+//			Map<String, String> config) {
+//		String origVersion = Imps.ProviderSettings.getStringValue(cr,
+//				providerId, ImConfigNames.PLUGIN_VERSION);
+//
+//		if (origVersion == null) {
+//			return true;
+//		}
+//		String newVersion = config.get(ImConfigNames.PLUGIN_VERSION);
+//		return !origVersion.equals(newVersion);
+//	}
+
+}

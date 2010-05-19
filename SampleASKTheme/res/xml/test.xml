@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:keyBackground="@drawable/btn_keyboard_key_light"
+        />

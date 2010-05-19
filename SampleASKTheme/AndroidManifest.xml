@@ -22,15 +22,20 @@
 
     <application>
 
-        <uses-library android:name="com.menny.android.anysoftkeyboard.theme" />
 
-        <service android:name=".SampleASKTheme">
+
+        <!--  <service android:name=".SampleASKTheme">-->
+        <receiver android:exported="true" android:name=".SampleASKTheme">
             <intent-filter>
                 <action android:name="com.menny.android.anysoftkeyboard.THEME" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.ALTERNATIVE" />
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
             </intent-filter>
             <!-- <meta-data android:name="com.menny.android.anysoftkeyboard.themes"
                 android:resource="Demo"/>-->
-        </service>
+        </receiver>
+        <!-- </service>-->
 
     </application>
 

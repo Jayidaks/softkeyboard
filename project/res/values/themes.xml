@@ -24,24 +24,24 @@
          with the widget container being a light color and the text on top
          of it a dark color.
     -->
-    <style name="Theme">
+<!--    <style name="KeyboardViewTheme">-->
 
-		<item name="keyboardViewStyle">@style/Widget.KeyboardView</item>
+<!--		<item name="keyboardViewStyle">@style/Widget.KeyboardView</item>-->
 
-        <item name="disabledAlpha">0.5</item>
-        <item name="backgroundDimAmount">0.6</item>
+<!--        <item name="disabledAlpha">0.5</item>-->
+<!--        <item name="backgroundDimAmount">0.6</item>-->
 
         <!-- Text styles -->
-        <item name="textAppearance">@style/TextAppearance</item>
-        <item name="textAppearanceInverse">@style/TextAppearance.Inverse</item>
+<!--        <item name="textAppearance">@style/TextAppearance</item>-->
+<!--        <item name="textAppearanceInverse">@style/TextAppearance.Inverse</item>-->
+<!---->
+<!--        <item name="textAppearanceLarge">@style/TextAppearance.Large</item>-->
+<!--        <item name="textAppearanceMedium">@style/TextAppearance.Medium</item>-->
+<!--        <item name="textAppearanceSmall">@style/TextAppearance.Small</item>-->
+<!--        <item name="textAppearanceLargeInverse">@style/TextAppearance.Large.Inverse</item>-->
+<!--        <item name="textAppearanceMediumInverse">@style/TextAppearance.Medium.Inverse</item>-->
+<!--        <item name="textAppearanceSmallInverse">@style/TextAppearance.Small.Inverse</item>-->
 
-        <item name="textAppearanceLarge">@style/TextAppearance.Large</item>
-        <item name="textAppearanceMedium">@style/TextAppearance.Medium</item>
-        <item name="textAppearanceSmall">@style/TextAppearance.Small</item>
-        <item name="textAppearanceLargeInverse">@style/TextAppearance.Large.Inverse</item>
-        <item name="textAppearanceMediumInverse">@style/TextAppearance.Medium.Inverse</item>
-        <item name="textAppearanceSmallInverse">@style/TextAppearance.Small.Inverse</item>
-
-    </style>
+<!--    </style>-->
 
 </resources>

@@ -21,6 +21,7 @@
 package com.menny.android.anysoftkeyboard.theme;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -32,10 +33,13 @@ import android.graphics.Paint.Align;
 import android.graphics.Region.Op;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
+import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.Keyboard.Key;
 import android.os.Handler;
 import android.os.Message;
+import android.util.AndroidRuntimeException;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -152,7 +156,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     private PopupWindow mPopupKeyboard;
     private View mMiniKeyboardContainer;
-    private ThemeableKeyboardView mMiniKeyboard;
+    private KeyboardView mMiniKeyboard;
     private boolean mMiniKeyboardOnScreen;
     private View mPopupParent;
     private int mMiniKeyboardOffsetX;
@@ -270,83 +274,111 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         }
     };
 
-    public ThemeableKeyboardView(Context askContext, Context externalContext, AttributeSet attrs) {
-        this(askContext, externalContext, attrs, R.attr.keyboardViewStyle);
+    public ThemeableKeyboardView(Context askContext, ThemeResources resources, AttributeSet attrs) {
+        this(askContext, resources, attrs, R.attr.keyboardViewStyle);
     }
 
-    public ThemeableKeyboardView(Context askContext, Context externalContext, AttributeSet attrs, int defStyle) {
+    public ThemeableKeyboardView(Context askContext, ThemeResources resources, AttributeSet attrs, int defStyle) {
         super(askContext, attrs, defStyle);
 
+        // http://www.mail-archive.com/android-developers@googlegroups.com/msg45807.html
+        //  Interpret attributis using style definition of KeyboardView defined in askContext
         TypedArray a =
         	askContext.obtainStyledAttributes(
-                attrs, R.styleable.KeyboardView, defStyle, 0);
+                attrs, R.styleable.KeyboardView, 0, 0); // 0x7f050000 = default style
+// NON PORTABLE
+        // KORVAA niin ett‰ alla olevat haut tehd‰‰n omaan TypedArrayhin joka on luotu
 
-        LayoutInflater inflate =
-                (LayoutInflater) externalContext
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        // ihme ettei obtainStyleAttributes t‰yt‰ puuttuvia tyylej‰...
 
-        int previewLayout = 0;
-        int keyTextSize = 0;
 
-        int n = a.getIndexCount();
+//        LayoutInflater inflate = null;
 
-        mKeyBackground = externalContext.getResources().getDrawable(0x7f020000); // btn_keyboard_key_light.xml
 
-        for (int i = 0; i < n; i++) {
-            int attr = a.getIndex(i);
 
-            switch (attr) {
-            case R.styleable.KeyboardView_keyBackground:
-                //mKeyBackground = a.getDrawable(attr);
-                break;
-            case R.styleable.KeyboardView_verticalCorrection:
-                mVerticalCorrection = a.getDimensionPixelOffset(attr, 0);
-                break;
-            case R.styleable.KeyboardView_keyPreviewLayout:
-                previewLayout = a.getResourceId(attr, 0);
-                break;
-            case R.styleable.KeyboardView_keyPreviewOffset:
-                mPreviewOffset = a.getDimensionPixelOffset(attr, 0);
-                break;
-            case R.styleable.KeyboardView_keyPreviewHeight:
-                mPreviewHeight = a.getDimensionPixelSize(attr, 80);
-                break;
-            case R.styleable.KeyboardView_keyTextSize:
-                mKeyTextSize = a.getDimensionPixelSize(attr, 18);
-                break;
-            case R.styleable.KeyboardView_keyTextColor:
-                mKeyTextColor = a.getColor(attr, 0xFF000000);
-                break;
-            case R.styleable.KeyboardView_labelTextSize:
-                mLabelTextSize = a.getDimensionPixelSize(attr, 14);
-                break;
-            case R.styleable.KeyboardView_popupLayout:
-                mPopupLayout = a.getResourceId(attr, 0);
-                break;
-            case R.styleable.KeyboardView_shadowColor:
-                mShadowColor = a.getColor(attr, 0);
-                break;
-            case R.styleable.KeyboardView_shadowRadius:
-                mShadowRadius = a.getFloat(attr, 0f);
-                break;
-            }
-        }
+//        int previewLayout = 0;
+//        int keyTextSize = 0;
+//
+//        int n = a.getIndexCount();
+
+//        mKeyBackground = resoures.getDrawable(ThemeResourceConstants.DRAWABLE_KEYBOARD_KEY_BACKGROUND);
+//
+//
+//    	mKeyTextSize =  resoures.getDimensionPixelSize(ThemeResourceConstants.VALUES_KEYBOARD_KEY_TEXT_SIZE);
+//    	mKeyTextColor = resoures.getColor(ThemeResourceConstants.VALUES_KEYBOARD_KEY_TEXT_COLOR);
+    	//TODO: other attributes
+
+       // mKeyBackground = externalContext.getResources().getDrawable(0x7f020000); // btn_keyboard_key_light.xml
+
+//        for (int i = 0; i < n; i++) {
+//            int attr = a.getIndex(i);
+//
+//            switch (attr) {
+//            case R.styleable.KeyboardView_keyBackground:
+//                //mKeyBackground = a.getDrawable(attr);
+//                break;
+//            case R.styleable.KeyboardView_verticalCorrection:
+//                mVerticalCorrection = a.getDimensionPixelOffset(attr, 0);
+//                break;
+//            case R.styleable.KeyboardView_keyPreviewLayout:
+//                previewLayout = a.getResourceId(attr, 0);
+//                break;
+//            case R.styleable.KeyboardView_keyPreviewOffset:
+//                mPreviewOffset = a.getDimensionPixelOffset(attr, 0);
+//                break;
+//            case R.styleable.KeyboardView_keyPreviewHeight:
+//                mPreviewHeight = a.getDimensionPixelSize(attr, 80);
+//                break;
+//            case R.styleable.KeyboardView_keyTextSize:
+//                mKeyTextSize = a.getDimensionPixelSize(attr, 18);
+//                break;
+//            case R.styleable.KeyboardView_keyTextColor:
+//                mKeyTextColor = a.getColor(attr, 0xFF000000);
+//                break;
+//            case R.styleable.KeyboardView_labelTextSize:
+//                mLabelTextSize = a.getDimensionPixelSize(attr, 14);
+//                break;
+//            case R.styleable.KeyboardView_popupLayout:
+//                mPopupLayout = a.getResourceId(attr, 0);
+//                break;
+//            case R.styleable.KeyboardView_shadowColor:
+//                mShadowColor = a.getColor(attr, 0);
+//                break;
+//            case R.styleable.KeyboardView_shadowRadius:
+//                mShadowRadius = a.getFloat(attr, 0f);
+//                break;
+//            }
+//        }
+        mKeyBackground = resources.getKeyBackground();
+        mVerticalCorrection = resources.getVerticalCorrection();
+        mPreviewOffset = resources.getPreviewOffset();
+        mPreviewHeight = resources.getPreviewHeight();
+        mKeyTextSize = resources.getKeyTextSize();
+        mKeyTextColor = resources.getKeyTextColor();
+        mLabelTextSize = resources.getLabelTextSize();
+        mPopupLayout = resources.getPopupLayout();
+        mShadowColor = resources.getShadowColor();
+        mShadowRadius = resources.getShadowRadius();
+        mPreviewPopup = resources.getPreviewPopup();
+        mShowPreview = resources.getShowPreview();
+        mPreviewText = resources.getPreviewText();
+        mPreviewPopup = resources.getPreviewPopup();
 
         a = getContext().obtainStyledAttributes(
                 R.styleable.Theme);
         mBackgroundDimAmount = a.getFloat(R.styleable.Theme_backgroundDimAmount, 0.5f);
 
-        mPreviewPopup = new PopupWindow(askContext);
-        if (previewLayout != 0) {
-            mPreviewText = (TextView) inflate.inflate(previewLayout, null);
-            mPreviewTextSizeLarge = (int) mPreviewText.getTextSize();
-            mPreviewPopup.setContentView(mPreviewText);
-            mPreviewPopup.setBackgroundDrawable(null);
-        } else {
-            mShowPreview = false;
-        }
+//        mPreviewPopup = new PopupWindow(askContext);
+//        if (previewLayout != 0) {
+//            mPreviewText = (TextView) inflate.inflate(previewLayout, null);
+//            mPreviewTextSizeLarge = (int) mPreviewText.getTextSize();
+//            mPreviewPopup.setContentView(mPreviewText);
+//            mPreviewPopup.setBackgroundDrawable(null);
+//        } else {
+//            mShowPreview = false;
+//        }
 
-        mPreviewPopup.setTouchable(false);
+//        mPreviewPopup.setTouchable(false);
 
         mPopupKeyboard = new PopupWindow(askContext);
         mPopupKeyboard.setBackgroundDrawable(null);
@@ -357,7 +389,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setTextSize(keyTextSize);
+        mPaint.setTextSize(mKeyTextSize);
         mPaint.setTextAlign(Align.CENTER);
         mPaint.setAlpha(255);
 
@@ -997,17 +1029,16 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         if (popupKeyboardId != 0) {
             mMiniKeyboardContainer = mMiniKeyboardCache.get(popupKey);
             if (mMiniKeyboardContainer == null) {
+            	//TODO: ASK: DANGER, context should be external if this is customly defined!
                 LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(
                         Context.LAYOUT_INFLATER_SERVICE);
                 mMiniKeyboardContainer = inflater.inflate(mPopupLayout, null);
-                View closeButton = null;
-//                TODO: FIX
-//                mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
-//                        com.android.internal.R.id.keyboardView);
-//                View closeButton = mMiniKeyboardContainer.findViewById(
-//                        com.android.internal.R.id.closeButton);
+                mMiniKeyboard = (KeyboardView) mMiniKeyboardContainer.findViewById(
+                        R.id.keyboardView);
+                View closeButton = mMiniKeyboardContainer.findViewById(
+                        R.id.button_close);
                 if (closeButton != null) closeButton.setOnClickListener(this);
-                mMiniKeyboard.setOnKeyboardActionListener(new OnKeyboardActionListener() {
+                mMiniKeyboard.setOnKeyboardActionListener(new KeyboardView.OnKeyboardActionListener() {
                     public void onKey(int primaryCode, int[] keyCodes) {
                         mKeyboardActionListener.onKey(primaryCode, keyCodes);
                         dismissPopupKeyboard();
@@ -1045,9 +1076,8 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
                 mMiniKeyboardCache.put(popupKey, mMiniKeyboardContainer);
             } else {
-//            	TODO: FIX
-//                mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
-//                        com.android.internal.R.id.keyboardView);
+                mMiniKeyboard = (KeyboardView) mMiniKeyboardContainer.findViewById(
+                        R.id.keyboardView);
             }
             if (mWindowOffset == null) {
                 mWindowOffset = new int[2];

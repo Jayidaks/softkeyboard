@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns:android="http://schemas.android.com/apk/res/android" xmlns:menny="http://schemas.android.com/apk/res/com.menny.android.anysoftkeyboard">
+<!--  Unfortunately we cannot reference ?android: resources here for some reason. -->
+<android.inputmethodserice.KeyboardView
+	menny:keyTextSize="@dimen/key_text_size"
+	menny:keyBackground="@drawable/btn_keyboard_key"
+	menny:keyPreviewLayout="@layout/keyboard_key_preview"
+	menny:keyTextColor="#FFFFFFFF"
+	menny:keyPreviewOffset="-12dp"
+	menny:keyPreviewHeight="80dp"
+	menny:labelTextSize="14sp"
+	menny:popupLayout="@layout/keyboard_popup_keyboard"
+	menny:verticalCorrection="-10dip"
+	menny:shadowColor="#BB000000"
+	menny:shadowRadius="2.75"
+	/>
+<!--		style="@style/KeyboardViewTheme"-->
+<!--	menny:keyTextColor="?android:keyTextColor"-->
+<!--	menny:keyBackground="?android:keyBackground"-->
+<!--	menny:keyTextSize="@dimen/key_text_size"-->
+<!--	menny:keyPreviewLayout="?android:keyPreviewLayout"-->
+<!--	menny:keyPreviewOffset="?android:keyPreviewOffset"-->
+<!--	menny:keyPreviewHeight="?android:keyPreviewHeight"-->
+<!--	menny:labelTextSize="?android:labelTextSize"-->
+<!--	menny:popupLayout="?android:popupLayout"-->
+<!--	menny:verticalCorrection="?android:verticalCorrection"-->
+<!--	menny:shadowColor="?android:shadowColor"-->
+<!--	menny:shadowRadius="?android:shadowRadius"-->
+
+
+<!--	style="@android:style/Widget.KeyboardView"-->
+<!--	android:keyTextColor="@color/key_text_color"-->
+<!--	android:keyPreviewLayout="?android:keyPreviewLayout"-->
+<!--	android:keyPreviewOffset="?android:keyPreviewOffset"-->
+<!--	android:keyPreviewHeight="?android:keyPreviewHeight"-->
+<!--	android:labelTextSize="?android:labelTextSize"-->
+<!--	android:popupLayout="?android:popupLayout"-->
+<!--	android:verticalCorrection="?android:verticalCorrection"-->
+<!--	android:shadowColor="?android:shadowColor"-->
+<!--	android:shadowRadius="?android:shadowRadius"-->
+</Theme>
+<!--	<mapping from="LAYOUT_KEYBOARD_KEY_PREVIEW_LAYOUT" to="@layout/keyboard_key_preview" />-->
+
+<!-- 449     <style name="Widget.KeyboardView" parent="android:Widget">-->
+<!-- 450         <item name="android:background">@android:drawable/keyboard_background</item>-->
+<!-- 451         <item name="android:keyBackground">@android:drawable/btn_keyboard_key</item>-->
+<!-- 452         <item name="android:keyTextSize">22sp</item>-->
+<!-- 453         <item name="android:keyTextColor">#FFFFFFFF</item>-->
+<!-- 454         <item name="android:keyPreviewLayout">@android:layout/keyboard_key_preview</item>-->
+<!-- 455         <item name="android:keyPreviewOffset">-12dp</item>-->
+<!-- 456         <item name="android:keyPreviewHeight">80dp</item>-->
+<!-- 457         <item name="android:labelTextSize">14sp</item>-->
+<!-- 458         <item name="android:popupLayout">@android:layout/keyboard_popup_keyboard</item>-->
+<!-- 459         <item name="android:verticalCorrection">-10dip</item>-->
+<!-- 460         <item name="android:shadowColor">#BB000000</item>-->
+<!-- 461         <item name="android:shadowRadius">2.75</item>-->
+<!-- 462     </style>-->
+

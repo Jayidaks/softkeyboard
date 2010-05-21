@@ -16,8 +16,13 @@
 
 package com.menny.android.anysoftkeyboard;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.app.AlertDialog;
 import android.app.Notification;
@@ -35,6 +40,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
+import android.content.res.XmlResourceParser;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -67,6 +73,8 @@ import com.menny.android.anysoftkeyboard.dictionary.UserDictionaryBase;
 import com.menny.android.anysoftkeyboard.dictionary.ExternalDictionaryFactory.DictionaryBuilder;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard.HardKeyboardTranslator;
+import com.menny.android.anysoftkeyboard.theme.ThemePluginInfo;
+import com.menny.android.anysoftkeyboard.theme.ThemeResources;
 import com.menny.android.anysoftkeyboard.theme.ThemeableKeyboardView;
 import com.menny.android.anysoftkeyboard.tutorials.TutorialsProvider;
 
@@ -74,7 +82,7 @@ import com.menny.android.anysoftkeyboard.tutorials.TutorialsProvider;
  * Input method implementation for Qwerty'ish keyboard.
  */
 public class AnySoftKeyboard extends InputMethodService implements
-		ThemeableKeyboardView.OnKeyboardActionListener,
+		AnyKeyboardView.OnKeyboardActionListener,
 		OnSharedPreferenceChangeListener, AnyKeyboardContextProvider {
 	private final static String TAG = "ASK";
 
@@ -255,37 +263,17 @@ public class AnySoftKeyboard extends InputMethodService implements
 //				, null);
 //		TODO: use ThemeableKeyboardView with attrs from external package
 
-		PackageManager pm = getPackageManager();
-		List<ResolveInfo> plugins = pm.queryBroadcastReceivers(new Intent(
-				"com.menny.android.anysoftkeyboard.THEME"),
-				PackageManager.GET_META_DATA);
-		if(plugins.size() == 0)
-			Log.e(TAG, "Couldn't find theme plugins");
-
-		ResolveInfo info = plugins.get(0);
-		Log.d(TAG, "Found plugin " + info);
-
-			ActivityInfo activityInfo = info.activityInfo;
-			if (activityInfo == null) {
-				Log.e(TAG, "Ignore bad theme plugin: " + info);
-			}
-
-		  Context externalContext = null;
-		try {
-			externalContext = createPackageContext(
-			          info.activityInfo.packageName, PackageManager.GET_META_DATA);
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		if(externalContext == null)
-			Log.e(TAG, "external context is null");
-
-		 AttributeSet attrs = Xml.asAttributeSet(externalContext.getResources().getXml(0x7f030000));
+		ThemeResources defaultThemeResources = new ThemeResources(getApplicationContext(), getResources().getXml(R.xml.default_theme), null);
+		ThemeResources themePlugInResources = new ThemeResources(getApplicationContext(), new ThemePluginInfo("SampleASKTheme",
+				"com.menny.android.anysoftkeyboard.theme","id"), defaultThemeResources);
 
 
-		mInputView = new AnyKeyboardView(getApplicationContext(), externalContext, attrs);
+
+		//TODO
+		AttributeSet attrs = Xml.asAttributeSet(getResources().getXml(R.layout.input_donut));
+
+
+		mInputView = new AnyKeyboardView(getApplicationContext(), themePlugInResources, attrs);
 		mKeyboardSwitcher.setInputView(mInputView);
 		mKeyboardSwitcher.makeKeyboards(false);
 		mInputView.setOnKeyboardActionListener(this);

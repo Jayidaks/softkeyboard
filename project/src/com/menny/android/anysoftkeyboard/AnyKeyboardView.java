@@ -24,6 +24,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard;
+import com.menny.android.anysoftkeyboard.theme.ThemeResources;
 import com.menny.android.anysoftkeyboard.theme.ThemeableKeyboardView;
 
 public class AnyKeyboardView extends ThemeableKeyboardView {
@@ -37,17 +38,47 @@ public class AnyKeyboardView extends ThemeableKeyboardView {
 
 
 
-    public AnyKeyboardView(Context askContext, Context externalContext,
+//    public AnyKeyboardView(Context askContext, Context externalContext,
+//			AttributeSet attrs, int defStyle) {
+//		super(askContext, externalContext, attrs, defStyle);
+//		initializeStuff();
+//	}
+//
+//	public AnyKeyboardView(Context askContext, Context externalContext,
+//			AttributeSet attrs) {
+//		super(askContext, externalContext, attrs);
+//		initializeStuff();
+//	}
+
+//    public AnyKeyboardView(Context context, AttributeSet attrs, int defStyle) {
+//		super(context, attrs, defStyle);
+//		initializeStuff();
+//
+//	}
+//
+//
+//	public AnyKeyboardView(Context context, AttributeSet attrs) {
+//		super(context, attrs);
+//		initializeStuff();
+//
+//	}
+
+
+	public AnyKeyboardView(Context askContext, ThemeResources resoures,
 			AttributeSet attrs, int defStyle) {
-		super(askContext, externalContext, attrs, defStyle);
+		super(askContext, resoures, attrs, defStyle);
 		initializeStuff();
+		// TODO Auto-generated constructor stub
 	}
 
-	public AnyKeyboardView(Context askContext, Context externalContext,
+
+	public AnyKeyboardView(Context askContext, ThemeResources resources,
 			AttributeSet attrs) {
-		super(askContext, externalContext, attrs);
+		super(askContext, resources, attrs);
 		initializeStuff();
+		// TODO Auto-generated constructor stub
 	}
+
 
 	private void initializeStuff() {
 		setPreviewEnabled(AnySoftKeyboardConfiguration.getInstance().getShowKeyPreview());
@@ -73,7 +104,9 @@ public class AnyKeyboardView extends ThemeableKeyboardView {
 //    	return super.onKeyUp(keyCode, event);
 //    }
 
-    public void setPhoneKeyboard(Keyboard phoneKeyboard) {
+
+
+	public void setPhoneKeyboard(Keyboard phoneKeyboard) {
         mPhoneKeyboard = phoneKeyboard;
     }
 

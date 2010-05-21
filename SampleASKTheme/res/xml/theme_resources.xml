@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Theme xmlns:android="http://schemas.android.com/apk/res/android">
+<Theme xmlns:android="http://schemas.android.com/apk/res/android" xmlns:menny="http://schemas.android.com/apk/res/com.menny.android.anysoftkeyboard">
 	<android.inputmethodserice.KeyboardView
-		android:keyBackground="@drawable/btn_keyboard_key_light"
+		menny:keyBackground="@drawable/btn_keyboard_key_light"
 		/>
 </Theme>

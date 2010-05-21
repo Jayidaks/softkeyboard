@@ -34,6 +34,14 @@
 		<!-- ============== -->
 		<eat-comment />
 
+
+        <!-- A drawable to use as the background.  This can be either a reference
+             to a full drawable resource (such as a PNG image, 9-patch,
+             XML state list description, etc), or a solid color such as "#ff000000"
+            (black). -->
+        <attr name="background" format="reference|color" />
+
+
 		<!-- Default color of foreground imagery. -->
 		<attr name="colorForeground" format="color" />
 		<!-- Default color of foreground imagery on an inverted background. -->

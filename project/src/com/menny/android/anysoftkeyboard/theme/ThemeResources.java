@@ -44,7 +44,9 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.util.Xml;
 import android.view.LayoutInflater;
 import android.widget.PopupWindow;
@@ -94,6 +96,7 @@ public class ThemeResources {
 
 	private TextView mPreviewText;
 
+
 	public void parseResMappingFromXml(Context context, XmlPullParser parser) {
 
 //		int previewLayout = 0;
@@ -109,12 +112,66 @@ public class ThemeResources {
 						// inMappings = true;
 						if (AnySoftKeyboardConfiguration.getInstance()
 								.getDEBUG()) {
-							Log.d(TAG, "Starting parsing " + XML_RESOURCES_TAG);
+						 	Log.d(TAG, "Starting parsing " + XML_RESOURCES_TAG);
 						}
 						AttributeSet attrs = Xml.asAttributeSet(parser);
 
+						//TODO: xml parsing instead of styledattributes
+						// styledattributes has many good features:
+						// * parses references correctly @android:color/transparent, but also allow in-place values (important for better
+						// keybard compatibility)
+
+						// BUT styled attributes are not portable and I think they cannot be used in a 3rd party component
+						// (I couldn't make it work)
+
+						// so we need to do the heavylifting our selves,
+						// parsing the xml, and we have to understand references too
+
+						// Problem with xml parsing, how to interpret dimension units if they are given in-place?
 						a = context.obtainStyledAttributes(attrs,
 								R.styleable.KeyboardView);
+//
+//						Resources res = context.getResources();
+//						DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+//						int n = attrs.getAttributeCount();
+//
+//						for (int i = 0; i < n; i++) {
+//							String name = attrs.getAttributeName(i);
+//							int referenceId = attrs.getAttributeResourceValue(i, 0);
+//							boolean isReference = (referenceId != 0);
+//
+//							if("keyBackground".equals(name)){
+//								if(isReference) {
+//									mKeyBackground = res.getDrawable(referenceId);
+//								}
+//							}else if("verticalCorrection".equals(name)){
+//								if(isReference) {
+//									res.getDimensionPixelOffset(referenceId);
+//								}else {
+//
+//								}
+//							}else if("keyPreviewLayout".equals(name)){
+//
+//							}else if("keyPreviewOffset".equals(name)){
+//
+//							}else if("keyPreviewHeight".equals(name)){
+//
+//							}else if("keyTextSize".equals(name)){
+//
+//							}else if("keyTextColor".equals(name)){
+//
+//							}else if("labelTextSize".equals(name)){
+//
+//							}else if("popupLayout".equals(name)){
+//
+//							}else if("shadowColor".equals(name)){
+//
+//							}else if("shadowRadius".equals(name)){
+//
+//							}
+//
+//						}
+
 						int n = a.getIndexCount();
 
 						for (int i = 0; i < n; i++) {
@@ -241,7 +298,7 @@ public class ThemeResources {
 
 
 
-			}
+			} // while-loop
 		} catch (final IOException e) {
 			Log.e(TAG, "IO error:" + e);
 			e.printStackTrace();
@@ -282,6 +339,7 @@ public class ThemeResources {
 		//TODO: FIX
 		// intent.setComponent(new ComponentName(pluginInfo.mPackageName,
 		// pluginInfo.mProviderName));
+
 		List<ResolveInfo> receivers = pm.queryBroadcastReceivers(intent,
 				PackageManager.GET_META_DATA);
 
@@ -297,12 +355,19 @@ public class ThemeResources {
 													pluginInfo.mProviderName }));
 
 		ActivityInfo ai = receivers.get(0).activityInfo;
+		Context externalContext = null;
+		try {
+			externalContext = context.createPackageContext(ai.packageName, 0);
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		final XmlPullParser theme = ai.loadXmlMetaData(context
 				.getPackageManager(),
 				"com.menny.android.anysoftkeyboard.themes");
 
-		parseResMappingFromXml(context, theme);
+		parseResMappingFromXml(externalContext, theme);
 	}
 
 	/**

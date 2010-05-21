@@ -265,7 +265,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 
 		ThemeResources defaultThemeResources = new ThemeResources(getApplicationContext(), getResources().getXml(R.xml.default_theme), null);
 		ThemeResources themePlugInResources = new ThemeResources(getApplicationContext(), new ThemePluginInfo("SampleASKTheme",
-				"com.menny.android.anysoftkeyboard.theme","id"), defaultThemeResources);
+				"com.menny.android.anysoftkeyboard","id"), defaultThemeResources);
 
 
 

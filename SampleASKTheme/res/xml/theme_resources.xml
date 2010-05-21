@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns:android="http://schemas.android.com/apk/res/android">
+	<android.inputmethodserice.KeyboardView
+		android:keyBackground="@drawable/btn_keyboard_key_light"
+		/>
+</Theme>

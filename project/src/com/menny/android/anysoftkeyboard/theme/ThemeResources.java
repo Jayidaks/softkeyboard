@@ -128,68 +128,30 @@ public class ThemeResources {
 						// parsing the xml, and we have to understand references too
 
 						// Problem with xml parsing, how to interpret dimension units if they are given in-place?
-						a = context.obtainStyledAttributes(attrs,
-								R.styleable.KeyboardView);
+//						a = context.obtainStyledAttributes(attrs,
+//								R.styleable.KeyboardView);
 //
-//						Resources res = context.getResources();
-//						DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-//						int n = attrs.getAttributeCount();
-//
-//						for (int i = 0; i < n; i++) {
-//							String name = attrs.getAttributeName(i);
-//							int referenceId = attrs.getAttributeResourceValue(i, 0);
-//							boolean isReference = (referenceId != 0);
-//
-//							if("keyBackground".equals(name)){
-//								if(isReference) {
-//									mKeyBackground = res.getDrawable(referenceId);
-//								}
-//							}else if("verticalCorrection".equals(name)){
-//								if(isReference) {
-//									res.getDimensionPixelOffset(referenceId);
-//								}else {
-//
-//								}
-//							}else if("keyPreviewLayout".equals(name)){
-//
-//							}else if("keyPreviewOffset".equals(name)){
-//
-//							}else if("keyPreviewHeight".equals(name)){
-//
-//							}else if("keyTextSize".equals(name)){
-//
-//							}else if("keyTextColor".equals(name)){
-//
-//							}else if("labelTextSize".equals(name)){
-//
-//							}else if("popupLayout".equals(name)){
-//
-//							}else if("shadowColor".equals(name)){
-//
-//							}else if("shadowRadius".equals(name)){
-//
-//							}
-//
-//						}
-
-						int n = a.getIndexCount();
+						Resources res = context.getResources();
+						int n = attrs.getAttributeCount();
 
 						for (int i = 0; i < n; i++) {
-							int attr = a.getIndex(i);
+							String name = attrs.getAttributeName(i);
+							int referenceId = attrs.getAttributeResourceValue(i, 0);
+							boolean isReference = (referenceId != 0);
 
-							switch (attr) {
-							case R.styleable.KeyboardView_keyBackground:
-								Log.d(TAG, "KeyboardView_keyBackground");
-								mKeyBackground = a.getDrawable(attr);
+							//XXX
+							if(!isReference && "shadowColor".equals(name)) {
+								Log.e(TAG, "Every theme attribute must be a reference!");
 								break;
-							case R.styleable.KeyboardView_verticalCorrection:
-								Log.d(TAG, "KeyboardView_verticalCorrection");
-								mVerticalCorrection = a
-										.getDimensionPixelOffset(attr, 0);
-								break;
-							case R.styleable.KeyboardView_keyPreviewLayout:
-								Log.d(TAG, "KeyboardView_keyPreviewLayout");
-								int previewLayout = a.getResourceId(attr, 0);
+							}
+
+							if("keyBackground".equals(name)){
+								mKeyBackground = res.getDrawable(referenceId);
+
+							}else if("verticalCorrection".equals(name)){
+								mVerticalCorrection = res.getDimensionPixelOffset(referenceId);
+							}else if("keyPreviewLayout".equals(name)){
+								int previewLayout = referenceId;
 
 								mPreviewPopup = new PopupWindow(context);
 								if (previewLayout != 0) {
@@ -205,77 +167,135 @@ public class ThemeResources {
 								} else {
 									mShowPreview = false;
 								}
-
-								break;
-							case R.styleable.KeyboardView_keyPreviewOffset:
-								Log.d(TAG, "KeyboardView_keyPreviewOffset");
-								mPreviewOffset = a.getDimensionPixelOffset(
-										attr, Integer.MIN_VALUE);
-								if (mPreviewOffset == Integer.MIN_VALUE) {
-									mPreviewOffset = null;
-								}
-								break;
-							case R.styleable.KeyboardView_keyPreviewHeight:
-								Log.d(TAG, "KeyboardView_keyPreviewHeight");
-								mPreviewHeight = a.getDimensionPixelSize(attr,
-										Integer.MIN_VALUE);
-								if (mPreviewHeight == Integer.MIN_VALUE) {
-									mPreviewHeight = null;
-								}
-								break;
-							case R.styleable.KeyboardView_keyTextSize:
-								Log.d(TAG, "KeyboardView_keyTextSize");
-								mKeyTextSize = a.getDimensionPixelSize(attr,
-										Integer.MIN_VALUE);
-								if (mKeyTextSize == Integer.MIN_VALUE) {
-									mKeyTextSize = null;
-								}
-								break;
-							case R.styleable.KeyboardView_keyTextColor:
-								Log.d(TAG, "KeyboardView_keyTextColor");
-								mKeyTextColor = a.getColor(attr,
-										Integer.MIN_VALUE);
-								if (mKeyTextColor == Integer.MIN_VALUE) {
-									mKeyTextColor = null;
-								}
-								break;
-							case R.styleable.KeyboardView_labelTextSize:
-								Log.d(TAG, "KeyboardView_labelTextSize");
-								mLabelTextSize = a.getDimensionPixelSize(attr,
-										Integer.MIN_VALUE);
-								if (mLabelTextSize == Integer.MIN_VALUE) {
-									mLabelTextSize = null;
-								}
-								break;
-							case R.styleable.KeyboardView_popupLayout:
-								Log.d(TAG, "KeyboardView_popupLayout");
-								mPopupLayout = a.getResourceId(attr,
-										Integer.MIN_VALUE);
-								if (mPopupLayout == Integer.MIN_VALUE) {
-									mPopupLayout = null;
-								}
-								break;
-							case R.styleable.KeyboardView_shadowColor:
-								Log.d(TAG, "KeyboardView_shadowColor");
-								mShadowColor = a.getColor(attr,
-										Integer.MIN_VALUE);
-								if (mShadowColor == Integer.MIN_VALUE) {
-									mShadowColor = null;
-								}
-								break;
-							case R.styleable.KeyboardView_shadowRadius:
-								Log.d(TAG, "KeyboardView_shadowRadius");
-								mShadowRadius = a.getFloat(attr, Float.NaN);
-								if (mShadowRadius == Float.NaN) {
-									mShadowRadius = null;
-								}
-								break;
+							}else if("keyPreviewOffset".equals(name)){
+								mPreviewOffset = res.getDimensionPixelOffset(referenceId);
+							}else if("keyPreviewHeight".equals(name)){
+								mPreviewHeight = res.getDimensionPixelSize(referenceId);
+							}else if("keyTextSize".equals(name)){
+								mKeyTextSize = res.getDimensionPixelSize(referenceId);
+							}else if("keyTextColor".equals(name)){
+								mKeyTextColor = res.getColor(referenceId);
+							}else if("labelTextSize".equals(name)){
+								mLabelTextSize = res.getDimensionPixelSize(referenceId);
+							}else if("popupLayout".equals(name)){
+								mPopupLayout = referenceId;
+							}else if("shadowColor".equals(name)){
+								mShadowColor = res.getColor(referenceId);
+							}else if("shadowRadius".equals(name)){
+								//TODO!!!
+								//mShadowRadius
+								mShadowRadius = 0f;
 							}
+
+
+							}
+
 						}
 
-						break;
-					}
-
+//						int n = a.getIndexCount();
+//
+//						for (int i = 0; i < n; i++) {
+//							int attr = a.getIndex(i);
+//
+//							switch (attr) {
+//							case R.styleable.KeyboardView_keyBackground:
+//								Log.d(TAG, "KeyboardView_keyBackground");
+//								mKeyBackground = a.getDrawable(attr);
+//								break;
+//							case R.styleable.KeyboardView_verticalCorrection:
+//								Log.d(TAG, "KeyboardView_verticalCorrection");
+//								mVerticalCorrection = a
+//										.getDimensionPixelOffset(attr, 0);
+//								break;
+//							case R.styleable.KeyboardView_keyPreviewLayout:
+//								Log.d(TAG, "KeyboardView_keyPreviewLayout");
+//								int previewLayout = a.getResourceId(attr, 0);
+//
+//								mPreviewPopup = new PopupWindow(context);
+//								if (previewLayout != 0) {
+//									LayoutInflater inflater = (LayoutInflater) context
+//											.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//									mPreviewText = (TextView) inflater.inflate(
+//											previewLayout, null);
+//									mPreviewTextSizeLarge = (int) mPreviewText
+//											.getTextSize();
+//									mPreviewPopup.setContentView(mPreviewText);
+//									mPreviewPopup.setBackgroundDrawable(null);
+//									mShowPreview = true;
+//								} else {
+//									mShowPreview = false;
+//								}
+//
+//								break;
+//							case R.styleable.KeyboardView_keyPreviewOffset:
+//								Log.d(TAG, "KeyboardView_keyPreviewOffset");
+//								mPreviewOffset = a.getDimensionPixelOffset(
+//										attr, Integer.MIN_VALUE);
+//								if (mPreviewOffset == Integer.MIN_VALUE) {
+//									mPreviewOffset = null;
+//								}
+//								break;
+//							case R.styleable.KeyboardView_keyPreviewHeight:
+//								Log.d(TAG, "KeyboardView_keyPreviewHeight");
+//								mPreviewHeight = a.getDimensionPixelSize(attr,
+//										Integer.MIN_VALUE);
+//								if (mPreviewHeight == Integer.MIN_VALUE) {
+//									mPreviewHeight = null;
+//								}
+//								break;
+//							case R.styleable.KeyboardView_keyTextSize:
+//								Log.d(TAG, "KeyboardView_keyTextSize");
+//								mKeyTextSize = a.getDimensionPixelSize(attr,
+//										Integer.MIN_VALUE);
+//								if (mKeyTextSize == Integer.MIN_VALUE) {
+//									mKeyTextSize = null;
+//								}
+//								break;
+//							case R.styleable.KeyboardView_keyTextColor:
+//								Log.d(TAG, "KeyboardView_keyTextColor");
+//								mKeyTextColor = a.getColor(attr,
+//										Integer.MIN_VALUE);
+//								if (mKeyTextColor == Integer.MIN_VALUE) {
+//									mKeyTextColor = null;
+//								}
+//								break;
+//							case R.styleable.KeyboardView_labelTextSize:
+//								Log.d(TAG, "KeyboardView_labelTextSize");
+//								mLabelTextSize = a.getDimensionPixelSize(attr,
+//										Integer.MIN_VALUE);
+//								if (mLabelTextSize == Integer.MIN_VALUE) {
+//									mLabelTextSize = null;
+//								}
+//								break;
+//							case R.styleable.KeyboardView_popupLayout:
+//								Log.d(TAG, "KeyboardView_popupLayout");
+//								mPopupLayout = a.getResourceId(attr,
+//										Integer.MIN_VALUE);
+//								if (mPopupLayout == Integer.MIN_VALUE) {
+//									mPopupLayout = null;
+//								}
+//								break;
+//							case R.styleable.KeyboardView_shadowColor:
+//								Log.d(TAG, "KeyboardView_shadowColor");
+//								mShadowColor = a.getColor(attr,
+//										Integer.MIN_VALUE);
+//								if (mShadowColor == Integer.MIN_VALUE) {
+//									mShadowColor = null;
+//								}
+//								break;
+//							case R.styleable.KeyboardView_shadowRadius:
+//								Log.d(TAG, "KeyboardView_shadowRadius");
+//								mShadowRadius = a.getFloat(attr, Float.NaN);
+//								if (mShadowRadius == Float.NaN) {
+//									mShadowRadius = null;
+//								}
+//								break;
+//							}
+//						}
+//
+//						break;
+//					}
+//
 				}
 //				else if (event == XmlPullParser.END_TAG) {
 //					if (XML_RESOURCES_TAG.equals(tag)) {

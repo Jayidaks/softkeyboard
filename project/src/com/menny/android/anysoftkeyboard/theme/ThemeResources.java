@@ -80,8 +80,6 @@ public class ThemeResources {
 
     private Float mShadowRadius;
 
-    private Float mBackgroundDimAmount;
-
     private PopupWindow mPreviewPopup;
 
     private Boolean mShowPreview;
@@ -89,6 +87,12 @@ public class ThemeResources {
     private Integer mPreviewTextSizeLarge;
 
     private TextView mPreviewText;
+
+    // TODO: Add drawables for the keys:
+    // close button, delete key, shift keys, etc.
+    // Maybe it's good to use Map for this purpose to reduce boiler-plate getter-code (use similar architecture as in ImPlugin in Android)
+    // Map should have integers as keys (defined in ThemeResourceConstants) and value is a drawable.
+
 
     private void parseResMappingFromXml(Context context, XmlResourceParser parser) {
         TypedArray a = null;
@@ -119,34 +123,10 @@ public class ThemeResources {
             e.printStackTrace();
         }
 
-        a = context.obtainStyledAttributes(R.styleable.Theme);
-        mBackgroundDimAmount = a.getFloat(
-                R.styleable.Theme_backgroundDimAmount, 0.5f);
     }
 
     private void parseResMappingFromXml(Context context, AttributeSet attrs) {
 
-        // int previewLayout = 0;
-        // TypedArray a = null;
-
-        // TODO: xml parsing instead of styledattributes
-        // styledattributes has many good features:
-        // * parses references correctly @android:color/transparent, but also
-        // allow in-place values (important for better
-        // keybard compatibility)
-
-        // BUT styled attributes are not portable and I think they cannot be
-        // used in a 3rd party component
-        // (I couldn't make it work)
-
-        // so we need to do the heavylifting our selves,
-        // parsing the xml, and we have to understand references too
-
-        // Problem with xml parsing, how to interpret dimension units if they
-        // are given in-place?
-        // a = context.obtainStyledAttributes(attrs,
-        // R.styleable.KeyboardView);
-        //
         Resources res = context.getResources();
         int n = attrs.getAttributeCount();
 
@@ -155,7 +135,7 @@ public class ThemeResources {
             int referenceId = attrs.getAttributeResourceValue(i, 0);
             boolean isReference = (referenceId != 0);
 
-            // XXX
+            // XXX TODO shadowColor
             if (!isReference && "shadowColor".equals(name)) {
                 Log.e(TAG, "Every theme attribute must be a reference!");
                 break;
@@ -207,131 +187,7 @@ public class ThemeResources {
             if(mPopupLayoutResourceID == null) {
             	mContext = null;
             }
-
-            // int n = a.getIndexCount();
-            //
-            // for (int i = 0; i < n; i++) {
-            // int attr = a.getIndex(i);
-            //
-            // switch (attr) {
-            // case R.styleable.KeyboardView_keyBackground:
-            // Log.d(TAG, "KeyboardView_keyBackground");
-            // mKeyBackground = a.getDrawable(attr);
-            // break;
-            // case R.styleable.KeyboardView_verticalCorrection:
-            // Log.d(TAG, "KeyboardView_verticalCorrection");
-            // mVerticalCorrection = a
-            // .getDimensionPixelOffset(attr, 0);
-            // break;
-            // case R.styleable.KeyboardView_keyPreviewLayout:
-            // Log.d(TAG, "KeyboardView_keyPreviewLayout");
-            // int previewLayout = a.getResourceId(attr, 0);
-            //
-            // mPreviewPopup = new PopupWindow(context);
-            // if (previewLayout != 0) {
-            // LayoutInflater inflater = (LayoutInflater) context
-            // .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            // mPreviewText = (TextView) inflater.inflate(
-            // previewLayout, null);
-            // mPreviewTextSizeLarge = (int) mPreviewText
-            // .getTextSize();
-            // mPreviewPopup.setContentView(mPreviewText);
-            // mPreviewPopup.setBackgroundDrawable(null);
-            // mShowPreview = true;
-            // } else {
-            // mShowPreview = false;
-            // }
-            //
-            // break;
-            // case R.styleable.KeyboardView_keyPreviewOffset:
-            // Log.d(TAG, "KeyboardView_keyPreviewOffset");
-            // mPreviewOffset = a.getDimensionPixelOffset(
-            // attr, Integer.MIN_VALUE);
-            // if (mPreviewOffset == Integer.MIN_VALUE) {
-            // mPreviewOffset = null;
-            // }
-            // break;
-            // case R.styleable.KeyboardView_keyPreviewHeight:
-            // Log.d(TAG, "KeyboardView_keyPreviewHeight");
-            // mPreviewHeight = a.getDimensionPixelSize(attr,
-            // Integer.MIN_VALUE);
-            // if (mPreviewHeight == Integer.MIN_VALUE) {
-            // mPreviewHeight = null;
-            // }
-            // break;
-            // case R.styleable.KeyboardView_keyTextSize:
-            // Log.d(TAG, "KeyboardView_keyTextSize");
-            // mKeyTextSize = a.getDimensionPixelSize(attr,
-            // Integer.MIN_VALUE);
-            // if (mKeyTextSize == Integer.MIN_VALUE) {
-            // mKeyTextSize = null;
-            // }
-            // break;
-            // case R.styleable.KeyboardView_keyTextColor:
-            // Log.d(TAG, "KeyboardView_keyTextColor");
-            // mKeyTextColor = a.getColor(attr,
-            // Integer.MIN_VALUE);
-            // if (mKeyTextColor == Integer.MIN_VALUE) {
-            // mKeyTextColor = null;
-            // }
-            // break;
-            // case R.styleable.KeyboardView_labelTextSize:
-            // Log.d(TAG, "KeyboardView_labelTextSize");
-            // mLabelTextSize = a.getDimensionPixelSize(attr,
-            // Integer.MIN_VALUE);
-            // if (mLabelTextSize == Integer.MIN_VALUE) {
-            // mLabelTextSize = null;
-            // }
-            // break;
-            // case R.styleable.KeyboardView_popupLayout:
-            // Log.d(TAG, "KeyboardView_popupLayout");
-            // mPopupLayoutResourceID = a.getResourceId(attr,
-            // Integer.MIN_VALUE);
-            // if (mPopupLayoutResourceID == Integer.MIN_VALUE) {
-            // mPopupLayoutResourceID = null;
-            // }
-            // break;
-            // case R.styleable.KeyboardView_shadowColor:
-            // Log.d(TAG, "KeyboardView_shadowColor");
-            // mShadowColor = a.getColor(attr,
-            // Integer.MIN_VALUE);
-            // if (mShadowColor == Integer.MIN_VALUE) {
-            // mShadowColor = null;
-            // }
-            // break;
-            // case R.styleable.KeyboardView_shadowRadius:
-            // Log.d(TAG, "KeyboardView_shadowRadius");
-            // mShadowRadius = a.getFloat(attr, Float.NaN);
-            // if (mShadowRadius == Float.NaN) {
-            // mShadowRadius = null;
-            // }
-            // break;
-            // }
-            // }
-            //
-            // break;
-            // }
-            //
         }
-        // else if (event == XmlPullParser.END_TAG) {
-        // if (XML_RESOURCES_TAG.equals(tag)) {
-        // inMappings = false;
-        // if (AnySoftKeyboardConfiguration.getInstance()
-        // .getDEBUG()) {
-        // Log.d(TAG, "Finished parsing " + XML_RESOURCES_TAG);
-        // }
-        // break;
-        // }
-        // // else if (inMappings && XML_RESMAPPING_TAG.equals(tag)) {
-        // // if (AnySoftKeyboardConfiguration.getInstance()
-        // // .getDEBUG()) {
-        // // Log
-        // // .d(TAG, "Finished parsing "
-        // // + XML_RESMAPPING_TAG);
-        // // }
-        // // }
-        // }
-
     }
 
     /**

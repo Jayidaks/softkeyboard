@@ -5,12 +5,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.LayoutInflater.Factory;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 public class PopupKeyboardLayoutInflaterFactory implements Factory {
 
 	private ThemeResources mResources;
 	private static final String THEMEABLE_KEYBOARDVIEW_CLASS = ThemeableKeyboardView.class.getCanonicalName();
-//	private static final String CLOSE_BUTTON_TAG_NAME = "com.menny.android.anysoftkeyboard.theme.close_button";
+//	private static final String CLOSE_BUTTON_TAG_NAME = "com.menny.android.anysoftkeyboard.theme.PopupKeyboardCloseButton";
+//	private static final String LINEAR_LAYOUT_TAG_NAME = "com.menny.android.anysoftkeyboard.theme.PopupKeyboardLinearLayout";
 
 	public PopupKeyboardLayoutInflaterFactory(ThemeResources resources) {
 		mResources = resources;
@@ -31,6 +33,13 @@ public class PopupKeyboardLayoutInflaterFactory implements Factory {
 //			ImageButton button = new ImageButton(context, attrs);
 //			if(button.getBackground() == null){
 //				//button.setBackgroundDrawable(mResources.getCloseButtonDrawable());
+//			}
+//		}
+//		TODO: Linear layout should inherit background of the main keyboard, if none is defined!
+//		else if(LINEAR_LAYOUT_TAG_NAME.equals(name)) {
+//			LinearLayout layout = new LinearLayout(context, attrs);
+//			if(layout.getBackground() == null) {
+//				layout.setBackgroundDrawable(mResources.getPopupKeyboardPanelBackground())
 //			}
 //		}
 

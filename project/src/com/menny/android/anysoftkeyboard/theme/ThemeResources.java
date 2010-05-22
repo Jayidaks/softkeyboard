@@ -155,6 +155,12 @@ public class ThemeResources {
                             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     mPreviewText = (TextView) inflater.inflate(previewLayout,
                             null);
+//                    if(mPreviewText.getBackground() == null) {
+                    	//TODO: if background was set and we are working with
+                    	// better keyboard skin, we should see if there is
+                    	// @drawable/keyboard_key_feedback defined. If there is, use it!
+//                    	mPreviewText.setBackgroundDrawable();
+//                    }
                     mPreviewTextSizeLarge = (int) mPreviewText.getTextSize();
                     mPreviewPopup.setContentView(mPreviewText);
                     mPreviewPopup.setBackgroundDrawable(null);
@@ -190,7 +196,7 @@ public class ThemeResources {
         }
     }
 
-    /**
+	/**
      * Creates a new ThemeResources of a specific plug-in.
      *
      * @param context
@@ -280,6 +286,8 @@ public class ThemeResources {
 
         parseResMappingFromXml(context, attrs);
     }
+
+
 
     /**
      * @return the mKeyBackground

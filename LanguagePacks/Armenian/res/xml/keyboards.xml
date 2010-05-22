@@ -11,14 +11,16 @@
 		description := some text you would like to add. index := the sort
 		index of this keyboard in the Settings page.
 	-->
-	<Keyboard
-	    nameResId="@string/ar_keyboard"
-	    iconResId="@drawable/am"
-		layoutResId="@xml/ar_qwerty"
-		landscapeResId="@xml/ar_qwerty"
-		id="75221b32-e09d-4273-9322-a65c5b45597f"
-		description="Created with herrlado"
-		index="1"
-		physicalKeyboardMappingResId="@xml/ar_qwerty_physical"
-		defaultDictionaryLocale="ar"/>
+	<!-- 
+	<Keyboard nameResId="@string/ar_keyboard" iconResId="@drawable/am"
+		layoutResId="@xml/ar_qwerty" landscapeResId="@xml/ar_qwerty"
+		id="75221b32-e09d-4273-9322-a65c5b45597f" description="Created with herrlado"
+		index="1" physicalKeyboardMappingResId="@xml/ar_qwerty_physical"
+		defaultDictionaryLocale="ar" />
+-->
+	<Keyboard id="203ac227-a166-4732-8c17-dc525cac00c1" nameResId="@string/ar_keyboard_extra_rows"
+		layoutResId="@xml/ar_qwerty_4_rows" landscapeResId="@xml/ar_qwerty_4_rows" iconResId="@drawable/am"
+		defaultDictionaryLocale="ar" description="Created with herrlado"
+		index="1" />
+
 </Keyboards>

@@ -41,6 +41,54 @@
 		<item>cursor_right</item>
 	</string-array>
 
+
+
+	<!--  THEME -->
+
+	<!-- TODO: add all theme stuff here, each resource type on their own array (so we can turn resources to Drawable, integer etc. in ThemeResources) -->
+
+	<string-array name="theme_font_typefaces_attribute_names">
+		<!-- TODO -->
+	</string-array>
+
+	<string-array name="theme_font_colors_attribute_names">
+		<item>textColorCandidatePreview</item>
+		<item>textColorKeyPreview</item>
+		<!--  what else? -->
+	</string-array>
+
+	<integer-array name="theme_font_colors_attribute_values">
+		<!-- TODO -->
+	</integer-array>
+
+	<string-array name="theme_font_sizes_attribute_names">
+		<item>textSizeCandidatePreview</item>
+		<item>textSizeKeyPreview</item>
+	</string-array>
+
+	<integer-array name="theme_font_colors_attribute_values">
+		<!-- TODO -->
+	</integer-array>
+
+	<string-array name="theme_dimensions_attribute_names">
+		<!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
+		<item>dimensionKeyboardVerticalGap</item>
+		<item>dimensionKeyboardKeyHeight</item>
+		<item>dimensionKeyboardNumbersVerticalGap</item>
+		<item>dimensionKeyboardNumbersKeyHeight</item>
+		<item>dimensionKeyboardSymbolsVerticalGap</item>
+		<item>dimensionKeyboardSymbolsKeyHeight</item>
+		<item>dimensionKeyboardSymbolsAltVerticalGap</item>
+		<item>dimensionKeyboardSymbolsAltKeyHeight</item>
+		<!-- TODO: All these necessary? -->
+	</string-array>
+
+	<integer-array name="theme_dimensions_attribute_values">
+		<!-- TODO -->
+	</integer-array>
+
+
+
 	<string-array name="theme_drawables_attribute_names">
 		<item>drawableSymKeyboardArrowLeft</item>
 		<item>drawableSymKeyboardArrowRight</item>

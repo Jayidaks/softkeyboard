@@ -31,9 +31,10 @@ public class PopupKeyboardLayoutInflaterFactory implements Factory {
 //		TODO: better keyboard skins don't have a layout and there we must use this approach.
 //		else if(CLOSE_BUTTON_TAG_NAME.equals(name)){
 //			ImageButton button = new ImageButton(context, attrs);
-//			if(button.getBackground() == null){
-//				//button.setBackgroundDrawable(mResources.getCloseButtonDrawable());
+//			if(button.getDrawable() == null) {
+//				//button.setImageResource(mResources.getCloseButtonDrawable());
 //			}
+//
 //		}
 //		TODO: Linear layout should inherit background of the main keyboard, if none is defined!
 //		else if(LINEAR_LAYOUT_TAG_NAME.equals(name)) {

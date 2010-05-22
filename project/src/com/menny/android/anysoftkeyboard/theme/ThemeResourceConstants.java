@@ -24,21 +24,6 @@ package com.menny.android.anysoftkeyboard.theme;
 // Most of these will change at this point. Numbering should be fixed also before use.
 public interface ThemeResourceConstants {
 
-	/**/
-	/* Keyboard related*/
-	/**/
-
-	// TODO: This is enough or should we add values for popup keyboards too?
-	public static final int VALUES_KEYBOARD_KEY_WIDTH = 1;
-	public static final int VALUES_KEYBOARD_KEY_HEIGHT = 2;
-	public static final int VALUES_KEYBOARD_VERTICAL_GAP = 3;
-	public static final int VALUES_KEYBOARD_HORIZONTAL_GAP = 4;
-
-
-
-	public static final int LAYOUT_KEYBOARD_KEY_PREVIEW_LAYOUT = 500;
-
-
 	/**
     *
     */
@@ -121,36 +106,10 @@ public interface ThemeResourceConstants {
 	/* KeyboardView related*/
 	/**/
 	//todo same font used in suggestrip?
-	public static final int ASSETS_FONTS_KEYBOARD_KEY_TYPEFACE = 5;
-
-	public static final int VALUES_KEYBOARD_LABEL_TEXT_SIZE = 6;
-	public static final int VALUES_KEYBOARD_KEY_TEXT_SIZE = 7;
-
-	public static final int VALUES_KEYBOARD_KEY_TEXT_COLOR = 8;
-	public static final int VALUES_KEYBOARD_KEY_SHADOW_COLOR = 9;
-	//TODO: too much ?
-	public static final int VALUES_KEYBOARD_POPUP_KEY_TEXT_COLOR = 10;
-	public static final int VALUES_KEYBOARD_POPUP_KEY_SHADOW_COLOR = 11;
+//	public static final int ASSETS_FONTS_KEYBOARD_KEY_TYPEFACE = 5;
 
 
-	/**
-	 * TODO: allow different background for popup keyboards?
-	 * Selector resource. keyBackground.
-	 * Contains the following drawables
-	 * btn_keyboard_key_light_pressed_on, btn_keyboard_key_light_pressed_off,
-	 * btn_keyboard_key_light_normal_on, btn_keyboard_key_light_normal_off,
-	 * btn_keyboard_key_light_pressed and btn_keyboard_key_light_normal
-	 */
-	public static final int DRAWABLE_KEYBOARD_KEY_BACKGROUND = 101;
 
-	/**
-	 * Background.
-	 */
-	public static final int DRAWABLE_KEYBOARD_BACKGROUND = 101;
-	/**
-	 * Selector resource. state_pressed and !state_pressed
-	 */
-	public static final int DRAWABLE_KEYBOARD_SUGGEST_SCROLL_BACKGROUND = 101;
 
 	/**
 	 * Selector resource. Source of Close ImageButton

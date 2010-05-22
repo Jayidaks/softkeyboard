@@ -82,7 +82,7 @@ import com.menny.android.anysoftkeyboard.tutorials.TutorialsProvider;
  * Input method implementation for Qwerty'ish keyboard.
  */
 public class AnySoftKeyboard extends InputMethodService implements
-		AnyKeyboardView.OnKeyboardActionListener,
+		KeyboardView.OnKeyboardActionListener,
 		OnSharedPreferenceChangeListener, AnyKeyboardContextProvider {
 	private final static String TAG = "ASK";
 

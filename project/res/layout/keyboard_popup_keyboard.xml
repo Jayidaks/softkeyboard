@@ -24,16 +24,19 @@
         android:background="@drawable/keyboard_popup_panel_background"
         >
 
-    <android.inputmethodservice.KeyboardView
+	<!-- The KeyboardView will inherit keyPreviewLayout, popupLayout, etc. from
+	the parent KeyboardView if not defined here. -->
+    <com.menny.android.anysoftkeyboard.theme.ThemeableKeyboardView
             android:id="@id/keyboardView"
             android:background="@android:color/transparent"
             android:layout_alignParentBottom="true"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:keyPreviewLayout="@layout/keyboard_key_preview"
-            android:popupLayout="@layout/keyboard_popup_keyboard"
-            android:keyTextSize="22sp"
             />
+
+            <!--             android:keyPreviewLayout="@layout/keyboard_key_preview"
+            android:popupLayout="@layout/keyboard_popup_keyboard"
+            android:keyTextSize="22sp" -->
     <ImageButton android:id="@id/button_close"
         android:background="@android:color/transparent"
         android:src="@drawable/btn_close"

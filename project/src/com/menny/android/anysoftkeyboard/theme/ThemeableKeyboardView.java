@@ -35,6 +35,7 @@ import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.Keyboard.Key;
+import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AndroidRuntimeException;
@@ -74,64 +75,65 @@ import com.menny.android.anysoftkeyboard.R;
  */
 public class ThemeableKeyboardView extends View implements View.OnClickListener {
 
-    /**
-     * Listener for virtual keyboard events.
-     */
-    public interface OnKeyboardActionListener {
-
-        /**
-         * Called when the user presses a key. This is sent before the {@link #onKey} is called.
-         * For keys that repeat, this is only called once.
-         * @param primaryCode the unicode of the key being pressed. If the touch is not on a valid
-         * key, the value will be zero.
-         */
-        void onPress(int primaryCode);
-
-        /**
-         * Called when the user releases a key. This is sent after the {@link #onKey} is called.
-         * For keys that repeat, this is only called once.
-         * @param primaryCode the code of the key that was released
-         */
-        void onRelease(int primaryCode);
-
-        /**
-         * Send a key press to the listener.
-         * @param primaryCode this is the key that was pressed
-         * @param keyCodes the codes for all the possible alternative keys
-         * with the primary code being the first. If the primary key code is
-         * a single character such as an alphabet or number or symbol, the alternatives
-         * will include other characters that may be on the same key or adjacent keys.
-         * These codes are useful to correct for accidental presses of a key adjacent to
-         * the intended key.
-         */
-        void onKey(int primaryCode, int[] keyCodes);
-
-        /**
-         * Sends a sequence of characters to the listener.
-         * @param text the sequence of characters to be displayed.
-         */
-        void onText(CharSequence text);
-
-        /**
-         * Called when the user quickly moves the finger from right to left.
-         */
-        void swipeLeft();
-
-        /**
-         * Called when the user quickly moves the finger from left to right.
-         */
-        void swipeRight();
-
-        /**
-         * Called when the user quickly moves the finger from up to down.
-         */
-        void swipeDown();
-
-        /**
-         * Called when the user quickly moves the finger from down to up.
-         */
-        void swipeUp();
-    }
+//	  We use OnKeyboardActionListener from android KeyboardView
+//    /**
+//     * Listener for virtual keyboard events.
+//     */
+//    public interface OnKeyboardActionListener {
+//
+//        /**
+//         * Called when the user presses a key. This is sent before the {@link #onKey} is called.
+//         * For keys that repeat, this is only called once.
+//         * @param primaryCode the unicode of the key being pressed. If the touch is not on a valid
+//         * key, the value will be zero.
+//         */
+//        void onPress(int primaryCode);
+//
+//        /**
+//         * Called when the user releases a key. This is sent after the {@link #onKey} is called.
+//         * For keys that repeat, this is only called once.
+//         * @param primaryCode the code of the key that was released
+//         */
+//        void onRelease(int primaryCode);
+//
+//        /**
+//         * Send a key press to the listener.
+//         * @param primaryCode this is the key that was pressed
+//         * @param keyCodes the codes for all the possible alternative keys
+//         * with the primary code being the first. If the primary key code is
+//         * a single character such as an alphabet or number or symbol, the alternatives
+//         * will include other characters that may be on the same key or adjacent keys.
+//         * These codes are useful to correct for accidental presses of a key adjacent to
+//         * the intended key.
+//         */
+//        void onKey(int primaryCode, int[] keyCodes);
+//
+//        /**
+//         * Sends a sequence of characters to the listener.
+//         * @param text the sequence of characters to be displayed.
+//         */
+//        void onText(CharSequence text);
+//
+//        /**
+//         * Called when the user quickly moves the finger from right to left.
+//         */
+//        void swipeLeft();
+//
+//        /**
+//         * Called when the user quickly moves the finger from left to right.
+//         */
+//        void swipeRight();
+//
+//        /**
+//         * Called when the user quickly moves the finger from up to down.
+//         */
+//        void swipeDown();
+//
+//        /**
+//         * Called when the user quickly moves the finger from down to up.
+//         */
+//        void swipeUp();
+//    }
 
     private static final boolean DEBUG = false;
     private static final int NOT_A_KEY = -1;
@@ -156,7 +158,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     private PopupWindow mPopupKeyboard;
     private View mMiniKeyboardContainer;
-    private KeyboardView mMiniKeyboard;
+    private ThemeableKeyboardView mMiniKeyboard;
     private boolean mMiniKeyboardOnScreen;
     private View mPopupParent;
     private int mMiniKeyboardOffsetX;
@@ -251,6 +253,8 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
     /** The canvas for the above mutable keyboard bitmap */
     private Canvas mCanvas;
 
+    private final ThemeResources mResources;
+
     Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -274,12 +278,14 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         }
     };
 
+
     public ThemeableKeyboardView(Context askContext, ThemeResources resources, AttributeSet attrs) {
         this(askContext, resources, attrs, R.attr.keyboardViewStyle);
     }
 
     public ThemeableKeyboardView(Context askContext, ThemeResources resources, AttributeSet attrs, int defStyle) {
         super(askContext, attrs, defStyle);
+		this.mResources = resources;
 
         // http://www.mail-archive.com/android-developers@googlegroups.com/msg45807.html
         //  Interpret attributis using style definition of KeyboardView defined in askContext
@@ -356,13 +362,12 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         mKeyTextSize = resources.getKeyTextSize();
         mKeyTextColor = resources.getKeyTextColor();
         mLabelTextSize = resources.getLabelTextSize();
-        mPopupLayout = resources.getPopupLayout();
+        mPopupLayout = resources.getPopupLayoutResourceID();
         mShadowColor = resources.getShadowColor();
         mShadowRadius = resources.getShadowRadius();
         mPreviewPopup = resources.getPreviewPopup();
         mShowPreview = resources.getShowPreview();
         mPreviewText = resources.getPreviewText();
-        mPreviewPopup = resources.getPreviewPopup();
 
         a = getContext().obtainStyledAttributes(
                 R.styleable.Theme);
@@ -1029,11 +1034,19 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         if (popupKeyboardId != 0) {
             mMiniKeyboardContainer = mMiniKeyboardCache.get(popupKey);
             if (mMiniKeyboardContainer == null) {
-            	//TODO: ASK: DANGER, context should be external if this is customly defined!
-                LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(
+            	// Inflate popup keyboard layout with the help of LayoutInflater.Factory which
+            	// will pass ThemeResources to ThemeableKeyboardView.
+
+            	// Fetch context corresponding mPopupLayout (resource id)
+            	Context popupContext = mResources.getPopupLayoutContext();
+            	LayoutInflater inflater = (LayoutInflater) popupContext.getSystemService(
                         Context.LAYOUT_INFLATER_SERVICE);
+                inflater = inflater.cloneInContext(popupContext);
+                inflater.setFactory(new PopupKeyboardLayoutInflaterFactory(mResources));
+
                 mMiniKeyboardContainer = inflater.inflate(mPopupLayout, null);
-                mMiniKeyboard = (KeyboardView) mMiniKeyboardContainer.findViewById(
+                //TODO: Support basic android KeyboardView. (use instanceof to find which class to use)
+                mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
                         R.id.keyboardView);
                 View closeButton = mMiniKeyboardContainer.findViewById(
                         R.id.button_close);
@@ -1076,7 +1089,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
                 mMiniKeyboardCache.put(popupKey, mMiniKeyboardContainer);
             } else {
-                mMiniKeyboard = (KeyboardView) mMiniKeyboardContainer.findViewById(
+                mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
                         R.id.keyboardView);
             }
             if (mWindowOffset == null) {

@@ -2,42 +2,129 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 	<string-array name="keyboard_layout_change_methods_values">
-	<!--
+		<!--
 	previous values:
 		1: Small
 		2: None
 		3: Big
 	 -->
-        <item>None</item>
-        <item>Small</item>
-        <item>Big</item>
-    </string-array>
-    
-    <string-array name="physical_keyboard_change_notification_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-    
-    <string-array name="vibrate_on_key_press_values">
-    	<item>0</item>
-        <item>17</item>
-        <item>30</item>
-        <item>50</item>
-    </string-array>
-    
-    <string-array name="swipe_action_types_values">
-    	<item>none</item>
-        <item>next_alphabet</item>
-        <item>next_symbols</item>
-        <item>cycle_keyboards</item>
-        <item>reverse_cycle_keyboards</item>
-        <item>shift</item>
-        <item>hide</item>
-        <item>backspace</item>
-        <item>cursor_up</item>
-        <item>cursor_down</item>
-        <item>cursor_left</item>
-        <item>cursor_right</item>
-    </string-array>
+		<item>None</item>
+		<item>Small</item>
+		<item>Big</item>
+	</string-array>
+
+	<string-array name="physical_keyboard_change_notification_values">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+	</string-array>
+
+	<string-array name="vibrate_on_key_press_values">
+		<item>0</item>
+		<item>17</item>
+		<item>30</item>
+		<item>50</item>
+	</string-array>
+
+	<string-array name="swipe_action_types_values">
+		<item>none</item>
+		<item>next_alphabet</item>
+		<item>next_symbols</item>
+		<item>cycle_keyboards</item>
+		<item>reverse_cycle_keyboards</item>
+		<item>shift</item>
+		<item>hide</item>
+		<item>backspace</item>
+		<item>cursor_up</item>
+		<item>cursor_down</item>
+		<item>cursor_left</item>
+		<item>cursor_right</item>
+	</string-array>
+
+	<string-array name="theme_drawables_attribute_names">
+		<item>drawableSymKeyboardArrowLeft</item>
+		<item>drawableSymKeyboardArrowRight</item>
+		<item>drawableKeyboardKeyDomain</item>
+		<item>drawableKeyboardKeyDomainPreview</item>
+		<item>drawableSymKeyboardCtrl</item>
+		<item>drawableSymKeyboardDelete</item>
+		<item>drawableSymKeyboardReturn</item>
+		<item>drawableSymKeyboardSearch</item>
+		<item>drawableSymKeyboardShift</item>
+		<item>drawableSymKeyboardShiftLocked</item>
+		<item>drawableSymKeyboardSpace</item>
+		<item>drawableSymKeyboardTab</item>
+		<item>drawableSymKeyboardNum0</item>
+		<item>drawableSymKeyboardNum1</item>
+		<item>drawableSymKeyboardNum2</item>
+		<item>drawableSymKeyboardNum3</item>
+		<item>drawableSymKeyboardNum4</item>
+		<item>drawableSymKeyboardNum5</item>
+		<item>drawableSymKeyboardNum6</item>
+		<item>drawableSymKeyboardNum7</item>
+		<item>drawableSymKeyboardNum8</item>
+		<item>drawableSymKeyboardNum9</item>
+		<item>drawableKeyboardKeyClose</item> <!-- Selector. -->
+		<item>drawableKeyboardKeyFeedback</item> <!-- Selector. Overrides background in keyPreviewLayout -->
+		<item>drawableKeyboardPopupPanelBackground</item> <!-- Overrides background in popupLayout -->
+		<item>drawableIcSuggestScrollBackground</item> <!-- Selector. -->
+		<item>drawableIcSuggestStripScrollLeftArrow</item>
+		<item>drawableIcSuggestStripScrollRightArrow</item>
+		<item>drawableIcSuggestStripDivider</item>
+		<item>drawableCandidateFeedbackBackground</item>
+		<item>drawableKeyboardSuggestStripBackground</item>
+
+		<!--  add fonts, font-sizes -->
+
+		<!--		<item>drawableDialogVoiceInput</item>-->
+		<!--		<item>drawableDialogWave00</item>-->
+		<!--		<item>drawableDialogWave13</item>-->
+		<!--		<item>drawableDialogWave23</item>-->
+		<!--		<item>drawableDialogWave33</item>-->
+		<!--		<item>drawableDialogWave43</item>-->
+		<!--		<item>drawableSpeakNowLevel0</item>-->
+		<!--		<item>drawableSpeakNowLevel1</item>-->
+		<!--		<item>drawableSpeakNowLevel2</item>-->
+		<!--		<item>drawableSpeakNowLevel3</item>-->
+		<!--		<item>drawableSpeakNowLevel4</item>-->
+		<!--		<item>drawableSpeakNowLevel5</item>-->
+		<!--		<item>drawableKeyboardKeyVoiceBackground</item>-->
+		<!--		<item>drawableKeyboardKeyVoiceWorking</item>-->
+		<!--    	<item>drawableSymKeyboardNumAlt</item>-->
+	</string-array>
+
+	<integer-array name="theme_drawables_ids">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+		<item>9</item>
+		<item>10</item>
+		<item>11</item>
+		<item>12</item>
+		<item>13</item>
+		<item>14</item>
+		<item>15</item>
+		<item>16</item>
+		<item>17</item>
+		<item>18</item>
+		<item>19</item>
+		<item>20</item>
+		<item>21</item>
+		<item>22</item>
+		<item>23</item>
+		<item>24</item>
+		<item>25</item>
+		<item>26</item>
+		<item>27</item>
+		<item>28</item>
+		<item>29</item>
+		<item>30</item>
+		<item>31</item>
+	</integer-array>
+
 </resources>

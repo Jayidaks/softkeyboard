@@ -18,7 +18,7 @@
  */
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.menny.android.anysoftkeyboard.theme">
+    package="com.menny.android.anysoftkeyboard">
 
     <application>
 

@@ -2,18 +2,18 @@
 <Theme xmlns:android="http://schemas.android.com/apk/res/android" xmlns:menny="http://schemas.android.com/apk/res/com.menny.android.anysoftkeyboard">
 <!--  Unfortunately we cannot reference ?android: resources here for some reason. -->
 <!-- Don't worry about the tag name, it's themeable keyboard view -->
-<android.inputmethodserice.KeyboardView
-	menny:keyTextSize="@dimen/key_text_size"
-	menny:keyBackground="@drawable/btn_keyboard_key"
-	menny:keyPreviewLayout="@layout/keyboard_key_preview"
-	menny:keyTextColor="@color/key_text_color"
-	menny:keyPreviewOffset="@dimen/key_preview_offset"
-	menny:keyPreviewHeight="@dimen/key_preview_height"
-	menny:labelTextSize="@dimen/label_text_size"
-	menny:popupLayout="@layout/keyboard_popup_keyboard"
-	menny:verticalCorrection="@dimen/verticalCorrection"
-	menny:shadowColor="@color/shadow_color"
-	menny:shadowRadius="2.75"
+<android.inputmethodservice.KeyboardView
+	keyTextSize="@dimen/key_text_size"
+	keyBackground="@drawable/btn_keyboard_key"
+	keyPreviewLayout="@layout/keyboard_key_preview"
+	keyTextColor="@color/key_text_color"
+	keyPreviewOffset="@dimen/key_preview_offset"
+	keyPreviewHeight="@dimen/key_preview_height"
+	labelTextSize="@dimen/label_text_size"
+	popupLayout="@layout/keyboard_popup_keyboard"
+	verticalCorrection="@dimen/verticalCorrection"
+	shadowColor="@color/shadow_color"
+	shadowRadius="2.75"
 	candidatePreviewLayout="@layout/candidate_preview"
 	candidateViewContainerLayout="@layout/candidates"
 

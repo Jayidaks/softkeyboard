@@ -75,7 +75,7 @@ public class ThemeResources {
 	private ThemeResources mDefaultRes;
 
 	private static String XML_RESOURCES_TAG = "resources";
-	private static String XML_KEYBOARD_VIEW_STYLE_TAG = "android.inputmethodserice.KeyboardView";
+	private static String XML_KEYBOARD_VIEW_STYLE_TAG = "android.inputmethodservice.KeyboardView";
 
 	private Drawable mKeyBackground;
 
@@ -118,21 +118,24 @@ public class ThemeResources {
 
 	private void parseResMappingFromXml(Context context,
 			XmlResourceParser parser) {
-		TypedArray a = null;
+		boolean foundElement = false;
 		try {
 			int event;
 			// boolean inMappings = false;
 			while ((event = parser.next()) != XmlPullParser.END_DOCUMENT) {
 				final String tag = parser.getName();
 				if (event == XmlPullParser.START_TAG) {
+					Log.d(TAG, "Parsing element:" + (tag == null ? "(null)" : tag));
 					if (XML_KEYBOARD_VIEW_STYLE_TAG.equals(tag)) {
 						// inMappings = true;
 						if (AnySoftKeyboardConfiguration.getInstance()
 								.getDEBUG()) {
-							Log.d(TAG, "Starting parsing " + XML_RESOURCES_TAG);
+							Log.d(TAG, "Starting parsing "
+									+ XML_KEYBOARD_VIEW_STYLE_TAG);
 						}
 						AttributeSet attrs = Xml.asAttributeSet(parser);
 						parseResMappingFromXml(context, attrs);
+						foundElement = true;
 						break;
 					}
 
@@ -144,6 +147,10 @@ public class ThemeResources {
 		} catch (final XmlPullParserException e) {
 			Log.e(TAG, "Parse error:" + e);
 			e.printStackTrace();
+		}
+
+		if(!foundElement){
+			Log.w(TAG, "Could not find the " + XML_KEYBOARD_VIEW_STYLE_TAG + " element!");
 		}
 
 	}
@@ -191,76 +198,91 @@ public class ThemeResources {
 				// TODO!!!
 				// mShadowRadius
 				mShadowRadius = 0f;
-			}
-
-			if ("candidatePreviewLayout".equals(name)) {
+			} else if ("candidatePreviewLayout".equals(name)) {
 				mCandidatePreviewLayoutResourceID = referenceId;
 			} else if ("candidateViewContainerLayout".equals(name)) {
 				mCandidateViewContainerLayoutResourceID = referenceId;
-			}
-
-			if (msThemeDrawableAttributeNames == null) {
-				Log.e(TAG, "Something wrong with initialization!");
 			} else {
-				int attributeCounts = msThemeDrawableAttributeNames.length;
-				for (int j = 0; j < attributeCounts; j++) {
-					String attribute = msThemeDrawableAttributeNames[j];
-					Integer id = msThemeDrawableAttributeValues[j];
-					if (attribute.equals(name)) {
-						mDrawablesMapping.put(id, referenceId);
-						break;
+
+				boolean processed = false;
+
+				if (msThemeDrawableAttributeNames == null) {
+					Log.e(TAG, "Something wrong with initialization!");
+				} else {
+					int attributeCounts = msThemeDrawableAttributeNames.length;
+					for (int j = 0; j < attributeCounts; j++) {
+						String attribute = msThemeDrawableAttributeNames[j];
+						Integer id = msThemeDrawableAttributeValues[j];
+						if (attribute.equals(name)) {
+							mDrawablesMapping.put(id, referenceId);
+							processed = true;
+							break;
+						}
 					}
 				}
-			}
 
-			if (msThemeColorsAttributeNames == null) {
-				Log.e(TAG, "Something wrong with initialization!");
-			} else {
-				int attributeCounts = msThemeColorsAttributeNames.length;
-				for (int j = 0; j < attributeCounts; j++) {
-					String attribute = msThemeColorsAttributeNames[j];
-					Integer id = msThemeColorsAttributeValues[j];
+				if(processed)
+					continue;
 
-					if (attribute.equals(name)) {
-						mColorsMapping.put(id, res.getColor(referenceId));
-						break;
+				if (msThemeColorsAttributeNames == null) {
+					Log.e(TAG, "Something wrong with initialization!");
+				} else {
+					int attributeCounts = msThemeColorsAttributeNames.length;
+					for (int j = 0; j < attributeCounts; j++) {
+						String attribute = msThemeColorsAttributeNames[j];
+						Integer id = msThemeColorsAttributeValues[j];
+
+						if (attribute.equals(name)) {
+							mColorsMapping.put(id, res.getColor(referenceId));
+							processed = true;
+							break;
+						}
 					}
 				}
-			}
 
-			if (msThemeDimensionsAttributeNames == null) {
-				Log.e(TAG, "Something wrong with initialization!");
-			} else {
-				int attributeCounts = msThemeDimensionsAttributeNames.length;
-				for (int j = 0; j < attributeCounts; j++) {
-					String attribute = msThemeDimensionsAttributeNames[j];
-					Integer id = msThemeDimensionsAttributeValues[j];
-					if (attribute.equals(name)) {
-						mDimensionsMapping.put(id, res
-								.getDimension(referenceId));
-						break;
+				if(processed)
+					continue;
+
+				if (msThemeDimensionsAttributeNames == null) {
+					Log.e(TAG, "Something wrong with initialization!");
+				} else {
+					int attributeCounts = msThemeDimensionsAttributeNames.length;
+					for (int j = 0; j < attributeCounts; j++) {
+						String attribute = msThemeDimensionsAttributeNames[j];
+						Integer id = msThemeDimensionsAttributeValues[j];
+						if (attribute.equals(name)) {
+							mDimensionsMapping.put(id, res
+									.getDimension(referenceId));
+							processed = true;
+							break;
+						}
 					}
 				}
-			}
 
-			if (msThemeTypefacesAttributeNames == null) {
-				Log.e(TAG, "Something wrong with initialization!");
-			} else {
-				int attributeCounts = msThemeTypefacesAttributeNames.length;
-				String pathToTypeface = attrs.getAttributeValue(i);
-				if (pathToTypeface == null || pathToTypeface.length() == 0) {
-					Log.w(TAG, "Invalid path for typeface");
-					break;
-				}
+				if(processed)
+					continue;
 
-				for (int j = 0; j < attributeCounts; j++) {
-					String attribute = msThemeTypefacesAttributeNames[j];
-					Integer id = msThemeTypefacesAttributeValues[j];
-					if (attribute.equals(name)) {
-						mTypefacesMapping.put(id, pathToTypeface);
+				if (msThemeTypefacesAttributeNames == null) {
+					Log.e(TAG, "Something wrong with initialization!");
+				} else {
+					int attributeCounts = msThemeTypefacesAttributeNames.length;
+					String pathToTypeface = attrs.getAttributeValue(i);
+					if (pathToTypeface == null || pathToTypeface.length() == 0) {
+						Log.w(TAG, "Invalid path for typeface");
 						break;
 					}
+
+					for (int j = 0; j < attributeCounts; j++) {
+						String attribute = msThemeTypefacesAttributeNames[j];
+						Integer id = msThemeTypefacesAttributeValues[j];
+						if (attribute.equals(name)) {
+							mTypefacesMapping.put(id, pathToTypeface);
+							processed = true;
+							break;
+						}
+					}
 				}
+
 			}
 		}
 	}
@@ -464,7 +486,7 @@ public class ThemeResources {
 						"Could not return Typeface since we have not Assets!");
 				return Typeface.DEFAULT;
 			}
-			Typeface typeface = Typeface
+		 	Typeface typeface = Typeface
 					.createFromAsset(assets, pathToTypeface);
 			if (typeface == null) {
 				Log.e(TAG, "Loading of typeface failed!");

@@ -1,4 +1,4 @@
-package com.menny.android.anysoftkeyboard;
+package com.menny.android.anysoftkeyboard.Sample;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -32,7 +32,7 @@ public class SampleASKTheme extends BroadcastReceiver {
 // * limitations under the License.
 // */
 //
-//package com.menny.android.anysoftkeyboard;
+//package com.menny.android.anysoftkeyboard.Sample;
 //
 //import android.app.Service;
 //import android.content.Intent;

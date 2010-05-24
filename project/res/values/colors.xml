@@ -24,4 +24,7 @@
     <color name="candidate_background">#bbffffff</color>
     <color name="key_text_color">#FFFFFFFF</color>
     <color name="shadow_color">#BB000000</color>
+
+    <color name="theme_colorCandidatePreviewTextColor">?android:attr/textColorPrimaryInverse</color>
+	<color name="theme_colorKeyPreviewTextColor">?android:attr/textColorPrimaryInverse</color>
 </resources>

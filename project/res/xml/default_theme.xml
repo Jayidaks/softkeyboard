@@ -14,7 +14,62 @@
 	menny:verticalCorrection="@dimen/verticalCorrection"
 	menny:shadowColor="@color/shadow_color"
 	menny:shadowRadius="2.75"
+	candidatePreviewLayout="@layout/candidate_preview"
+	candidateViewContainerLayout="@layout/candidates"
+
+	drawableSymKeyboardArrowLeft="@drawable/sym_keyboard_arrow_left"
+	drawableSymKeyboardArrowRight="@drawable/sym_keyboard_arrow_right"
+	drawableKeyboardKeyDomain="@drawable/sym_keyboard_key_domain"
+	drawableKeyboardKeyDomainPreview="@drawable/sym_keyboard_key_domain_preview"
+	drawableSymKeyboardCtrl="@drawable/sym_keyboard_ctrl"
+	drawableSymKeyboardDelete="@drawable/sym_keyboard_delete_small"
+	drawableSymKeyboardReturn="@drawable/sym_keyboard_return"
+	drawableSymKeyboardSearch="@drawable/sym_keyboard_search"
+	drawableSymKeyboardShift="@drawable/sym_keyboard_shift"
+	drawableSymKeyboardShiftLocked="@drawable/sym_keyboard_shift_on"
+	drawableSymKeyboardSpace="@drawable/sym_keyboard_space"
+	drawableSymKeyboardTab="@drawable/tab_key"
+	drawableSymKeyboardNum0="@drawable/sym_keyboard_num0"
+	drawableSymKeyboardNum1="@drawable/sym_keyboard_num1"
+	drawableSymKeyboardNum2="@drawable/sym_keyboard_num2"
+	drawableSymKeyboardNum3="@drawable/sym_keyboard_num3"
+	drawableSymKeyboardNum4="@drawable/sym_keyboard_num4"
+	drawableSymKeyboardNum5="@drawable/sym_keyboard_num5"
+	drawableSymKeyboardNum6="@drawable/sym_keyboard_num6"
+	drawableSymKeyboardNum7="@drawable/sym_keyboard_num7"
+	drawableSymKeyboardNum8="@drawable/sym_keyboard_num8"
+	drawableSymKeyboardNum9="@drawable/sym_keyboard_num9"
+	drawableKeyboardKeyClose="@drawable/btn_close"
+	drawableKeyboardKeyFeedback="@drawable/keyboard_key_feedback"
+	drawableKeyboardPopupPanelBackground="@drawable/keyboard_popup_panel_background"
+	drawableIcSuggestScrollBackground="@drawable/ic_suggest_scroll_background"
+	drawableIcSuggestStripScrollLeftArrow="@drawable/ic_suggest_strip_scroll_left_arrow"
+	drawableIcSuggestStripScrollRightArrow="@drawable/ic_suggest_strip_scroll_right_arrow"
+	drawableIcSuggestStripDivider="@drawable/keyboard_suggest_strip_divider"
+	drawableCandidateFeedbackBackground="@drawable/candidate_feedback_background"
+	drawableKeyboardSuggestStripBackground="@drawable/keyboard_suggest_strip"
+
+
+
+	colorCandidatePreviewTextColor="@color/theme_colorCandidatePreviewTextColor"
+	colorKeyPreviewTextColor="@color/theme_colorKeyPreviewTextColor"
+	colorCandidateNormalText="@color/candidate_normal"
+	colorCandidateRecommendedText="@color/candidate_recommended"
+	colorCandidateOtherText="@color/candidate_other"
+
+	dimensionIcSuggestStripScrollLeftArrowWidth="@dimen/theme_dimensionIcSuggestStripScrollLeftArrowWidth"
+	dimensionIcSuggestStripScrollRightArrowWidth="@dimen/theme_dimensionIcSuggestStripScrollRightArrowWidth"
+	dimensionCandidatePreviewTextSize="@dimen/theme_dimensionCandidatePreviewTextSize"
+	dimensionKeyPreviewTextSize="@dimen/theme_dimensionKeyPreviewTextSize"
+	dimensionKeyPreviewLayoutHeight="@dimen/theme_dimensionKeyPreviewLayoutHeight"
+	dimensionCandidateViewLayoutHeight="@dimen/theme_dimensionCandidateViewLayoutHeight"
+
 	/>
+
+
+<!--typefaceCandidatePreviewText="@android:fonts/sans"-->
+<!--typefaceKeyPreviewText="@android:fonts/sans"-->
+
 <!--		style="@style/KeyboardViewTheme"-->
 <!--	menny:keyTextColor="?android:keyTextColor"-->
 <!--	menny:keyBackground="?android:keyBackground"-->

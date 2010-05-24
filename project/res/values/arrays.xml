@@ -48,46 +48,68 @@
 	<!-- TODO: add all theme stuff here, each resource type on their own array (so we can turn resources to Drawable, integer etc. in ThemeResources) -->
 
 	<string-array name="theme_font_typefaces_attribute_names">
-		<!-- TODO -->
+		<item>typefaceCandidatePreviewText</item>
+		<item>typefaceKeyPreviewText</item>
+		<item>typefaceKeyText</item>
 	</string-array>
-
-	<string-array name="theme_font_colors_attribute_names">
-		<item>textColorCandidatePreview</item>
-		<item>textColorKeyPreview</item>
-		<!--  what else? -->
-	</string-array>
-
-	<integer-array name="theme_font_colors_attribute_values">
-		<!-- TODO -->
+	<integer-array name="theme_font_typefaces_ids">
+		<item>@id/theme_typefaceCandidatePreviewText</item>
+		<item>@id/theme_typefaceKeyPreviewText</item>
+		<item>@id/theme_typefaceKeyText</item>
 	</integer-array>
 
-	<string-array name="theme_font_sizes_attribute_names">
-		<item>textSizeCandidatePreview</item>
-		<item>textSizeKeyPreview</item>
+	<string-array name="theme_colors_attribute_names">
+		<item>colorCandidatePreviewText</item>
+		<item>colorKeyPreviewText</item>
+		<item>colorCandidateNormalText</item>
+		<item>colorCandidateRecommendedText</item>
+		<item>colorCandidateOtherText</item>
+		<!--  what else? -->
 	</string-array>
-
-	<integer-array name="theme_font_colors_attribute_values">
-		<!-- TODO -->
+	<integer-array name="theme_colors_ids">
+		<item>@id/theme_colorCandidatePreviewTextColor</item>
+		<item>@id/theme_colorKeyPreviewTextColor</item>
+		<item>@id/theme_colorCandidateNormalText</item>
+		<item>@id/theme_colorCandidateRecommendedText</item>
+		<item>@id/theme_colorCandidateOtherText</item>
 	</integer-array>
 
 	<string-array name="theme_dimensions_attribute_names">
+		<item>dimensionIcSuggestStripScrollLeftArrowWidth</item>
+		<item>dimensionIcSuggestStripScrollRightArrowWidth</item>
+		<item>dimensionCandidatePreviewTextSize</item>
+		<item>dimensionKeyPreviewTextSize</item>
+		<item>dimensionKeyPreviewLayoutHeight</item>
+		<item>dimensionCandidateViewLayoutHeight</item>
 		<!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
-		<item>dimensionKeyboardVerticalGap</item>
-		<item>dimensionKeyboardKeyHeight</item>
-		<item>dimensionKeyboardNumbersVerticalGap</item>
-		<item>dimensionKeyboardNumbersKeyHeight</item>
-		<item>dimensionKeyboardSymbolsVerticalGap</item>
-		<item>dimensionKeyboardSymbolsKeyHeight</item>
-		<item>dimensionKeyboardSymbolsAltVerticalGap</item>
-		<item>dimensionKeyboardSymbolsAltKeyHeight</item>
+<!--		<item>dimensionKeyboardVerticalGap</item>-->
+<!--		<item>dimensionKeyboardKeyHeight</item>-->
+<!--		<item>dimensionKeyboardNumbersVerticalGap</item>-->
+<!--		<item>dimensionKeyboardNumbersKeyHeight</item>-->
+<!--		<item>dimensionKeyboardSymbolsVerticalGap</item>-->
+<!--		<item>dimensionKeyboardSymbolsKeyHeight</item>-->
+<!--		<item>dimensionKeyboardSymbolsAltVerticalGap</item>-->
+<!--		<item>dimensionKeyboardSymbolsAltKeyHeight</item>-->
 		<!-- TODO: All these necessary? -->
 	</string-array>
-
-	<integer-array name="theme_dimensions_attribute_values">
-		<!-- TODO -->
+	<integer-array name="theme_dimensions_ids">
+		<item>@id/theme_dimensionIcSuggestStripScrollLeftArrowWidth</item>
+		<item>@id/theme_dimensionIcSuggestStripScrollRightArrowWidth</item>
+		<item>@id/theme_dimensionCandidatePreviewTextSize</item>
+		<item>@id/theme_dimensionKeyPreviewTextSize</item>
+		<item>@id/theme_dimensionKeyPreviewLayoutHeight</item>
+		<item>@id/theme_dimensionCandidateViewLayoutHeight</item>
+		<!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
+<!--		<item>@id/theme_dimensionKeyboardVerticalGap</item>-->
+<!--		<item>@id/theme_dimensionKeyboardKeyHeight</item>-->
+<!--		<item>@id/theme_dimensionKeyboardNumbersVerticalGap</item>-->
+<!--		<item>@id/theme_dimensionKeyboardNumbersKeyHeight</item>-->
+<!--		<item>@id/theme_dimensionKeyboardSymbolsVerticalGap</item>-->
+<!--		<item>@id/theme_dimensionKeyboardSymbolsKeyHeight</item>-->
+<!--		<item>@id/theme_dimensionKeyboardSymbolsAltVerticalGap</item>-->
+<!--		<item>@id/theme_dimensionKeyboardSymbolsAltKeyHeight</item>-->
+		<!-- TODO: All these necessary? -->
 	</integer-array>
-
-
 
 	<string-array name="theme_drawables_attribute_names">
 		<item>drawableSymKeyboardArrowLeft</item>
@@ -121,8 +143,7 @@
 		<item>drawableIcSuggestStripDivider</item>
 		<item>drawableCandidateFeedbackBackground</item>
 		<item>drawableKeyboardSuggestStripBackground</item>
-
-		<!--  add fonts, font-sizes -->
+		<!-- Add stuff here -->
 
 		<!--		<item>drawableDialogVoiceInput</item>-->
 		<!--		<item>drawableDialogWave00</item>-->
@@ -140,39 +161,56 @@
 		<!--		<item>drawableKeyboardKeyVoiceWorking</item>-->
 		<!--    	<item>drawableSymKeyboardNumAlt</item>-->
 	</string-array>
-
 	<integer-array name="theme_drawables_ids">
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
-		<item>9</item>
-		<item>10</item>
-		<item>11</item>
-		<item>12</item>
-		<item>13</item>
-		<item>14</item>
-		<item>15</item>
-		<item>16</item>
-		<item>17</item>
-		<item>18</item>
-		<item>19</item>
-		<item>20</item>
-		<item>21</item>
-		<item>22</item>
-		<item>23</item>
-		<item>24</item>
-		<item>25</item>
-		<item>26</item>
-		<item>27</item>
-		<item>28</item>
-		<item>29</item>
-		<item>30</item>
-		<item>31</item>
+		<item>@id/theme_drawableSymKeyboardArrowLeft</item>
+		<item>@id/theme_drawableSymKeyboardArrowRight</item>
+		<item>@id/theme_drawableKeyboardKeyDomain</item>
+		<item>@id/theme_drawableKeyboardKeyDomainPreview</item>
+		<item>@id/theme_drawableSymKeyboardCtrl</item>
+		<item>@id/theme_drawableSymKeyboardDelete</item>
+		<item>@id/theme_drawableSymKeyboardReturn</item>
+		<item>@id/theme_drawableSymKeyboardSearch</item>
+		<item>@id/theme_drawableSymKeyboardShift</item>
+		<item>@id/theme_drawableSymKeyboardShiftLocked</item>
+		<item>@id/theme_drawableSymKeyboardSpace</item>
+		<item>@id/theme_drawableSymKeyboardTab</item>
+		<item>@id/theme_drawableSymKeyboardNum0</item>
+		<item>@id/theme_drawableSymKeyboardNum1</item>
+		<item>@id/theme_drawableSymKeyboardNum2</item>
+		<item>@id/theme_drawableSymKeyboardNum3</item>
+		<item>@id/theme_drawableSymKeyboardNum4</item>
+		<item>@id/theme_drawableSymKeyboardNum5</item>
+		<item>@id/theme_drawableSymKeyboardNum6</item>
+		<item>@id/theme_drawableSymKeyboardNum7</item>
+		<item>@id/theme_drawableSymKeyboardNum8</item>
+		<item>@id/theme_drawableSymKeyboardNum9</item>
+		<item>@id/theme_drawableKeyboardKeyClose</item> <!-- Selector. -->
+		<item>@id/theme_drawableKeyboardKeyFeedback</item> <!-- Selector. Overrides background in keyPreviewLayout -->
+		<item>@id/theme_drawableKeyboardPopupPanelBackground</item> <!-- Overrides background in popupLayout -->
+		<item>@id/theme_drawableIcSuggestScrollBackground</item> <!-- Selector. -->
+		<item>@id/theme_drawableIcSuggestStripScrollLeftArrow</item>
+		<item>@id/theme_drawableIcSuggestStripScrollRightArrow</item>
+		<item>@id/theme_drawableIcSuggestStripDivider</item>
+		<item>@id/theme_drawableCandidateFeedbackBackground</item>
+		<item>@id/theme_drawableKeyboardSuggestStripBackground</item>
+		<!-- Add stuff here -->
+
+		<!--		<item>@id/theme_drawableDialogVoiceInput</item>-->
+		<!--		<item>@id/theme_drawableDialogWave00</item>-->
+		<!--		<item>@id/theme_drawableDialogWave13</item>-->
+		<!--		<item>@id/theme_drawableDialogWave23</item>-->
+		<!--		<item>@id/theme_drawableDialogWave33</item>-->
+		<!--		<item>@id/theme_drawableDialogWave43</item>-->
+		<!--		<item>@id/theme_drawableSpeakNowLevel0</item>-->
+		<!--		<item>@id/theme_drawableSpeakNowLevel1</item>-->
+		<!--		<item>@id/theme_drawableSpeakNowLevel2</item>-->
+		<!--		<item>@id/theme_drawableSpeakNowLevel3</item>-->
+		<!--		<item>@id/theme_drawableSpeakNowLevel4</item>-->
+		<!--		<item>@id/theme_drawableSpeakNowLevel5</item>-->
+		<!--		<item>@id/theme_drawableKeyboardKeyVoiceBackground</item>-->
+		<!--		<item>@id/theme_drawableKeyboardKeyVoiceWorking</item>-->
+		<!--    	<item>@id/theme_drawableSymKeyboardNumAlt</item>-->
+		<!-- Add stuff here -->
 	</integer-array>
 
 </resources>

@@ -63,4 +63,85 @@
   <item type="id" name="button_close" />
 <!--  <item type="id" name="selectText" /> -->
 <!--  <item type="id" name="stopSelectingText" /> -->
+
+
+
+
+	<item type="id" name="theme_typefaceCandidatePreviewText" />
+	<item type="id" name="theme_typefaceKeyPreviewText" />
+	<item type="id" name="theme_typefaceKeyText" />
+
+	<item type="id" name="theme_colorCandidatePreviewTextColor" />
+	<item type="id" name="theme_colorKeyPreviewTextColor" />
+	<item type="id" name="theme_colorCandidateNormalText" />
+	<item type="id" name="theme_colorCandidateRecommendedText" />
+	<item type="id" name="theme_colorCandidateOtherText" />
+
+	<item type="id" name="theme_dimensionIcSuggestStripScrollLeftArrowWidth" />
+	<item type="id" name="theme_dimensionIcSuggestStripScrollRightArrowWidth" />
+	<item type="id" name="theme_dimensionCandidatePreviewTextSize" />
+	<item type="id" name="theme_dimensionKeyPreviewTextSize" />
+	<item type="id" name="theme_dimensionKeyPreviewLayoutHeight" />
+	<item type="id" name="theme_dimensionCandidateViewLayoutHeight"/>
+		<!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
+<!--		<item>theme_dimensionKeyboardVerticalGap</item>-->
+<!--		<item>theme_dimensionKeyboardKeyHeight</item>-->
+<!--		<item>theme_dimensionKeyboardNumbersVerticalGap</item>-->
+<!--		<item>theme_dimensionKeyboardNumbersKeyHeight</item>-->
+<!--		<item>theme_dimensionKeyboardSymbolsVerticalGap</item>-->
+<!--		<item>theme_dimensionKeyboardSymbolsKeyHeight</item>-->
+<!--		<item>theme_dimensionKeyboardSymbolsAltVerticalGap</item>-->
+<!--		<item>theme_dimensionKeyboardSymbolsAltKeyHeight</item>-->
+		<!-- TODO: All these necessary? -->
+
+
+	<item type="id" name="theme_drawableSymKeyboardArrowLeft" />
+	<item type="id" name="theme_drawableSymKeyboardArrowRight" />
+	<item type="id" name="theme_drawableKeyboardKeyDomain" />
+	<item type="id" name="theme_drawableKeyboardKeyDomainPreview" />
+	<item type="id" name="theme_drawableSymKeyboardCtrl" />
+	<item type="id" name="theme_drawableSymKeyboardDelete" />
+	<item type="id" name="theme_drawableSymKeyboardReturn" />
+	<item type="id" name="theme_drawableSymKeyboardSearch" />
+	<item type="id" name="theme_drawableSymKeyboardShift" />
+	<item type="id" name="theme_drawableSymKeyboardShiftLocked" />
+	<item type="id" name="theme_drawableSymKeyboardSpace" />
+	<item type="id" name="theme_drawableSymKeyboardTab" />
+	<item type="id" name="theme_drawableSymKeyboardNum0" />
+	<item type="id" name="theme_drawableSymKeyboardNum1" />
+	<item type="id" name="theme_drawableSymKeyboardNum2" />
+	<item type="id" name="theme_drawableSymKeyboardNum3" />
+	<item type="id" name="theme_drawableSymKeyboardNum4" />
+	<item type="id" name="theme_drawableSymKeyboardNum5" />
+	<item type="id" name="theme_drawableSymKeyboardNum6" />
+	<item type="id" name="theme_drawableSymKeyboardNum7" />
+	<item type="id" name="theme_drawableSymKeyboardNum8" />
+	<item type="id" name="theme_drawableSymKeyboardNum9" />
+	<item type="id" name="theme_drawableKeyboardKeyClose" /> <!-- Selector. -->
+	<item type="id" name="theme_drawableKeyboardKeyFeedback" /> <!-- Selector. Overrides background in keyPreviewLayout -->
+	<item type="id" name="theme_drawableKeyboardPopupPanelBackground" /> <!-- Overrides background in popupLayout -->
+	<item type="id" name="theme_drawableIcSuggestScrollBackground" /> <!-- Selector. -->
+	<item type="id" name="theme_drawableIcSuggestStripScrollLeftArrow" />
+	<item type="id" name="theme_drawableIcSuggestStripScrollRightArrow" />
+	<item type="id" name="theme_drawableIcSuggestStripDivider" />
+	<item type="id" name="theme_drawableCandidateFeedbackBackground" />
+	<item type="id" name="theme_drawableKeyboardSuggestStripBackground" />
+	<!-- Add stuff here -->
+
+		<!--		<item type="id" name="theme_drawableDialogVoiceInput" />-->
+		<!--		<item type="id" name="theme_drawableDialogWave00" />-->
+		<!--		<item type="id" name="theme_drawableDialogWave13" />-->
+		<!--		<item type="id" name="theme_drawableDialogWave23" />-->
+		<!--		<item type="id" name="theme_drawableDialogWave33" />-->
+		<!--		<item type="id" name="theme_drawableDialogWave43" />-->
+		<!--		<item type="id" name="theme_drawableSpeakNowLevel0" />-->
+		<!--		<item type="id" name="theme_drawableSpeakNowLevel1" />-->
+		<!--		<item type="id" name="theme_drawableSpeakNowLevel2" />-->
+		<!--		<item type="id" name="theme_drawableSpeakNowLevel3" />-->
+		<!--		<item type="id" name="theme_drawableSpeakNowLevel4" />-->
+		<!--		<item type="id" name="theme_drawableSpeakNowLevel5" />-->
+		<!--		<item type="id" name="theme_drawableKeyboardKeyVoiceBackground" />-->
+		<!--		<item type="id" name="theme_drawableKeyboardKeyVoiceWorking" />-->
+		<!--    	<item type="id" name="theme_drawableSymKeyboardNumAlt" />-->
+
 </resources>

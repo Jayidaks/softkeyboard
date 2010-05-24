@@ -56,6 +56,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -63,6 +64,7 @@ import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.menny.android.anysoftkeyboard.KeyboardSwitcher.NextKeyboardType;
@@ -73,6 +75,8 @@ import com.menny.android.anysoftkeyboard.dictionary.UserDictionaryBase;
 import com.menny.android.anysoftkeyboard.dictionary.ExternalDictionaryFactory.DictionaryBuilder;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard.HardKeyboardTranslator;
+import com.menny.android.anysoftkeyboard.theme.CandidatePreviewTextViewInflaterFactory;
+import com.menny.android.anysoftkeyboard.theme.CandidateViewContainerInflaterFactory;
 import com.menny.android.anysoftkeyboard.theme.ThemePluginInfo;
 import com.menny.android.anysoftkeyboard.theme.ThemeResources;
 import com.menny.android.anysoftkeyboard.theme.ThemeableKeyboardView;
@@ -263,6 +267,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 //				, null);
 //		TODO: use ThemeableKeyboardView with attrs from external package
 
+		ThemeResources.initAttributeInfos(getApplicationContext());
 		ThemeResources defaultThemeResources = new ThemeResources(getApplicationContext(), getResources().getXml(R.xml.default_theme), null);
 		ThemeResources themePlugInResources = new ThemeResources(getApplicationContext(), new ThemePluginInfo("SampleASKTheme",
 				"com.menny.android.anysoftkeyboard","id"), defaultThemeResources);
@@ -285,11 +290,22 @@ public class AnySoftKeyboard extends InputMethodService implements
 	@Override
 	public View onCreateCandidatesView() {
 		mKeyboardSwitcher.makeKeyboards(false);
-		mCandidateViewContainer = (CandidateViewContainer) getLayoutInflater()
-				.inflate(R.layout.candidates, null);
+
+		ThemeResources themeResources = mInputView.getThemeResources();
+		Context context = themeResources.getCandidateViewContainerLayoutContext();
+	    LayoutInflater inflate =
+	            (LayoutInflater) context
+	                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflate = inflate.cloneInContext(context);
+		inflate.setFactory(new CandidateViewContainerInflaterFactory(themeResources));
+
+		mCandidateViewContainer = (CandidateViewContainer) inflate
+				.inflate(themeResources.getCandidateViewContainerLayoutResourceID(), null);
+
 		mCandidateViewContainer.initViews();
 		mCandidateView = (CandidateView) mCandidateViewContainer
 				.findViewById(R.id.candidates);
+
 		mCandidateView.setService(this);
 		setCandidatesViewShown(true);
 		return mCandidateViewContainer;

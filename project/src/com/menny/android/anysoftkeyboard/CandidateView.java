@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 2008-2009 Google Inc.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -25,6 +25,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.StateSet;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,9 +40,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.menny.android.anysoftkeyboard.R;
+import com.menny.android.anysoftkeyboard.theme.CandidatePreviewTextViewInflaterFactory;
+import com.menny.android.anysoftkeyboard.theme.ThemeResources;
 
 public class CandidateView extends View {
-	
+
     private static final int OUT_OF_BOUNDS = -1;
     private static final List<CharSequence> EMPTY_LIST = new ArrayList<CharSequence>();
 
@@ -53,29 +56,29 @@ public class CandidateView extends View {
     private int mTouchX = OUT_OF_BOUNDS;
     private Drawable mSelectionHighlight;
     private boolean mTypedWordValid;
-    
+
     private boolean mHaveMinimalSuggestion;
-    
+
     private Rect mBgPadding;
 
     private TextView mPreviewText;
     private PopupWindow mPreviewPopup;
     private int mCurrentWordIndex;
     private Drawable mDivider;
-    
+
     private static final int MAX_SUGGESTIONS = 32;
     private static final int SCROLL_PIXELS = 20;
-    
+
     private static final int MSG_REMOVE_PREVIEW = 1;
     private static final int MSG_REMOVE_THROUGH_PREVIEW = 2;
-    
+
     private int[] mWordWidth = new int[MAX_SUGGESTIONS];
     private int[] mWordX = new int[MAX_SUGGESTIONS];
     private int mPopupPreviewX;
     private int mPopupPreviewY;
 
     private static final int X_GAP = 10;
-    
+
     private int mColorNormal;
     private int mColorRecommended;
     private int mColorOther;
@@ -85,9 +88,9 @@ public class CandidateView extends View {
     private boolean mScrolling;
     //will tell us what is the target scroll X, so we know to stop
     private int mTargetScrollX;
-    
+
     private int mTotalWidth;
-    
+
     private GestureDetector mGestureDetector;
 
     Handler mHandler = new Handler() {
@@ -104,7 +107,7 @@ public class CandidateView extends View {
                     }
                     break;
             }
-            
+
         }
     };
 	private int mScrollX;
@@ -114,23 +117,32 @@ public class CandidateView extends View {
      * @param context
      * @param attrs
      */
-    public CandidateView(Context context, AttributeSet attrs) {
+    public CandidateView(Context context, ThemeResources resources,  AttributeSet attrs) {
         super(context, attrs);
-        mSelectionHighlight = context.getResources().getDrawable(
-                R.drawable.highlight_pressed);
 
+//        mSelectionHighlight = context.getResources().getDrawable(
+//                R.drawable.highlight_pressed);
+        // We must find out the correct drawable from the selector (xml)
+        mSelectionHighlight = resources.getDrawable(R.id.theme_drawableIcSuggestScrollBackground);
+        mSelectionHighlight.setState(View.PRESSED_ENABLED_STATE_SET);
+
+        Context inflateContext = resources.getCandidatePreviewLayoutContext();
         LayoutInflater inflate =
-            (LayoutInflater) context
+            (LayoutInflater) inflateContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflate = inflate.cloneInContext(inflateContext);
+		inflate.setFactory(new CandidatePreviewTextViewInflaterFactory(resources));
+
+        mPreviewText = (TextView) inflate.inflate(resources.getCandidatePreviewLayoutResourceID(), null);
         mPreviewPopup = new PopupWindow(context);
-        mPreviewText = (TextView) inflate.inflate(R.layout.candidate_preview, null);
         mPreviewPopup.setWindowLayoutMode(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         mPreviewPopup.setContentView(mPreviewText);
         mPreviewPopup.setBackgroundDrawable(null);
-        mColorNormal = context.getResources().getColor(R.color.candidate_normal);
-        mColorRecommended = context.getResources().getColor(R.color.candidate_recommended);
-        mColorOther = context.getResources().getColor(R.color.candidate_other);
-        mDivider = context.getResources().getDrawable(R.drawable.keyboard_suggest_strip_divider);
+
+        mColorNormal = resources.getColor(R.id.theme_colorCandidateNormalText, 0xFF000000);
+        mColorRecommended = resources.getColor(R.id.theme_colorCandidateRecommendedText, 0xFFE35900);
+        mColorOther =  resources.getColor(R.id.theme_colorCandidateOtherText, 0xff808080);
+        mDivider = resources.getDrawable(R.id.theme_drawableIcSuggestStripDivider);
 
         mPaint = new Paint();
         mPaint.setColor(mColorNormal);
@@ -138,7 +150,7 @@ public class CandidateView extends View {
         mPaint.setTextSize(mPreviewText.getTextSize());
         mPaint.setStrokeWidth(0);
         mDescent = (int) mPaint.descent();
-        
+
         mGestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
             @Override
             public void onLongPress(MotionEvent me) {
@@ -148,7 +160,7 @@ public class CandidateView extends View {
                     }
                 }
             }
-            
+
             @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2,
                     float distanceX, float distanceY) {
@@ -158,7 +170,7 @@ public class CandidateView extends View {
                 if (mScrollX < 0) {
                     mScrollX = 0;
                 }
-                if (distanceX > 0 && mScrollX + width > mTotalWidth) {                    
+                if (distanceX > 0 && mScrollX + width > mTotalWidth) {
                     mScrollX -= (int) distanceX;
                 }
                 //fixing the touchX too
@@ -177,7 +189,7 @@ public class CandidateView extends View {
         setVerticalScrollBarEnabled(false);
         mScrollX = 0;
     }
-    
+
     /**
      * A connection back to the service to communicate with the text field
      * @param listener
@@ -185,7 +197,7 @@ public class CandidateView extends View {
     public void setService(AnySoftKeyboard listener) {
         mService = listener;
     }
-    
+
     @Override
     public int computeHorizontalScrollRange() {
         return mTotalWidth;
@@ -202,17 +214,17 @@ public class CandidateView extends View {
         }
         mTotalWidth = 0;
         if (mSuggestions == null) return;
-        
+
         final int height = getHeight();
         if (mBgPadding == null) {
             mBgPadding = new Rect(0, 0, 0, 0);
             if (getBackground() != null) {
                 getBackground().getPadding(mBgPadding);
             }
-            mDivider.setBounds(0, mBgPadding.top, mDivider.getIntrinsicWidth(), 
+            mDivider.setBounds(0, mBgPadding.top, mDivider.getIntrinsicWidth(),
                     mDivider.getIntrinsicHeight());
         }
-        final int count = mSuggestions.size(); 
+        final int count = mSuggestions.size();
         //final int width = getWidth();
         final Rect bgPadding = mBgPadding;
         final Paint paint = mPaint;
@@ -283,7 +295,7 @@ public class CandidateView extends View {
             scrollToTarget();
         }
     }
-    
+
     private void scrollToTarget() {
         if (mTargetScrollX > mScrollX) {
             mScrollX += SCROLL_PIXELS;
@@ -300,7 +312,7 @@ public class CandidateView extends View {
         }
         invalidate();
     }
-    
+
     public void setSuggestions(List<CharSequence> suggestions, boolean completions,
             boolean typedWordValid, boolean haveMinimalSuggestion) {
         clear();
@@ -323,7 +335,7 @@ public class CandidateView extends View {
 //        final int count = mSuggestions.size();
 //        int firstItem = 0; // Actually just before the first item, if at the boundary
 //        while (i < count) {
-//            if (mWordX[i] < mScrollX 
+//            if (mWordX[i] < mScrollX
 //                    && mWordX[i] + mWordWidth[i] >= mScrollX - 1) {
 //                firstItem = i;
 //                break;
@@ -336,15 +348,15 @@ public class CandidateView extends View {
     	//going 3/4 left
     	updateScrollPosition(mScrollX - (int)(0.75 * getWidth()));
     }
-    
+
     public void scrollNext() {
 //        int i = 0;
 //        int targetX = mScrollX;
 //        final int count = mSuggestions.size();
 //        int rightEdge = mScrollX + getWidth();
-//        while (i < count) 
+//        while (i < count)
 //        {
-//            if ((mWordX[i] <= rightEdge) && ((mWordX[i] + mWordWidth[i]) >= rightEdge)) 
+//            if ((mWordX[i] <= rightEdge) && ((mWordX[i] + mWordWidth[i]) >= rightEdge))
 //            {
 //                targetX = Math.min(mWordX[i], mTotalWidth - getWidth());
 //                break;
@@ -361,7 +373,7 @@ public class CandidateView extends View {
     		targetX = 0;
         if (targetX > (mTotalWidth - 50))
         	targetX = (mTotalWidth - 50);
-        
+
         if (targetX != mScrollX) {
             // TODO: Animate
             mTargetScrollX = targetX;
@@ -370,7 +382,7 @@ public class CandidateView extends View {
             mScrolling = true;
         }
     }
-    
+
     public void clear() {
         mSuggestions = EMPTY_LIST;
         mTouchX = OUT_OF_BOUNDS;
@@ -383,7 +395,7 @@ public class CandidateView extends View {
             mPreviewPopup.dismiss();
         }
     }
-    
+
     @Override
     public boolean onTouchEvent(MotionEvent me) {
 
@@ -437,9 +449,9 @@ public class CandidateView extends View {
         }
         return true;
     }
-    
+
     /**
-     * For flick through from keyboard, call this method with the x coordinate of the flick 
+     * For flick through from keyboard, call this method with the x coordinate of the flick
      * gesture.
      * @param x
      */
@@ -464,7 +476,7 @@ public class CandidateView extends View {
                     .obtainMessage(MSG_REMOVE_PREVIEW), 60);
         }
     }
-    
+
     private void showPreview(int wordIndex, String altText) {
         int oldWordIndex = mCurrentWordIndex;
         mCurrentWordIndex = wordIndex;
@@ -475,7 +487,7 @@ public class CandidateView extends View {
             } else {
                 CharSequence word = altText != null? altText : mSuggestions.get(wordIndex);
                 mPreviewText.setText(word);
-                mPreviewText.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), 
+                mPreviewText.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
                         MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
                 int wordWidth = (int) (mPaint.measureText(word, 0, word.length()) + X_GAP * 2);
                 final int popupWidth = wordWidth
@@ -488,37 +500,37 @@ public class CandidateView extends View {
                 int [] offsetInWindow = new int[2];
                 getLocationInWindow(offsetInWindow);
                 if (mPreviewPopup.isShowing()) {
-                    mPreviewPopup.update(mPopupPreviewX, mPopupPreviewY + offsetInWindow[1], 
+                    mPreviewPopup.update(mPopupPreviewX, mPopupPreviewY + offsetInWindow[1],
                             popupWidth, popupHeight);
                 } else {
                     mPreviewPopup.setWidth(popupWidth);
                     mPreviewPopup.setHeight(popupHeight);
-                    mPreviewPopup.showAtLocation(this, Gravity.NO_GRAVITY, mPopupPreviewX, 
+                    mPreviewPopup.showAtLocation(this, Gravity.NO_GRAVITY, mPopupPreviewX,
                             mPopupPreviewY + offsetInWindow[1]);
                 }
                 mPreviewText.setVisibility(VISIBLE);
             }
         }
     }
-    
+
     private void removeHighlight() {
         mTouchX = OUT_OF_BOUNDS;
         invalidate();
     }
-    
+
     private void longPressFirstWord() {
         CharSequence word = mSuggestions.get(0);
         if (mService.addWordToDictionary(word.toString())) {
             showPreview(0, getContext().getResources().getString(R.string.added_word, word));
         }
     }
-    
+
     @Override
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         hidePreview();
     }
-    
+
     public int getmScrollX() {
 		return mScrollX;
 	}

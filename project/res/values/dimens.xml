@@ -20,11 +20,19 @@
 
 <resources>
     <dimen name="key_height">50dip</dimen>
-    <dimen name="candidate_font_height">16sp</dimen>
+<!--    <dimen name="candidate_font_height">16sp</dimen>-->
     <dimen name="candidate_vertical_padding">6sp</dimen>
     <dimen name="key_text_size">56sp</dimen>
     <dimen name="key_preview_offset">-12dp</dimen>
     <dimen name="key_preview_height">80dp</dimen>
     <dimen name="label_text_size">14sp</dimen>
     <dimen name="verticalCorrection">-10dip</dimen>
+
+    <dimen name="theme_dimensionIcSuggestStripScrollLeftArrowWidth">36dp</dimen>
+	<dimen name="theme_dimensionIcSuggestStripScrollRightArrowWidth">36dp</dimen>
+	<dimen name="theme_dimensionCandidatePreviewTextSize">18sp</dimen>
+	<dimen name="theme_dimensionKeyPreviewTextSize">40sp</dimen>
+	<dimen name="theme_dimensionKeyPreviewLayoutHeight">80sp</dimen>
+<!--todo: the following has no effect!-->
+	<dimen name="theme_dimensionCandidateViewLayoutHeight">38dp</dimen>
 </resources>

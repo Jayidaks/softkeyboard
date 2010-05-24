@@ -366,8 +366,31 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         mShadowColor = resources.getShadowColor();
         mShadowRadius = resources.getShadowRadius();
         mPreviewPopup = resources.getPreviewPopup();
-        mShowPreview = resources.getShowPreview();
-        mPreviewText = resources.getPreviewText();
+
+        int previewLayout = resources.getKeyPreviewLayoutResourceID();
+
+        if (previewLayout != 0) {
+        	Context inflateContext = resources.getKeyPreviewLayoutContext();
+			LayoutInflater inflater = (LayoutInflater) inflateContext
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			inflater = inflater.cloneInContext(inflateContext);
+			inflater.setFactory(new KeyPreviewTextViewInflaterFactory(resources));
+			mPreviewText = (TextView) inflater.inflate(previewLayout,
+					null);
+			// if(mPreviewText.getBackground() == null) {
+			// TODO: if background was set and we are working with
+			// better keyboard skin, we should see if there is
+			// @drawable/keyboard_key_feedback defined. If there is, use
+			// it!
+			// mPreviewText.setBackgroundDrawable();
+			// }
+			mPreviewTextSizeLarge = (int) mPreviewText.getTextSize();
+			mPreviewPopup.setContentView(mPreviewText);
+			mPreviewPopup.setBackgroundDrawable(null);
+			mShowPreview = true;
+		} else {
+			mShowPreview = false;
+		}
 
         a = getContext().obtainStyledAttributes(
                 R.styleable.Theme);
@@ -411,7 +434,14 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         initGestureDetector();
     }
 
-    private void initGestureDetector() {
+
+
+
+	public ThemeResources getThemeResources() {
+		return mResources;
+	}
+
+	private void initGestureDetector() {
         mGestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onFling(MotionEvent me1, MotionEvent me2,
@@ -723,6 +753,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
                 // For characters, use large font. For labels like "Done", use small font.
                 if (label.length() > 1 && key.codes.length < 2) {
                     paint.setTextSize(mLabelTextSize);
+                    mResources.getTypeface(R.id.theme_typefaceKeyText);
                     paint.setTypeface(Typeface.DEFAULT_BOLD);
                 } else {
                     paint.setTextSize(mKeyTextSize);
@@ -1046,8 +1077,10 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
                 mMiniKeyboardContainer = inflater.inflate(mPopupLayout, null);
                 //TODO: Support basic android KeyboardView. (use instanceof to find which class to use)
+                //TODO: R.id.* non-portable!!! Assign id during inflation!
                 mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
                         R.id.keyboardView);
+              //TODO: R.id.* non-portable!!! Assign id during inflation!
                 View closeButton = mMiniKeyboardContainer.findViewById(
                         R.id.button_close);
                 if (closeButton != null) closeButton.setOnClickListener(this);
@@ -1089,6 +1122,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
                 mMiniKeyboardCache.put(popupKey, mMiniKeyboardContainer);
             } else {
+            	//TODO: R.id.* non-portable!
                 mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
                         R.id.keyboardView);
             }

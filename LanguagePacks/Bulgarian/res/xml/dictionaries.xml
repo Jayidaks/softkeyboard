@@ -10,7 +10,7 @@
 	 -->
 	<Dictionary 
 		id="60c260c8-c126-43a6-838f-43be3a3e15fa" 
-		locale="dg"
+		locale="bg"
 		nameResId="@string/bulgarian_dictionary" 
 		type="binary" 
 		dictionaryAssertName="bg_binary.mp3" 

@@ -47,7 +47,6 @@ public class TemplateGenerator {
 					firstKey = false;
 				} else if (lastKey) {
 					sb.append(" android:keyEdgeFlags=\"right\" ");
-					lastKey = false;
 				}
 				sb.append("/>").append("\n");
 

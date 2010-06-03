@@ -11,14 +11,15 @@
 		description := some text you would like to add. index := the sort
 		index of this keyboard in the Settings page.
 	-->
-	<Keyboard
-	    nameResId="@string/ka_keyboard"
-	    iconResId="@drawable/ka"
-		layoutResId="@xml/ka_qwerty"
-		landscapeResId="@xml/ka_qwerty"
-		id="7f7a846e-1462-4f1b-a0ac-70bd063ea5a3"
-		description="Created with herrlado"
-		index="1"
-		physicalKeyboardMappingResId="@xml/ka_qwerty_physical"
-		defaultDictionaryLocale="ka"/>
+	<Keyboard nameResId="@string/ka_keyboard" iconResId="@drawable/ka"
+		layoutResId="@xml/ka_qwerty" landscapeResId="@xml/ka_qwerty"
+		id="7f7a846e-1462-4f1b-a0ac-70bd063ea5a3" description="Created with herrlado"
+		index="1" physicalKeyboardMappingResId="@xml/ka_qwerty_physical"
+		defaultDictionaryLocale="ka" />
+
+	<Keyboard nameResId="@string/ka_ergonomic" iconResId="@drawable/ka"
+		layoutResId="@xml/ka_ergonomic" landscapeResId="@xml/ka_ergonomic"
+		id="a857b4bb-a4f5-483f-aa3f-e67c55d57c0a" description="Created with herrlado"
+		index="2" physicalKeyboardMappingResId="@xml/ka_qwerty_physical"
+		defaultDictionaryLocale="ka" />
 </Keyboards>

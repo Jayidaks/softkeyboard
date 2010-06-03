@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">AnySoftKeyboard - Portuguese Language Pack</string>
-    <string name="pt_keyboard">Portuguese</string>
-    <!--string name="ptbr_keyboard">Portuguese Brazilian</string-->
-    <string name="pt_dictionary_small">Portuguese, small</string>
-    <string name="pt_dictionary_full">Portuguese, full</string>
-</resources>

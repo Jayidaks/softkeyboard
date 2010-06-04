@@ -59,6 +59,7 @@ import java.util.Map;
 
 import com.menny.android.anysoftkeyboard.AnySoftKeyboard;
 import com.menny.android.anysoftkeyboard.R;
+import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard;
 
 /**
  * A view that renders a virtual {@link Keyboard}. It handles rendering of keys and
@@ -534,6 +535,12 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         // Switching to a different keyboard should abort any pending keys so that the key up
         // doesn't get delivered to the old or new keyboard
         mAbortKey = true; // Until the next ACTION_DOWN
+
+        //TODO:
+//        if(keyboard instanceof AnyKeyboard){
+
+//        }
+
     }
 
     /**

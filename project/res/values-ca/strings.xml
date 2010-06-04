@@ -2,7 +2,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="ime_name">AnySoftKeyboard</string>
-    
+
     <string name="main_tab_welcome">Benvingut</string>
     <string name="main_tab_links">Enllaços</string>
     <string name="main_tab_credits">Crèdits</string>
@@ -22,15 +22,15 @@
 	<string name="main_tab_credits_additional_work_by">Tasques de programació addicionals per:</string>
 	<string name="main_tab_credits_localization_by">Tasques de traducció per:</string>
 	<string name="main_tab_credits_GUI_by">Imatges de la interfície gràfica per:</string>
-	
+
     <!-- Symbols that are commonly considered word separators in this language -->
     <!-- Customized to Catalan, I\'ve removed - and \' chars: by jmontane-->
-    <!-- Menny: Not supported yet 
+    <!-- Menny: Not supported yet
     <string name="word_separators">\u0020.,;:!?\n()[]*&amp;@{}/&lt;&gt;_+=|`~&quot;1234567890</string>
     -->
     <!-- Indicates that a word has been added to the dictionary -->
     <string name="added_word">S\'ha desat: <xliff:g id="word">%s</xliff:g></string>
-    
+
     <!-- settings - UI -->
     <string name="ui_group">Interfície d\'usuari</string>
     <string name="keyboard_layout_change_method_title">Botons de canvi de teclat</string>
@@ -41,19 +41,19 @@
         <item>Petita</item>
         <item>Gran</item>
     </string-array>
-    
+
     <string name="physical_keyboard_change_notification_title">Avís de canvi de teclat</string>
-    <string name="physical_keyboard_change_notification_summary">Tipus d'avís del teclat actiu</string>
+    <string name="physical_keyboard_change_notification_summary">Tipus d\'avís del teclat actiu</string>
     <string name="physical_keyboard_change_notification_dialog_title">Seleccioneu el tipus de notificació</string>
     <string-array name="physical_keyboard_change_notification_types">
         <item>Mostra sempre la icona del teclat actiu</item>
         <item>Mostra la icona en canviar de teclat</item>
         <item>Sense notificació</item>
     </string-array>
-    
+
     <string name="lengthy_operations_toast_notification">Notifica les operacions de llarga durada</string>
     <string name="lengthy_operations_toast_notification_summary">Mostra notificacions breus en operacions de llarga durada</string>
-    
+
     <!-- Options menu -->
     <string name="change_ime">Canvia el mètode d\'entrada</string>
     <string name="override_dictionary">No usis el diccionari predeterminat</string>
@@ -63,7 +63,7 @@
     <!-- Dictionary override toast messages -->
     <string name="override_disabled">Anul·lació finalitzada</string>
     <string name="override_enabled">S\'està usant el diccionari <xliff:g id="word">%s</xliff:g></string>
-    
+
     <!-- settings - effects-->
     <string name="effects_group">Efectes</string>
     <string name="ime_settings">Configuració del teclat</string>
@@ -77,14 +77,14 @@
         <item>Mitjana</item>
         <item>Forta</item>
     </string-array>
-    
+
     <string name="sound_on">So en prémer les tecles</string>
     <string name="sound_on_summary">Efectes de so en prémer les tecles.</string>
     <string name="use_custom_sound_volume">Volum personalitzat</string>
     <string name="use_custom_sound_volume_on_summary">El volum dels efectes de so és personalitzat.</string>
     <string name="use_custom_sound_volume_off_summary">El volum dels efectes de so és el volum de notificacions del sistema.</string>
     <string name="custom_sound_volume">Volum de pulsació de tecles personalitzat</string>
-    
+
     <string name="tweaks_group">Arranjaments</string>
     <string name="emoticon_long_press_opens_popup">Finestra d\'emoticones</string>
     <string name="emoticon_long_press_opens_popup_on_summary">Mostra la finestra emergent d\'emoticones amb una pulsació llarga</string>
@@ -94,8 +94,8 @@
     <string name="key_press_preview_popup">Mostra la tecla premuda</string>
     <string name="key_press_preview_popup_on_summary">Mostra en gran la tecla premuda</string>
     <string name="key_press_preview_popup_off_summary">No mostra en gran la tecla premuda</string>
-    
-    
+
+
     <string name="auto_caps">Maj. automàtiques</string>
     <string name="grammer_group">Gramàtica</string>
     <string name="candidates_on">Mostra els suggeriments</string>
@@ -110,22 +110,22 @@
     <!-- settings - keyboard group -->
     <string name="keyboards_group">Teclats</string>
     <string name="eng_keyboard">Anglès</string>
-    
-    <!-- Tutorials --> 
+
+    <!-- Tutorials -->
     <string name="show_tutorial_on_startup">Mostra aquest tutorial a l\'inici</string>
     <string name="tutorial_swipe_title">Swipe for keyboard change</string>
     <string name="tutorial_swipe_text">Podeu canviar la distribució del teclat lliscant el dit sobre el teclat. Llisque-lo d\'esquerra a dreta per canviar de llengua, feu-lo lliscar de dreta a esquerra per canviar als símbols.</string>
-    
+
     <!-- Special soft keyboard keys text -->
     <string name="label_go_key">D\'acord</string>
     <string name="label_next_key">Següent</string>
     <string name="label_send_key">Envia</string>
-    
+
     <string name="change_lang_wide">&#8594; ABC &#8594;</string>
     <string name="change_lang_regular">ABC</string>
     <string name="change_symbols_wide">&#8592; 123 &#8592;</string>
     <string name="change_symbols_regular">123</string>
-    
+
     <string name="please_wait">Espereu</string>
     <string name="toast_lengthy_words_long_operation">S\'està carregant el diccionari...</string>
     <string name="toast_lengthy_start_up_operation">S\'està iniciant l\'AnySoftKeyboard...</string>

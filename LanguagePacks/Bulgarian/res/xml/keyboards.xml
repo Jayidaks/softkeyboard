@@ -31,4 +31,31 @@
 	defaultDictionaryLocale="bg" 
 	description="Created with atg2d"
 	index="2"/>
+	<Keyboard 
+    id="be5efdea-fcf2-4c84-9ad6-c107a1d8a5a4" 
+    nameResId="@string/bg_4ph_keyboard"
+    layoutResId="@xml/bg_4ph_qwerty"
+    physicalKeyboardMappingResId="@xml/bg_ph_physical"
+    iconResId="@drawable/bg_ph"
+    defaultDictionaryLocale="bg" 
+    description="Created with atg2d"
+    index="3"/>
+    <Keyboard 
+    id="eff5809e-0a31-4a51-9145-aaeac87e1b3e" 
+    nameResId="@string/bg_4ph_keyboard2"
+    layoutResId="@xml/bg_4ph_qwerty2"
+    physicalKeyboardMappingResId="@xml/bg_ph_physical"
+    iconResId="@drawable/bg_ph"
+    defaultDictionaryLocale="bg" 
+    description="Created with atg2d"
+    index="4"/>
+    <Keyboard 
+    id="94cf45ee-9802-4969-b809-5e2eeac31868" 
+    nameResId="@string/bg_4bds_keyboard"
+    layoutResId="@xml/bg_4bds_qwerty"
+    physicalKeyboardMappingResId="@xml/bg_bds_physical"
+    iconResId="@drawable/bg_ph"
+    defaultDictionaryLocale="bg" 
+    description="Created with atg2d"
+    index="5"/>
 </Keyboards>

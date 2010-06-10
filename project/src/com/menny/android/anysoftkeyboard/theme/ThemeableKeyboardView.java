@@ -58,6 +58,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.menny.android.anysoftkeyboard.AnySoftKeyboard;
+import com.menny.android.anysoftkeyboard.MotionEventWrapper;
 import com.menny.android.anysoftkeyboard.R;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard;
 
@@ -293,11 +294,6 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
         TypedArray a =
         	askContext.obtainStyledAttributes(
                 attrs, R.styleable.KeyboardView, 0, 0); // 0x7f050000 = default style
-// NON PORTABLE
-        // KORVAA niin ett‰ alla olevat haut tehd‰‰n omaan TypedArrayhin joka on luotu
-
-        // ihme ettei obtainStyleAttributes t‰yt‰ puuttuvia tyylej‰...
-
 
 //        LayoutInflater inflate = null;
 
@@ -1084,10 +1080,8 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
                 mMiniKeyboardContainer = inflater.inflate(mPopupLayout, null);
                 //TODO: Support basic android KeyboardView. (use instanceof to find which class to use)
-                //TODO: R.id.* non-portable!!! Assign id during inflation!
                 mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
                         R.id.keyboardView);
-              //TODO: R.id.* non-portable!!! Assign id during inflation!
                 View closeButton = mMiniKeyboardContainer.findViewById(
                         R.id.button_close);
                 if (closeButton != null) closeButton.setOnClickListener(this);
@@ -1129,7 +1123,6 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
                 mMiniKeyboardCache.put(popupKey, mMiniKeyboardContainer);
             } else {
-            	//TODO: R.id.* non-portable!
                 mMiniKeyboard = (ThemeableKeyboardView) mMiniKeyboardContainer.findViewById(
                         R.id.keyboardView);
             }
@@ -1164,9 +1157,12 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
     public boolean onTouchEvent(MotionEvent me) {
         // Convert multi-pointer up/down events to single up/down events to
         // deal with the typical multi-pointer behavior of two-thumb typing
-    	//TODO:FIX THIS
-//        final int pointerCount = me.getPointerCount();
-    	final int pointerCount = 1;
+
+    	int pointerCount = 1;
+    	if(MotionEventWrapper.isGetPointerCountSupported()){
+    		pointerCount = MotionEventWrapper.getPointerCount(me);
+    	}
+
         final int action = me.getAction();
         boolean result = false;
         final long now = me.getEventTime();

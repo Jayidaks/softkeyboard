@@ -18,7 +18,7 @@
 		index="1" physicalKeyboardMappingResId="@xml/ar_qwerty_physical"
 		defaultDictionaryLocale="ar" />
 -->
-	<Keyboard id="203ac227-a166-4732-8c17-dc525cac00c1" nameResId="@string/ar_keyboard_extra_rows"
+	<Keyboard id="3cd03b9b-72c0-44a1-ad6d-911734fcd576" nameResId="@string/ar_keyboard_extra_rows"
 		layoutResId="@xml/ar_qwerty_4_rows" landscapeResId="@xml/ar_qwerty_4_rows" iconResId="@drawable/am"
 		defaultDictionaryLocale="ar" description="Created with herrlado"
 		index="1" />

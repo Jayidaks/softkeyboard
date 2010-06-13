@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Themes>
+    <Theme nameResId="@string/theme_name" definitionResId="@xml/theme_resources"
+      id="5b1b1a9f-42ba-40c9-9634-02431ba90245" description="External Sample Theme" index="1"/>
+</Themes>

@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.ALTERNATIVE" />
                 <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
             </intent-filter>
-              <meta-data android:name="com.menny.android.anysoftkeyboard.themes" android:resource="@xml/theme_resources" />
+              <meta-data android:name="com.menny.android.anysoftkeyboard.themes" android:resource="@xml/themes" />
             <!-- <meta-data android:name="com.menny.android.anysoftkeyboard.themes"
                 android:resource="Demo"/>-->
         </receiver>

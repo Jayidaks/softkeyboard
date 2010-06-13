@@ -2,7 +2,7 @@
 <Theme xmlns:android="http://schemas.android.com/apk/res/android" xmlns:menny="http://schemas.android.com/apk/res/com.menny.android.anysoftkeyboard">
 <!--  Unfortunately we cannot reference ?android: resources here for some reason. -->
 <!-- Don't worry about the tag name, it's themeable keyboard view -->
-<android.inputmethodservice.KeyboardView
+<AnySoftKeyboardTheme
 	keyTextSize="@dimen/key_text_size"
 	keyBackground="@drawable/btn_keyboard_key"
 	keyPreviewLayout="@layout/keyboard_key_preview"

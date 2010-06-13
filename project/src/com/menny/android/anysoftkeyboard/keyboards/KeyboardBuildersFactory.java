@@ -4,6 +4,8 @@ import com.menny.android.anysoftkeyboard.AnyKeyboardContextProvider;
 import com.menny.android.anysoftkeyboard.AnySoftKeyboard;
 import com.menny.android.anysoftkeyboard.AnySoftKeyboardConfiguration;
 import com.menny.android.anysoftkeyboard.R;
+import com.menny.android.anysoftkeyboard.theme.ThemeResources;
+import com.menny.android.anysoftkeyboard.theme.ThemeSwitcher;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -92,7 +94,8 @@ public class KeyboardBuildersFactory {
         }
 
         public AnyKeyboard createKeyboard(AnyKeyboardContextProvider askContext) {
-            return new ExternalAnyKeyboard(askContext, mPackageContext, mResId, mLandscapeResId, getId(), mNameId, mIconResId, mQwertyTranslationId, mDefaultDictionary, mAdditionalIsLetterExceptions);
+        	ThemeResources themeResources = ThemeSwitcher.getThemeResources(askContext.getApplicationContext());
+            return new ExternalAnyKeyboard(askContext, mPackageContext, mResId, mLandscapeResId, getId(), mNameId, mIconResId, mQwertyTranslationId, mDefaultDictionary, mAdditionalIsLetterExceptions, themeResources);
         }
 
         public Context getPackageContext() {return mPackageContext;}
@@ -130,10 +133,10 @@ public class KeyboardBuildersFactory {
     {
         ms_creators = null;
     }
-    
+
     public synchronized static void onPackageSetupChanged(String packageName)
     {
-    	
+
     }
 
     public synchronized static ArrayList<KeyboardBuilder> getAllBuilders(final Context context) {
@@ -203,7 +206,7 @@ public class KeyboardBuildersFactory {
                         receiver.activityInfo.packageName, PackageManager.GET_META_DATA);
                 final ArrayList<KeyboardBuilder> packageKeyboardCreators = getKeyboardCreatorsFromActivityInfo(externalPackageContext,
                         receiver.activityInfo);
-                
+
                 externalKeyboardCreators.addAll(packageKeyboardCreators);
             } catch (final NameNotFoundException e) {
                 Log.e(TAG, "Did not find package: " + receiver.activityInfo.packageName);

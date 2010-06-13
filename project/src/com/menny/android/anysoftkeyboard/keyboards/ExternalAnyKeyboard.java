@@ -18,6 +18,7 @@ import com.menny.android.anysoftkeyboard.AnySoftKeyboardConfiguration;
 import com.menny.android.anysoftkeyboard.R;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard.HardKeyboardTranslator;
 import com.menny.android.anysoftkeyboard.keyboards.AnyKeyboard.LessSensitiveAnyKey;
+import com.menny.android.anysoftkeyboard.theme.ThemeResources;
 
 public class ExternalAnyKeyboard extends AnyKeyboard implements HardKeyboardTranslator {
 
@@ -59,10 +60,10 @@ public class ExternalAnyKeyboard extends AnyKeyboard implements HardKeyboardTran
 			Context context, int xmlLayoutResId, int xmlLandscapeResId,
 			String prefId, int nameResId, int iconResId,
 			int qwertyTranslationId, String defaultDictionary,
-			String additionalIsLetterExceptions) {
+			String additionalIsLetterExceptions, ThemeResources themeResources) {
 		this(askContext, context, xmlLayoutResId, xmlLandscapeResId, prefId,
 				nameResId, iconResId, qwertyTranslationId, defaultDictionary,
-				additionalIsLetterExceptions, true);
+				additionalIsLetterExceptions, true, themeResources);
 	}
 
 	public ExternalAnyKeyboard(AnyKeyboardContextProvider askContext, Context context,
@@ -74,8 +75,9 @@ public class ExternalAnyKeyboard extends AnyKeyboard implements HardKeyboardTran
 			int qwertyTranslationId,
 			String defaultDictionary,
 			String additionalIsLetterExceptions,
-			boolean addGenericRows) {
-		super(askContext, context, getKeyboardId(askContext.getApplicationContext(), xmlLayoutResId, xmlLandscapeResId));
+			boolean addGenericRows,
+			ThemeResources themeResources) {
+		super(askContext, context, getKeyboardId(askContext.getApplicationContext(), xmlLayoutResId, xmlLandscapeResId), themeResources);
 		mPrefId = prefId;
 		mNameResId = nameResId;
 		mIconId = iconResId;
@@ -347,7 +349,7 @@ public class ExternalAnyKeyboard extends AnyKeyboard implements HardKeyboardTran
 		{
 			Log.d(TAG, "inPortraitMode:"+inPortraitMode+" portrait ID:"+portraitId+" landscape ID:"+landscapeId);
 		}
-		
+
 		if (inPortraitMode)
 			return portraitId;
 		else
@@ -374,7 +376,7 @@ public class ExternalAnyKeyboard extends AnyKeyboard implements HardKeyboardTran
 					//uppercasing
 					shiftTranslation = Character.toUpperCase(shiftTranslation);
 				}
-				
+
 				translated = shiftTranslation;
 			}
 			else

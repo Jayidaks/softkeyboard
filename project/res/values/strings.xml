@@ -2,7 +2,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="ime_name">AnySoftKeyboard</string>
-    
+
     <string name="main_tab_welcome">Welcome</string>
     <string name="main_tab_links">Links</string>
     <string name="main_tab_credits">Credits</string>
@@ -22,20 +22,20 @@
 	<string name="main_tab_credits_additional_work_by">Additional coding work by:</string>
 	<string name="main_tab_credits_localization_by">Localization efforts by:</string>
 	<string name="main_tab_credits_GUI_by">UI images by:</string>
-	
+
 	<!-- notifications -->
 	<string name="notification_text">Welcome! Please, read me.</string>
 	<string name="testers_version">Testers version!</string>
-	
+
 	<!-- changelog -->
 	<string name="changelog">Changelog</string>
 	<string name="search_market_for_addons">Search for add-ons</string>
-	
+
     <!-- Symbols that are commonly considered word separators in this language -->
     <!-- <string name="word_separators">\u0020.,;:!?\n()[]*&amp;@{}/&lt;&gt;_+=|-'`~&quot;1234567890</string>-->
     <!-- Indicates that a word has been added to the dictionary -->
     <string name="added_word"><xliff:g id="word">%s</xliff:g> : Saved</string>
-    
+
     <!-- settings - UI -->
     <string name="ui_group">User interface</string>
     <string name="keyboard_layout_change_keys_size_title">Layout change keys</string>
@@ -46,7 +46,7 @@
         <item>Small</item>
         <item>Big</item>
     </string-array>
-    
+
     <string name="physical_keyboard_change_notification_title">Keyboard layout notification</string>
     <string name="physical_keyboard_change_notification_summary">Type of notification about the active layout</string>
     <string name="physical_keyboard_change_notification_dialog_title">Select notification type</string>
@@ -55,10 +55,10 @@
         <item>On physical keyboard change</item>
         <item>No notification</item>
     </string-array>
-    
+
     <string name="lengthy_operations_toast_notification">Notify on lengthy operations</string>
     <string name="lengthy_operations_toast_notification_summary">Show short notifications on lengthy operations</string>
-    
+
     <!-- Options menu -->
     <string name="change_ime">Change input method</string>
     <string name="override_dictionary">Override default dictionary</string>
@@ -68,7 +68,7 @@
     <!-- Dictionary override toast messages -->
     <string name="override_disabled">Override cleared</string>
     <string name="override_enabled">Overriding to <xliff:g id="word">%s</xliff:g></string>
-    
+
     <!-- settings - effects-->
     <string name="effects_group">Effects</string>
     <string name="ime_settings">Keyboard settings</string>
@@ -82,18 +82,18 @@
         <item>Medium</item>
         <item>Hard</item>
     </string-array>
-    
+
     <string name="sound_on">Sound on key-press</string>
     <string name="sound_on_summary">Sound effects on soft keyboard press.</string>
     <string name="use_custom_sound_volume">Set custom volume</string>
     <string name="use_custom_sound_volume_on_summary">Sounds effects volume is custom.</string>
     <string name="use_custom_sound_volume_off_summary">Sounds effects volume is the system\'s notifications volume.</string>
     <string name="custom_sound_volume">Custom key-press volume</string>
-    
+
     <string name="tweaks_group">Tweaks</string>
     <string name="use_keyrepeat">Use key repeat</string>
     <string name="use_keyrepeat_on_summary">Key repeat is enabled</string>
-    <string name="use_keyrepeat_off_summary">Key repeat is disabled</string>    
+    <string name="use_keyrepeat_off_summary">Key repeat is disabled</string>
     <string name="emoticon_long_press_opens_popup">Long-press smiley popup</string>
     <string name="emoticon_long_press_opens_popup_on_summary">Show emoticons popup on long-press</string>
     <string name="emoticon_long_press_opens_popup_off_summary">Show emoticons popup on short-press</string>
@@ -140,11 +140,11 @@
         <item>Move cursor left</item>
         <item>Move cursor right</item>
     </string-array>
-    
+
     <string name="action_key_invisible_on_disable">Invisible action key</string>
     <string name="action_key_invisible_on_disable_on_summary">Action key will be invisible when GUI requests</string>
     <string name="action_key_invisible_on_disable_off_summary">Action key will be visible even if GUI requests</string>
-    
+
     <string name="auto_caps">Auto-capitalization</string>
     <string name="grammer_group">Grammar</string>
     <string name="candidates_on">Show suggestions</string>
@@ -156,32 +156,38 @@
     <string name="physical_keyboard_suggestions_summary">Show suggestions when using device keyboard</string>
     <string name="keyboard_sandbox">Click for text testing</string>
     <string name="keyboard_sandbox_title">Type below to test your settings</string>
+    <string name="themes">Themes</string>
+    <string name="themes_summary">Change the visual outlook of the keyboard</string>
     <!-- settings - keyboard group -->
     <string name="keyboards_group">Keyboards</string>
     <string name="symbols_keyboard">Symbols</string>
     <string name="eng_keyboard">English</string>
-    
-    <!-- Tutorials --> 
+
+
+    <!-- Tutorials -->
     <string name="show_tutorial_on_startup">Show this tutorial on startup</string>
     <string name="tutorial_swipe_title">Swipe for keyboard change</string>
     <string name="tutorial_swipe_text">Keyboard layout can be changed by swiping you finger over the keyboard. Swipe left-to-right to change language, swipe right-to-left to change to symbols.</string>
-    
+
     <!-- Special soft keyboard keys text -->
     <string name="label_go_key">Go</string>
     <string name="label_next_key">Next</string>
     <string name="label_send_key">Send</string>
     <string name="label_done_key">Done</string>
-    
+
     <string name="change_lang_wide">&#8594; ABC &#8594;</string>
     <string name="change_lang_regular">ABC</string>
     <string name="change_symbols_wide">&#8592; 123 &#8592;</string>
     <string name="change_symbols_regular">123</string>
-    
+
     <string name="please_wait">Please wait</string>
     <string name="toast_lengthy_words_long_operation">Loading dictionary...</string>
     <string name="toast_lengthy_start_up_operation">Starting AnySoftKeyboard...</string>
     <string name="lengthy_creating_keyboard_operation">Creating keyboards...</string>
-    
+
     <!-- dictionaries -->
     <string name="eng_dictionary">English</string>
+
+    <!-- Themes  -->
+    <string name="default_theme">Default Theme</string>
 </resources>

@@ -38,7 +38,7 @@ public class GenericRowKeyboardTest extends InstrumentationTestCase {
 		qwertyWithGenericRowsKeyboard = new ExternalAnyKeyboard(
 				contextProvider, getInstrumentation().getContext(),
 				R.xml.qwerty_with_generic_rows, -1, "withGeneric", 0, 0, -1,
-				"none", null, false);
+				"none", null, false, null);
 
 		qwertyWithoutGenericRowsKeyboard = qwertyWithoutGenericRowsKeyboardBuilder
 				.createKeyboard(contextProvider);

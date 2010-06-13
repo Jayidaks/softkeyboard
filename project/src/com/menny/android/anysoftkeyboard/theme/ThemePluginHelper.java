@@ -49,7 +49,7 @@
 //	private static final String TAG = "ThemePluginUtils";
 //
 //	private Context mContext;
-//	private ArrayList<ThemePluginInfo> mPluginsInfo;
+//	private ArrayList<ThemeResourcesBuilder> mPluginsInfo;
 //	private ArrayList<ThemePlugin> mPluginObjects;
 //	private boolean mLoaded;
 //
@@ -64,11 +64,11 @@
 //
 //	private ThemePluginHelper(Context context) {
 //		mContext = context;
-//		mPluginsInfo = new ArrayList<ThemePluginInfo>();
+//		mPluginsInfo = new ArrayList<ThemeResourcesBuilder>();
 //		mPluginObjects = new ArrayList<ThemePlugin>();
 //	}
 //
-//	public ArrayList<ThemePluginInfo> getPluginsInfo() {
+//	public ArrayList<ThemeResourcesBuilder> getPluginsInfo() {
 //		if (!mLoaded) {
 //			loadAvailablePlugins();
 //		}
@@ -131,7 +131,7 @@
 //				continue;
 //			}
 //
-//			ThemePluginInfo pluginInfo = new ThemePluginInfo(providerName,
+//			ThemeResourcesBuilder pluginInfo = new ThemeResourcesBuilder(providerName,
 //					serviceInfo.packageName, serviceInfo.name,
 //					serviceInfo.applicationInfo.sourceDir, providerId);
 //
@@ -157,7 +157,7 @@
 //	}
 //
 //	private boolean isPluginDuplicated(String providerId) {
-//		for (ThemePluginInfo plugin : mPluginsInfo) {
+//		for (ThemeResourcesBuilder plugin : mPluginsInfo) {
 //			if (plugin.mId.equals(providerId)) {
 //				return true;
 //			}
@@ -165,7 +165,7 @@
 //		return false;
 //	}
 //
-//	private ThemePlugin loadPlugin(ThemePluginInfo pluginInfo) {
+//	private ThemePlugin loadPlugin(ThemeResourcesBuilder pluginInfo) {
 //		// XXX Load the plug-in implementation directly from the apk rather than
 //		// binding to the service and call through IPC Binder API. This is much
 //		// more effective since we don't need to start the service in other
@@ -194,7 +194,7 @@
 //	}
 //
 //
-////	private long updateProviderDb(ThemePlugin plugin, ThemePluginInfo info,
+////	private long updateProviderDb(ThemePlugin plugin, ThemeResourcesBuilder info,
 ////			String providerFullName) {
 ////		Map<String, String> config = loadConfiguration(plugin, info);
 ////		if (config == null) {
@@ -272,7 +272,7 @@
 ////	}
 //
 ////	private Map<String, String> loadConfiguration(ThemePlugin plugin,
-////			ThemePluginInfo info) {
+////			ThemeResourcesBuilder info) {
 ////		Map<String, String> config = null;
 ////
 ////		config = plugin.getProviderConfig();

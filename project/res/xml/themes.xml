@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Themes>
+    <Theme nameResId="@string/default_theme" iconResId="@drawable/icon_8_key" definitionResId="@xml/default_theme"
+     previewResId="@drawable/icon_8_key" id="084e775f-2717-4f99-af17-f107ec0d72ed" description="Default Theme" index="1"/>
+</Themes>

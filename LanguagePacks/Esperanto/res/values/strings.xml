@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AnySoftKeyboard - Esperanto Language Pack</string>
     <string name="keyboard">Esperanto keyboard</string>
+    <string name="dictionary">Esperanto</string>
 </resources>

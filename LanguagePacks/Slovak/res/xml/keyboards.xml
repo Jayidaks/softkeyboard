@@ -13,7 +13,7 @@
 	-->
 	<Keyboard nameResId="@string/sk_keyboard" iconResId="@drawable/sk"
 		layoutResId="@xml/sk_qwerty" landscapeResId="@xml/sk_qwerty"
-		id="8c9bcbd0-3cda-4bee-bbab-198173a8afa1" description="Created with vanovcan"
+		id="8c9bcbd0-3cda-4bee-bbab-198173a8afa1" description="Created with vanovcan &amp; herrlado"
 		index="1" physicalKeyboardMappingResId="@xml/sk_qwerty_physical"
 		defaultDictionaryLocale="sk" />
 </Keyboards>

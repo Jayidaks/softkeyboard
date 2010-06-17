@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<!--
+		id := a UUID (you may want to generate this using our simple Java
+		program at: /trunk/project/dict_creation (uuidgen_Windows.bat or
+		uuidgen_Linux) nameResId := the resource Id which holds the name of
+		the keyboard. See strings.xml. layoutResId := the resource Id which
+		holds the layout definition of this keyboard. The sample is an English
+		QWERTY keyboard. defaultDictionaryLocale := a locate identifier for
+		this keyboard. E.g., English will be en, Hebrew will be iw, etc.
+		description := some text you would like to add. index := the sort
+		index of this keyboard in the Settings page.
+	-->
+	<Keyboard nameResId="@string/lv_keyboard" iconResId="@drawable/lv"
+		layoutResId="@xml/lv_qwerty" landscapeResId="@xml/lv_qwerty"
+		id="dc5261af-3709-4cd1-98cd-502a84f2b87a" description="Created with Latvian Guys"
+		index="1" physicalKeyboardMappingResId="@xml/lv_qwerty_physical"
+		defaultDictionaryLocale="lv" />
+</Keyboards>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+    <Keyboard nameResId="@string/lt_keyboard" iconResId="@drawable/lt" layoutResId="@xml/lt_qwerty" landscapeResId="@xml/lt_qwerty" id="bcce6147-ba87-46c4-82a6-961d507d900f" description="Created with rytis.s,KPocius, linasj,rq@rq.lt,herrlado" index="1" physicalKeyboardMappingResId="@xml/lt_qwerty_physical" defaultDictionaryLocale="lt" />
+</Keyboards>

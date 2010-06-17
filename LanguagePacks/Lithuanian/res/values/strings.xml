@@ -3,7 +3,5 @@
     <string name="app_name">AnySoftKeyboard - Lithuanian Language Pack</string>
     <string name="lt_keyboard">Lithuanian</string>
     <string name="dictionary">Dictionary</string>
-    <string name="lt_standard_description">Created with rytis.s,KPocius, linasj,rq@rq.lt,herrlado</string>
-    <string name="lt_qwerty_description">Created with rytis.s,KPocius, linasj,rq@rq.lt,herrlado</string>
-    <string name="lt_dictionary_description">Created with rytis.s,KPocius, linasj,rq@rq.lt,herrlado</string>
+    <string name="lt_qwerty_description">QWERTY Lithuanian keyboard</string>
 </resources>

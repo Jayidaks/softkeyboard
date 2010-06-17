@@ -3,7 +3,5 @@
     <string name="app_name">AnySoftKeyboard - Lietuvių kalbos paketas</string>
     <string name="lt_keyboard">Lietuvių</string>
     <string name="dictionary">Žodynas</string>
-    <string name="lt_standard_description">Sukūrė rytis.s,KPocius, linasj,rq@rq.lt,herrlado</string>
-    <string name="lt_qwerty_description">Sukūrė rytis.s,KPocius, linasj,rq@rq.lt,herrlado</string>
-    <string name="lt_dictionary_description">Sukūrė rytis.s,KPocius, linasj,rq@rq.lt,herrlado</string>
+    <string name="lt_qwerty_description">Lietuviškas QWERTY išdėstymas</string>
 </resources>

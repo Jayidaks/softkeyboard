@@ -4,9 +4,9 @@
     android:keyWidth="10%p"
     android:horizontalGap="0px"
     android:verticalGap="0px"
-    android:keyHeight="50dip"
+    android:keyHeight="@dimen/key_height"
     >
-    <Row android:keyWidth="9.09%p">
+    <Row>
         <Key android:codes="113" android:keyLabel="q" android:keyEdgeFlags="left"/>
         <Key android:codes="119" android:keyLabel="w"/>
         <Key android:codes="101" android:keyLabel="e"/>
@@ -19,7 +19,7 @@
         <Key android:codes="112" android:keyLabel="p"/>
         <Key android:codes="229" android:keyLabel="å" android:keyEdgeFlags="right"/>
     </Row>
-    
+
     <Row android:keyWidth="9.09%p">
         <Key android:codes="97" android:keyLabel="a" android:keyEdgeFlags="left"/>
         <Key android:codes="115" android:keyLabel="s"/>
@@ -33,7 +33,7 @@
         <Key android:codes="246" android:keyLabel="ö"/>
         <Key android:codes="228" android:keyLabel="ä" android:keyEdgeFlags="right"/>
     </Row>
-    
+
     <Row>
         <Key android:codes="-1"
                 android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left"/>

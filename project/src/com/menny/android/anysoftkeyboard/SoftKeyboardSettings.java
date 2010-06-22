@@ -5,6 +5,7 @@ import com.menny.android.anysoftkeyboard.keyboards.KeyboardBuildersFactory;
 import com.menny.android.anysoftkeyboard.keyboards.KeyboardBuildersFactory.KeyboardBuilder;
 import com.menny.android.anysoftkeyboard.theme.ThemeResourcesBuilder;
 import com.menny.android.anysoftkeyboard.theme.ThemeResourcesBuildersFactory;
+import com.menny.android.anysoftkeyboard.theme.ThemeSwitcher;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -79,6 +80,7 @@ public class SoftKeyboardSettings extends PreferenceActivity {
             keyboards.addPreference(checkBox);
         }
 
+        ThemeSwitcher.resetCachedTheme();
         ThemeResourcesBuildersFactory.resetBuildersCache();
         Map<String, ThemeResourcesBuilder> themeBuilders = ThemeResourcesBuildersFactory
                 .getAllBuilders(getApplicationContext());

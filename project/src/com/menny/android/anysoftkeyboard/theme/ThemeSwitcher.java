@@ -12,7 +12,7 @@ public class ThemeSwitcher {
 
     private static ThemeResources mThemeResources;
 
-    public void resetCachedTheme() {
+    public static void resetCachedTheme() {
         mThemeResources = null;
     }
 

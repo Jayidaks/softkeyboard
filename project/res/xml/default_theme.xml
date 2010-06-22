@@ -3,99 +3,100 @@
 <!--  Unfortunately we cannot reference ?android: resources here for some reason. -->
 <!-- Don't worry about the tag name, it's themeable keyboard view -->
 <AnySoftKeyboardTheme
-	keyTextSize="@dimen/key_text_size"
-	keyBackground="@drawable/btn_keyboard_key"
-	keyPreviewLayout="@layout/keyboard_key_preview"
-	keyTextColor="@color/key_text_color"
-	keyPreviewOffset="@dimen/key_preview_offset"
-	keyPreviewHeight="@dimen/key_preview_height"
-	labelTextSize="@dimen/label_text_size"
-	popupLayout="@layout/keyboard_popup_keyboard"
-	verticalCorrection="@dimen/verticalCorrection"
-	shadowColor="@color/shadow_color"
-	shadowRadius="2.75"
-	candidatePreviewLayout="@layout/candidate_preview"
-	candidateViewContainerLayout="@layout/candidates"
+    keyTextSize="@dimen/key_text_size"
+    keyBackground="@drawable/btn_keyboard_key"
+    keyPreviewLayout="@layout/keyboard_key_preview"
+    keyTextColor="@color/key_text_color"
+    keyPreviewOffset="@dimen/key_preview_offset"
+    keyPreviewHeight="@dimen/key_preview_height"
+    labelTextSize="@dimen/label_text_size"
+    popupLayout="@layout/keyboard_popup_keyboard"
+    verticalCorrection="@dimen/verticalCorrection"
+    shadowColor="@color/shadow_color"
+    shadowRadius="2.75"
+    candidatePreviewLayout="@layout/candidate_preview"
+    candidateViewContainerLayout="@layout/candidates"
 
-	drawableSymKeyboardArrowLeft="@drawable/sym_keyboard_arrow_left"
-	drawableSymKeyboardArrowRight="@drawable/sym_keyboard_arrow_right"
-	drawableKeyboardKeyDomain="@drawable/sym_keyboard_key_domain"
-	drawableKeyboardKeyDomainPreview="@drawable/sym_keyboard_key_domain_preview"
-	drawableSymKeyboardCtrl="@drawable/sym_keyboard_ctrl"
-	drawableSymKeyboardDelete="@drawable/sym_keyboard_delete_small"
-	drawableSymKeyboardReturn="@drawable/sym_keyboard_return"
-	drawableSymKeyboardSearch="@drawable/sym_keyboard_search"
-	drawableSymKeyboardShift="@drawable/sym_keyboard_shift"
-	drawableSymKeyboardShiftLocked="@drawable/sym_keyboard_shift_on"
-	drawableSymKeyboardSpace="@drawable/sym_keyboard_space"
-	drawableSymKeyboardTab="@drawable/tab_key"
-	drawableSymKeyboardNum0="@drawable/sym_keyboard_num0"
-	drawableSymKeyboardNum1="@drawable/sym_keyboard_num1"
-	drawableSymKeyboardNum2="@drawable/sym_keyboard_num2"
-	drawableSymKeyboardNum3="@drawable/sym_keyboard_num3"
-	drawableSymKeyboardNum4="@drawable/sym_keyboard_num4"
-	drawableSymKeyboardNum5="@drawable/sym_keyboard_num5"
-	drawableSymKeyboardNum6="@drawable/sym_keyboard_num6"
-	drawableSymKeyboardNum7="@drawable/sym_keyboard_num7"
-	drawableSymKeyboardNum8="@drawable/sym_keyboard_num8"
-	drawableSymKeyboardNum9="@drawable/sym_keyboard_num9"
-	drawableKeyboardKeyClose="@drawable/btn_close"
-	drawableKeyboardKeyFeedback="@drawable/keyboard_key_feedback"
-	drawableKeyboardPopupPanelBackground="@drawable/keyboard_popup_panel_background"
-	drawableIcSuggestScrollBackground="@drawable/ic_suggest_scroll_background"
-	drawableIcSuggestStripScrollLeftArrow="@drawable/ic_suggest_strip_scroll_left_arrow"
-	drawableIcSuggestStripScrollRightArrow="@drawable/ic_suggest_strip_scroll_right_arrow"
-	drawableIcSuggestStripDivider="@drawable/keyboard_suggest_strip_divider"
-	drawableCandidateFeedbackBackground="@drawable/candidate_feedback_background"
-	drawableKeyboardSuggestStripBackground="@drawable/keyboard_suggest_strip"
+    drawableSymKeyboardArrowLeft="@drawable/sym_keyboard_arrow_left"
+    drawableSymKeyboardArrowRight="@drawable/sym_keyboard_arrow_right"
+    drawableSymKeyboardKeyDomain="@drawable/sym_keyboard_key_domain"
+    drawableSymKeyboardKeyDomainPreview="@drawable/sym_keyboard_key_domain_preview"
+    drawableSymKeyboardCtrl="@drawable/sym_keyboard_ctrl"
+    drawableSymKeyboardDelete="@drawable/sym_keyboard_delete_small"
+    drawableSymKeyboardReturn="@drawable/sym_keyboard_return"
+    drawableSymKeyboardSearch="@drawable/sym_keyboard_search"
+    drawableSymKeyboardSmiley="@drawable/sym_keyboard_smiley"
+    drawableSymKeyboardShift="@drawable/sym_keyboard_shift"
+    drawableSymKeyboardShiftLocked="@drawable/sym_keyboard_shift_on"
+    drawableSymKeyboardSpace="@drawable/sym_keyboard_space"
+    drawableSymKeyboardTab="@drawable/tab_key"
+    drawableSymKeyboardNum0="@drawable/sym_keyboard_num0"
+    drawableSymKeyboardNum1="@drawable/sym_keyboard_num1"
+    drawableSymKeyboardNum2="@drawable/sym_keyboard_num2"
+    drawableSymKeyboardNum3="@drawable/sym_keyboard_num3"
+    drawableSymKeyboardNum4="@drawable/sym_keyboard_num4"
+    drawableSymKeyboardNum5="@drawable/sym_keyboard_num5"
+    drawableSymKeyboardNum6="@drawable/sym_keyboard_num6"
+    drawableSymKeyboardNum7="@drawable/sym_keyboard_num7"
+    drawableSymKeyboardNum8="@drawable/sym_keyboard_num8"
+    drawableSymKeyboardNum9="@drawable/sym_keyboard_num9"
+    drawableKeyboardKeyClose="@drawable/btn_close"
+    drawableKeyboardKeyFeedback="@drawable/keyboard_key_feedback"
+    drawableKeyboardPopupPanelBackground="@drawable/keyboard_popup_panel_background"
+    drawableIcSuggestScrollBackground="@drawable/ic_suggest_scroll_background"
+    drawableIcSuggestStripScrollLeftArrow="@drawable/ic_suggest_strip_scroll_left_arrow"
+    drawableIcSuggestStripScrollRightArrow="@drawable/ic_suggest_strip_scroll_right_arrow"
+    drawableIcSuggestStripDivider="@drawable/keyboard_suggest_strip_divider"
+    drawableCandidateFeedbackBackground="@drawable/candidate_feedback_background"
+    drawableKeyboardSuggestStripBackground="@drawable/keyboard_suggest_strip"
 
 
 
-	colorCandidatePreviewTextColor="@color/theme_colorCandidatePreviewTextColor"
-	colorKeyPreviewTextColor="@color/theme_colorKeyPreviewTextColor"
-	colorCandidateNormalText="@color/candidate_normal"
-	colorCandidateRecommendedText="@color/candidate_recommended"
-	colorCandidateOtherText="@color/candidate_other"
+    colorCandidatePreviewTextColor="@color/theme_colorCandidatePreviewTextColor"
+    colorKeyPreviewTextColor="@color/theme_colorKeyPreviewTextColor"
+    colorCandidateNormalText="@color/candidate_normal"
+    colorCandidateRecommendedText="@color/candidate_recommended"
+    colorCandidateOtherText="@color/candidate_other"
 
-	dimensionIcSuggestStripScrollLeftArrowWidth="@dimen/theme_dimensionIcSuggestStripScrollLeftArrowWidth"
-	dimensionIcSuggestStripScrollRightArrowWidth="@dimen/theme_dimensionIcSuggestStripScrollRightArrowWidth"
-	dimensionCandidatePreviewTextSize="@dimen/theme_dimensionCandidatePreviewTextSize"
-	dimensionKeyPreviewTextSize="@dimen/theme_dimensionKeyPreviewTextSize"
-	dimensionKeyPreviewLayoutHeight="@dimen/theme_dimensionKeyPreviewLayoutHeight"
-	dimensionCandidateViewLayoutHeight="@dimen/theme_dimensionCandidateViewLayoutHeight"
+    dimensionIcSuggestStripScrollLeftArrowWidth="@dimen/theme_dimensionIcSuggestStripScrollLeftArrowWidth"
+    dimensionIcSuggestStripScrollRightArrowWidth="@dimen/theme_dimensionIcSuggestStripScrollRightArrowWidth"
+    dimensionCandidatePreviewTextSize="@dimen/theme_dimensionCandidatePreviewTextSize"
+    dimensionKeyPreviewTextSize="@dimen/theme_dimensionKeyPreviewTextSize"
+    dimensionKeyPreviewLayoutHeight="@dimen/theme_dimensionKeyPreviewLayoutHeight"
+    dimensionCandidateViewLayoutHeight="@dimen/theme_dimensionCandidateViewLayoutHeight"
 
-	/>
+    />
 
 
 <!--typefaceCandidatePreviewText="@android:fonts/sans"-->
 <!--typefaceKeyPreviewText="@android:fonts/sans"-->
 
-<!--		style="@style/KeyboardViewTheme"-->
-<!--	menny:keyTextColor="?android:keyTextColor"-->
-<!--	menny:keyBackground="?android:keyBackground"-->
-<!--	menny:keyTextSize="@dimen/key_text_size"-->
-<!--	menny:keyPreviewLayout="?android:keyPreviewLayout"-->
-<!--	menny:keyPreviewOffset="?android:keyPreviewOffset"-->
-<!--	menny:keyPreviewHeight="?android:keyPreviewHeight"-->
-<!--	menny:labelTextSize="?android:labelTextSize"-->
-<!--	menny:popupLayout="?android:popupLayout"-->
-<!--	menny:verticalCorrection="?android:verticalCorrection"-->
-<!--	menny:shadowColor="?android:shadowColor"-->
-<!--	menny:shadowRadius="?android:shadowRadius"-->
+<!--        style="@style/KeyboardViewTheme"-->
+<!--    menny:keyTextColor="?android:keyTextColor"-->
+<!--    menny:keyBackground="?android:keyBackground"-->
+<!--    menny:keyTextSize="@dimen/key_text_size"-->
+<!--    menny:keyPreviewLayout="?android:keyPreviewLayout"-->
+<!--    menny:keyPreviewOffset="?android:keyPreviewOffset"-->
+<!--    menny:keyPreviewHeight="?android:keyPreviewHeight"-->
+<!--    menny:labelTextSize="?android:labelTextSize"-->
+<!--    menny:popupLayout="?android:popupLayout"-->
+<!--    menny:verticalCorrection="?android:verticalCorrection"-->
+<!--    menny:shadowColor="?android:shadowColor"-->
+<!--    menny:shadowRadius="?android:shadowRadius"-->
 
 
-<!--	style="@android:style/Widget.KeyboardView"-->
-<!--	android:keyTextColor="@color/key_text_color"-->
-<!--	android:keyPreviewLayout="?android:keyPreviewLayout"-->
-<!--	android:keyPreviewOffset="?android:keyPreviewOffset"-->
-<!--	android:keyPreviewHeight="?android:keyPreviewHeight"-->
-<!--	android:labelTextSize="?android:labelTextSize"-->
-<!--	android:popupLayout="?android:popupLayout"-->
-<!--	android:verticalCorrection="?android:verticalCorrection"-->
-<!--	android:shadowColor="?android:shadowColor"-->
-<!--	android:shadowRadius="?android:shadowRadius"-->
+<!--    style="@android:style/Widget.KeyboardView"-->
+<!--    android:keyTextColor="@color/key_text_color"-->
+<!--    android:keyPreviewLayout="?android:keyPreviewLayout"-->
+<!--    android:keyPreviewOffset="?android:keyPreviewOffset"-->
+<!--    android:keyPreviewHeight="?android:keyPreviewHeight"-->
+<!--    android:labelTextSize="?android:labelTextSize"-->
+<!--    android:popupLayout="?android:popupLayout"-->
+<!--    android:verticalCorrection="?android:verticalCorrection"-->
+<!--    android:shadowColor="?android:shadowColor"-->
+<!--    android:shadowRadius="?android:shadowRadius"-->
 </Theme>
-<!--	<mapping from="LAYOUT_KEYBOARD_KEY_PREVIEW_LAYOUT" to="@layout/keyboard_key_preview" />-->
+<!--    <mapping from="LAYOUT_KEYBOARD_KEY_PREVIEW_LAYOUT" to="@layout/keyboard_key_preview" />-->
 
 <!-- 449     <style name="Widget.KeyboardView" parent="android:Widget">-->
 <!-- 450         <item name="android:background">@android:drawable/keyboard_background</item>-->

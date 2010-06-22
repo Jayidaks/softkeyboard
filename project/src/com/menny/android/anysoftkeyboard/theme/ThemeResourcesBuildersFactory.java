@@ -68,6 +68,7 @@ public class ThemeResourcesBuildersFactory {
     public synchronized static void resetBuildersCache() {
         ms_builders = null;
         ms_fallback_themeresources = null;
+        ThemeSwitcher.resetCachedTheme();
     }
 
     public static ThemeResources getFallbackThemeResources() {

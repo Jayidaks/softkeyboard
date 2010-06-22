@@ -1820,6 +1820,7 @@ public class AnySoftKeyboard extends InputMethodService implements
                         .handleConfigurationChange(sp);
 
         if (mInputView != null) {
+            ThemeSwitcher.resetCachedTheme();
             ThemeResources resources = ThemeSwitcher.getThemeResources(getApplicationContext());
             mInputView.setPreviewEnabled(mConfig.getShowKeyPreview());
             mInputView.setThemeResources(resources);

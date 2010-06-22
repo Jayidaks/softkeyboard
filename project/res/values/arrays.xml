@@ -1,216 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<string-array name="keyboard_layout_change_methods_values">
-		<!--
-	previous values:
-		1: Small
-		2: None
-		3: Big
-	 -->
-		<item>None</item>
-		<item>Small</item>
-		<item>Big</item>
-	</string-array>
+    <string-array name="keyboard_layout_change_methods_values">
+        <!--
+    previous values:
+        1: Small
+        2: None
+        3: Big
+     -->
+        <item>None</item>
+        <item>Small</item>
+        <item>Big</item>
+    </string-array>
 
-	<string-array name="physical_keyboard_change_notification_values">
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-	</string-array>
+    <string-array name="physical_keyboard_change_notification_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 
-	<string-array name="vibrate_on_key_press_values">
-		<item>0</item>
-		<item>17</item>
-		<item>30</item>
-		<item>50</item>
-	</string-array>
+    <string-array name="vibrate_on_key_press_values">
+        <item>0</item>
+        <item>17</item>
+        <item>30</item>
+        <item>50</item>
+    </string-array>
 
-	<string-array name="swipe_action_types_values">
-		<item>none</item>
-		<item>next_alphabet</item>
-		<item>next_symbols</item>
-		<item>cycle_keyboards</item>
-		<item>reverse_cycle_keyboards</item>
-		<item>shift</item>
-		<item>hide</item>
-		<item>backspace</item>
-		<item>cursor_up</item>
-		<item>cursor_down</item>
-		<item>cursor_left</item>
-		<item>cursor_right</item>
-	</string-array>
+    <string-array name="swipe_action_types_values">
+        <item>none</item>
+        <item>next_alphabet</item>
+        <item>next_symbols</item>
+        <item>cycle_keyboards</item>
+        <item>reverse_cycle_keyboards</item>
+        <item>shift</item>
+        <item>hide</item>
+        <item>backspace</item>
+        <item>cursor_up</item>
+        <item>cursor_down</item>
+        <item>cursor_left</item>
+        <item>cursor_right</item>
+    </string-array>
 
 
 
-	<!--  THEME -->
+    <!--  THEME -->
 
-	<!-- TODO: add all theme stuff here, each resource type on their own array (so we can turn resources to Drawable, integer etc. in ThemeResources) -->
+    <!-- TODO: add all theme stuff here, each resource type on their own array (so we can turn resources to Drawable, integer etc. in ThemeResources) -->
 
-	<string-array name="theme_font_typefaces_attribute_names">
-		<item>typefaceCandidatePreviewText</item>
-		<item>typefaceKeyPreviewText</item>
-		<item>typefaceKeyText</item>
-	</string-array>
-	<integer-array name="theme_font_typefaces_ids">
-		<item>@id/theme_typefaceCandidatePreviewText</item>
-		<item>@id/theme_typefaceKeyPreviewText</item>
-		<item>@id/theme_typefaceKeyText</item>
-	</integer-array>
+    <string-array name="theme_font_typefaces_attribute_names">
+        <item>typefaceCandidatePreviewText</item>
+        <item>typefaceKeyPreviewText</item>
+        <item>typefaceKeyText</item>
+    </string-array>
+    <integer-array name="theme_font_typefaces_ids">
+        <item>@id/theme_typefaceCandidatePreviewText</item>
+        <item>@id/theme_typefaceKeyPreviewText</item>
+        <item>@id/theme_typefaceKeyText</item>
+    </integer-array>
 
-	<string-array name="theme_colors_attribute_names">
-		<item>colorCandidatePreviewText</item>
-		<item>colorKeyPreviewText</item>
-		<item>colorCandidateNormalText</item>
-		<item>colorCandidateRecommendedText</item>
-		<item>colorCandidateOtherText</item>
-		<!--  what else? -->
-	</string-array>
-	<integer-array name="theme_colors_ids">
-		<item>@id/theme_colorCandidatePreviewTextColor</item>
-		<item>@id/theme_colorKeyPreviewTextColor</item>
-		<item>@id/theme_colorCandidateNormalText</item>
-		<item>@id/theme_colorCandidateRecommendedText</item>
-		<item>@id/theme_colorCandidateOtherText</item>
-	</integer-array>
+    <string-array name="theme_colors_attribute_names">
+        <item>colorCandidatePreviewText</item>
+        <item>colorKeyPreviewText</item>
+        <item>colorCandidateNormalText</item>
+        <item>colorCandidateRecommendedText</item>
+        <item>colorCandidateOtherText</item>
+        <!--  what else? -->
+    </string-array>
+    <integer-array name="theme_colors_ids">
+        <item>@id/theme_colorCandidatePreviewTextColor</item>
+        <item>@id/theme_colorKeyPreviewTextColor</item>
+        <item>@id/theme_colorCandidateNormalText</item>
+        <item>@id/theme_colorCandidateRecommendedText</item>
+        <item>@id/theme_colorCandidateOtherText</item>
+    </integer-array>
 
-	<string-array name="theme_dimensions_attribute_names">
-		<item>dimensionIcSuggestStripScrollLeftArrowWidth</item>
-		<item>dimensionIcSuggestStripScrollRightArrowWidth</item>
-		<item>dimensionCandidatePreviewTextSize</item>
-		<item>dimensionKeyPreviewTextSize</item>
-		<item>dimensionKeyPreviewLayoutHeight</item>
-		<item>dimensionCandidateViewLayoutHeight</item>
-		<!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
-<!--		<item>dimensionKeyboardVerticalGap</item>-->
-<!--		<item>dimensionKeyboardKeyHeight</item>-->
-<!--		<item>dimensionKeyboardNumbersVerticalGap</item>-->
-<!--		<item>dimensionKeyboardNumbersKeyHeight</item>-->
-<!--		<item>dimensionKeyboardSymbolsVerticalGap</item>-->
-<!--		<item>dimensionKeyboardSymbolsKeyHeight</item>-->
-<!--		<item>dimensionKeyboardSymbolsAltVerticalGap</item>-->
-<!--		<item>dimensionKeyboardSymbolsAltKeyHeight</item>-->
-		<!-- TODO: All these necessary? -->
-	</string-array>
-	<integer-array name="theme_dimensions_ids">
-		<item>@id/theme_dimensionIcSuggestStripScrollLeftArrowWidth</item>
-		<item>@id/theme_dimensionIcSuggestStripScrollRightArrowWidth</item>
-		<item>@id/theme_dimensionCandidatePreviewTextSize</item>
-		<item>@id/theme_dimensionKeyPreviewTextSize</item>
-		<item>@id/theme_dimensionKeyPreviewLayoutHeight</item>
-		<item>@id/theme_dimensionCandidateViewLayoutHeight</item>
-		<!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
-<!--		<item>@id/theme_dimensionKeyboardVerticalGap</item>-->
-<!--		<item>@id/theme_dimensionKeyboardKeyHeight</item>-->
-<!--		<item>@id/theme_dimensionKeyboardNumbersVerticalGap</item>-->
-<!--		<item>@id/theme_dimensionKeyboardNumbersKeyHeight</item>-->
-<!--		<item>@id/theme_dimensionKeyboardSymbolsVerticalGap</item>-->
-<!--		<item>@id/theme_dimensionKeyboardSymbolsKeyHeight</item>-->
-<!--		<item>@id/theme_dimensionKeyboardSymbolsAltVerticalGap</item>-->
-<!--		<item>@id/theme_dimensionKeyboardSymbolsAltKeyHeight</item>-->
-		<!-- TODO: All these necessary? -->
-	</integer-array>
+    <string-array name="theme_dimensions_attribute_names">
+        <item>dimensionIcSuggestStripScrollLeftArrowWidth</item>
+        <item>dimensionIcSuggestStripScrollRightArrowWidth</item>
+        <item>dimensionCandidatePreviewTextSize</item>
+        <item>dimensionKeyPreviewTextSize</item>
+        <item>dimensionKeyPreviewLayoutHeight</item>
+        <item>dimensionCandidateViewLayoutHeight</item>
+        <!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
+<!--        <item>dimensionKeyboardVerticalGap</item>-->
+<!--        <item>dimensionKeyboardKeyHeight</item>-->
+<!--        <item>dimensionKeyboardNumbersVerticalGap</item>-->
+<!--        <item>dimensionKeyboardNumbersKeyHeight</item>-->
+<!--        <item>dimensionKeyboardSymbolsVerticalGap</item>-->
+<!--        <item>dimensionKeyboardSymbolsKeyHeight</item>-->
+<!--        <item>dimensionKeyboardSymbolsAltVerticalGap</item>-->
+<!--        <item>dimensionKeyboardSymbolsAltKeyHeight</item>-->
+        <!-- TODO: All these necessary? -->
+    </string-array>
+    <integer-array name="theme_dimensions_ids">
+        <item>@id/theme_dimensionIcSuggestStripScrollLeftArrowWidth</item>
+        <item>@id/theme_dimensionIcSuggestStripScrollRightArrowWidth</item>
+        <item>@id/theme_dimensionCandidatePreviewTextSize</item>
+        <item>@id/theme_dimensionKeyPreviewTextSize</item>
+        <item>@id/theme_dimensionKeyPreviewLayoutHeight</item>
+        <item>@id/theme_dimensionCandidateViewLayoutHeight</item>
+        <!-- Horizontal dimensions (gap and width) are left out on purpose.OK?  -->
+<!--        <item>@id/theme_dimensionKeyboardVerticalGap</item>-->
+<!--        <item>@id/theme_dimensionKeyboardKeyHeight</item>-->
+<!--        <item>@id/theme_dimensionKeyboardNumbersVerticalGap</item>-->
+<!--        <item>@id/theme_dimensionKeyboardNumbersKeyHeight</item>-->
+<!--        <item>@id/theme_dimensionKeyboardSymbolsVerticalGap</item>-->
+<!--        <item>@id/theme_dimensionKeyboardSymbolsKeyHeight</item>-->
+<!--        <item>@id/theme_dimensionKeyboardSymbolsAltVerticalGap</item>-->
+<!--        <item>@id/theme_dimensionKeyboardSymbolsAltKeyHeight</item>-->
+        <!-- TODO: All these necessary? -->
+    </integer-array>
 
-	<string-array name="theme_drawables_attribute_names">
-		<item>drawableSymKeyboardArrowLeft</item>
-		<item>drawableSymKeyboardArrowRight</item>
-		<item>drawableKeyboardKeyDomain</item>
-		<item>drawableKeyboardKeyDomainPreview</item>
-		<item>drawableSymKeyboardCtrl</item>
-		<item>drawableSymKeyboardDelete</item>
-		<item>drawableSymKeyboardReturn</item>
-		<item>drawableSymKeyboardSearch</item>
-		<item>drawableSymKeyboardShift</item>
-		<item>drawableSymKeyboardShiftLocked</item>
-		<item>drawableSymKeyboardSpace</item>
-		<item>drawableSymKeyboardTab</item>
-		<item>drawableSymKeyboardNum0</item>
-		<item>drawableSymKeyboardNum1</item>
-		<item>drawableSymKeyboardNum2</item>
-		<item>drawableSymKeyboardNum3</item>
-		<item>drawableSymKeyboardNum4</item>
-		<item>drawableSymKeyboardNum5</item>
-		<item>drawableSymKeyboardNum6</item>
-		<item>drawableSymKeyboardNum7</item>
-		<item>drawableSymKeyboardNum8</item>
-		<item>drawableSymKeyboardNum9</item>
-		<item>drawableKeyboardKeyClose</item> <!-- Selector. -->
-		<item>drawableKeyboardKeyFeedback</item> <!-- Selector. Overrides background in keyPreviewLayout -->
-		<item>drawableKeyboardPopupPanelBackground</item> <!-- Overrides background in popupLayout -->
-		<item>drawableIcSuggestScrollBackground</item> <!-- Selector. -->
-		<item>drawableIcSuggestStripScrollLeftArrow</item>
-		<item>drawableIcSuggestStripScrollRightArrow</item>
-		<item>drawableIcSuggestStripDivider</item>
-		<item>drawableCandidateFeedbackBackground</item>
-		<item>drawableKeyboardSuggestStripBackground</item>
-		<!-- Add stuff here -->
+    <string-array name="theme_drawables_attribute_names">
+        <item>drawableSymKeyboardArrowLeft</item>
+        <item>drawableSymKeyboardArrowRight</item>
+        <item>drawableSymKeyboardDomain</item>
+        <item>drawableSymKeyboardDomainPreview</item>
+        <item>drawableSymKeyboardCtrl</item>
+        <item>drawableSymKeyboardDelete</item>
+        <item>drawableSymKeyboardReturn</item>
+        <item>drawableSymKeyboardSearch</item>
+        <item>drawableSymKeyboardSmiley</item>
+        <item>drawableSymKeyboardShift</item>
+        <item>drawableSymKeyboardShiftLocked</item>
+        <item>drawableSymKeyboardSpace</item>
+        <item>drawableSymKeyboardTab</item>
+        <item>drawableSymKeyboardNum0</item>
+        <item>drawableSymKeyboardNum1</item>
+        <item>drawableSymKeyboardNum2</item>
+        <item>drawableSymKeyboardNum3</item>
+        <item>drawableSymKeyboardNum4</item>
+        <item>drawableSymKeyboardNum5</item>
+        <item>drawableSymKeyboardNum6</item>
+        <item>drawableSymKeyboardNum7</item>
+        <item>drawableSymKeyboardNum8</item>
+        <item>drawableSymKeyboardNum9</item>
+        <item>drawableKeyboardKeyClose</item> <!-- Selector. -->
+        <item>drawableKeyboardKeyFeedback</item> <!-- Selector. Overrides background in keyPreviewLayout -->
+        <item>drawableKeyboardPopupPanelBackground</item> <!-- Overrides background in popupLayout -->
+        <item>drawableIcSuggestScrollBackground</item> <!-- Selector. -->
+        <item>drawableIcSuggestStripScrollLeftArrow</item>
+        <item>drawableIcSuggestStripScrollRightArrow</item>
+        <item>drawableIcSuggestStripDivider</item>
+        <item>drawableCandidateFeedbackBackground</item>
+        <item>drawableKeyboardSuggestStripBackground</item>
+        <!-- Add stuff here -->
 
-		<!--		<item>drawableDialogVoiceInput</item>-->
-		<!--		<item>drawableDialogWave00</item>-->
-		<!--		<item>drawableDialogWave13</item>-->
-		<!--		<item>drawableDialogWave23</item>-->
-		<!--		<item>drawableDialogWave33</item>-->
-		<!--		<item>drawableDialogWave43</item>-->
-		<!--		<item>drawableSpeakNowLevel0</item>-->
-		<!--		<item>drawableSpeakNowLevel1</item>-->
-		<!--		<item>drawableSpeakNowLevel2</item>-->
-		<!--		<item>drawableSpeakNowLevel3</item>-->
-		<!--		<item>drawableSpeakNowLevel4</item>-->
-		<!--		<item>drawableSpeakNowLevel5</item>-->
-		<!--		<item>drawableKeyboardKeyVoiceBackground</item>-->
-		<!--		<item>drawableKeyboardKeyVoiceWorking</item>-->
-		<!--    	<item>drawableSymKeyboardNumAlt</item>-->
-	</string-array>
-	<integer-array name="theme_drawables_ids">
-		<item>@id/theme_drawableSymKeyboardArrowLeft</item>
-		<item>@id/theme_drawableSymKeyboardArrowRight</item>
-		<item>@id/theme_drawableKeyboardKeyDomain</item>
-		<item>@id/theme_drawableKeyboardKeyDomainPreview</item>
-		<item>@id/theme_drawableSymKeyboardCtrl</item>
-		<item>@id/theme_drawableSymKeyboardDelete</item>
-		<item>@id/theme_drawableSymKeyboardReturn</item>
-		<item>@id/theme_drawableSymKeyboardSearch</item>
-		<item>@id/theme_drawableSymKeyboardShift</item>
-		<item>@id/theme_drawableSymKeyboardShiftLocked</item>
-		<item>@id/theme_drawableSymKeyboardSpace</item>
-		<item>@id/theme_drawableSymKeyboardTab</item>
-		<item>@id/theme_drawableSymKeyboardNum0</item>
-		<item>@id/theme_drawableSymKeyboardNum1</item>
-		<item>@id/theme_drawableSymKeyboardNum2</item>
-		<item>@id/theme_drawableSymKeyboardNum3</item>
-		<item>@id/theme_drawableSymKeyboardNum4</item>
-		<item>@id/theme_drawableSymKeyboardNum5</item>
-		<item>@id/theme_drawableSymKeyboardNum6</item>
-		<item>@id/theme_drawableSymKeyboardNum7</item>
-		<item>@id/theme_drawableSymKeyboardNum8</item>
-		<item>@id/theme_drawableSymKeyboardNum9</item>
-		<item>@id/theme_drawableKeyboardKeyClose</item> <!-- Selector. -->
-		<item>@id/theme_drawableKeyboardKeyFeedback</item> <!-- Selector. Overrides background in keyPreviewLayout -->
-		<item>@id/theme_drawableKeyboardPopupPanelBackground</item> <!-- Overrides background in popupLayout -->
-		<item>@id/theme_drawableIcSuggestScrollBackground</item> <!-- Selector. -->
-		<item>@id/theme_drawableIcSuggestStripScrollLeftArrow</item>
-		<item>@id/theme_drawableIcSuggestStripScrollRightArrow</item>
-		<item>@id/theme_drawableIcSuggestStripDivider</item>
-		<item>@id/theme_drawableCandidateFeedbackBackground</item>
-		<item>@id/theme_drawableKeyboardSuggestStripBackground</item>
-		<!-- Add stuff here -->
+        <!--        <item>drawableDialogVoiceInput</item>-->
+        <!--        <item>drawableDialogWave00</item>-->
+        <!--        <item>drawableDialogWave13</item>-->
+        <!--        <item>drawableDialogWave23</item>-->
+        <!--        <item>drawableDialogWave33</item>-->
+        <!--        <item>drawableDialogWave43</item>-->
+        <!--        <item>drawableSpeakNowLevel0</item>-->
+        <!--        <item>drawableSpeakNowLevel1</item>-->
+        <!--        <item>drawableSpeakNowLevel2</item>-->
+        <!--        <item>drawableSpeakNowLevel3</item>-->
+        <!--        <item>drawableSpeakNowLevel4</item>-->
+        <!--        <item>drawableSpeakNowLevel5</item>-->
+        <!--        <item>drawableKeyboardKeyVoiceBackground</item>-->
+        <!--        <item>drawableKeyboardKeyVoiceWorking</item>-->
+        <!--        <item>drawableSymKeyboardNumAlt</item>-->
+    </string-array>
+    <integer-array name="theme_drawables_ids">
+        <item>@id/theme_drawableSymKeyboardArrowLeft</item>
+        <item>@id/theme_drawableSymKeyboardArrowRight</item>
+        <item>@id/theme_drawableSymKeyboardDomain</item>
+        <item>@id/theme_drawableSymKeyboardDomainPreview</item>
+        <item>@id/theme_drawableSymKeyboardCtrl</item>
+        <item>@id/theme_drawableSymKeyboardDelete</item>
+        <item>@id/theme_drawableSymKeyboardReturn</item>
+        <item>@id/theme_drawableSymKeyboardSearch</item>
+        <item>@id/theme_drawableSymKeyboardSmiley</item>
+        <item>@id/theme_drawableSymKeyboardShift</item>
+        <item>@id/theme_drawableSymKeyboardShiftLocked</item>
+        <item>@id/theme_drawableSymKeyboardSpace</item>
+        <item>@id/theme_drawableSymKeyboardTab</item>
+        <item>@id/theme_drawableSymKeyboardNum0</item>
+        <item>@id/theme_drawableSymKeyboardNum1</item>
+        <item>@id/theme_drawableSymKeyboardNum2</item>
+        <item>@id/theme_drawableSymKeyboardNum3</item>
+        <item>@id/theme_drawableSymKeyboardNum4</item>
+        <item>@id/theme_drawableSymKeyboardNum5</item>
+        <item>@id/theme_drawableSymKeyboardNum6</item>
+        <item>@id/theme_drawableSymKeyboardNum7</item>
+        <item>@id/theme_drawableSymKeyboardNum8</item>
+        <item>@id/theme_drawableSymKeyboardNum9</item>
+        <item>@id/theme_drawableKeyboardKeyClose</item> <!-- Selector. -->
+        <item>@id/theme_drawableKeyboardKeyFeedback</item> <!-- Selector. Overrides background in keyPreviewLayout -->
+        <item>@id/theme_drawableKeyboardPopupPanelBackground</item> <!-- Overrides background in popupLayout -->
+        <item>@id/theme_drawableIcSuggestScrollBackground</item> <!-- Selector. -->
+        <item>@id/theme_drawableIcSuggestStripScrollLeftArrow</item>
+        <item>@id/theme_drawableIcSuggestStripScrollRightArrow</item>
+        <item>@id/theme_drawableIcSuggestStripDivider</item>
+        <item>@id/theme_drawableCandidateFeedbackBackground</item>
+        <item>@id/theme_drawableKeyboardSuggestStripBackground</item>
+        <!-- Add stuff here -->
 
-		<!--		<item>@id/theme_drawableDialogVoiceInput</item>-->
-		<!--		<item>@id/theme_drawableDialogWave00</item>-->
-		<!--		<item>@id/theme_drawableDialogWave13</item>-->
-		<!--		<item>@id/theme_drawableDialogWave23</item>-->
-		<!--		<item>@id/theme_drawableDialogWave33</item>-->
-		<!--		<item>@id/theme_drawableDialogWave43</item>-->
-		<!--		<item>@id/theme_drawableSpeakNowLevel0</item>-->
-		<!--		<item>@id/theme_drawableSpeakNowLevel1</item>-->
-		<!--		<item>@id/theme_drawableSpeakNowLevel2</item>-->
-		<!--		<item>@id/theme_drawableSpeakNowLevel3</item>-->
-		<!--		<item>@id/theme_drawableSpeakNowLevel4</item>-->
-		<!--		<item>@id/theme_drawableSpeakNowLevel5</item>-->
-		<!--		<item>@id/theme_drawableKeyboardKeyVoiceBackground</item>-->
-		<!--		<item>@id/theme_drawableKeyboardKeyVoiceWorking</item>-->
-		<!--    	<item>@id/theme_drawableSymKeyboardNumAlt</item>-->
-		<!-- Add stuff here -->
-	</integer-array>
+        <!--        <item>@id/theme_drawableDialogVoiceInput</item>-->
+        <!--        <item>@id/theme_drawableDialogWave00</item>-->
+        <!--        <item>@id/theme_drawableDialogWave13</item>-->
+        <!--        <item>@id/theme_drawableDialogWave23</item>-->
+        <!--        <item>@id/theme_drawableDialogWave33</item>-->
+        <!--        <item>@id/theme_drawableDialogWave43</item>-->
+        <!--        <item>@id/theme_drawableSpeakNowLevel0</item>-->
+        <!--        <item>@id/theme_drawableSpeakNowLevel1</item>-->
+        <!--        <item>@id/theme_drawableSpeakNowLevel2</item>-->
+        <!--        <item>@id/theme_drawableSpeakNowLevel3</item>-->
+        <!--        <item>@id/theme_drawableSpeakNowLevel4</item>-->
+        <!--        <item>@id/theme_drawableSpeakNowLevel5</item>-->
+        <!--        <item>@id/theme_drawableKeyboardKeyVoiceBackground</item>-->
+        <!--        <item>@id/theme_drawableKeyboardKeyVoiceWorking</item>-->
+        <!--        <item>@id/theme_drawableSymKeyboardNumAlt</item>-->
+        <!-- Add stuff here -->
+    </integer-array>
 
 </resources>

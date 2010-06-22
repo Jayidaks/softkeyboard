@@ -17,8 +17,6 @@
  * the License.
  */
 
-//TODO: construct ThemeableKeyboardView default stylenä R.style.Theme, ja AttributeSettinä pluginin resurssit
-
 package com.menny.android.anysoftkeyboard.theme;
 
 import com.menny.android.anysoftkeyboard.MotionEventWrapper;
@@ -61,7 +59,7 @@ import java.util.Map;
 /**
  * A view that renders a virtual {@link Keyboard}. It handles rendering of keys
  * and detecting key presses and touch movements.
- *
+ * 
  * @attr ref android.R.styleable#KeyboardView_keyBackground
  * @attr ref android.R.styleable#KeyboardView_keyPreviewLayout
  * @attr ref android.R.styleable#KeyboardView_keyPreviewOffset
@@ -475,50 +473,58 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
     }
 
     public void setThemeResources(ThemeResources resources) {
-        this.mResources = resources;
-        mKeyBackground = resources.getKeyBackground();
-        mVerticalCorrection = resources.getVerticalCorrection();
-        mPreviewOffset = resources.getPreviewOffset();
-        mPreviewHeight = resources.getPreviewHeight();
-        mKeyTextSize = resources.getKeyTextSize();
-        mKeyTextColor = resources.getKeyTextColor();
-        mLabelTextSize = resources.getLabelTextSize();
-        mPopupLayout = resources.getPopupLayoutResourceID();
-        mShadowColor = resources.getShadowColor();
-        mShadowRadius = resources.getShadowRadius();
-        mPreviewPopup = resources.getPreviewPopup();
+        // XXX If we have a different *instance* of resources
+        if (mResources != resources) {
+            this.mResources = resources;
+            mKeyBackground = resources.getKeyBackground();
+            mVerticalCorrection = resources.getVerticalCorrection();
+            mPreviewOffset = resources.getPreviewOffset();
+            mPreviewHeight = resources.getPreviewHeight();
+            mKeyTextSize = resources.getKeyTextSize();
+            mKeyTextColor = resources.getKeyTextColor();
+            mLabelTextSize = resources.getLabelTextSize();
+            mPopupLayout = resources.getPopupLayoutResourceID();
+            mShadowColor = resources.getShadowColor();
+            mShadowRadius = resources.getShadowRadius();
+            mPreviewPopup = resources.getPreviewPopup();
 
-        int previewLayout = resources.getKeyPreviewLayoutResourceID();
+            int previewLayout = resources.getKeyPreviewLayoutResourceID();
 
-        if (previewLayout != 0) {
-            Context inflateContext = resources.getKeyPreviewLayoutContext();
-            LayoutInflater inflater = (LayoutInflater) inflateContext
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            inflater = inflater.cloneInContext(inflateContext);
-            inflater.setFactory(new KeyPreviewTextViewInflaterFactory(resources));
-            mPreviewText = (TextView) inflater.inflate(previewLayout, null);
-            // if(mPreviewText.getBackground() == null) {
-            // TODO: if background was set and we are working with
-            // better keyboard skin, we should see if there is
-            // @drawable/keyboard_key_feedback defined. If there is, use
-            // it!
-            // mPreviewText.setBackgroundDrawable();
-            // }
-            mPreviewTextSizeLarge = (int) mPreviewText.getTextSize();
-            mPreviewPopup.setContentView(mPreviewText);
-            mPreviewPopup.setBackgroundDrawable(null);
-            mShowPreview = true;
-        } else {
-            mShowPreview = false;
+            if (previewLayout != 0) {
+                Context inflateContext = resources.getKeyPreviewLayoutContext();
+                LayoutInflater inflater = (LayoutInflater) inflateContext
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                inflater = inflater.cloneInContext(inflateContext);
+                inflater.setFactory(new KeyPreviewTextViewInflaterFactory(resources));
+                mPreviewText = (TextView) inflater.inflate(previewLayout, null);
+                // if(mPreviewText.getBackground() == null) {
+                // TODO: if background was set and we are working with
+                // better keyboard skin, we should see if there is
+                // @drawable/keyboard_key_feedback defined. If there is, use
+                // it!
+                // mPreviewText.setBackgroundDrawable();
+                // }
+                mPreviewTextSizeLarge = (int) mPreviewText.getTextSize();
+                mPreviewPopup.setContentView(mPreviewText);
+                mPreviewPopup.setBackgroundDrawable(null);
+                mShowPreview = true;
+            } else {
+                mShowPreview = false;
+            }
+
+            if (mPaint == null) {
+                mPaint = new Paint();
+                mPaint.setAntiAlias(true);
+                mPaint.setTextAlign(Align.CENTER);
+                mPaint.setAlpha(255);
+            }
+            mPaint.setTextSize(mKeyTextSize);
+
+            if (mKeyboard != null) {
+                setKeyboard(mKeyboard);
+            }
+
         }
-
-        if (mPaint == null) {
-            mPaint = new Paint();
-            mPaint.setAntiAlias(true);
-            mPaint.setTextAlign(Align.CENTER);
-            mPaint.setAlpha(255);
-        }
-        mPaint.setTextSize(mKeyTextSize);
     }
 
     public ThemeResources getThemeResources() {
@@ -592,7 +598,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     /**
      * Returns the {@link OnKeyboardActionListener} object.
-     *
+     * 
      * @return the listener attached to this keyboard
      */
     protected OnKeyboardActionListener getOnKeyboardActionListener() {
@@ -602,7 +608,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
     /**
      * Attaches a keyboard to this view. The keyboard can be switched at any
      * time and the view will re-layout itself to accommodate the keyboard.
-     *
+     * 
      * @see Keyboard
      * @see #getKeyboard()
      * @param keyboard the keyboard to display in this view
@@ -632,7 +638,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     /**
      * Returns the current keyboard being displayed by this view.
-     *
+     * 
      * @return the currently attached keyboard
      * @see #setKeyboard(Keyboard)
      */
@@ -642,7 +648,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     /**
      * Sets the state of the shift key of the keyboard, if any.
-     *
+     * 
      * @param shifted whether or not to enable the state of the shift key
      * @return true if the shift key state changed, false if there was no change
      * @see ThemeableKeyboardView#isShifted()
@@ -660,7 +666,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     /**
      * Returns the state of the shift key of the keyboard, if any.
-     *
+     * 
      * @return true if the shift is in a pressed state, false otherwise. If
      *         there is no shift key on the keyboard or there is no keyboard
      *         attached, it returns false.
@@ -677,7 +683,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
      * Enables or disables the key feedback popup. This is a popup that shows a
      * magnified version of the depressed key. By default the preview is
      * enabled.
-     *
+     * 
      * @param previewEnabled whether or not to enable the key feedback popup
      * @see #isPreviewEnabled()
      */
@@ -687,7 +693,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     /**
      * Returns the enabled state of the key feedback popup.
-     *
+     * 
      * @return whether or not the key feedback popup is enabled
      * @see #setPreviewEnabled(boolean)
      */
@@ -715,7 +721,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
      * When enabled, calls to {@link OnKeyboardActionListener#onKey} will
      * include key codes for adjacent keys. When disabled, only the primary key
      * code will be reported.
-     *
+     * 
      * @param enabled whether or not the proximity correction is enabled
      */
     public void setProximityCorrectionEnabled(boolean enabled) {
@@ -731,7 +737,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
 
     /**
      * Popup keyboard close button clicked.
-     *
+     * 
      * @hide
      */
     public void onClick(View v) {
@@ -767,7 +773,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
      * vertically) and square it to get the proximity threshold. We use a square
      * here and in computing the touch distance from a key's center to avoid
      * taking a square root.
-     *
+     * 
      * @param keyboard
      */
     private void computeProximityThreshold(Keyboard keyboard) {
@@ -1121,7 +1127,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
      * Requests a redraw of the entire keyboard. Calling {@link #invalidate} is
      * not sufficient because the keyboard renders the keys to an off-screen
      * buffer and an invalidate() only draws the cached buffer.
-     *
+     * 
      * @see #invalidateKey(int)
      */
     public void invalidateAllKeys() {
@@ -1134,7 +1140,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
      * Invalidates a key so that it will be redrawn on the next repaint. Use
      * this method if only one key is changing it's content. Any changes that
      * affect the position or size of the key may not be honored.
-     *
+     * 
      * @param keyIndex the index of the key in the attached {@link Keyboard}.
      * @see #invalidateAllKeys
      */
@@ -1176,7 +1182,7 @@ public class ThemeableKeyboardView extends View implements View.OnClickListener 
      * Called when a key is long pressed. By default this will open any popup
      * keyboard associated with this key through the attributes popupLayout and
      * popupCharacters.
-     *
+     * 
      * @param popupKey the key that was long pressed
      * @return true if the long press is handled, false otherwise. Subclasses
      *         should call the method on the base class if the subclass doesn't

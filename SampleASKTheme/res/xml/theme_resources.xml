@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AnySoftKeyboardTheme
-		keyBackground="@drawable/btn_keyboard_key_light"
-		drawableIcSuggestStripScrollLeftArrow="@drawable/ic_suggest_strip_scroll_left_arrow"
-		dimensionCandidateViewLayoutHeight="@dimen/theme_dimensionCandidateViewLayoutHeight"
+        keyBackground="@drawable/btn_keyboard_key_light"
+        drawableIcSuggestStripScrollLeftArrow="@drawable/ic_suggest_strip_scroll_left_arrow"
+        dimensionCandidateViewLayoutHeight="@dimen/theme_dimensionCandidateViewLayoutHeight"
+        drawableSymKeyboardNum0="@drawable/sym_keyboard_num0"
 />

@@ -8,12 +8,12 @@
     >
     <Row>
     <!--
-    a, ā, b, c, č, d, e, ē, f, g, ģ, h, i, ī, j, k, ķ, l, ļ, m, n, ņ, o,ō, p, r, s, š, t, u, ū, v, z, ž
+    a, ā, b, c, č, d, e, ē, f, g, ģ, h, i, ī, j, k, ķ, l, ļ, m, n, ņ, o,ō, p, r,ŗ, s, š, t, u, ū, v, z, ž
     -->
 		<Key android:codes="q" android:popupCharacters="1" android:keyLabel="" android:keyEdgeFlags="left"/>
 		<Key android:codes="w" android:popupCharacters="2" android:keyLabel=""/>
-		<Key android:codes="e,ē" android:popupCharacters="ē,€,3" android:keyLabel=""/>
-		<Key android:codes="r" android:popupCharacters="4" android:keyLabel=""/>
+		<Key android:codes="e,ē" android:popupCharacters="ē€3" android:keyLabel=""/>
+		<Key android:codes="r,ŗ" android:popupCharacters="ŗ4" android:keyLabel=""/>
 		<Key android:codes="t" android:popupCharacters="5" android:keyLabel=""/>
 		<Key android:codes="y" android:popupCharacters="6" android:keyLabel=""/>
 		<Key android:codes="u,ū" android:popupCharacters="ū7" android:keyLabel=""/>
@@ -23,7 +23,7 @@
     </Row>
 
     <Row>
-        <Key android:horizontalGap="5%p" android:codes="a" android:keyLabel="" android:keyEdgeFlags="left"/>
+        <Key android:horizontalGap="5%p" android:codes="a,ā" android:popupCharacters="ā" android:keyLabel="" android:keyEdgeFlags="left"/>
         <Key android:codes="s,š" android:popupCharacters="š" android:keyLabel=""/>
         <Key android:codes="d" android:keyLabel=""/>
         <Key android:codes="f" android:keyLabel=""/>

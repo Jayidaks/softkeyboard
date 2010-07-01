@@ -1,5 +1,6 @@
 package com.anysoftkeyboard.dictionarycreator;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -11,15 +12,19 @@ public class ParserThread extends Thread {
 	private final UI mUi;
 	private final int mTotalChars;
 	private final InputStreamReader mInput;
+	private final int mTotalDictionaryChars;
+	private final InputStreamReader mInputDictionary;
 	private final OutputStreamWriter mOutput;
 	private final HashSet<Character> mLangChars;
 	private final HashSet<Character> mLangInnerChars;
 	private final HashMap<String, Integer> mWords;
 	
-	public ParserThread(InputStreamReader input, int totalChars, OutputStreamWriter output, UI ui, String languageCharacters, String additionalInnerCharacters) {
+	public ParserThread(InputStreamReader input, int totalChars, InputStreamReader dictionary, int totalDictionaryChars, OutputStreamWriter output, UI ui, String languageCharacters, String additionalInnerCharacters) {
 		mUi = ui;
 		mInput = input;
 		mTotalChars = totalChars;
+		mInputDictionary = dictionary;
+		mTotalDictionaryChars = totalDictionaryChars;
 		mOutput = output;
 		
 		mLangChars = new HashSet<Character>(languageCharacters.length());
@@ -40,55 +45,11 @@ public class ParserThread extends Thread {
 	public void run() {
 		super.run();
 		mUi.updateProgressState("Parser started", 0);
+		
 		try
 		{
-			StringBuilder word = new StringBuilder();
-			int state = LOOKING_FOR_WORD_START;
-			
-			int read = 0;
-			int intChar;
-			while((intChar = mInput.read()) > 0)
-			{
-				if ((read % 50000) == 0)
-				{
-					mUi.updateProgressState("Parsing (have "+mWords.size()+" words)...", (int)((100f * (float)read) / (float)mTotalChars));
-				}
-				char currentChar = (char)intChar;
-				read++;
-				switch(state)
-				{
-				case LOOKING_FOR_WORD_START:
-					if (mLangChars.contains(currentChar))
-					{
-						word.append(currentChar);
-						state = INSIDE_WORD;
-					}
-					break;
-				case INSIDE_WORD:
-					if (mLangChars.contains(currentChar) || mLangInnerChars.contains(currentChar))
-					{
-						word.append(currentChar);
-					}
-					else
-					{
-						//removing all none chars from the end.
-						while(mLangInnerChars.contains(word.charAt(word.length()-1)))
-							word.setLength(word.length()-1);
-						
-						String wordFound = word.toString().toLowerCase();
-						if (mWords.containsKey(wordFound))
-						{
-							mWords.put(wordFound, mWords.get(wordFound)+1);
-						}
-						else
-						{
-							mWords.put(wordFound, 1);
-						}
-						word.setLength(0);
-						state = LOOKING_FOR_WORD_START;
-					}
-				}
-			}
+			addWordsFromInputStream(mInputDictionary, true);
+			addWordsFromInputStream(mInput, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 			mUi.showErrorMessage(e.getMessage());
@@ -98,13 +59,7 @@ public class ParserThread extends Thread {
 			mUi.updateProgressState("Parser ending...", 0);
 			try {
 				mInput.close();
-				mOutput.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
-				mOutput.write("<wordlist>\n");
-				for(String word : mWords.keySet())
-				{
-					mOutput.write("<w f=\""+mWords.get(word)+"\">"+word+"</w>\n");
-				}
-				mOutput.write("</wordlist>\n");
+				createXml();
 				mOutput.flush();
 				mOutput.close();
 			} catch (IOException e) {
@@ -115,6 +70,74 @@ public class ParserThread extends Thread {
 			mUi.updateProgressState("Parser ended. Found "+mWords.size()+" words.", 100);
 			mUi.onEnded();
 		}
+	}
+
+	private void createXml() throws IOException {
+		mOutput.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
+		mOutput.write("<wordlist>\n");
+		for(String word : mWords.keySet())
+		{
+			mOutput.write("<w f=\""+mWords.get(word)+"\">"+word+"</w>\n");
+		}
+		mOutput.write("</wordlist>\n");
+	}
+
+	private void addWordsFromInputStream(InputStreamReader input, boolean addFirst) throws IOException {
+		StringBuilder word = new StringBuilder();
+		int intChar;
+		
+		int state = LOOKING_FOR_WORD_START;
+		int read = 0;
+		while((intChar = input.read()) > 0)
+		{
+			if ((read % 50000) == 0)
+			{
+				mUi.updateProgressState("Parsing (have "+mWords.size()+" words)...", (int)((100f * (float)read) / (float)mTotalChars));
+			}
+			char currentChar = (char)intChar;
+			read++;
+			switch(state)
+			{
+			case LOOKING_FOR_WORD_START:
+				if (mLangChars.contains(currentChar))
+				{
+					word.append(currentChar);
+					state = INSIDE_WORD;
+				}
+				break;
+			case INSIDE_WORD:
+				if (mLangChars.contains(currentChar) || mLangInnerChars.contains(currentChar))
+				{
+					word.append(currentChar);
+				}
+				else
+				{
+					addWord(word, addFirst);
+					state = LOOKING_FOR_WORD_START;
+				}
+			}
+		}
+		//last word?
+		if (word.length() > 0)
+			addWord(word, addFirst);
+	}
+
+	private void addWord(StringBuilder word, boolean addFirst) {
+		//removing all none chars from the end.
+		while(mLangInnerChars.contains(word.charAt(word.length()-1)))
+			word.setLength(word.length()-1);
+		
+		String wordFound = word.toString().toLowerCase();
+		if (mWords.containsKey(wordFound))
+		{//it must be inside already (from the dictionary)
+			mWords.put(wordFound, mWords.get(wordFound)+1);
+		}
+		else if (addFirst)
+		{
+			mWords.put(wordFound, 1);
+		}
+			
+		word.setLength(0);
 	}
 
 }

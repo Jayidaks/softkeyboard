@@ -131,9 +131,12 @@ public class MainForm extends JFrame implements UI {
 						FileInputStream sourceFile = new FileInputStream(new File(jTextFieldSourceFilename.getText()));
 						InputStreamReader input = new InputStreamReader(sourceFile, "UTF-8");
 						
+						FileInputStream dictFile = new FileInputStream(new File(jTextFieldSpellDictionaryFilename.getText()));
+						InputStreamReader dictInput = new InputStreamReader(dictFile, "UTF-8");
+						
 						FileOutputStream outputFile = new FileOutputStream(new File(jTextFieldOutputfilename.getText()));
 						OutputStreamWriter output = new OutputStreamWriter(outputFile, "UTF-8");
-						mThread = new ParserThread(input, sourceFile.available(), output, MainForm.this, jTextFieldPossibleLetters.getText(), jTextFieldInnerCharacters.getText());
+						mThread = new ParserThread(input, sourceFile.available(), dictInput, dictFile.available(), output, MainForm.this, jTextFieldPossibleLetters.getText(), jTextFieldInnerCharacters.getText());
 						jButtonStart.setEnabled(false);
 						jLabelProgress.setText("Starting parser thread");
 						mThread.start();

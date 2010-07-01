@@ -1,6 +1,5 @@
 package com.anysoftkeyboard.dictionarycreator;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -48,8 +47,8 @@ public class ParserThread extends Thread {
 		
 		try
 		{
-			addWordsFromInputStream(mInputDictionary, true);
-			addWordsFromInputStream(mInput, false);
+			addWordsFromInputStream(mInputDictionary, true, mTotalDictionaryChars);
+			addWordsFromInputStream(mInput, false, mTotalChars);
 		} catch (IOException e) {
 			e.printStackTrace();
 			mUi.showErrorMessage(e.getMessage());
@@ -82,7 +81,7 @@ public class ParserThread extends Thread {
 		mOutput.write("</wordlist>\n");
 	}
 
-	private void addWordsFromInputStream(InputStreamReader input, boolean addFirst) throws IOException {
+	private void addWordsFromInputStream(InputStreamReader input, boolean addFirst, int totalChars) throws IOException {
 		StringBuilder word = new StringBuilder();
 		int intChar;
 		
@@ -92,7 +91,7 @@ public class ParserThread extends Thread {
 		{
 			if ((read % 50000) == 0)
 			{
-				mUi.updateProgressState("Parsing (have "+mWords.size()+" words)...", (int)((100f * (float)read) / (float)mTotalChars));
+				mUi.updateProgressState("Parsing (have "+mWords.size()+" words)...", (int)((100f * (float)read) / (float)totalChars));
 			}
 			char currentChar = (char)intChar;
 			read++;

@@ -1,4 +1,4 @@
-package org.herrlado.ask.lp.slovak;
+package org.herrlado.ask.languagepack.slovak;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

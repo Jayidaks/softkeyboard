@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AnySoftKeyboard - Catalan Language Pack</string>
     <string name="catalan_keyboard">Catalan keyboard</string>
+    <string name="dictionary">Catalan</string>
 </resources>

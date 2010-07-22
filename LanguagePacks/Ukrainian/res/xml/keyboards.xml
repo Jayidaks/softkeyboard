@@ -20,7 +20,8 @@
 	iconResId="@drawable/uk"
 	defaultDictionaryLocale="uk" 
 	description="Created with rlavriv"
-	index="1"/>
+	index="1" 
+	physicalKeyboardMappingResId="@xml/ukrainian_physical"/>
 	
 	<Keyboard 
 	id="0b8235ea-47db-47a4-be9e-89e3b287f848" 
@@ -30,5 +31,6 @@
 	iconResId="@drawable/uk"
 	defaultDictionaryLocale="uk" 
 	description="Created with rlavriv"
-	index="2"/>
+	index="2"
+	physicalKeyboardMappingResId="@xml/ukrainian_physical"/>
 </Keyboards>

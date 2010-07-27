@@ -33,8 +33,6 @@ public class MySeekBarPreference extends DialogPreference implements SeekBar.OnS
 //    mSuffix = attrs.getAttributeValue(androidns,"text");
     mDefault = attrs.getAttributeIntValue(androidns,"defaultValue", 0);
     mMax = attrs.getAttributeIntValue(androidns,"max", 100);
-    if (AnySoftKeyboardConfiguration.getInstance().getDEBUG())
-    	Log.d("AnySoftKeyboard:SeekBarPreference", "mDefault: "+mDefault+", mMax:"+mMax);
   }
   
   @Override 

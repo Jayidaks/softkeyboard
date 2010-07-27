@@ -341,22 +341,10 @@ public class KeyboardSwitcher
 
     private AnyKeyboard nextSymbolsKeyboard(EditorInfo currentEditorInfo)
     {
-    	//AnyKeyboard[] symbolsKeyboards = getSymbolsKeyboards();
-    	AnyKeyboard current;
-    	if (!isAlphabetMode())
-    	{
-    		if (mLastSelectedSymbolsKeyboard == SYMBOLS_KEYBOARD_PHONE_INDEX)
-    			mLastSelectedSymbolsKeyboard = SYMBOLS_KEYBOARD_REGULAR_INDEX;
-    		else
-    			mLastSelectedSymbolsKeyboard = SYMBOLS_KEYBOARD_PHONE_INDEX;
-    	}
-
+    	mLastSelectedSymbolsKeyboard = SYMBOLS_KEYBOARD_REGULAR_INDEX;
     	mAlphabetMode = false;
 
-    	if (mLastSelectedSymbolsKeyboard >= mSymbolsKeyboardsArray.length)
-			mLastSelectedSymbolsKeyboard = 0;
-
-    	current = getSymbolsKeyboard(mLastSelectedSymbolsKeyboard, getKeyboardMode(currentEditorInfo));
+    	AnyKeyboard current = getSymbolsKeyboard(mLastSelectedSymbolsKeyboard, getKeyboardMode(currentEditorInfo));
 
     	return setKeyboard(currentEditorInfo, current);
     }
@@ -463,11 +451,11 @@ public class KeyboardSwitcher
 		{
 			if (mLastSelectedSymbolsKeyboard == SYMBOLS_KEYBOARD_REGULAR_INDEX)
 	        {
-	        	mLastSelectedSymbolsKeyboard = 1;
+	        	mLastSelectedSymbolsKeyboard = SYMBOLS_KEYBOARD_ALT_INDEX;
 	        }
 	        else if (mLastSelectedSymbolsKeyboard == SYMBOLS_KEYBOARD_ALT_INDEX)
 	        {
-	        	mLastSelectedSymbolsKeyboard = 0;
+	        	mLastSelectedSymbolsKeyboard = SYMBOLS_KEYBOARD_REGULAR_INDEX;
 	        }
 	        else return currentKeyboard;
 

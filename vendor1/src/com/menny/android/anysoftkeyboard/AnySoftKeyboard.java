@@ -1018,7 +1018,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 			}
 			break;
 		case AnyKeyboardView.KEYCODE_OPTIONS:
-			showOptionsMenu();
+			launchSettings();
 			break;
 		case AnyKeyboard.KEYCODE_DOMAIN:
 			onText(mConfig.getDomainText());

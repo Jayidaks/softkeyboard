@@ -17,14 +17,14 @@
         <Key android:codes="64,59,126" android:keyLabel="\@;~" android:keyEdgeFlags="left"/>
         <Key android:codes="36,8364,163" android:keyLabel="$€£"/>
         <Key android:codes="58,61,43" android:keyLabel=":=+"/>
-        <Key android:codes="-99" android:keyLabel="ABC" android:keyEdgeFlags="right"/>
+        <Key android:codes="-99" android:keyEdgeFlags="right"/>
     </Row>
     
     <Row>
         <Key android:codes="35,42,94" android:keyLabel="#*^" android:keyEdgeFlags="left"/>
         <Key android:codes="37,60,62" android:keyLabel="%&lt;&gt;"/>
         <Key android:codes="34,38,8220,124" android:keyLabel="&quot;&amp;“|"/>
-        <Key android:codes="-10" android:keyEdgeFlags="right"/>
+        <Key android:codes="46" android:keyEdgeFlags="right"/>
     </Row>
     
     <Row android:rowEdgeFlags="bottom">

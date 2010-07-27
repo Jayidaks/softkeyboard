@@ -1195,17 +1195,19 @@ public class AnySoftKeyboard extends InputMethodService implements
 			deleteChar = true;
 		}
 		
-		//handleShiftStateAfterBackspace();
+		handleShiftStateAfterBackspace();
 		
 		TextEntryState.backspace();
 		if (TextEntryState.getState() == TextEntryState.STATE_UNDO_COMMIT) {
 			revertLastWord(deleteChar);
 			return;
 		} else if (deleteChar) {
+			ic.deleteSurroundingText(1, 0);
+			/*
 			//ensuring this is actually happens
 			final int textLengthBeforeDelete = ic.getTextBeforeCursor(Integer.MAX_VALUE, 0).length();
 			sendDownUpKeyEvents(KeyEvent.KEYCODE_DEL);
-			/*
+
 			int tries = 3;
 			while(tries > 0)
 			{
@@ -1237,7 +1239,14 @@ public class AnySoftKeyboard extends InputMethodService implements
 		//since it happens in a different process (asynch)
 		//we'll let the system settle.
 		
-		Thread.yield();//this is not a fix, but a bit relaxing..
+		try {
+			//this is not a fix, but a bit relaxing..
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	private void handleShiftStateAfterBackspace() {

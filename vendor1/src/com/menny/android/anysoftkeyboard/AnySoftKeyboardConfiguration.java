@@ -144,7 +144,7 @@ public abstract class AnySoftKeyboardConfiguration
 				e.putBoolean(context.getString(R.string.settings_key_show_version_notification), false);
 				e.putBoolean(context.getString(R.string.settings_key_use_16_keys_symbols_keyboards), true);
 				e.putBoolean(context.getString(R.string.settings_key_landscape_fullscreen), true);
-				e.putBoolean(context.getString(R.string.settings_key_portrait_fullscreen), false);
+				e.putBoolean(context.getString(R.string.settings_key_portrait_fullscreen), true);
 				//enabling 16keys, disabling english
 				e.putBoolean("keyboard_12335055-4aa6-49dc-8456-c7d38a1a5123", true);
 				e.putBoolean("keyboard_c7535083-4fe6-49dc-81aa-c5438a1a343a", false);

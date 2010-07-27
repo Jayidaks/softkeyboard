@@ -16,6 +16,9 @@
 
 package com.menny.android.anysoftkeyboard;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -49,6 +52,28 @@ public class AnyKeyboardView extends KeyboardView {
 	private void initializeStuff() {
 		setPreviewEnabled(AnySoftKeyboardConfiguration.getInstance().getShowKeyPreview());
 		setProximityCorrectionEnabled(true);
+		//the vendor will add a function to the KeyboardView
+		//which will allow keys with labels longer than 2 to also participate in
+		//the shifted/unshifted label upper/lowercase switch
+		try {
+			Method ignorer = getClass().getMethod("ignoreLengthConditionCheck");
+			ignorer.invoke(this);
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
     public AnyKeyboardView(Context context, AttributeSet attrs, int defStyle) {

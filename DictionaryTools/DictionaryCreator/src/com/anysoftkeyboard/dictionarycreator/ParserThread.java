@@ -43,6 +43,8 @@ public class ParserThread extends Thread {
 	private final HashMap<String, WordWithCount> mWords;
 	private final int mMaxWords;
 	
+	private int mMaxCount = 1;
+	
 	public ParserThread(InputStreamReader input, int totalChars, InputStreamReader dictionary, int totalDictionaryChars, OutputStreamWriter output, UI ui, String languageCharacters, String additionalInnerCharacters, int maxWords) {
 		mUi = ui;
 		mInput = input;
@@ -110,6 +112,8 @@ public class ParserThread extends Thread {
 	}
 
 	private void createXml(List<WordWithCount> sortedList) throws IOException {
+		//refactoring mMaxCount to the value of the word at the 10% place (10% most freq)
+		mMaxCount = sortedList.get((int)(0.1f * sortedList.size())).getFreq();
 		mOutput.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
 		mOutput.write("<wordlist>\n");
 		int wordIndex = 0;
@@ -118,10 +122,16 @@ public class ParserThread extends Thread {
 			if (wordIndex > mMaxWords)
 				break;
 			
-			mOutput.write("<w f=\""+word.getFreq()+"\">"+word.Word+"</w>\n");
+			mOutput.write("<w f=\""+calcActualFreq(word.getFreq())+"\">"+word.Word+"</w>\n");
 			wordIndex++;
 		}
 		mOutput.write("</wordlist>\n");
+	}
+
+	private int calcActualFreq(int freq) {
+		if (mMaxCount < freq)
+			freq = mMaxCount; 
+		return 1+(int)(254 * (((double)freq)/((double)mMaxCount)));
 	}
 
 	private void addWordsFromInputStream(InputStreamReader input, boolean addFirst, int totalChars) throws IOException {

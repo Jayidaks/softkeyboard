@@ -23,6 +23,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class MainForm extends JFrame implements UI {
 
@@ -43,6 +46,8 @@ public class MainForm extends JFrame implements UI {
 	private JTextField jTextFieldPossibleLetters = null;
 	private JLabel jLabel5 = null;
 	private JTextField jTextFieldInnerCharacters = null;
+	private JLabel jLabelMaxWords = null;
+	private JSlider jSliderWordsCount = null;
 	/**
 	 * This method initializes jPanel	
 	 * 	
@@ -136,7 +141,8 @@ public class MainForm extends JFrame implements UI {
 						
 						FileOutputStream outputFile = new FileOutputStream(new File(jTextFieldOutputfilename.getText()));
 						OutputStreamWriter output = new OutputStreamWriter(outputFile, "UTF-8");
-						mThread = new ParserThread(input, sourceFile.available(), dictInput, dictFile.available(), output, MainForm.this, jTextFieldPossibleLetters.getText(), jTextFieldInnerCharacters.getText(), 50000);
+						mThread = new ParserThread(input, sourceFile.available(), dictInput, dictFile.available(), output, MainForm.this, jTextFieldPossibleLetters.getText(), jTextFieldInnerCharacters.getText(), 
+								jSliderWordsCount.getValue());
 						jButtonStart.setEnabled(false);
 						jLabelProgress.setText("Starting parser thread");
 						mThread.start();
@@ -184,6 +190,28 @@ public class MainForm extends JFrame implements UI {
 	}
 
 	/**
+	 * This method initializes jSliderWordsCount	
+	 * 	
+	 * @return javax.swing.JSlider	
+	 */
+	private JSlider getJSliderWordsCount() {
+		if (jSliderWordsCount == null) {
+			jSliderWordsCount = new JSlider();
+			jSliderWordsCount.setMinimum(5000);
+			jSliderWordsCount.setMaximum(150000);
+			jSliderWordsCount.setValue(50000);
+			jSliderWordsCount.addChangeListener(new ChangeListener() {
+				@Override
+				public void stateChanged(ChangeEvent arg0) {
+					jLabelMaxWords.setText("Max words: ("+jSliderWordsCount.getValue()+")");
+				}
+			});
+			jLabelMaxWords.setText("Max words: ("+jSliderWordsCount.getValue()+")");
+		}
+		return jSliderWordsCount;
+	}
+
+	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -211,7 +239,7 @@ public class MainForm extends JFrame implements UI {
 	 * @return void
 	 */
 	private void initialize() {
-		this.setSize(593, 284);
+		this.setSize(593, 388);
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icon_8_key.9.png")));
 		this.setContentPane(getJContentPane());
 		this.setTitle("AnySoftKeyboard Dictionary Creator");
@@ -224,6 +252,8 @@ public class MainForm extends JFrame implements UI {
 	 */
 	private JPanel getJContentPane() {
 		if (jContentPane == null) {
+			jLabelMaxWords = new JLabel();
+			jLabelMaxWords.setText("Maximum words");
 			jLabel5 = new JLabel();
 			jLabel5.setText("Additional characters which are possible only inside a word:");
 			jLabel1 = new JLabel();
@@ -252,6 +282,8 @@ public class MainForm extends JFrame implements UI {
 			jContentPane.add(getJTextFieldPossibleLetters(), null);
 			jContentPane.add(jLabel5, null);
 			jContentPane.add(getJTextFieldInnerCharacters(), null);
+			jContentPane.add(jLabelMaxWords, null);
+			jContentPane.add(getJSliderWordsCount(), null);
 			jContentPane.add(getJButtonStart(), null);
 			jContentPane.add(jLabelProgress, null);
 		}
@@ -274,4 +306,4 @@ public class MainForm extends JFrame implements UI {
 		jButtonStart.setEnabled(true);
 	}
 
-}  //  @jve:decl-index=0:visual-constraint="74,39"
+}  //  @jve:decl-index=0:visual-constraint="64,28"

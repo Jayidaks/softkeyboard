@@ -13,18 +13,36 @@ public class ParserThread extends Thread {
 
 	private static class WordWithCount implements Comparable<WordWithCount>
 	{
-		public final String Word;
+		private final String mWord;
 		private int mFreq;
+		private int mCapitalFreq;
 		
 		public WordWithCount(String word)
 		{
-			Word = word;
-			mFreq = 1;
+			mWord = word.toLowerCase();
+			mFreq = 0;
+			mCapitalFreq = 0;
+			addFreq(word);
+		}
+		
+		public String getWord()
+		{
+			//if more than 90% of the word occurrences are capital, 
+			//then use capital style
+			if ((mFreq * 0.90) < mCapitalFreq)
+				return Character.toUpperCase(mWord.charAt(0))+mWord.substring(1);
+			else
+				return mWord;
 		}
 		
 		public int getFreq() {return mFreq;}
 		
-		public void addFreq() {mFreq++;}
+		public void addFreq(String word) 
+		{
+			mFreq++;
+			if (Character.isUpperCase(word.charAt(0)))
+				mCapitalFreq++;
+		}
 
 		@Override
 		public int compareTo(WordWithCount o) {
@@ -65,8 +83,9 @@ public class ParserThread extends Thread {
 		mWords = new HashMap<String, WordWithCount>();
 	}
 	
-	private final static int LOOKING_FOR_WORD_START = 0;
-	private final static int INSIDE_WORD = 1;
+	private final static int LOOKING_FOR_SPACE = 0;
+	private final static int LOOKING_FOR_WORD_START = 1;
+	private final static int INSIDE_WORD = 2;
 	
 	@Override
 	public void run() {
@@ -76,8 +95,8 @@ public class ParserThread extends Thread {
 		try
 		{
 			if (mInputDictionary != null)
-				addWordsFromInputStream(mInputDictionary, true, mTotalDictionaryChars);
-			addWordsFromInputStream(mInput, (mInputDictionary == null), mTotalChars);
+				addWordsFromInputStream(mInputDictionary, true, mTotalDictionaryChars, LOOKING_FOR_WORD_START);
+			addWordsFromInputStream(mInput, (mInputDictionary == null), mTotalChars, LOOKING_FOR_SPACE);
 		} catch (IOException e) {
 			e.printStackTrace();
 			mUi.showErrorMessage(e.getMessage());
@@ -113,7 +132,8 @@ public class ParserThread extends Thread {
 
 	private void createXml(List<WordWithCount> sortedList) throws IOException {
 		//refactoring mMaxCount to the value of the word at the 10% place (10% most freq)
-		mMaxCount = sortedList.get((int)(0.1f * sortedList.size())).getFreq();
+		int wordsCount = Math.min(mMaxWords, sortedList.size());
+		mMaxCount = sortedList.get((int)(0.05f * wordsCount)).getFreq();
 		mOutput.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
 		mOutput.write("<wordlist>\n");
 		int wordIndex = 0;
@@ -122,7 +142,7 @@ public class ParserThread extends Thread {
 			if (wordIndex > mMaxWords)
 				break;
 			
-			mOutput.write("<w f=\""+calcActualFreq(word.getFreq())+"\">"+word.Word+"</w>\n");
+			mOutput.write("<w f=\""+calcActualFreq(word.getFreq())+"\">"+word.getWord()+"</w>\n");
 			wordIndex++;
 		}
 		mOutput.write("</wordlist>\n");
@@ -131,14 +151,14 @@ public class ParserThread extends Thread {
 	private int calcActualFreq(int freq) {
 		if (mMaxCount < freq)
 			freq = mMaxCount; 
-		return 1+(int)(254 * (((double)freq)/((double)mMaxCount)));
+		return 1+(int)((64*1024 - 1) * (((double)freq)/((double)mMaxCount)));
 	}
 
-	private void addWordsFromInputStream(InputStreamReader input, boolean addFirst, int totalChars) throws IOException {
+	private void addWordsFromInputStream(InputStreamReader input, boolean addFirst, int totalChars, final int startState) throws IOException {
 		StringBuilder word = new StringBuilder();
 		int intChar;
 		
-		int state = LOOKING_FOR_WORD_START;
+		int state = startState;
 		int read = 0;
 		while((intChar = input.read()) > 0)
 		{
@@ -150,6 +170,12 @@ public class ParserThread extends Thread {
 			read++;
 			switch(state)
 			{
+			case LOOKING_FOR_SPACE:
+				if (currentChar == ' ')
+				{
+					state = LOOKING_FOR_WORD_START;
+				}
+				break;
 			case LOOKING_FOR_WORD_START:
 				if (mLangChars.contains(currentChar))
 				{
@@ -165,7 +191,7 @@ public class ParserThread extends Thread {
 				else
 				{
 					addWord(word, addFirst);
-					state = LOOKING_FOR_WORD_START;
+					state = startState;
 				}
 			}
 		}
@@ -178,15 +204,15 @@ public class ParserThread extends Thread {
 		//removing all none chars from the end.
 		while(mLangInnerChars.contains(word.charAt(word.length()-1)))
 			word.setLength(word.length()-1);
-		
-		String wordFound = word.toString().toLowerCase();
+		String typedWord = word.toString();
+		String wordFound = typedWord.toLowerCase();
 		if (mWords.containsKey(wordFound))
 		{//it must be inside already (from the dictionary)
-			mWords.get(wordFound).addFreq();
+			mWords.get(wordFound).addFreq(typedWord);
 		}
 		else if (addFirst)
 		{
-			mWords.put(wordFound, new WordWithCount(wordFound));
+			mWords.put(wordFound, new WordWithCount(typedWord));
 		}
 			
 		word.setLength(0);

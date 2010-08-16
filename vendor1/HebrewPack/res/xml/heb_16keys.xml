@@ -7,14 +7,14 @@
     android:keyHeight="@dimen/key_height"
     >
     <Row android:rowEdgeFlags="top" android:keyboardMode="@integer/keyboard_mode_normal">
-        <Key android:codes="46,44,63,33" android:keyLabel=".,?!" android:keyEdgeFlags="left"/>
+        <Key android:codes="46,44,63,33,39,45,64,47,58" android:keyLabel=".,?!'" android:keyEdgeFlags="left"/>
         <Key android:codes="1491,1492,1493" android:keyLabel="דהו"/>
         <Key android:codes="1488,1489,1490" android:keyLabel="אבג"/>
         <Key android:codes="-5"
         	android:keyEdgeFlags="right" android:isRepeatable="true"/>
     </Row>
     <Row android:rowEdgeFlags="top" android:keyboardMode="@integer/keyboard_mode_im">
-        <Key android:codes="46,44,63,33" android:keyLabel=".,?!" android:keyEdgeFlags="left"/>
+        <Key android:codes="46,44,63,33,39,45,64,47,58" android:keyLabel=".,?!'" android:keyEdgeFlags="left"/>
         <Key android:codes="1491,1492,1493" android:keyLabel="דהו"/>
         <Key android:codes="1488,1489,1490" android:keyLabel="אבג"/>
         <Key android:codes="-5"

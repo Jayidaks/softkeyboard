@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<!--
+		id := a UUID (you may want to generate this using our simple Java
+		program at: /trunk/project/dict_creation (uuidgen_Windows.bat or
+		uuidgen_Linux) nameResId := the resource Id which holds the name of
+		the keyboard. See strings.xml. layoutResId := the resource Id which
+		holds the layout definition of this keyboard. The sample is an English
+		QWERTY keyboard. defaultDictionaryLocale := a locate identifier for
+		this keyboard. E.g., English will be en, Hebrew will be iw, etc.
+		description := some text you would like to add. index := the sort
+		index of this keyboard in the Settings page.
+	-->
+	<Keyboard nameResId="@string/cs_keyboard" iconResId="@drawable/cs"
+		layoutResId="@xml/cs_qwerty"  landscapeResId="@xml/cs_qwerty_landscape"
+		id="6ed1a543-9bcf-4d3e-a7cd-3d9c6ab19e08" description="qwertz"
+		index="1" physicalKeyboardMappingResId="@xml/cs_qwerty_physical"
+		defaultDictionaryLocale="cs" />
+</Keyboards>

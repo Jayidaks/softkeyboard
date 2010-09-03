@@ -6,7 +6,7 @@
     android:verticalGap="0px"
     android:keyHeight="@dimen/key_height"
     >
-    <Row>
+    <Row android:keyWidth="8.33%p">
 		<Key android:codes="ჩ" android:popupCharacters="" android:keyLabel="" android:keyEdgeFlags="left"/>
 		<Key android:codes="პ" android:popupCharacters="" android:keyLabel=""/>
 		<Key android:codes="უ" android:popupCharacters="" android:keyLabel=""/>
@@ -21,8 +21,8 @@
         <Key android:codes="ქ" android:popupCharacters="" android:keyLabel="" android:keyEdgeFlags="right"/>
     </Row>
 
-    <Row>
-        <Key android:horizontalGap="5%p" android:codes="ხ" android:keyLabel="" android:keyEdgeFlags="left"/>
+    <Row android:keyWidth="9.06%p">
+        <Key  android:horizontalGap="1%p" android:codes="ხ" android:keyLabel="" android:keyEdgeFlags="left"/>
         <Key android:codes="ი" android:popupCharacters="" android:keyLabel=""/>
         <Key android:codes="ა" android:keyLabel=""/>
         <Key android:codes="ე" android:keyLabel=""/>
@@ -32,13 +32,13 @@
         <Key android:codes="ს" android:keyLabel=""/>
         <Key android:codes="რ" android:keyLabel=""/>
         <Key android:codes="ბ" android:keyLabel=""/>
-        <Key android:codes="გ" android:keyLabel="" android:keyEdgeFlags="right"/>
+        <Key  android:horizontalGap="0.1%p" android:codes="გ" android:keyLabel="" android:keyEdgeFlags="right"/>
     </Row>
 
-    <Row>
-        <Key android:horizontalGap="5%p" android:codes="ჯ" android:popupCharacters="&#4331;" android:keyLabel=""/>
+    <Row android:keyWidth="9%p">
+        <Key android:codes="ჯ" android:keyLabel=""/>
         <Key android:codes="ჰ" android:keyLabel=""/>
-        <Key android:codes="ყ" android:popupCharacters="&#4329;" android:keyLabel=""/>
+        <Key android:codes="ყ" android:popupCharacters="" android:keyLabel=""/>
         <Key android:codes="ღ" android:keyLabel=""/>
         <Key android:codes="ჟ" android:keyLabel=""/>
         <Key android:codes="ზ" android:keyLabel=""/>
@@ -46,6 +46,6 @@
         <Key android:codes="ლ" android:keyLabel=""/>
         <Key android:codes="ფ" android:keyLabel=""/>
         <Key android:codes="წ" android:keyLabel=""/>
-        <Key android:keyWidth="15%p" android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true"/>
+        <Key android:keyWidth="11%p" android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true"/>
     </Row>
 </Keyboard>

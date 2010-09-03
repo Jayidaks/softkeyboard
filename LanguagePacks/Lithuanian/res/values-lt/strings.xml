@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">AnySoftKeyboard - Lietuvių kalbos paketas</string>
     <string name="lt_keyboard">Lietuvių</string>
-    <string name="dictionary">Žodynas</string>
+    <string name="dictionary">Lietuvių</string>
     <string name="lt_qwerty_description">Lietuviškas QWERTY išdėstymas</string>
 </resources>

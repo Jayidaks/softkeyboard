@@ -4,5 +4,5 @@
     <string name="keyboard">Hebrew keyboard</string>
     <string name="dictionary">Hebrew</string>
     <string name="keyboard_16keys">Hebrew keyboard - 16 keys</string>
-    
+    <string name="keyboard_phonetic">Hebrew phonetic keyboard</string>
 </resources>

@@ -3,4 +3,6 @@
 	<Keyboard nameResId="@string/keyboard" iconResId="@drawable/he" layoutResId="@xml/heb_qwerty" id="7263630a-3284-4f46-8137-eef38adb5649" defaultDictionaryLocale="iw" additionalIsLetterExceptions="&#34;" physicalKeyboardMappingResId="@xml/heb_physical" description="Created by Menny Even Danan" index="1"/>
 	<Keyboard nameResId="@string/keyboard_16keys" iconResId="@drawable/he" layoutResId="@xml/heb_16keys" landscapeResId="@xml/heb_qwerty" 
 		id="8958fb12-6558-4e96-9aa6-0e90101570b3" defaultDictionaryLocale="iw" additionalIsLetterExceptions="&#34;" physicalKeyboardMappingResId="@xml/heb_physical" description="Created by Menny Even Danan" index="2"/>
+	
+	<Keyboard nameResId="@string/keyboard_phonetic" iconResId="@drawable/he" layoutResId="@xml/heb_phonetic" id="2A6F3AC4-D083-11DF-A4A7-3882DFD72085" defaultDictionaryLocale="iw" additionalIsLetterExceptions="&#34;" physicalKeyboardMappingResId="@xml/heb_physical" description="Created by Menny Even Danan" index="3"/>	
 </Keyboards>

@@ -4,4 +4,5 @@
     <string name="keyboard">עברית</string>
     <string name="dictionary">עברית</string>
     <string name="keyboard_16keys">עברית - 16 מקשים</string>
+    <string name="keyboard_phonetic">עברית פונטית</string>
 </resources>

@@ -25,7 +25,7 @@
 	
 	<Keyboard 
 	id="0b8235ea-47db-47a4-be9e-89e3b287f848" 
-	nameResId="@string/uk_keyboard"
+	nameResId="@string/uk_keyboard_4_row"
 	layoutResId="@xml/ukrainian_qwerty_4_rows"
 	landscapeResId="@xml/ukrainian_qwerty"
 	iconResId="@drawable/uk"

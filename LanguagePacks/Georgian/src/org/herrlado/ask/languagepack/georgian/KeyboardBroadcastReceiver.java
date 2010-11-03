@@ -1,14 +1,11 @@
 package org.herrlado.ask.languagepack.georgian;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 
-public class KeyboardBroadcastReceiver extends BroadcastReceiver {
+import com.menny.android.anysoftkeyboard.api.LanguageChangeddBroadcastReceiver;
 
-    @Override
-    public void onReceive(Context arg0, Intent arg1) {
 
-    }
+public class KeyboardBroadcastReceiver extends LanguageChangeddBroadcastReceiver {
 
+
+    
 }

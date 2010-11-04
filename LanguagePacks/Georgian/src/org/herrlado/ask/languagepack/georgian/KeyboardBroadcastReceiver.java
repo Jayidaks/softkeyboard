@@ -1,10 +1,10 @@
 package org.herrlado.ask.languagepack.georgian;
 
 
-import com.menny.android.anysoftkeyboard.api.LanguageChangeddBroadcastReceiver;
+import com.menny.android.anysoftkeyboard.api.LayoutChangedBroadcastReceiver;
 
 
-public class KeyboardBroadcastReceiver extends LanguageChangeddBroadcastReceiver {
+public class KeyboardBroadcastReceiver extends LayoutChangedBroadcastReceiver {
 
 
     

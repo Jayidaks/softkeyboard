@@ -16,8 +16,7 @@
                 <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
             </intent-filter>
             <intent-filter>
-				<action android:name="org.herrlado.ask.languagepack.georgian.NOTIFY_ON" />
-				<action android:name="org.herrlado.ask.languagepack.georgian.NOTIFY_OFF" />
+				<action android:name="com.menny.android.anysoftkeyboard.api.NOTIFY_LAYOUT_SWITCH" />
 			</intent-filter>
             <meta-data android:name="com.menny.android.anysoftkeyboard.keyboards" android:resource="@xml/keyboards" />
             <meta-data android:name="com.menny.android.anysoftkeyboard.dictionaries" android:resource="@xml/dictionaries" />

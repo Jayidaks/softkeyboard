@@ -25,8 +25,8 @@
         <Key android:codes="l" android:popupCharacters="" android:keyEdgeFlags="right" android:keyLabel="" />
     </Row>
     <Row>
-        <Key android:codes="-1" android:keyEdgeFlags="left" android:isModifier="true" android:isSticky="true" />
-        <Key android:horizontalGap="5%p" android:codes="z,ž" android:popupCharacters="ž" android:keyLabel="" />
+        <Key android:codes="-1" android:keyWidth="15%p" android:keyEdgeFlags="left" android:isModifier="true" android:isSticky="true" />
+        <Key android:codes="z,ž" android:popupCharacters="ž" android:keyLabel="" />
         <Key android:codes="x" android:popupCharacters="" android:keyLabel="" />
         <Key android:codes="c,č" android:popupCharacters="č" android:keyLabel="" />
         <Key android:codes="v" android:popupCharacters="" android:keyLabel="" />

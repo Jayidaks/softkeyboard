@@ -1,14 +1,6 @@
 package org.herrlado.ask.languagepack.czech;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-
-public class KeyboardBroadcastReceiver extends BroadcastReceiver {
-
-    @Override
-    public void onReceive(Context arg0, Intent arg1) {
-
-    }
+import com.menny.android.anysoftkeyboard.api.LayoutChangedBroadcastReceiver;
+public class KeyboardBroadcastReceiver extends LayoutChangedBroadcastReceiver {
 
 }

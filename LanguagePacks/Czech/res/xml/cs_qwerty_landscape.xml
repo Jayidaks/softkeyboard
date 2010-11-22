@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="10%p"
@@ -41,7 +41,7 @@
     <Key android:codes="b" android:popupCharacters="" android:keyLabel=""/>
     <Key android:codes="n,ň" android:popupCharacters="" android:keyLabel=""/>
     <Key android:codes="m" android:popupCharacters="" android:keyLabel=""/>
-    <Key android:codes="ú,." android:popupCharacters="" android:keyLabel="" android:keyEdgeFlags="right" />
+    <Key android:codes="ě,!" android:popupCharacters="" android:keyLabel="" android:keyEdgeFlags="right" />
     <Key android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true" android:keyWidth="12%p" />
 </Row>
 </Keyboard>

@@ -14,6 +14,9 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.ALTERNATIVE" />
                 <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+                <intent-filter>
+					<action android:name="com.menny.android.anysoftkeyboard.api.NOTIFY_LAYOUT_SWITCH" />
+				</intent-filter>
             </intent-filter>
             <meta-data android:name="com.menny.android.anysoftkeyboard.keyboards" android:resource="@xml/keyboards" />
             <meta-data android:name="com.menny.android.anysoftkeyboard.dictionaries" android:resource="@xml/dictionaries" />

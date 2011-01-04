@@ -20,7 +20,7 @@
 	landscapeResId="@xml/qwerty"
 	iconResId="@drawable/flag"
 	defaultDictionaryLocale="el" 
-	description="Created with help from dogasgiannis"
+	description="Created with help from Dogas Giannis"
 	index="1"/>
 	<!-- you can add additional layouts. Just create additional Keyboard xml node. -->
 </Keyboards>

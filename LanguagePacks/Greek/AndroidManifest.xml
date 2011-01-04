@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.anysoftkeyboard.languagepack.greek" android:versionName="20110104" android:versionCode="1">
+      package="com.anysoftkeyboard.languagepack.greek" android:versionName="20110104-2" android:versionCode="1">
     <application android:icon="@drawable/app_icon" android:label="@string/app_name">
     	<receiver android:exported="true" android:name=".KeyboardBroadcastReceiver">
     		<intent-filter> 

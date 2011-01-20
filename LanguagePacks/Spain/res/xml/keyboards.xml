@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Keyboards>
-	<Keyboard nameResId="@string/es_keyboard" layoutResId="@xml/es_qwerty" id="72e14a07-6ab1-4d33-b226-288a16fe3308" index="131" defaultDictionaryLocale="es" description="Created with Jorge Jiménez"/>
-	<Keyboard nameResId="@string/catalan_keyboard" layoutResId="@xml/catalan" id="43a7afed-5a4d-4597-8eea-cc0ad76cea53" index="132" defaultDictionaryLocale="ca" description="Created with jmontane"/>
-</Keyboards>

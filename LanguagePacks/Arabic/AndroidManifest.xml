@@ -11,6 +11,14 @@
                 <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
             </intent-filter>
             <meta-data android:name="com.menny.android.anysoftkeyboard.keyboards" android:resource="@xml/keyboards" />
+            
+             <intent-filter>
+               <action android:name="com.menny.android.anysoftkeyboard.DICTIONARY" />
+               <category android:name="android.intent.category.DEFAULT" />
+               <category android:name="android.intent.category.ALTERNATIVE" />
+               <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+           </intent-filter>
+           <meta-data android:name="com.menny.android.anysoftkeyboard.dictionaries" android:resource="@xml/dictionaries" />
     	</receiver>		
           
     </application>

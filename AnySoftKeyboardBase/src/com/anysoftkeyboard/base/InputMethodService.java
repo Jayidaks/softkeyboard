@@ -29,7 +29,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.ResultReceiver;
 import android.os.SystemClock;
-import android.provider.Settings;
 import android.text.InputType;
 import android.text.Layout;
 import android.text.Spannable;

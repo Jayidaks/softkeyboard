@@ -16,6 +16,7 @@
 
 package com.anysoftkeyboard.base;
 
+import com.anysoftkeyboard.base.Keyboard.Key;
 import com.anysoftkeyboard.base.R;
 
 import android.content.Context;
@@ -29,7 +30,6 @@ import android.graphics.Typeface;
 import android.graphics.Paint.Align;
 import android.graphics.Region.Op;
 import android.graphics.drawable.Drawable;
-import android.inputmethodservice.Keyboard.Key;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;

@@ -601,15 +601,15 @@ public class InputMethodService extends AbstractInputMethodService {
         //(-)the workaround
         mFullscreenArea = (ViewGroup)mRootView.findViewById(R.id.fullscreenArea);
         mExtractViewHidden = false;
-        mExtractFrame = (FrameLayout)mRootView.findViewById(android.R.id.extractArea);
+        mExtractFrame = (FrameLayout)mRootView.findViewById(R.id.extractArea);
         mExtractView = null;
         mExtractEditText = null;
         mExtractAccessories = null;
         mExtractAction = null;
         mFullscreenApplied = false;
         
-        mCandidatesFrame = (FrameLayout)mRootView.findViewById(android.R.id.candidatesArea);
-        mInputFrame = (FrameLayout)mRootView.findViewById(android.R.id.inputArea);
+        mCandidatesFrame = (FrameLayout)mRootView.findViewById(R.id.candidatesArea);
+        mInputFrame = (FrameLayout)mRootView.findViewById(R.id.inputArea);
         mInputView = null;
         mIsInputViewShown = false;
         

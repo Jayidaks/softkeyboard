@@ -53,5 +53,17 @@
         <item name="android:shadowRadius">2.75</item>
     </style>
     
+    <style name="Animation" />
     
+    <!-- Window animations that are applied to input method overlay windows. -->
+    <style name="Animation.InputMethod">
+        <item name="windowEnterAnimation">@anim/input_method_enter</item>
+        <item name="windowExitAnimation">@anim/input_method_exit</item>
+    </style>
+
+    <!-- Special optional fancy IM animations. @hide -->
+    <style name="Animation.InputMethodFancy">
+        <item name="windowEnterAnimation">@anim/input_method_fancy_enter</item>
+        <item name="windowExitAnimation">@anim/input_method_fancy_exit</item>
+    </style>
 </resources>

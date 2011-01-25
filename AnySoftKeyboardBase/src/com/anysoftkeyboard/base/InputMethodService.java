@@ -216,6 +216,8 @@ import java.io.PrintWriter;
 public class InputMethodService extends AbstractInputMethodService {
     static final String TAG = "InputMethodService";
     static final boolean DEBUG = false;
+    //work-around for an hidden flag
+    public static final int IME_FLAG_NO_FULLSCREEN = -2147483648;
     
     InputMethodManager mImm;
     
@@ -271,7 +273,7 @@ public class InputMethodService extends AbstractInputMethodService {
 
     final Insets mTmpInsets = new Insets();
     final int[] mTmpLocation = new int[2];
-    
+    /*
     final ViewTreeObserver.OnComputeInternalInsetsListener mInsetsComputer =
             new ViewTreeObserver.OnComputeInternalInsetsListener() {
         public void onComputeInternalInsets(ViewTreeObserver.InternalInsetsInfo info) {
@@ -290,7 +292,7 @@ public class InputMethodService extends AbstractInputMethodService {
             }
         }
     };
-
+*/
     final View.OnClickListener mActionClickListener = new View.OnClickListener() {
         public void onClick(View v) {
             final EditorInfo ei = getCurrentInputEditorInfo();
@@ -509,22 +511,22 @@ public class InputMethodService extends AbstractInputMethodService {
          * Option for {@link #touchableInsets}: the entire window frame
          * can be touched.
          */
-        public static final int TOUCHABLE_INSETS_FRAME
-                = ViewTreeObserver.InternalInsetsInfo.TOUCHABLE_INSETS_FRAME;
+        public static final int TOUCHABLE_INSETS_FRAME = 1;
+                //= ViewTreeObserver.InternalInsetsInfo.TOUCHABLE_INSETS_FRAME;
         
         /**
          * Option for {@link #touchableInsets}: the area inside of
          * the content insets can be touched.
          */
-        public static final int TOUCHABLE_INSETS_CONTENT
-                = ViewTreeObserver.InternalInsetsInfo.TOUCHABLE_INSETS_CONTENT;
+        public static final int TOUCHABLE_INSETS_CONTENT = 2;
+               // = ViewTreeObserver.InternalInsetsInfo.TOUCHABLE_INSETS_CONTENT;
         
         /**
          * Option for {@link #touchableInsets}: the area inside of
          * the visible insets can be touched.
          */
-        public static final int TOUCHABLE_INSETS_VISIBLE
-                = ViewTreeObserver.InternalInsetsInfo.TOUCHABLE_INSETS_VISIBLE;
+        public static final int TOUCHABLE_INSETS_VISIBLE = 3;
+               // = ViewTreeObserver.InternalInsetsInfo.TOUCHABLE_INSETS_VISIBLE;
         
         /**
          * Determine which area of the window is touchable by the user.  May
@@ -555,7 +557,7 @@ public class InputMethodService extends AbstractInputMethodService {
         mImm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
         mInflater = (LayoutInflater)getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
-        mWindow = new SoftInputWindow(this, mTheme, mDispatcherState);
+        mWindow = new SoftInputWindow(this, mTheme, getKeyDispatcherState());
         initViews();
         mWindow.getWindow().setLayout(MATCH_PARENT, WRAP_CONTENT);
     }
@@ -582,17 +584,23 @@ public class InputMethodService extends AbstractInputMethodService {
         mShowInputRequested = false;
         mShowInputForced = false;
         
-        mThemeAttrs = obtainStyledAttributes(android.R.styleable.InputMethodService);
-        mRootView = mInflater.inflate(
-                com.android.internal.R.layout.input_method, null);
+        mThemeAttrs = obtainStyledAttributes(R.styleable.InputMethodService);
+        mRootView = mInflater.inflate(R.layout.input_method, null);
         mWindow.setContentView(mRootView);
-        mRootView.getViewTreeObserver().addOnComputeInternalInsetsListener(mInsetsComputer);
-        if (Settings.System.getInt(getContentResolver(),
-                Settings.System.FANCY_IME_ANIMATIONS, 0) != 0) {
-            mWindow.getWindow().setWindowAnimations(
-                    com.android.internal.R.style.Animation_InputMethodFancy);
-        }
-        mFullscreenArea = (ViewGroup)mRootView.findViewById(com.android.internal.R.id.fullscreenArea);
+        //mRootView.getViewTreeObserver().addOnComputeInternalInsetsListener(mInsetsComputer);
+        //for some reason I can not do this code out of "internal"
+        //so I'll do someworkaround
+//        if (Settings.System.getInt(getContentResolver(),
+//                Settings.System.FANCY_IME_ANIMATIONS, 0) != 0) {
+//            mWindow.getWindow().setWindowAnimations(
+//                    R.style.Animation_InputMethodFancy);
+//        }
+        //(+)Menny Even Danan: the workaround
+        final int animationStyleId = getAnimationStyleId();
+        if (animationStyleId != 0)
+        	mWindow.getWindow().setWindowAnimations(animationStyleId);
+        //(-)the workaround
+        mFullscreenArea = (ViewGroup)mRootView.findViewById(R.id.fullscreenArea);
         mExtractViewHidden = false;
         mExtractFrame = (FrameLayout)mRootView.findViewById(android.R.id.extractArea);
         mExtractView = null;
@@ -612,10 +620,17 @@ public class InputMethodService extends AbstractInputMethodService {
         mInputFrame.setVisibility(View.GONE);
     }
     
-    @Override public void onDestroy() {
+    //workaround function
+    /*
+     * returns the ID of the animation to use for enter/exit keyboard
+     */
+    private int getAnimationStyleId() {
+		return R.style.Animation_InputMethodFancy;
+	}
+
+	@Override public void onDestroy() {
         super.onDestroy();
-        mRootView.getViewTreeObserver().removeOnComputeInternalInsetsListener(
-                mInsetsComputer);
+        //mRootView.getViewTreeObserver().removeOnComputeInternalInsetsListener(mInsetsComputer);
         if (mWindowAdded) {
             mWindow.dismiss();
         }
@@ -768,8 +783,7 @@ public class InputMethodService extends AbstractInputMethodService {
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams)
                     mFullscreenArea.getLayoutParams();
             if (isFullscreen) {
-                mFullscreenArea.setBackgroundDrawable(mThemeAttrs.getDrawable(
-                        com.android.internal.R.styleable.InputMethodService_imeFullscreenBackground));
+                mFullscreenArea.setBackgroundDrawable(mThemeAttrs.getDrawable(R.styleable.InputMethodService_imeFullscreenBackground));
                 lp.height = 0;
                 lp.weight = 1;
             } else {
@@ -846,7 +860,7 @@ public class InputMethodService extends AbstractInputMethodService {
             return false;
         }
         if (mInputEditorInfo != null
-                && (mInputEditorInfo.imeOptions & EditorInfo.IME_FLAG_NO_FULLSCREEN) != 0) {
+                && (mInputEditorInfo.imeOptions & /*EditorInfo.*/IME_FLAG_NO_FULLSCREEN) != 0) {
             return false;
         }
         return true;
@@ -894,8 +908,8 @@ public class InputMethodService extends AbstractInputMethodService {
         updateCandidatesVisibility(mCandidatesVisibility == View.VISIBLE);
         if (mWindowWasVisible && mFullscreenArea.getVisibility() != vis) {
             int animRes = mThemeAttrs.getResourceId(vis == View.VISIBLE
-                    ? com.android.internal.R.styleable.InputMethodService_imeExtractEnterAnimation
-                    : com.android.internal.R.styleable.InputMethodService_imeExtractExitAnimation,
+                    ? R.styleable.InputMethodService_imeExtractEnterAnimation
+                    : R.styleable.InputMethodService_imeExtractExitAnimation,
                     0);
             if (animRes != 0) {
                 mFullscreenArea.startAnimation(AnimationUtils.loadAnimation(
@@ -1061,14 +1075,11 @@ public class InputMethodService extends AbstractInputMethodService {
                 ViewGroup.LayoutParams.MATCH_PARENT));
         mExtractView = view;
         if (view != null) {
-            mExtractEditText = (ExtractEditText)view.findViewById(
-                    com.android.internal.R.id.inputExtractEditText);
+            mExtractEditText = (ExtractEditText)view.findViewById(R.id.inputExtractEditText);
             mExtractEditText.setIME(this);
-            mExtractAction = (Button)view.findViewById(
-                    com.android.internal.R.id.inputExtractAction);
+            mExtractAction = (Button)view.findViewById(R.id.inputExtractAction);
             if (mExtractAction != null) {
-                mExtractAccessories = (ViewGroup)view.findViewById(
-                        com.android.internal.R.id.inputExtractAccessories);
+                mExtractAccessories = (ViewGroup)view.findViewById(R.id.inputExtractAccessories);
             }
             startExtractingText(false);
         } else {
@@ -1113,7 +1124,7 @@ public class InputMethodService extends AbstractInputMethodService {
      */
     public View onCreateExtractTextView() {
         return mInflater.inflate(
-                com.android.internal.R.layout.input_method_extract_view, null);
+                R.layout.input_method_extract_view, null);
     }
     
     /**
@@ -1926,17 +1937,17 @@ public class InputMethodService extends AbstractInputMethodService {
             case EditorInfo.IME_ACTION_NONE:
                 return null;
             case EditorInfo.IME_ACTION_GO:
-                return getText(com.android.internal.R.string.ime_action_go);
+                return getText(R.string.ime_action_go);
             case EditorInfo.IME_ACTION_SEARCH:
-                return getText(com.android.internal.R.string.ime_action_search);
+                return getText(R.string.ime_action_search);
             case EditorInfo.IME_ACTION_SEND:
-                return getText(com.android.internal.R.string.ime_action_send);
+                return getText(R.string.ime_action_send);
             case EditorInfo.IME_ACTION_NEXT:
-                return getText(com.android.internal.R.string.ime_action_next);
+                return getText(R.string.ime_action_next);
             case EditorInfo.IME_ACTION_DONE:
-                return getText(com.android.internal.R.string.ime_action_done);
+                return getText(R.string.ime_action_done);
             default:
-                return getText(com.android.internal.R.string.ime_action_default);
+                return getText(R.string.ime_action_default);
         }
     }
     

@@ -20,6 +20,18 @@
 -->
 
 <resources>
+	<!-- Window animation class attributes. -->
+    <declare-styleable name="WindowAnimation">
+        <!-- The animation used when a window is being added. -->
+        <attr name="windowEnterAnimation" format="reference" />
+        <!-- The animation used when a window is being removed. -->
+        <attr name="windowExitAnimation" format="reference" />
+        <!-- The animation used when a window is going from INVISIBLE to VISIBLE. -->
+        <attr name="windowShowAnimation" format="reference" />
+        <!-- The animation used when a window is going from VISIBLE to INVISIBLE. -->
+        <attr name="windowHideAnimation" format="reference" />
+	</declare-styleable>
+	
 	<declare-styleable name="Theme">
     	<attr name="buttonStyle" format="reference" />
     	
@@ -30,6 +42,9 @@
         
         <!-- Color of hint text (displayed when the field is empty). -->
     	<attr name="textColorHint" format="reference|color" />
+        
+        <!-- Default background dim amount when a menu, dialog, or something similar pops up. -->
+        <attr name="backgroundDimAmount" format="float" />
         
     	<!-- Defines the default soft input state that this window would
              like when it is displayed. -->
@@ -108,6 +123,9 @@
 
         <!-- Color to use for the label in a key. -->
         <attr name="keyTextColor" format="color" />
+        
+        <!-- Default EditText style. -->
+        <attr name="editTextStyle" format="reference" />
 
         <!-- Layout resource for key press feedback.-->
         <attr name="keyPreviewLayout" format="reference" />
@@ -124,8 +142,8 @@
         <!-- Layout resource for popup keyboards. -->
         <attr name="popupLayout" format="reference" />
 
-        <attr name="shadowColor" />
-        <attr name="shadowRadius" />
+        <attr name="shadowColor" format="float"/>
+        <attr name="shadowRadius" format="float"/>
     </declare-styleable>
 
     <declare-styleable name="KeyboardViewPreviewState">
@@ -191,9 +209,35 @@
         <attr name="keyboardMode" />
     </declare-styleable>
     
+    <attr name="textSize" format="dimension" />
+
+    <!-- Default text typeface. -->
+    <attr name="typeface">
+        <enum name="normal" value="0" />
+        <enum name="sans" value="1" />
+        <enum name="serif" value="2" />
+        <enum name="monospace" value="3" />
+    </attr>
+    
+    <!-- Default text typeface style. -->
+    <attr name="textStyle">
+        <flag name="normal" value="0" />
+        <flag name="bold" value="1" />
+        <flag name="italic" value="2" />
+    </attr>
+    
+    <!-- Color of highlighted text. -->
+    <attr name="textColorHighlight" format="reference|color" />
+    
+    <!-- Color of text (usually same as colorForeground). -->
+    <attr name="textColor" format="reference|color" />
+
+    <!-- Color of link text (URLs). -->
+    <attr name="textColorLink" format="reference|color" />
+    
     <declare-styleable name="TextAppearance">
         <!-- Text color. -->
-        <attr name="textColor" />
+        <attr name="textColor"/>
         <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
         <attr name="textSize" />
         <!-- Style (bold, italic, bolditalic) for the text. -->
@@ -201,7 +245,7 @@
         <!-- Typeface (normal, sans, serif, monospace) for the text. -->
         <attr name="typeface" />
         <!-- Color of the text selection highlight. -->
-        <attr name="textColorHighlight" />
+        <attr name="textColorHighlight"/>
         <!-- Color of the hint text. -->
         <attr name="textColorHint" />
         <!-- Color of the links. -->

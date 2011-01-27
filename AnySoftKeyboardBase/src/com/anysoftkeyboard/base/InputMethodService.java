@@ -782,7 +782,7 @@ public class InputMethodService extends AbstractInputMethodService {
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams)
                     mFullscreenArea.getLayoutParams();
             if (isFullscreen) {
-                mFullscreenArea.setBackgroundDrawable(mThemeAttrs.getDrawable(R.styleable.InputMethodService_imeFullscreenBackground));
+                mFullscreenArea.setBackgroundDrawable(mThemeAttrs.getDrawable(R.styleable.InputMethodService_android_imeFullscreenBackground));
                 lp.height = 0;
                 lp.weight = 1;
             } else {
@@ -907,8 +907,8 @@ public class InputMethodService extends AbstractInputMethodService {
         updateCandidatesVisibility(mCandidatesVisibility == View.VISIBLE);
         if (mWindowWasVisible && mFullscreenArea.getVisibility() != vis) {
             int animRes = mThemeAttrs.getResourceId(vis == View.VISIBLE
-                    ? R.styleable.InputMethodService_imeExtractEnterAnimation
-                    : R.styleable.InputMethodService_imeExtractExitAnimation,
+                    ? R.styleable.InputMethodService_android_imeExtractEnterAnimation
+                    : R.styleable.InputMethodService_android_imeExtractExitAnimation,
                     0);
             if (animRes != 0) {
                 mFullscreenArea.startAnimation(AnimationUtils.loadAnimation(

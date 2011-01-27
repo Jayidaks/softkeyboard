@@ -277,30 +277,30 @@ public class Keyboard {
 
         
         private final static int[] KEY_STATE_NORMAL_ON = { 
-            R.attr.state_checkable, 
-            R.attr.state_checked
+            android.R.attr.state_checkable, 
+            android.R.attr.state_checked
         };
         
         private final static int[] KEY_STATE_PRESSED_ON = { 
-            R.attr.state_pressed, 
-            R.attr.state_checkable, 
-            R.attr.state_checked 
+        	android.R.attr.state_pressed, 
+        	android.R.attr.state_checkable, 
+        	android.R.attr.state_checked 
         };
         
         private final static int[] KEY_STATE_NORMAL_OFF = { 
-            R.attr.state_checkable 
+        	android.R.attr.state_checkable 
         };
         
         private final static int[] KEY_STATE_PRESSED_OFF = { 
-            R.attr.state_pressed, 
-            R.attr.state_checkable 
+        	android.R.attr.state_pressed, 
+        	android.R.attr.state_checkable 
         };
         
         private final static int[] KEY_STATE_NORMAL = {
         };
         
         private final static int[] KEY_STATE_PRESSED = {
-            R.attr.state_pressed
+        	android.R.attr.state_pressed
         };
 
         /** Create an empty key with no attributes. */

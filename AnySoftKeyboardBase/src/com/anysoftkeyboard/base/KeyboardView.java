@@ -269,7 +269,7 @@ public class KeyboardView extends View implements View.OnClickListener {
     };
 
     public KeyboardView(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.keyboardViewStyle);
+        this(context, attrs, R.styleable.KeyboardView_android_keyboardViewStyle);
     }
 
     public KeyboardView(Context context, AttributeSet attrs, int defStyle) {
@@ -295,46 +295,46 @@ public class KeyboardView extends View implements View.OnClickListener {
             Log.d(TAG, "Checking attr "+attr);
             
             switch (attr) {
-            case R.styleable.KeyboardView_keyBackground:
+            case R.styleable.KeyboardView_android_keyBackground:
                 mKeyBackground = a.getDrawable(attr);
                 Log.d(TAG, "R.styleable.KeyboardView_keyBackground is "+mKeyBackground);
                 break;
-            case R.styleable.KeyboardView_verticalCorrection:
+            case R.styleable.KeyboardView_android_verticalCorrection:
                 mVerticalCorrection = a.getDimensionPixelOffset(attr, 0);
                 Log.d(TAG, "KeyboardView_verticalCorrection is "+mVerticalCorrection);
                 break;
-            case R.styleable.KeyboardView_keyPreviewLayout:
+            case R.styleable.KeyboardView_android_keyPreviewLayout:
                 previewLayout = a.getResourceId(attr, 0);
                 break;
-            case R.styleable.KeyboardView_keyPreviewOffset:
+            case R.styleable.KeyboardView_android_keyPreviewOffset:
                 mPreviewOffset = a.getDimensionPixelOffset(attr, 0);
                 break;
-            case R.styleable.KeyboardView_keyPreviewHeight:
+            case R.styleable.KeyboardView_android_keyPreviewHeight:
                 mPreviewHeight = a.getDimensionPixelSize(attr, 80);
                 break;
-            case R.styleable.KeyboardView_keyTextSize:
+            case R.styleable.KeyboardView_android_keyTextSize:
                 mKeyTextSize = a.getDimensionPixelSize(attr, 18);
                 break;
-            case R.styleable.KeyboardView_keyTextColor:
+            case R.styleable.KeyboardView_android_keyTextColor:
                 mKeyTextColor = a.getColor(attr, 0xFF000000);
                 break;
-            case R.styleable.KeyboardView_labelTextSize:
+            case R.styleable.KeyboardView_android_labelTextSize:
                 mLabelTextSize = a.getDimensionPixelSize(attr, 14);
                 break;
-            case R.styleable.KeyboardView_popupLayout:
+            case R.styleable.KeyboardView_android_popupLayout:
                 mPopupLayout = a.getResourceId(attr, 0);
                 break;
-            case R.styleable.KeyboardView_shadowColor:
+            case R.styleable.KeyboardView_android_shadowColor:
                 mShadowColor = a.getColor(attr, 0);
                 break;
-            case R.styleable.KeyboardView_shadowRadius:
+            case R.styleable.KeyboardView_android_shadowRadius:
                 mShadowRadius = a.getFloat(attr, 0f);
                 break;
             }
         }
         
         a = getContext().obtainStyledAttributes(R.styleable.Theme);
-        mBackgroundDimAmount = a.getFloat(R.styleable.Theme_backgroundDimAmount, 0.5f);
+        mBackgroundDimAmount = a.getFloat(R.styleable.Theme_android_backgroundDimAmount, 0.5f);
 
         mPreviewPopup = new PopupWindow(context);
         if (previewLayout != 0) {

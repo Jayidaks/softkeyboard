@@ -20,12 +20,13 @@
 -->
 
 <resources>
+
 	<style name="Theme">
-    	<item name="buttonStyle">@style/Widget.Button</item>
-    	<item name="textAppearance">@style/TextAppearance</item>
-        <item name="textColorPrimary">@color/primary_text_dark</item>
-        <item name="textColorHint">@color/hint_foreground_dark</item>
-        <item name="backgroundDimAmount">0.6</item>
+    	<item name="android:buttonStyle">@android:style/Widget.Button</item>
+    	<item name="android:textAppearance">@android:style/TextAppearance</item>
+        <item name="android:textColorPrimary">@color/primary_text_dark</item>
+        <item name="android:textColorHint">@color/hint_foreground_dark</item>
+        <item name="android:backgroundDimAmount">0.6</item>
     </style>
     
     <!-- Default dark theme for panel windows.  This removes all extraneous
@@ -50,7 +51,7 @@
          it does not dim the UI behind it.  This also configures the window
          with the standard IME animations and visuals. -->
     <style name="Theme.InputMethod" parent="Theme.Panel">
-        <item name="android:windowAnimationStyle">@style/Animation.InputMethod</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.InputMethod</item>
         <item name="android:imeFullscreenBackground">@drawable/input_method_fullscreen_background</item>
         <item name="android:imeExtractEnterAnimation">@anim/input_method_extract_enter</item>
         <item name="android:imeExtractExitAnimation">@anim/input_method_extract_exit</item>

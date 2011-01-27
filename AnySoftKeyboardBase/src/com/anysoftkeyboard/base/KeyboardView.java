@@ -33,6 +33,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -230,6 +231,7 @@ public class KeyboardView extends View implements View.OnClickListener {
     private long mLastTapTime;
     private boolean mInMultiTap;
     private static final int MULTITAP_INTERVAL = 800; // milliseconds
+	private static final String TAG = "ASKB_KV";
     private StringBuilder mPreviewLabel = new StringBuilder(1);
 
     /** Whether the keyboard bitmap needs to be redrawn before it's blitted. **/
@@ -285,16 +287,21 @@ public class KeyboardView extends View implements View.OnClickListener {
         int keyTextSize = 0;
 
         int n = a.getIndexCount();
+        Log.d(TAG, "R.styleable.KeyboardView returned "+n+" attributes.");
         
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
 
+            Log.d(TAG, "Checking attr "+attr);
+            
             switch (attr) {
             case R.styleable.KeyboardView_keyBackground:
                 mKeyBackground = a.getDrawable(attr);
+                Log.d(TAG, "R.styleable.KeyboardView_keyBackground is "+mKeyBackground);
                 break;
             case R.styleable.KeyboardView_verticalCorrection:
                 mVerticalCorrection = a.getDimensionPixelOffset(attr, 0);
+                Log.d(TAG, "KeyboardView_verticalCorrection is "+mVerticalCorrection);
                 break;
             case R.styleable.KeyboardView_keyPreviewLayout:
                 previewLayout = a.getResourceId(attr, 0);

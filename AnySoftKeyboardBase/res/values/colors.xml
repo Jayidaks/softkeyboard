@@ -3,5 +3,8 @@
 	<color name="hint_foreground_dark">#808080</color>
 	<color name="primary_text_light">#F0F0F0</color>
 	<color name="primary_text_dark">#000000</color>
+	
+	
+    <drawable name="input_method_fullscreen_background">#fff9f9f9</drawable>
 </resources>
     

@@ -20,6 +20,38 @@
 -->
 
 <resources>
+	<declare-styleable name="DrawableStates">
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_focused" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_window_focused" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_enabled" format="boolean" />
+        <!--  State identifier indicating that the object <var>may</var> display a check mark.
+              See {@link R.attr#state_checked} for the identifier that indicates whether it is
+              actually checked. -->
+        <attr name="state_checkable" format="boolean"/>
+        <!--  State identifier indicating that the object is currently checked.  See
+              {@link R.attr#state_checkable} for an additional identifier that can indicate if
+              any object may ever display a check, regardless of whether state_checked is
+              currently set. -->
+        <attr name="state_checked" format="boolean"/>
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_selected" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_active" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_single" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_first" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_middle" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_last" format="boolean" />
+        <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
+        <attr name="state_pressed" format="boolean" />
+    </declare-styleable>
+    
 	<!-- Window animation class attributes. -->
     <declare-styleable name="WindowAnimation">
         <!-- The animation used when a window is being added. -->
@@ -234,6 +266,22 @@
 
     <!-- Color of link text (URLs). -->
     <attr name="textColorLink" format="reference|color" />
+    
+    <!-- Use <code>input-method</code> as the root tag of the XML resource that
+         describes an
+         {@link android.view.inputmethod.InputMethod} service, which is
+         referenced from its
+         {@link android.view.inputmethod.InputMethod#SERVICE_META_DATA}
+         meta-data entry.  Described here are the attributes that can be
+         included in that tag. -->
+    <declare-styleable name="InputMethod">
+        <!-- Component name of an activity that allows the user to modify
+             the settings for this service. -->
+        <attr name="settingsActivity" format="string" />
+        <!-- Set to true in all of the configurations for which this input
+             method should be considered an option as the default. -->
+        <attr name="isDefault" format="boolean" />
+    </declare-styleable>
     
     <declare-styleable name="TextAppearance">
         <!-- Text color. -->

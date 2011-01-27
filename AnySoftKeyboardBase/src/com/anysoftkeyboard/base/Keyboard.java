@@ -277,30 +277,30 @@ public class Keyboard {
 
         
         private final static int[] KEY_STATE_NORMAL_ON = { 
-            android.R.attr.state_checkable, 
-            android.R.attr.state_checked
+            R.attr.state_checkable, 
+            R.attr.state_checked
         };
         
         private final static int[] KEY_STATE_PRESSED_ON = { 
-            android.R.attr.state_pressed, 
-            android.R.attr.state_checkable, 
-            android.R.attr.state_checked 
+            R.attr.state_pressed, 
+            R.attr.state_checkable, 
+            R.attr.state_checked 
         };
         
         private final static int[] KEY_STATE_NORMAL_OFF = { 
-            android.R.attr.state_checkable 
+            R.attr.state_checkable 
         };
         
         private final static int[] KEY_STATE_PRESSED_OFF = { 
-            android.R.attr.state_pressed, 
-            android.R.attr.state_checkable 
+            R.attr.state_pressed, 
+            R.attr.state_checkable 
         };
         
         private final static int[] KEY_STATE_NORMAL = {
         };
         
         private final static int[] KEY_STATE_PRESSED = {
-            android.R.attr.state_pressed
+            R.attr.state_pressed
         };
 
         /** Create an empty key with no attributes. */
@@ -707,6 +707,7 @@ public class Keyboard {
     private void loadKeyboard(Context context, XmlResourceParser parser) {
         boolean inKey = false;
         boolean inRow = false;
+        boolean inUnknown = false;
         boolean leftMostKey = false;
         int row = 0;
         int x = 0;
@@ -743,6 +744,10 @@ public class Keyboard {
                         }
                     } else if (TAG_KEYBOARD.equals(tag)) {
                         parseKeyboardAttributes(res, parser);
+                    } else
+                    {
+                    	inUnknown = true;
+                    	onUnknownTagStart(context, res, tag, parser);
                     }
                 } else if (event == XmlResourceParser.END_TAG) {
                     if (inKey) {
@@ -756,8 +761,9 @@ public class Keyboard {
                         y += currentRow.verticalGap;
                         y += currentRow.defaultHeight;
                         row++;
-                    } else {
-                        // TODO: error or extend?
+                    } else if (inUnknown) {
+                    	inUnknown = false;
+                    	onUnknownTagEnd();
                     }
                 }
             }
@@ -767,8 +773,17 @@ public class Keyboard {
         }
         mTotalHeight = y - mDefaultVerticalGap;
     }
+    
+    
 
-    private void skipToEndOfRow(XmlResourceParser parser) 
+    protected void onUnknownTagEnd() {
+	}
+
+    protected void onUnknownTagStart(Context context, Resources res, String tag2,
+			XmlResourceParser parser) {		
+	}
+
+	private void skipToEndOfRow(XmlResourceParser parser) 
             throws XmlPullParserException, IOException {
         int event;
         while ((event = parser.next()) != XmlResourceParser.END_DOCUMENT) {

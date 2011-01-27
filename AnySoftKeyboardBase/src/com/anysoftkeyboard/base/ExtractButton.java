@@ -29,7 +29,7 @@ class ExtractButton extends Button {
     }
 
     public ExtractButton(Context context, AttributeSet attrs) {
-        super(context, attrs, R.attr.buttonStyle);
+        super(context, attrs, android.R.attr.buttonStyle);
     }
 
     public ExtractButton(Context context, AttributeSet attrs, int defStyle) {

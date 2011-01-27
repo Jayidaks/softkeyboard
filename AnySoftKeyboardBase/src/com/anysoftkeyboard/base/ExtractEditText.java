@@ -34,7 +34,7 @@ public class ExtractEditText extends EditText {
     }
 
     public ExtractEditText(Context context, AttributeSet attrs) {
-        super(context, attrs, R.attr.editTextStyle);
+        super(context, attrs, android.R.attr.editTextStyle);
     }
 
     public ExtractEditText(Context context, AttributeSet attrs, int defStyle) {

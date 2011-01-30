@@ -269,7 +269,7 @@ public class KeyboardView extends View implements View.OnClickListener {
     };
 
     public KeyboardView(Context context, AttributeSet attrs) {
-        this(context, attrs, R.styleable.KeyboardView_android_keyboardViewStyle);
+        this(context, attrs, R.attr.keyboardViewStyle);
     }
 
     public KeyboardView(Context context, AttributeSet attrs, int defStyle) {

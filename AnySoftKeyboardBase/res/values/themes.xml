@@ -27,6 +27,7 @@
         <item name="android:textColorPrimary">@color/primary_text_dark</item>
         <item name="android:textColorHint">@color/hint_foreground_dark</item>
         <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:keyboardViewStyle">@style/Widget.KeyboardView</item>
     </style>
     
     <!-- Default dark theme for panel windows.  This removes all extraneous

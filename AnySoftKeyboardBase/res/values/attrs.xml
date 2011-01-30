@@ -70,7 +70,7 @@
 
     <declare-styleable name="KeyboardView">
         <!-- Default KeyboardView style. -->
-        <attr name="android:keyboardViewStyle"/>
+        <attr name="keyboardViewStyle" format="reference" />
 
         <!-- Image for the key. This image needs to be a StateListDrawable, with the following
              possible states: normal, pressed, checkable, checkable+pressed, checkable+checked,

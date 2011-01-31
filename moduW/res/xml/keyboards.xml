@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<Keyboard nameResId="@string/eng_keyboard_16keys" iconResId="@drawable/en" layoutResId="@xml/eng_16keys" landscapeResId="@xml/qwerty" id="12335055-4aa6-49dc-8456-c7d38a1a5123" defaultDictionaryLocale="en" description="16 keys English layout" index="2"/>
+</Keyboards>

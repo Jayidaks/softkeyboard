@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<!-- settings - UI -->
+    <string name="ui_group">ממשק המשתמש</string>
+    <string name="keyboard_layout_change_keys_size_title">שינוי גודל מקשי מעבר</string>
+    <string name="keyboard_layout_change_keys_size_summary">להגדרת גודלו של מקש הרישיות/ספרות במצב תצוגה רוחבי</string>
+    <string name="keyboard_layout_change_keys_size_dialog_title">גודל מקש מצב</string>
+    <string-array name="keyboard_layout_keys_size">
+        <item>ברירת מחדל</item>
+        <item>קטן</item>
+        <item>גדול</item>
+    </string-array>
+	
+	<string name="added_word">נשמרה: <xliff:g id="word">%s</xliff:g></string>
+	
+	<!-- settings - effects-->
+    <string name="effects_group">הגדרות הקשה במקלדת</string>
+    <string name="ime_settings">הגדרות מקלדת</string>
+    <!-- <string name="vibrate_on">Vibrate on key-press</string>-->
+    <string name="vibrate_on_key_press_title">רטט</string>
+    <string name="vibrate_on_key_press_summary"> בחר אפשרות זו להפעלת רטט בלחיצה על מקשים</string>
+    <string name="vibrate_on_key_press_dialog_title">בחר סוג רטט</string>
+    <string-array name="vibrate_on_key_press_types">
+    	<item>ללא</item>
+        <item>חלש</item>
+        <item>בינוני</item>
+        <item>חזק</item>
+    </string-array>
+	
+	
+	<string name="sound_on">צליל</string>
+    <string name="sound_on_summary">בחר אפשרות זו להפעלת צליל בלחיצה על מקשים</string>
+    <string name="use_custom_sound_volume">עוצמה מותאמת אישית</string>
+    <string name="use_custom_sound_volume_on_summary">בחר עוצמת צליל לאפקטים קוליים</string>
+    <string name="use_custom_sound_volume_off_summary">עוצמת ברירת המחדל תשמש להשמעת האפקטים הקוליים.</string>
+    <string name="custom_sound_volume">בחר עוצמת צליל</string>
+	
+	
+	 
+    <string name="speacial_fetures_group">תכונות מיוחדות</string>
+	<string name="switch_keyboard_on_space">מקש רווח משנה לשפה</string>
+	
+    <string name="switch_keyboard_on_space_on_summary">השתמש במקש הרווח בכדי לעבור בין מצב ספרות/סמלים למצב שפה</string>
+    <string name="switch_keyboard_on_space_off_summary">אל תשתמש במקש הרווח כדי לחזור למצב שפה ממצב ספרות או סמלים</string>
+    <string name="fullscreen_input_connection_supported">תצוגת מסך מלא</string>
+    <string name="fullscreen_input_connection_supported_on_summary">להצגת אזור התצוגה המקדימה של הטקסט במסך מלא</string>
+    <string name="fullscreen_input_connection_supported_off_summary">לעולם אל תשתמש במסך מלא לכתיבה</string>
+    <string name="backword_support">תמיכה במחיקת מילה אחת אחורה</string>
+    <string name="backword_support_on_summary">לחיצה על Shift + Backspace תמחק את המילה האחרונה</string>
+    <string name="backword_support_off_summary">לחיצה על Shift + Backspace תמחק את התו האחרון</string>
+    <string name="swipe_tweak_group">תנועות החלקה במסך</string>
+    <string name="swipe_up_action">תנועת החלקה מעלה</string>
+    <string name="swipe_up_action_summary">בחר את הפעולה שתתבצע לאחר החלקה מעלה על פני לוח המקשים</string>
+    <string name="swipe_up_action_title">החלקה מעלה</string>
+    <string name="swipe_down_action">תנועת החלקה מטה</string>
+    <string name="swipe_down_action_summary">בחר את הפעולה שתתבצע לאחר החלקה מטה על פני לוח המקשים</string>
+    <string name="swipe_down_action_title">החלקה מטה</string>
+    <string name="swipe_left_action">תנועת החלקה שמאלה</string>
+    <string name="swipe_left_action_summary">בחר את הפעולה שתתבצע לאחר החלקה שמאלה על פני לוח המקשים</string>
+    <string name="swipe_left_action_title">החלקה שמאלה</string>
+    <string name="swipe_right_action">תנועת החלקה ימינה</string>
+    <string name="swipe_right_action_summary">בחר את הפעולה שתתבצע לאחר החלקה ימינה על פני לוח המקשים</string>
+    <string name="swipe_right_action_title">החלקה ימינה</string>
+    <string-array name="swipe_action_types">
+    	<item>ללא</item>
+    	<item>השפה הבאה</item>
+        <item>מצב הסמלים הבא</item>
+        <item>עבור מההתחלה לסוף בין כל המצבים</item>
+        <item>עבור מהסוף להתחלה בין כל המצבים</item>
+        <item>נעילת Shift</item>
+        <item>הסתר לוח מקשים</item>
+        <item>מקש Backspace</item>
+        <item>הזז סמן מעלה</item>
+        <item>הזז סמן מטה</item>
+        <item>הזז סמן שמאלה</item>
+        <item>הזז סמן ימינה</item>
+    </string-array>
+	
+	
+	<string name="tweaks_group">הגדרות מתקדמות</string>
+    <string name="show_new_version_notifications_again">הצג הודעות על גירסאות חדשות</string>
+    <string name="show_new_version_notifications_again_on_summary">עם התקנת גירסה חדשה יוצג יומן שינוי.</string>
+    <string name="show_new_version_notifications_again_off_summary">לא תוצג הודעה לאחר התקנת גירסה חדשה</string>
+    <string name="use_keyrepeat">השתמש בחזרה על מקשים</string>
+    <string name="use_keyrepeat_on_summary">חזרה על מקשים מופעלת</string>
+    <string name="use_keyrepeat_off_summary">חזרה על מקשים מנוטרלת</string>    
+    <string name="emoticon_long_press_opens_popup">לחיצה על מקש הפרצופונים</string>
+    <string name="emoticon_long_press_opens_popup_on_summary">הקפץ חלון פרצופונים בלחיצה ארוכה</string>
+    <string name="emoticon_long_press_opens_popup_off_summary">הקפץ חלון פרצופונים בלחיצה קצרה</string>
+   	<string name="emoticon_popup_type_title">אופן הצגת הפרצופונים</string>
+   	<string name="emoticon_popup_type_summary">בחר סוג תצוגה לבחירת פרצופונים</string>
+    <string name="default_smiley_text">טקסט אוטומטי לסמיילי</string>
+	<string name="default_smiley_text_summary">בחר את התווים שיופיעו בעת בחירת מקש הסמיילי</string>
+	<string name="default_domain_text">טקסט אוטומטי לשם מתחם</string>
+	<string name="default_domain_text_summary">בחר את הסיומת שתכתב בעת לחיצה על מקש המתחם (domain)</string>
+    
+    <string-array name="emoticons_popup_types">
+        <item>רשימה</item>
+        <item>לוח</item>
+    </string-array>
+
+	
+	<string name="smiley_icon_on_smileys_key">תצוגת מקש סמיילי</string>
+    <string name="smiley_icon_on_smileys_key_on_summary">הצג סמיילי על גבי המקש</string>
+    <string name="smiley_icon_on_smileys_key_off_summary">הצג את תווי הסמיילי על גבי המקש</string>
+    
+    <string name="key_press_preview_popup">תצוגת מקדימה למקשים</string>
+    <string name="key_press_preview_popup_on_summary">התו הנכתב יופיע באזור התצוגה בזמן כתיבה</string>
+    <string name="key_press_preview_popup_off_summary">בחר להצגת התו הנכתב באזור התצוגה בזמן כתיבה</string>
+	<string name="zoom_factor_keys_in_portrait">גובה מקש במצב מאונך</string>
+    <string name="zoom_factor_keys_in_portrait_summary">בחר את גובה המקשים במצב תצוגה מאונך</string>
+	<string name="zoom_factor_keys_in_landscape">גובה מקש במצב מאוזן</string>
+	<string name="zoom_factor_keys_in_landscape_summary">בחר את גובה המקשים במצב תצוגה מאוזן</string>
+	
+    <string name="insert_space_after_word_suggestion_selection">הוספת רווחים אוטומטית</string>
+    <string name="insert_space_after_word_suggestion_selection_on_summary">להוספת רווח אחרי מילה שבוחרים מרשימת ההצעות</string>
+    <string name="insert_space_after_word_suggestion_selection_off_summary">ללא הוספת רווח אחרי מילה שבוחרים מרשימת ההצעות </string>
+    <string name="double_space_to_period">2 הקשות על מקש רווח</string>
+    <string name="double_space_to_period_summary">2 הקשות על מקש הרווח תוסיף נקודה ולאחריה תו רווח.</string>
+    <string name="action_key_invisible_on_disable">מקש פעולה בלתי נראה</string>
+    <string name="action_key_invisible_on_disable_on_summary">מקש הפעולה יהיה בלתי נראה כשהממשק דורש זאת</string>
+    <string name="action_key_invisible_on_disable_off_summary">מקש הפעולה יהיה נראה גם אם הממשק דורש אחרת</string>
+    <string name="rtl_workaround_detection_title">זיהוי כיוון כתיבה</string>
+    <string name="rtl_workaround_detection_summary">תיקון כיוון הטקסט בשפות הנכתבות מימין לשמאל</string>
+    <string name="lang_key_shows_popup">סמל שפה</string>
+	<string name="lang_key_shows_popup_on_summary">הצג רשימת השפות הזמינות בלוח המקשים.</string>
+    <string name="lang_key_shows_popup_off_summary">עבור בין השפות הזמינות בלוח המקשים.</string>
+    
+    <string name="auto_caps">אותיות רישיות אוטומטיות</string>
+    <string name="grammer_group">דקדוק</string>
+    <string name="candidates_on">הצג הצעות מילון</string>
+    <string name="quick_fix">תיקון אוטומטי</string>
+    <string name="quick_fix_summary">תקן אוטומטית שגיאות הקלדה נפוצות</string>
+    <string name="auto_complete">בחירת מילים אוטומטית</string>
+    <string name="auto_complete_summary">בחר את המילה המוצעת המתאימה ביותר ע”י הקשה על מקש הרווח</string>
+	
+    <string name="physical_keyboard_suggestions">הצעות תוך כדי שימוש במקלדת ההתקן</string>
+    <string name="physical_keyboard_suggestions_summary">להצגת הצעות תוך כדי השימוש במקלדת של ההתקן</string>
+    <string name="keyboard_sandbox">תצוגה מקדימה למקלדת</string>
+    <string name="keyboard_sandbox_title">הקלד כדי לבדוק את הגדרות לוח המקשים</string>
+	
+	<!-- settings - keyboard group -->
+    <string name="keyboards_group">הגדרות לוח מקשים</string>
+    <string name="symbols_keyboard">סמלים</string>
+    <string name="eng_keyboard">אנגלית</string>
+    <string name="eng_keyboard_16keys">אנגלית 16 מקשים</string>
+	
+	<string name="search_market_for_addons">חפש הרחבות</string>
+	
+	<string name="label_go_key">לך</string>
+    <string name="label_next_key">הבא</string>
+    <string name="label_send_key">שלח</string>
+    <string name="label_done_key">בוצע</string>
+</resources>

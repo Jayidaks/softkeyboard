@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ime_name">moduWKeyboard</string>
+    
+    <string name="main_tab_welcome">Ласкаво просимо</string>
+    <string name="main_tab_links">Посилання</string>
+    <string name="main_tab_credits">Про авторів</string>
+    <!-- welcome tab -->
+	<string name="how_to_pointer_title">Ласкаво просимо в moduWKeyboard</string>
+	<string name="how_to_pointer_version_prefix">Версія:</string>
+	<string name="how_to_pointer_not_app">moduWKeyboard це не звичайна програма - це заміна екранної клавіатури.</string>
+	<string name="how_to_pointer_go_to_links">Щоб отримати більше інформації відвідайте закладку посилань.</string>
+	<!-- links tab -->
+	<string name="how_to_pointer_how_to_url">Детально про використання цеї клавіатури:</string>
+	<string name="how_to_pointer_site">Загальна інформація:</string>
+	<string name="how_to_pointer_changelog">Детально про останню версію:</string>
+	<string name="how_to_pointer_issues">Відправити помилку:</string>
+	<!-- credits tab -->
+	<string name="main_tab_credits_title">Програму було створено за участі цих людей:</string>
+	<string name="main_tab_credits_created_by">Автор:</string>
+	<string name="main_tab_credits_additional_work_by">Розробники:</string>
+	<string name="main_tab_credits_localization_by">Локалізація:</string>
+	<string name="main_tab_credits_GUI_by">Інтерфейс:</string>
+	
+    <!-- Symbols that are commonly considered word separators in this language -->
+    <!-- <string name="word_separators">\u0020.,;:!?\n()[]*&amp;@{}/&lt;&gt;_+=|-'`~&quot;1234567890</string>-->
+    <!-- Indicates that a word has been added to the dictionary -->
+    <string name="added_word"><xliff:g>%s</xliff:g>: збережено</string>
+    
+    <!-- settings - UI -->
+    <string name="ui_group">Інтерфейс користувача</string>
+    <string name="keyboard_layout_change_keys_size_title">Кнопки зміни розкладки</string>
+    <string name="keyboard_layout_change_keys_size_summary">Розмір кнопок зміни розкладки</string>
+    <string name="keyboard_layout_change_keys_size_dialog_title">Оберіть розмір</string>
+    <string-array name="keyboard_layout_change_methods">
+        <item>Немає</item>
+        <item>Малі</item>
+        <item>Великі</item>
+    </string-array>
+    
+    <string name="physical_keyboard_change_notification_title">Повідомлення</string>
+    <string name="physical_keyboard_change_notification_summary">Повідомлення про зміну розкладки</string>
+    <string name="physical_keyboard_change_notification_dialog_title">Оберіть тип повідомлення</string>
+    <string-array name="physical_keyboard_change_notification_types">
+        <item>Завжди показувати символ розкладки</item>
+        <item>При зміні фізичної клавіатури</item>
+        <item>Без повідомлення</item>
+    </string-array>
+    
+    <string name="lengthy_operations_toast_notification">Повідомляти при тривалих діях</string>
+    <string name="lengthy_operations_toast_notification_summary">Показувати короткі повідомлення при тривалих діях</string>
+    
+    <!-- Options menu -->
+    <string name="change_ime">Змінити метод вводу</string>
+    <string name="override_dictionary">Змінити стандартний словник</string>
+    <!-- Dictionary override strings -->
+    <string name="override_dictionary_title">Замінити <xliff:g>%s</xliff:g>словник</string>
+    <string name="override_dictionary_default">стандартний</string>
+    <!-- Dictionary override toast messages -->
+    <string name="override_disabled">Заміну скасовано</string>
+    <string name="override_enabled">Заміняю на <xliff:g>%s</xliff:g></string>
+    
+    <!-- settings - effects-->
+    <string name="effects_group">Ефекти</string>
+    <string name="ime_settings">Настройки клавіатури</string>
+    <!-- <string name="vibrate_on">Vibrate on key-press</string>-->
+    <string name="vibrate_on_key_press_title">Вібрувати при натисненні</string>
+    <string name="vibrate_on_key_press_summary">Вибір типу вібрації</string>
+    <string name="vibrate_on_key_press_dialog_title">Вибір тривалості вібрації</string>
+    <string-array name="vibrate_on_key_press_types">
+    	<item>Без вібрації</item>
+        <item>Злегка</item>
+        <item>Середньо</item>
+        <item>Сильно</item>
+    </string-array>
+    
+    <string name="sound_on">Звук при натисненні</string>
+    <string name="sound_on_summary">Звук при натисненні екранної клавіатури. Гучність як у повідомлень.</string>
+    <string name="use_custom_sound_volume">Авто-великі</string>
+    <string name="use_custom_sound_volume_on_summary">Граматика</string>
+    <string name="use_custom_sound_volume_off_summary">Показувати пропозиції</string>
+    <string name="custom_sound_volume">Автовиправлення</string>
+    
+    <string name="tweaks_group">Тонкі налаштування</string>
+    <string name="use_keyrepeat">Автоповтор</string>
+    <string name="use_keyrepeat_on_summary">Автоповтор ввімкнено</string>
+    <string name="use_keyrepeat_off_summary">Автоповтор вимкнено</string>    
+    <string name="emoticon_long_press_opens_popup">Поява діалогу смайлів</string>
+    <string name="emoticon_long_press_opens_popup_on_summary">Поява діалогу смайлів по довгому натисканню</string>
+    <string name="emoticon_long_press_opens_popup_off_summary">Поява діалогу смайлів по короткому натисканню</string>
+    <string name="default_smiley_text">Текст смайлів</string>
+    <string name="default_domain_text">Текст доменів</string>
+    <string name="key_press_preview_popup">Підказка при натисненні кнопок</string>
+    <string name="key_press_preview_popup_on_summary">Показувати підказку при натисненні кнопок</string>
+    <string name="key_press_preview_popup_off_summary">Не показувати підказку при натисненні кнопок</string>
+    <string name="switch_keyboard_on_space">Переключення клавіатури пробілом</string>
+    <string name="switch_keyboard_on_space_on_summary">Переключатись з символів на алфавіт по натисненню пробіла</string>
+    <string name="switch_keyboard_on_space_off_summary">Не переключатись з символів на алфавіт по натисненню пробіла</string>
+    <string name="fullscreen_input_connection_supported">Використовувати повноекранну форму вводу</string>
+    <string name="fullscreen_input_connection_supported_on_summary">Повноекранна форма вводу в положенні екрану "пейзаж"</string>
+    <string name="fullscreen_input_connection_supported_off_summary">Не використовувати повноекранну форму вводу</string>
+    <string name="zoom_factor_keys_in_portrait">Висота кнопок в положенні екрану "портрет"</string>
+    <string name="zoom_factor_keys_in_landscape">Висота кнопок в положенні екрану "пейзаж"</string>
+    
+    <string name="auto_caps">Авто-великі літери</string>
+    <string name="grammer_group">Перевірка граматики</string>
+    <string name="candidates_on">Показувати пропозиції</string>
+    <string name="quick_fix">Швидкі заміни</string>
+    <string name="quick_fix_summary">Виправляти часті помилки</string>
+    <string name="auto_complete">Авто-вибір пропозицій</string>
+    <string name="auto_complete_summary">Пробіл вибирає відмічену пропозицію</string>
+    <string name="physical_keyboard_suggestions">Пропозиції для апаратної клавіатури</string>
+    <string name="physical_keyboard_suggestions_summary">Показувати пропозиції для апаратної клавіатури</string>
+    <string name="keyboard_sandbox">Натисніть для перевірки набору тексту</string>
+    <string name="keyboard_sandbox_title">Набирайте текст для перевірки ваших налаштувань</string>
+    <!-- settings - keyboard group -->
+    <string name="keyboards_group">Розкладки</string>
+    <string name="eng_keyboard">Англійська</string>
+    
+    <!-- Tutorials --> 
+    <string name="show_tutorial_on_startup">Показувати вступ при старті</string>
+    <string name="tutorial_swipe_title">Провести пальцем для зміни розкладки</string>
+    <string name="tutorial_swipe_text">Розкладку можна змінити провівши пальцем над клавіатурою. Проведіть зліва направо щоб змінити розкладку, справа наліво щоб перейти до символів.</string>
+    
+    <!-- Special soft keyboard keys text -->
+    <string name="label_go_key">Пуск</string>
+    <string name="label_next_key">Наступне</string>
+    <string name="label_send_key">Послати</string>
+    
+    <string name="change_lang_wide">→ АБВ →</string>
+    <string name="change_lang_regular">АБВ</string>
+    <string name="change_symbols_wide">← 123 ←</string>
+    <string name="change_symbols_regular">123</string>
+    
+    <string name="please_wait">Зачекайте</string>
+    <string name="toast_lengthy_words_long_operation">Завантаження словника...</string>
+    <string name="toast_lengthy_start_up_operation">Запуск moduWKeyboard...</string>
+    <string name="lengthy_creating_keyboard_operation">Створення розкладок...</string>
+</resources>

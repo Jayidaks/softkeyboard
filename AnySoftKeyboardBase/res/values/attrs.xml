@@ -24,88 +24,134 @@
 	<!-- Window animation class attributes. -->
     <declare-styleable name="WindowAnimation">
         <!-- The animation used when a window is being added. -->
-        <attr name="android:windowEnterAnimation"/>
+        <attr name="windowEnterAnimation" format="reference" />
         <!-- The animation used when a window is being removed. -->
-        <attr name="android:windowExitAnimation" />
+        <attr name="windowExitAnimation" format="reference" />
         <!-- The animation used when a window is going from INVISIBLE to VISIBLE. -->
-        <attr name="android:windowShowAnimation"/>
+        <attr name="windowShowAnimation" format="reference" />
         <!-- The animation used when a window is going from VISIBLE to INVISIBLE. -->
-        <attr name="android:windowHideAnimation" />
+        <attr name="windowHideAnimation" format="reference" />
 	</declare-styleable>
 	
 	<declare-styleable name="Theme">
-    	<attr name="android:buttonStyle"/>
+    	<attr name="buttonStyle" format="reference" />
     	
     	<!-- Default appearance of text: color, typeface, size, and style. -->
-        <attr name="android:textAppearance"/>
+        <attr name="textAppearance" format="reference"/>
         <!-- The most prominent text color.  -->
-        <attr name="android:textColorPrimary" />
+        <attr name="textColorPrimary" format="reference|color"/>
         
         <!-- Color of hint text (displayed when the field is empty). -->
-    	<attr name="android:textColorHint"/>
+    	<attr name="textColorHint" format="reference|color"/>
         
         <!-- Default background dim amount when a menu, dialog, or something similar pops up. -->
-        <attr name="android:backgroundDimAmount" />
+        <attr name="backgroundDimAmount" format="float"/>
+        
+        <attr name="windowAnimationStyle" format="reference" />
         
     	<!-- Defines the default soft input state that this window would
              like when it is displayed. -->
-        <attr name="android:windowSoftInputMode"/>
+        <!-- Defines the default soft input state that this window would
+             like when it is displayed. -->
+        <attr name="windowSoftInputMode">
+            <!-- Not specified, use what the system thinks is best.  This
+                 is the default. -->
+            <flag name="stateUnspecified" value="0" />
+            <!-- Leave the soft input window as-is, in whatever state it
+                 last was. -->
+            <flag name="stateUnchanged" value="1" />
+            <!-- Make the soft input area hidden when normally appropriate
+                 (when the user is navigating forward to your window). -->
+            <flag name="stateHidden" value="2" />
+            <!-- Always make the soft input area hidden when this window
+                 has input focus. -->
+            <flag name="stateAlwaysHidden" value="3" />
+            <!-- Make the soft input area visible when normally appropriate
+                 (when the user is navigating forward to your window). -->
+            <flag name="stateVisible" value="4" />
+            <!-- Always make the soft input area visible when this window
+                 has input focus. -->
+            <flag name="stateAlwaysVisible" value="5" />
+
+            <!-- The window resize/pan adjustment has not been specified,
+                 the system will automatically select between resize and pan
+                 modes, depending
+                 on whether the content of the window has any layout views
+                 that can scroll their contents.  If there is such a view,
+                 then the window will be resized, with the assumption being
+                 that the resizeable area can be reduced to make room for
+                 the input UI. -->
+            <flag name="adjustUnspecified" value="0x00" />
+            <!-- Always resize the window: the content area of the window is
+                 reduced to make room for the soft input area. -->
+            <flag name="adjustResize" value="0x10" />
+            <!-- Don't resize the window to make room for the soft input area;
+                 instead pan the contents of the window as focus moves inside
+                 of it so that the user can see what they are typing.  This is
+                 generally less desireable than panning because the user may
+                 need to close the input area to get at and interact with
+                 parts of the window. -->
+            <flag name="adjustPan" value="0x20" />
+        </attr>
     </declare-styleable>
     
-    <declare-styleable name="InputMethodService">
+	<declare-styleable name="InputMethodService">
         <!-- Background to use for entire input method when it is being
              shown in fullscreen mode with the extract view, to ensure
              that it completely covers the application.  This allows,
              for example, the candidate view to be hidden
              while in fullscreen mode without having the application show through
              behind it.-->
-        <attr name="android:imeFullscreenBackground"/>
+        <attr name="imeFullscreenBackground" format="reference|color" />
         <!-- Animation to use when showing the fullscreen extract UI after
              it had previously been hidden. -->
-        <attr name="android:imeExtractEnterAnimation"/>
+        <attr name="imeExtractEnterAnimation" format="reference" />
         <!-- Animation to use when hiding the fullscreen extract UI after
              it had previously been shown. -->
-        <attr name="android:imeExtractExitAnimation"/>
+        <attr name="imeExtractExitAnimation" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="KeyboardView">
+    	<!-- A drawable to use as the background.  This can be either a reference
+             to a full drawable resource (such as a PNG image, 9-patch,
+             XML state list description, etc), or a solid color such as "#ff000000"
+            (black). -->
+        <attr name="background" format="reference|color" />
+        
         <!-- Default KeyboardView style. -->
         <attr name="keyboardViewStyle" format="reference" />
 
         <!-- Image for the key. This image needs to be a StateListDrawable, with the following
              possible states: normal, pressed, checkable, checkable+pressed, checkable+checked,
              checkable+checked+pressed. -->
-        <attr name="android:keyBackground"/>
+        <attr name="keyBackground" format="reference" />
 
         <!-- Size of the text for character keys. -->
-        <attr name="android:keyTextSize"/>
+        <attr name="keyTextSize" format="dimension" />
 
         <!-- Size of the text for custom keys with some text and no icon. -->
-        <attr name="android:labelTextSize"/>
+        <attr name="labelTextSize" format="dimension" />
 
         <!-- Color to use for the label in a key. -->
-        <attr name="android:keyTextColor"/>
-        
-        <!-- Default EditText style. -->
-        <attr name="android:editTextStyle"/>
+        <attr name="keyTextColor" format="color" />
 
         <!-- Layout resource for key press feedback.-->
-        <attr name="android:keyPreviewLayout"/>
+        <attr name="keyPreviewLayout" format="reference" />
 
         <!-- Vertical offset of the key press feedback from the key. -->
-        <attr name="android:keyPreviewOffset"/>
+        <attr name="keyPreviewOffset" format="dimension" />
 
         <!-- Height of the key press feedback popup. -->
-        <attr name="android:keyPreviewHeight" />
+        <attr name="keyPreviewHeight" format="dimension" />
 
         <!-- Amount to offset the touch Y coordinate by, for bias correction. -->
-        <attr name="android:verticalCorrection"  />
+        <attr name="verticalCorrection" format="dimension" />
 
         <!-- Layout resource for popup keyboards. -->
-        <attr name="android:popupLayout"/>
+        <attr name="popupLayout" format="reference" />
 
-        <attr name="android:shadowColor"/>
-        <attr name="android:shadowRadius"/>
+        <attr name="shadowColor" format="color" />
+        <attr name="shadowRadius" format="float" />
     </declare-styleable>
 
     <declare-styleable name="KeyboardViewPreviewState">

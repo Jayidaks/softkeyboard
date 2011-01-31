@@ -25,9 +25,7 @@
         <item name="android:textStyle">normal</item>
     </style>
     
-	<style name="Widget">
-        <item name="android:textAppearance">?android:textAppearance</item>
-    </style>
+	
     
     <style name="Widget.Button">
         <item name="android:background">@drawable/btn_default</item>
@@ -52,7 +50,44 @@
         <item name="android:shadowColor">#BB000000</item>
         <item name="android:shadowRadius">2.75</item>
     </style>
-     -->
+     
+     <style name="TextAppearance">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColorHighlight">#FFFF9200</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+        <item name="android:textColorLink">#5C5CFF</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    
+     <style name="Widget">
+        <item name="android:textAppearance">?android:textAppearance</item>
+    </style>
+    
+    <style name="Widget.Button">
+        <item name="background">@drawable/btn_default</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmallInverse</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+    
+     <style name="Widget.KeyboardView" parent="Widget">
+        <item name="background">@drawable/keyboard_background</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key</item>
+        <item name="keyTextSize">22sp</item>
+        <item name="keyTextColor">#FFFFFFFF</item>
+        <item name="keyPreviewLayout">@layout/keyboard_key_preview</item>
+        <item name="keyPreviewOffset">-12dip</item>
+        <item name="keyPreviewHeight">80dip</item>
+        <item name="labelTextSize">14sp</item>
+        <item name="popupLayout">@layout/keyboard_popup_keyboard</item>
+        <item name="verticalCorrection">-10dip</item>
+        <item name="shadowColor">#BB000000</item>
+        <item name="shadowRadius">2.75</item>
+    </style>
+    
      <style name="Widget.KeyboardView" parent="android:Widget">
         <item name="android:background">@drawable/keyboard_background</item>
         <item name="android:keyBackground">@drawable/btn_keyboard_key</item>
@@ -70,15 +105,14 @@
     
     <style name="Animation"/>
     
-    <!-- Window animations that are applied to input method overlay windows. -->
     <style name="Animation.InputMethod">
-        <item name="android:windowEnterAnimation">@anim/input_method_enter</item>
-        <item name="android:windowExitAnimation">@anim/input_method_exit</item>
+        <item name="windowEnterAnimation">@anim/input_method_enter</item>
+        <item name="windowExitAnimation">@anim/input_method_exit</item>
     </style>
 
-    <!-- Special optional fancy IM animations. @hide -->
     <style name="Animation.InputMethodFancy">
-        <item name="android:windowEnterAnimation">@anim/input_method_fancy_enter</item>
-        <item name="android:windowExitAnimation">@anim/input_method_fancy_exit</item>
+        <item name="windowEnterAnimation">@anim/input_method_fancy_enter</item>
+        <item name="windowExitAnimation">@anim/input_method_fancy_exit</item>
     </style>
+    -->
 </resources>

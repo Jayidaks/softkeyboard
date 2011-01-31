@@ -584,7 +584,7 @@ public class InputMethodService extends AbstractInputMethodService {
         mShowInputForced = false;
         
         mThemeAttrs = obtainStyledAttributes(R.styleable.InputMethodService);
-        mRootView = mInflater.inflate(R.layout.input_method, null);
+        mRootView = mInflater.inflate(com.anysoftkeyboard.base.R.layout.input_method, null);
         mWindow.setContentView(mRootView);
         //mRootView.getViewTreeObserver().addOnComputeInternalInsetsListener(mInsetsComputer);
         //for some reason I can not do this code out of "internal"
@@ -599,17 +599,17 @@ public class InputMethodService extends AbstractInputMethodService {
         if (animationStyleId != 0)
         	mWindow.getWindow().setWindowAnimations(animationStyleId);
         //(-)the workaround
-        mFullscreenArea = (ViewGroup)mRootView.findViewById(R.id.fullscreenArea);
+        mFullscreenArea = (ViewGroup)mRootView.findViewById(com.anysoftkeyboard.base.R.id.fullscreenArea);
         mExtractViewHidden = false;
-        mExtractFrame = (FrameLayout)mRootView.findViewById(R.id.extractArea);
+        mExtractFrame = (FrameLayout)mRootView.findViewById(com.anysoftkeyboard.base.R.id.extractArea);
         mExtractView = null;
         mExtractEditText = null;
         mExtractAccessories = null;
         mExtractAction = null;
         mFullscreenApplied = false;
         
-        mCandidatesFrame = (FrameLayout)mRootView.findViewById(R.id.candidatesArea);
-        mInputFrame = (FrameLayout)mRootView.findViewById(R.id.inputArea);
+        mCandidatesFrame = (FrameLayout)mRootView.findViewById(com.anysoftkeyboard.base.R.id.candidatesArea);
+        mInputFrame = (FrameLayout)mRootView.findViewById(com.anysoftkeyboard.base.R.id.inputArea);
         mInputView = null;
         mIsInputViewShown = false;
         
@@ -624,7 +624,7 @@ public class InputMethodService extends AbstractInputMethodService {
      * returns the ID of the animation to use for enter/exit keyboard
      */
     private int getAnimationStyleId() {
-		return R.style.Animation_InputMethodFancy;
+		return 0;//R.style.Animation_InputMethodFancy;
 	}
 
 	@Override public void onDestroy() {
@@ -782,7 +782,7 @@ public class InputMethodService extends AbstractInputMethodService {
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams)
                     mFullscreenArea.getLayoutParams();
             if (isFullscreen) {
-                mFullscreenArea.setBackgroundDrawable(mThemeAttrs.getDrawable(R.styleable.InputMethodService_android_imeFullscreenBackground));
+                mFullscreenArea.setBackgroundDrawable(mThemeAttrs.getDrawable(R.styleable.InputMethodService_imeFullscreenBackground));
                 lp.height = 0;
                 lp.weight = 1;
             } else {
@@ -907,8 +907,8 @@ public class InputMethodService extends AbstractInputMethodService {
         updateCandidatesVisibility(mCandidatesVisibility == View.VISIBLE);
         if (mWindowWasVisible && mFullscreenArea.getVisibility() != vis) {
             int animRes = mThemeAttrs.getResourceId(vis == View.VISIBLE
-                    ? R.styleable.InputMethodService_android_imeExtractEnterAnimation
-                    : R.styleable.InputMethodService_android_imeExtractExitAnimation,
+                    ? R.styleable.InputMethodService_imeExtractEnterAnimation
+                    : R.styleable.InputMethodService_imeExtractExitAnimation,
                     0);
             if (animRes != 0) {
                 mFullscreenArea.startAnimation(AnimationUtils.loadAnimation(

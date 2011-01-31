@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboards>
+	<Keyboard nameResId="@string/keyboard_16keys" iconResId="@drawable/he" layoutResId="@xml/heb_16keys" landscapeResId="@xml/heb_qwerty" 
+		id="aa58fb12-6558-4e96-9aa6-0e90101570b3" defaultDictionaryLocale="iw" additionalIsLetterExceptions="&#34;" physicalKeyboardMappingResId="@xml/heb_physical" description="Created by Menny Even Danan" index="2"/>
+</Keyboards>

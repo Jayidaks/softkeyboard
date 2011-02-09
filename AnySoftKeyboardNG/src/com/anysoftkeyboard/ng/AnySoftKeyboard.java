@@ -73,6 +73,7 @@ import com.anysoftkeyboard.ng.dictionary.ExternalDictionaryFactory.DictionaryBui
 import com.anysoftkeyboard.ng.keyboards.AnyKeyboard;
 import com.anysoftkeyboard.ng.keyboards.AnyKeyboard.HardKeyboardTranslator;
 import com.anysoftkeyboard.ng.keyboards.KeyboardBuildersFactory.KeyboardBuilder;
+import com.anysoftkeyboard.ng.views.AnyKeyboardView;
 import com.anysoftkeyboard.ng.views.CandidateView;
 import com.anysoftkeyboard.ng.views.CandidateViewContainer;
 import com.anysoftkeyboard.ng.views.settings.MainSettings;
@@ -332,7 +333,8 @@ public class AnySoftKeyboard extends InputMethodService implements
 		if (DEBUG) Log.v(TAG, "Creating Input View");
 		mInputView = (AnyKeyboardView) getLayoutInflater().inflate(
 				//the new layout will solve the "invalidateAllKeys" problem.
-				Workarounds.isDonut()? R.layout.input_donut : R.layout.input_cupcake
+				//Workarounds.isDonut()? R.layout.input_donut : R.layout.input_cupcake
+				R.layout.input_eclair
 				, null);
 		//reseting token users
 		mOptionsDialog = null;

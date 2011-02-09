@@ -25,6 +25,7 @@ import android.view.MotionEvent;
 import com.anysoftkeyboard.base.Keyboard;
 import com.anysoftkeyboard.base.Keyboard.Key;
 import com.anysoftkeyboard.base.KeyboardView;
+import com.anysoftkeyboard.ng.AnyApplication;
 import com.anysoftkeyboard.ng.keyboards.AnyKeyboard;
 
 public class AnyKeyboardView extends KeyboardView {
@@ -35,9 +36,9 @@ public class AnyKeyboardView extends KeyboardView {
 		void endInputConnectionEdit();
 	}
 	private final static String TAG = "ASK AnyKeyboardView";
-	static final int KEYCODE_OPTIONS = -100;
+	public static final int KEYCODE_OPTIONS = -100;
     //static final int KEYCODE_SHIFT_LONGPRESS = -101;
-	static final int KEYCODE_SMILEY_LONGPRESS = -102;
+	public static final int KEYCODE_SMILEY_LONGPRESS = -102;
     
     private Keyboard mPhoneKeyboard;
 

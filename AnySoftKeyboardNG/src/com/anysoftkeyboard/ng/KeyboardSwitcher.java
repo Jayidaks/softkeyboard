@@ -26,6 +26,7 @@ import com.anysoftkeyboard.ng.keyboards.KeyboardBuildersFactory;
 import com.anysoftkeyboard.ng.keyboards.KeyboardFactory;
 import com.anysoftkeyboard.ng.keyboards.AnyKeyboard.HardKeyboardTranslator;
 import com.anysoftkeyboard.ng.keyboards.KeyboardBuildersFactory.KeyboardBuilder;
+import com.anysoftkeyboard.ng.views.AnyKeyboardView;
 
 public class KeyboardSwitcher
 {

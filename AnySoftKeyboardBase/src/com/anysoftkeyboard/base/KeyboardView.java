@@ -20,6 +20,7 @@ import com.anysoftkeyboard.base.Keyboard.Key;
 import com.anysoftkeyboard.base.R;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -131,18 +132,18 @@ public class KeyboardView extends View implements View.OnClickListener {
     
     private Keyboard mKeyboard;
     private int mCurrentKeyIndex = NOT_A_KEY;
-    private int mLabelTextSize;
-    private int mKeyTextSize;
-    private int mKeyTextColor;
-    private float mShadowRadius;
-    private int mShadowColor;
-    private float mBackgroundDimAmount;
+    protected int mLabelTextSize;
+    protected int mKeyTextSize;
+    protected int mKeyTextColor;
+    protected float mShadowRadius;
+    protected int mShadowColor;
+    protected float mBackgroundDimAmount;
     
     private TextView mPreviewText;
     private PopupWindow mPreviewPopup;
     private int mPreviewTextSizeLarge;
-    private int mPreviewOffset;
-    private int mPreviewHeight;
+    protected int mPreviewOffset;
+    protected int mPreviewHeight;
     private int[] mOffsetInWindow;
 
     private PopupWindow mPopupKeyboard;
@@ -168,7 +169,7 @@ public class KeyboardView extends View implements View.OnClickListener {
     private static final int DELAY_AFTER_PREVIEW = 70;
     private static final int DEBOUNCE_TIME = 70;
     
-    private int mVerticalCorrection;
+    protected int mVerticalCorrection;
     private int mProximityThreshold;
 
     private boolean mPreviewCentered = false;
@@ -202,7 +203,7 @@ public class KeyboardView extends View implements View.OnClickListener {
     private int mPopupX;
     private int mPopupY;
     private int mRepeatKeyIndex = NOT_A_KEY;
-    private int mPopupLayout;
+    protected int mPopupLayout;
     private boolean mAbortKey;
     private Key mInvalidatedKey;
     private Rect mClipRegion = new Rect(0, 0, 0, 0);
@@ -216,7 +217,7 @@ public class KeyboardView extends View implements View.OnClickListener {
     private float mOldPointerX;
     private float mOldPointerY;
 
-    private Drawable mKeyBackground;
+    protected Drawable mKeyBackground;
 
     private static final int REPEAT_INTERVAL = 50; // ~20 keys per second
     private static final int REPEAT_START_DELAY = 400;
@@ -267,44 +268,34 @@ public class KeyboardView extends View implements View.OnClickListener {
             }
         }
     };
+	protected int mPreviewLayout;
 
     public KeyboardView(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.keyboardViewStyle);
+        this(context, attrs, 0);
     }
 
     public KeyboardView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        TypedArray a =
+        /*
+		TypedArray a =
             context.obtainStyledAttributes(
                 attrs, com.anysoftkeyboard.base.R.styleable.KeyboardView, 0, 0);
         
-        LayoutInflater inflate =
-                (LayoutInflater) context
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        int previewLayout = 0;
-        int keyTextSize = 0;
-
         int n = a.getIndexCount();
-        Log.d(TAG, "R.styleable.KeyboardView returned "+n+" attributes.");
         
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
-
-            Log.d(TAG, "Checking attr "+attr);
             
             switch (attr) {
             case com.anysoftkeyboard.base.R.styleable.KeyboardView_keyBackground:
                 mKeyBackground = a.getDrawable(attr);
-                Log.d(TAG, "R.styleable.KeyboardView_keyBackground is "+mKeyBackground);
                 break;
             case com.anysoftkeyboard.base.R.styleable.KeyboardView_verticalCorrection:
                 mVerticalCorrection = a.getDimensionPixelOffset(attr, 0);
-                Log.d(TAG, "KeyboardView_verticalCorrection is "+mVerticalCorrection);
                 break;
             case com.anysoftkeyboard.base.R.styleable.KeyboardView_keyPreviewLayout:
-                previewLayout = a.getResourceId(attr, 0);
+                mPreviewLayout = a.getResourceId(attr, 0);
                 break;
             case com.anysoftkeyboard.base.R.styleable.KeyboardView_keyPreviewOffset:
                 mPreviewOffset = a.getDimensionPixelOffset(attr, 0);
@@ -335,10 +326,16 @@ public class KeyboardView extends View implements View.OnClickListener {
         
         a = getContext().obtainStyledAttributes(R.styleable.Theme);
         mBackgroundDimAmount = a.getFloat(R.styleable.Theme_backgroundDimAmount, 0.5f);
+        */
+        fillThemeMembers(context, attrs);
+
+        LayoutInflater inflate =
+            (LayoutInflater) context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         mPreviewPopup = new PopupWindow(context);
-        if (previewLayout != 0) {
-            mPreviewText = (TextView) inflate.inflate(previewLayout, null);
+        if (mPreviewLayout != 0) {
+            mPreviewText = (TextView) inflate.inflate(mPreviewLayout, null);
             mPreviewTextSizeLarge = (int) mPreviewText.getTextSize();
             mPreviewPopup.setContentView(mPreviewText);
             mPreviewPopup.setBackgroundDrawable(null);
@@ -357,7 +354,7 @@ public class KeyboardView extends View implements View.OnClickListener {
         
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setTextSize(keyTextSize);
+        mPaint.setTextSize(mKeyTextSize);
         mPaint.setTextAlign(Align.CENTER);
         mPaint.setAlpha(255);
 
@@ -370,6 +367,23 @@ public class KeyboardView extends View implements View.OnClickListener {
         resetMultiTap();
         initGestureDetector();
     }
+
+	protected void fillThemeMembers(Context context, AttributeSet attrs) {
+		Resources res = context.getResources();
+		
+		mKeyBackground = res.getDrawable(R.drawable.keyboard_background);
+        mVerticalCorrection = res.getDimensionPixelOffset(R.dimen.verticalCorrection);
+        mPreviewLayout = R.layout.keyboard_key_preview;
+        mPreviewOffset = res.getDimensionPixelOffset(R.dimen.keyPreviewOffset);
+        mPreviewHeight = res.getDimensionPixelOffset(R.dimen.keyPreviewHeight);
+        mKeyTextSize = res.getDimensionPixelOffset(R.dimen.keyTextSize);
+        mKeyTextColor = res.getColor(R.color.key_text_color);
+        mLabelTextSize = res.getDimensionPixelOffset(R.dimen.label_text_size);
+        mPopupLayout = R.layout.keyboard_popup_keyboard;
+        mShadowColor = res.getColor(R.color.shadow_color);
+        mShadowRadius = 2.75f;
+        mBackgroundDimAmount = 0.5f;
+	}
 
     private void initGestureDetector() {
         mGestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {

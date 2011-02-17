@@ -583,7 +583,7 @@ public class InputMethodService extends AbstractInputMethodService {
         mShowInputRequested = false;
         mShowInputForced = false;
         
-        mThemeAttrs = obtainStyledAttributes(R.styleable.InputMethodService);
+        mThemeAttrs = obtainStyledAttributes(com.anysoftkeyboard.base.R.styleable.InputMethodService);
         mRootView = mInflater.inflate(com.anysoftkeyboard.base.R.layout.input_method, null);
         mWindow.setContentView(mRootView);
         //mRootView.getViewTreeObserver().addOnComputeInternalInsetsListener(mInsetsComputer);

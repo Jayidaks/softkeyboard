@@ -20,6 +20,7 @@
 	iconResId="@drawable/flag"
 	defaultDictionaryLocale="ca" 
 	description=""
+	additionalIsLetterExceptions="&#183;"
 	index="1"/>
 	<!-- you can add additional layouts. Just create additional Keyboard xml node. -->
 </Keyboards>

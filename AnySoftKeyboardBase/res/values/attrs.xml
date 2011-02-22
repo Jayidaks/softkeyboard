@@ -21,18 +21,6 @@
 
 <resources>
 	
-	<!-- Window animation class attributes. -->
-    <declare-styleable name="WindowAnimation">
-        <!-- The animation used when a window is being added. -->
-        <attr name="windowEnterAnimation" format="reference" />
-        <!-- The animation used when a window is being removed. -->
-        <attr name="windowExitAnimation" format="reference" />
-        <!-- The animation used when a window is going from INVISIBLE to VISIBLE. -->
-        <attr name="windowShowAnimation" format="reference" />
-        <!-- The animation used when a window is going from VISIBLE to INVISIBLE. -->
-        <attr name="windowHideAnimation" format="reference" />
-	</declare-styleable>
-    
 	<declare-styleable name="InputMethodService">
         <!-- Background to use for entire input method when it is being
              shown in fullscreen mode with the extract view, to ensure
@@ -47,12 +35,6 @@
         <!-- Animation to use when hiding the fullscreen extract UI after
              it had previously been shown. -->
         <attr name="imeExtractExitAnimation" format="reference" />
-    </declare-styleable>
-
-    <declare-styleable name="KeyboardViewPreviewState">
-        <!-- State for {@link android.inputmethodservice.KeyboardView KeyboardView}
-                key preview background. -->
-        <attr name="state_long_pressable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="Keyboard">

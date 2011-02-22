@@ -22,7 +22,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal">
         
-    <android.inputmethodservice.ExtractEditText
+    <com.anysoftkeyboard.base.ExtractEditText
             android:id="@+id/inputExtractEditText"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -33,7 +33,7 @@
             android:inputType="text"
             android:background="@drawable/extract_edit_text"
         >
-    </android.inputmethodservice.ExtractEditText>
+    </com.anysoftkeyboard.base.ExtractEditText>
 
     <FrameLayout
             android:id="@+id/inputExtractAccessories"
@@ -44,7 +44,7 @@
             android:background="@drawable/keyboard_accessory_bg_landscape"
         >
         
-        <android.inputmethodservice.ExtractButton android:id="@+id/inputExtractAction"
+        <com.anysoftkeyboard.base.ExtractButton android:id="@+id/inputExtractAction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -128,7 +128,7 @@ public class KeyboardView extends View implements View.OnClickListener {
     private static final boolean DEBUG = false;
     private static final int NOT_A_KEY = -1;
     private static final int[] KEY_DELETE = { Keyboard.KEYCODE_DELETE };
-    private static final int[] LONG_PRESSABLE_STATE_SET = { R.attr.state_long_pressable };   
+    private static final int[] LONG_PRESSABLE_STATE_SET = { android.R.attr.state_long_pressable };   
     
     private Keyboard mKeyboard;
     private int mCurrentKeyIndex = NOT_A_KEY;
@@ -371,7 +371,7 @@ public class KeyboardView extends View implements View.OnClickListener {
 	protected void fillThemeMembers(Context context, AttributeSet attrs) {
 		Resources res = context.getResources();
 		
-		mKeyBackground = res.getDrawable(R.drawable.keyboard_background);
+		mKeyBackground = res.getDrawable(R.drawable.btn_keyboard_key);
         mVerticalCorrection = res.getDimensionPixelOffset(R.dimen.verticalCorrection);
         mPreviewLayout = R.layout.keyboard_key_preview;
         mPreviewOffset = res.getDimensionPixelOffset(R.dimen.keyPreviewOffset);
@@ -736,16 +736,16 @@ public class KeyboardView extends View implements View.OnClickListener {
             canvas.drawRect(0, 0, getWidth(), getHeight(), paint);
         }
 
-        if (DEBUG && mShowTouchPoints) {
-            paint.setAlpha(128);
-            paint.setColor(0xFFFF0000);
-            canvas.drawCircle(mStartX, mStartY, 3, paint);
-            canvas.drawLine(mStartX, mStartY, mLastX, mLastY, paint);
-            paint.setColor(0xFF0000FF);
-            canvas.drawCircle(mLastX, mLastY, 3, paint);
-            paint.setColor(0xFF00FF00);
-            canvas.drawCircle((mStartX + mLastX) / 2, (mStartY + mLastY) / 2, 2, paint);
-        }
+//        if (DEBUG && mShowTouchPoints) {
+//            paint.setAlpha(128);
+//            paint.setColor(0xFFFF0000);
+//            canvas.drawCircle(mStartX, mStartY, 3, paint);
+//            canvas.drawLine(mStartX, mStartY, mLastX, mLastY, paint);
+//            paint.setColor(0xFF0000FF);
+//            canvas.drawCircle(mLastX, mLastY, 3, paint);
+//            paint.setColor(0xFF00FF00);
+//            canvas.drawCircle((mStartX + mLastX) / 2, (mStartY + mLastY) / 2, 2, paint);
+//        }
         
         mDrawPending = false;
         mDirtyRect.setEmpty();

@@ -109,10 +109,10 @@
         <item name="windowEnterAnimation">@anim/input_method_enter</item>
         <item name="windowExitAnimation">@anim/input_method_exit</item>
     </style>
-
-    <style name="Animation.InputMethodFancy">
-        <item name="windowEnterAnimation">@anim/input_method_fancy_enter</item>
-        <item name="windowExitAnimation">@anim/input_method_fancy_exit</item>
+-->
+    <style name="AnimationInputMethodFancy" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/input_method_fancy_enter</item>
+        <item name="android:windowExitAnimation">@anim/input_method_fancy_exit</item>
     </style>
-    -->
+    
 </resources>

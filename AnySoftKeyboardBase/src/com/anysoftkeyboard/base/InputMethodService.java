@@ -220,7 +220,7 @@ public class InputMethodService extends AbstractInputMethodService {
     
     InputMethodManager mImm;
     
-    int mTheme = android.R.style.Theme_InputMethod;
+    int mTheme = R.style.Theme_InputMethod;
     
     LayoutInflater mInflater;
     TypedArray mThemeAttrs;
@@ -624,7 +624,7 @@ public class InputMethodService extends AbstractInputMethodService {
      * returns the ID of the animation to use for enter/exit keyboard
      */
     private int getAnimationStyleId() {
-		return 0;//R.style.Animation_InputMethodFancy;
+		return R.style.AnimationInputMethodFancy;
 	}
 
 	@Override public void onDestroy() {

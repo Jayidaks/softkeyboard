@@ -68,7 +68,7 @@ public class ExternalDictionaryFactory {
         }
 
         public Dictionary createDictionary() throws Exception{
-            return new BinaryDictionary(getDictionaryName(), mPackageContext.getAssets().openFd(mAssetsFilename));
+            return new com.menny.android.anysoftkeyboard.dictionary.BinaryDictionary(getDictionaryName(), mPackageContext.getAssets().openFd(mAssetsFilename));
         }
 
         public String getDictionaryName() {return mPackageContext.getString(mNameId);}

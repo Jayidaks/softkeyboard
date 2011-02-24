@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickTextKeys>
+	<!--  
+	Some notes:
+	1) Generate a UUID
+	2) you can only use the popupkeyboard OR the list. If you want both, then use two QuickTextKey nodes.
+	-->
+	<QuickTextKey
+        id="7842ff70-4021-11e0-9207-0800200c9a66"
+        nameResId="@string/key_name"
+		
+		popupListText="@array/items_names"
+		popupListOutput="@array/items_output_texts"
+		
+        keyLabel="@string/key_label"
+        keyOutputText="@string/key_default_output"
+        description="Created by Menny Even Danan"
+        index="1"/>
+</QuickTextKeys>

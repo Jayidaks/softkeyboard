@@ -9,8 +9,8 @@
         id="7842ff70-4021-11e0-9207-0800200c9a66"
         nameResId="@string/key_name"
 		
-		popupListText="@array/items_names"
-		popupListOutput="@array/items_output_texts"
+		popupListText="@array/short_items_names"
+		popupListOutput="@array/short_items_output_texts"
 		
         keyLabel="@string/key_label"
         keyOutputText="@string/key_default_output"

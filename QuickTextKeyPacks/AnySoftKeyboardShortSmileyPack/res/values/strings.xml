@@ -5,7 +5,7 @@
 	<string name="key_label">:)</string>
 	<string name="key_default_output">:) </string>
 	
-	<string-array name="items_output_texts">
+	<string-array name="short_items_output_texts">
 		<item>:) </item>   <!-- 0: Happy -->
 		<item>:( </item>   <!-- 1: Sad -->
 		<item>;) </item>   <!-- 2: Winking -->
@@ -25,7 +25,7 @@
 		<item>o_O </item>   <!-- 16: Confused -->
 	</string-array>
 	
-	<string-array name="items_names">
+	<string-array name="short_items_names">
 		<item>Happy</item>                   <!-- 0: :-) -->
 		<item>Sad</item>                     <!-- 1: :-( -->
 		<item>Winking</item>                 <!-- 2: ;-) -->

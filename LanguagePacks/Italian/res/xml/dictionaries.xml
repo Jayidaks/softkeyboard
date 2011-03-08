@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Dictionaries>
-	<Dictionary nameResId="@string/dictionary" locale="it"
-		id="c2fcb35c-a1ee-4377-81c9-6de31416196c" type="binary"
-		dictionaryAssertName="it_binary.mp3" description="Created by herrlado from http://en.wiktionary.org/wiki/User:Matthias_Buchmeier#Italian_frequency_list" />
-</Dictionaries>

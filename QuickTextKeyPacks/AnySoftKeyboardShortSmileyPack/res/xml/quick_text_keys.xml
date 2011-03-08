@@ -12,6 +12,9 @@
 		popupListText="@array/short_items_names"
 		popupListOutput="@array/short_items_output_texts"
 		
+		keyIcon="@drawable/sym_keyboard_smiley"
+        iconPreview="@drawable/sym_keyboard_smiley_feedback"
+		
         keyLabel="@string/key_label"
         keyOutputText="@string/key_default_output"
         description="Created by Menny Even Danan"

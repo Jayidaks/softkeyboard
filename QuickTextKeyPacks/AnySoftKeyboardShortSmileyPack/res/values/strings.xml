@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AnySoftKeyboard - Short Smiley Key</string>
-	<string name="key_name">Short Smiley</string>
+	<string name="key_name_list">Short Smiley List</string>
+	<string name="key_name_popup">Short Smiley Popup</string>
 	<string name="key_label">:)</string>
 	<string name="key_default_output">:) </string>
 	

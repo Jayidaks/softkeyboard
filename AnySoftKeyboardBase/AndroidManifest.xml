@@ -3,7 +3,7 @@
       package="com.anysoftkeyboard.base"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/ime_name">
+    <application android:icon="@drawable/icon_8_key" android:label="@string/ime_name">
     	<service android:permission="android.permission.BIND_INPUT_METHOD" android:name="InputMethodService">
 	        <intent-filter>
 	            <action android:name="android.view.InputMethod" />

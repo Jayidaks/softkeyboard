@@ -18,49 +18,38 @@
 */
 -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/parentPanel"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FF0000FF"
-    
+    android:orientation="vertical"
     >
 
-	<FrameLayout android:id="@+id/inputArea"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_alignParentBottom="true"
-        android:background="#FF00FF00">
-    </FrameLayout>
-    
     <LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    android:layout_above="@id/inputArea"
-	    android:background="#FFFF0000"
-	    >
-	    <LinearLayout
-	        android:id="@+id/fullscreenArea"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical"
-	        >
-	
-	        <FrameLayout android:id="@+id/extractArea"
-	            android:layout_width="fill_parent"
-	            android:layout_height="0px"
-	            android:layout_weight="1"
-	            android:visibility="gone">
-	        </FrameLayout>
-	        
-	        <FrameLayout android:id="@+id/candidatesArea"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:visibility="invisible">
-	        </FrameLayout>
-	
-	    </LinearLayout>
-	</LinearLayout>
-</RelativeLayout>
+        android:id="@+id/fullscreenArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <FrameLayout android:id="@+id/extractArea"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:visibility="gone">
+        </FrameLayout>
+        
+        <FrameLayout android:id="@+id/candidatesArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible">
+        </FrameLayout>
+
+    </LinearLayout>
+            
+    <FrameLayout android:id="@+id/inputArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+    </FrameLayout>
+</LinearLayout>

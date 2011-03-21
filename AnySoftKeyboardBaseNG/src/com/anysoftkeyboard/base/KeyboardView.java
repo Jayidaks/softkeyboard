@@ -30,25 +30,25 @@
  */
 package com.anysoftkeyboard.base;
 
-import com.anysoftkeyboard.base.Keyboard.Key;
-import com.anysoftkeyboard.base.R;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Paint.Align;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.graphics.Paint.Align;
 import android.graphics.Region.Op;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -60,10 +60,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.anysoftkeyboard.base.Keyboard.Key;
 
 /**
  * A view that renders a virtual {@link Keyboard}. It handles rendering of keys and
@@ -1085,7 +1082,7 @@ public class KeyboardView extends View implements View.OnClickListener {
                 
                 mMiniKeyboardCache.put(popupKey, mMiniKeyboardContainer);
             } else {
-                mMiniKeyboard = (KeyboardView) mMiniKeyboardContainer.findViewById(R.id.keyboardView);
+                mMiniKeyboard = (KeyboardView) mMiniKeyboardContainer.findViewById(com.anysoftkeyboard.base.R.id.keyboardView);
             }
             if (mWindowOffset == null) {
                 mWindowOffset = new int[2];

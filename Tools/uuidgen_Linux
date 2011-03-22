@@ -1,2 +1,2 @@
 #!/bin/sh
-exec java -classpath "./UuidGen" UuidGen
+java -classpath ./UuidGen UuidGen

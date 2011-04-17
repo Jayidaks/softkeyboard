@@ -12,9 +12,9 @@
         <Key android:codes="949" android:popupCharacters="έ"/>
         <Key android:codes="961"/>
         <Key android:codes="964"/>
-        <Key android:codes="965" android:popupCharacters="ύ"/>
+        <Key android:codes="965" android:popupCharacters="ύϋΰ"/>
         <Key android:codes="952"/>
-        <Key android:codes="953" android:popupCharacters="ί"/> 
+        <Key android:codes="953" android:popupCharacters="ίϊΐ"/> 
         <Key android:codes="959" android:popupCharacters="ό"/>
         <Key android:codes="960" android:keyEdgeFlags="right"/>
     </Row>

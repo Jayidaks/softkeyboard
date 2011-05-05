@@ -21,7 +21,17 @@
 	
 	iconResId="@drawable/flag"
 	defaultDictionaryLocale="kn" 
-	description="Created by SridharRN@gmail.com"
+	description="KaGaPa(Nudi) Kannada Layout"
 	index="1"/>
+		<Keyboard 
+	id="cec241d0-76f4-11e0-a1f0-0800200c9a68" 
+	nameResId="@string/numerals"
+	layoutResId="@xml/number"
+	landscapeResId="@xml/number"
+	
+	iconResId="@drawable/flag"
+	defaultDictionaryLocale="kn" 
+	description="Kannada Numerals Layout"
+	index="2"/>
 	<!-- you can add additional layouts. Just create additional Keyboard xml node. -->
 </Keyboards>

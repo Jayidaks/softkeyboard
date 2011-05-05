@@ -24,7 +24,7 @@
         <Key android:horizontalGap="5%p" android:codes="3262,3205,3206" android:keyLabel="ಅ" android:keyEdgeFlags="left"/>
         <Key android:codes="3256,3254" android:keyLabel="ಸ"/>
         <Key android:codes="3238,3239" android:keyLabel="ದ"/>
-        <Key android:codes="3277" android:keyLabel="^"/>
+        <Key android:codes="3277" android:keyLabel="್"/>
         <Key android:codes="3223,3224" android:keyLabel="ಗ"/>
         <Key android:codes="3257,3203" android:keyLabel="ಹ"/>
         <Key android:codes="3228,3229" android:keyLabel="ಜ"/>

@@ -8,21 +8,21 @@
     >
 
     <Row>
-        <Key android:codes="3303"  android:keyLabel="೧" android:keyEdgeFlags="left"/>
-        <Key android:codes="3304" android:keyLabel="೨"/>
-        <Key android:codes="3305" android:keyLabel="೩"/>
-        <Key android:codes="3306" android:keyLabel="೪" android:keyEdgeFlags="right"/>
+        <Key android:codes="2407"  android:keyLabel="१" android:keyEdgeFlags="left"/>
+        <Key android:codes="2408" android:keyLabel="२"/>
+        <Key android:codes="2409" android:keyLabel="३"/>
+        <Key android:codes="2410" android:keyLabel="४" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="3307"  android:keyLabel="೫" android:keyEdgeFlags="left"/>
-        <Key android:codes="3308" android:keyLabel="೬"/>
-        <Key android:codes="3309" android:keyLabel="೭"/>
-        <Key android:codes="3310" android:keyLabel="೮" android:keyEdgeFlags="right"/>
+        <Key android:codes="2411"  android:keyLabel="५" android:keyEdgeFlags="left"/>
+        <Key android:codes="2412" android:keyLabel="६"/>
+        <Key android:codes="2413" android:keyLabel="७"/>
+        <Key android:codes="2414" android:keyLabel="८" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="3311"  android:keyLabel="೯" android:keyEdgeFlags="left"/>
-        <Key android:codes="3302" android:keyLabel="೦"/>
-        <Key android:codes="3261" android:keyLabel="ಽ"/>
+        <Key android:codes="2415"  android:keyLabel="९" android:keyEdgeFlags="left"/>
+        <Key android:codes="2406" android:keyLabel="०"/>
+        <Key android:codes="2365" android:keyLabel="ಽ"/>
         <Key android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true"/>
 
     </Row>

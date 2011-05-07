@@ -20,8 +20,8 @@
 	landscapeResId="@xml/qwerty"
 	
 	iconResId="@drawable/flag"
-	defaultDictionaryLocale="kn" 
-	description="KaGaPa(Nudi) Kannada Layout"
+	defaultDictionaryLocale="hi" 
+	description="Baraha Devanagari Layout"
 	index="1"/>
 		<Keyboard 
 	id="cec241d0-76f4-11e0-a1f0-0800200c9a68" 
@@ -30,8 +30,8 @@
 	landscapeResId="@xml/number"
 	
 	iconResId="@drawable/flag"
-	defaultDictionaryLocale="kn" 
-	description="Kannada Numerals Layout"
+	defaultDictionaryLocale="hi" 
+	description="Devanagari Numerals Layout"
 	index="2"/>
 	<!-- you can add additional layouts. Just create additional Keyboard xml node. -->
 </Keyboards>

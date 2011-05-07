@@ -24,7 +24,7 @@
         <Key android:horizontalGap="5%p" android:codes="2366,2309,2310" android:keyLabel="अ" android:keyEdgeFlags="left"/>
         <Key android:codes="2360,2358" android:keyLabel="स"/>
         <Key android:codes="2342,2343" android:keyLabel="द"/>
-        <Key android:codes="2381" android:keyLabel="्"/>
+        <Key android:codes="2381,2305" android:keyLabel="्"/>
         <Key android:codes="2327,2328" android:keyLabel="ग"/>
         <Key android:codes="2361,2307" android:keyLabel="ह"/>
         <Key android:codes="2332,2333" android:keyLabel="ज"/>
@@ -35,8 +35,8 @@
     <Row>
        <!--   <Key android:codes="-1"
                 android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left"/> -->
-        <Key android:horizontalGap="10%p" android:codes="2334,2329" android:keyLabel="ञ"/>
-        <Key android:codes="2359,3260" android:keyLabel="ष"/>
+        <Key android:horizontalGap="10%p" android:codes="2404,2334,2329" android:keyLabel="।"/>
+        <Key android:codes="2359,2364" android:keyLabel="ष"/>
         <Key android:codes="2330,2331" android:keyLabel="च"/>
         <Key android:codes="2357,2380,2324" android:keyLabel="व"/>
         <Key android:codes="2348,2349" android:keyLabel="ब"/>

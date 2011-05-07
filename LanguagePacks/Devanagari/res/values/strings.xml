@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AnySoftKeyboard - Kannada Language Pack</string>
-    <string name="keyboard">Kannada</string>
+    <string name="app_name">AnySoftKeyboard - Devanagari Language Pack</string>
+    <string name="keyboard">Devanagari</string>
     <string name="dictionary">Language</string>
-    <string name="numerals">Numerals</string>
+    <string name="numerals">Devanagari Numerals</string>
 </resources>

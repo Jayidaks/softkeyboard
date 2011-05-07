@@ -1,4 +1,4 @@
-package com.anysoftkeyboard.languagepack.kannada;
+package com.anysoftkeyboard.languagepack.devanagari;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

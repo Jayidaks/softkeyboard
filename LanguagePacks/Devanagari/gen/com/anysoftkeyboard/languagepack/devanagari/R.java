@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.anysoftkeyboard.languagepack.kannada;
+package com.anysoftkeyboard.languagepack.devanagari;
 
 public final class R {
     public static final class attr {

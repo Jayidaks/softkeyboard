@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Keyboards>
-	<Keyboard nameResId="@string/dhivehi_keyboard" iconResId="@drawable/dv"
-		layoutResId="@xml/dv_qwerty" id="00113a97-8414-46e3-b547-9add9210e3ab"
-		description="" index="51" />
-</Keyboards>

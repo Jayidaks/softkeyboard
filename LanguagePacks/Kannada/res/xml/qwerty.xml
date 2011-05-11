@@ -33,15 +33,13 @@
     </Row>
     
     <Row>
-       <!--   <Key android:codes="-1"
-                android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left"/> -->
-        <Key android:horizontalGap="10%p" android:codes="3230,3225" android:keyLabel="ಞ"/>
-        <Key android:codes="3255,3260" android:keyLabel="ಷ"/>
-        <Key android:codes="3226,3227" android:keyLabel="ಚ"/>
-        <Key android:codes="3253,3276,3220" android:keyLabel="ವ"/>
-        <Key android:codes="3244,3245" android:keyLabel="ಬ"/>
-        <Key android:codes="3240,3235" android:keyLabel="ನ"/>
-        <Key android:codes="3246,3202" android:keyLabel="ಮ"/>
+        <Key android:horizontalGap="10%p" android:codes="3230,3225" android:popupCharacters="ಞಙ" android:keyLabel="ಞ"/>
+        <Key android:codes="3255,3260" android:keyLabel="ಷ" android:popupCharacters="಼ಷ"/>
+        <Key android:codes="3226,3227" android:keyLabel="ಚ" android:popupCharacters="ಚಛ" />
+        <Key android:codes="3253,3276,3220" android:keyLabel="ವ" android:popupCharacters="ೈವಐ" />
+        <Key android:codes="3244,3245" android:keyLabel="ಬ" android:popupCharacters="ಬಭ" />
+        <Key android:codes="3240,3235" android:keyLabel="ನ" android:popupCharacters="ನಣ" />
+        <Key android:codes="3246,3202" android:keyLabel="ಮ" android:popupCharacters="ಂಮ" />
         <Key android:horizontalGap="5%p" android:keyWidth="15%p"  android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true"/>
     </Row>
 </Keyboard>

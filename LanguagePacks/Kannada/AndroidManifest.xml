@@ -26,5 +26,4 @@
 
 	<supports-screens
           android:largeScreens="true" android:anyDensity="true" android:smallScreens="true" android:normalScreens="true"/>
-          <!-- http://d.android.com/guide/practices/screens_support.html read about legacy. -->
 </manifest> 

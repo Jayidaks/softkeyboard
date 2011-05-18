@@ -22,7 +22,7 @@
     	</receiver>		
           
     </application>
-    <uses-sdk android:targetSdkVersion="4" android:minSdkVersion="3"></uses-sdk>
+    <uses-sdk android:targetSdkVersion="4" android:minSdkVersion="4"></uses-sdk>
 
 	<supports-screens
           android:largeScreens="true" android:anyDensity="true" android:smallScreens="true" android:normalScreens="true"/>

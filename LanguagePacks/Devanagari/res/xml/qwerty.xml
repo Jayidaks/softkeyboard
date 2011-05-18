@@ -10,38 +10,36 @@
     <Row>
         <Key android:codes="2335,2336"  android:keyLabel="ट" android:popupCharacters="टठ" android:keyEdgeFlags="left"/>
         <Key android:codes="2337,2338" android:keyLabel="ड" android:popupCharacters="डढ"/>
-        <Key android:codes="2374,2375,2318,2319" android:keyLabel="ऎ" android:popupCharacters=""/>
-        <Key android:codes="2352,2371,2315" android:keyLabel="र" android:popupCharacters=""/>
+        <Key android:codes="2374,2375,2318,2319" android:keyLabel="ऎ" android:popupCharacters="ॆेऎए"/>
+        <Key android:codes="2352,2371,2315" android:keyLabel="र" android:popupCharacters="ृरऋ"/>
         <Key android:codes="2340,2341" android:keyLabel="त" android:popupCharacters="तथ"/>
-        <Key android:codes="2351,2376,2320" android:keyLabel="य" android:popupCharacters=""/>
-        <Key android:codes="2369,2370,2313,2314" android:keyLabel="उ" android:popupCharacters="" />
-        <Key android:codes="2367,2368,2311,2312" android:keyLabel="इ" android:popupCharacters=""/>
-        <Key android:codes="2378,2379,2322,2323" android:keyLabel="ऒ" android:popupCharacters=""/>
+        <Key android:codes="2351,2376,2320" android:keyLabel="य" android:popupCharacters="ैयऐ"/>
+        <Key android:codes="2369,2370,2313,2314" android:keyLabel="उ" android:popupCharacters="ुूउऊ" />
+        <Key android:codes="2367,2368,2311,2312" android:keyLabel="इ" android:popupCharacters="िीइई"/>
+        <Key android:codes="2378,2379,2322,2323" android:keyLabel="ऒ" android:popupCharacters="ॊोऒओ"/>
         <Key android:codes="2346,2347" android:keyLabel="प" android:popupCharacters="पफ" android:keyEdgeFlags="right" />
     </Row>
     
     <Row>
-        <Key android:horizontalGap="5%p" android:codes="2366,2309,2310" android:keyLabel="अ" android:popupCharacters="" android:keyEdgeFlags="left"/>
+        <Key android:horizontalGap="5%p" android:codes="2366,2309,2310" android:keyLabel="अ" android:popupCharacters="ाअआ" android:keyEdgeFlags="left"/>
         <Key android:codes="2360,2358" android:keyLabel="स" android:popupCharacters="सश" />
         <Key android:codes="2342,2343" android:keyLabel="द" android:popupCharacters="दध"/>
         <Key android:codes="2381,2305,2404" android:keyLabel="्" android:popupCharacters="" />
         <Key android:codes="2327,2328" android:keyLabel="ग" android:popupCharacters="गघ"/>
-        <Key android:codes="2361,2307" android:keyLabel="ह" android:popupCharacters=""/>
+        <Key android:codes="2361,2307" android:keyLabel="ह" android:popupCharacters="ःह"/>
         <Key android:codes="2332,2333" android:keyLabel="ज" android:popupCharacters="जझ"/>
         <Key android:codes="2325,2326" android:keyLabel="क" android:popupCharacters="कख"/>
         <Key android:codes="2354,2355" android:keyLabel="ल" android:popupCharacters="लळ" android:keyEdgeFlags="right"/>
     </Row>
     
     <Row>
-       <!--   <Key android:codes="-1"
-                android:isModifier="true" android:isSticky="true" android:keyEdgeFlags="left"/> -->
-        <Key android:horizontalGap="10%p" android:codes="2334,2329" android:popupCharacters="" android:keyLabel="ञ"/>
-        <Key android:codes="2359,2364" android:keyLabel="ष" android:popupCharacters="" />
+        <Key android:horizontalGap="10%p" android:codes="2334,2329" android:popupCharacters="ङञ" android:keyLabel="ञ"/>
+        <Key android:codes="2359,2364" android:keyLabel="ष" android:popupCharacters="ष" />
         <Key android:codes="2330,2331" android:keyLabel="च" android:popupCharacters="चछ"/>
         <Key android:codes="2357,2380,2324" android:keyLabel="व" android:popupCharacters="" />
         <Key android:codes="2348,2349" android:keyLabel="ब" android:popupCharacters="बभ"/>
         <Key android:codes="2344,2339" android:keyLabel="न" android:popupCharacters="नण"/>
-        <Key android:codes="2350,2306" android:keyLabel="म" android:popupCharacters=""/>
+        <Key android:codes="2350,2306" android:keyLabel="म" android:popupCharacters="ंम"/>
         <Key android:horizontalGap="5%p" android:keyWidth="15%p"  android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true"/>
     </Row>
 </Keyboard>

@@ -22,7 +22,7 @@
     <Row>
         <Key android:codes="2415"  android:keyLabel="९" android:keyEdgeFlags="left"/>
         <Key android:codes="2406" android:keyLabel="०"/>
-        <Key android:codes="2365" android:keyLabel="ಽ"/>
+        <Key android:codes="168" android:keyLabel="₨"/>
         <Key android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true"/>
 
     </Row>

@@ -21,7 +21,8 @@
 	
 	iconResId="@drawable/flag"
 	defaultDictionaryLocale="kn" 
-	description="KaGaPa(Nudi) Kannada Layout"
+	description="KaGaPa(Nudi) Kannada Layout"	
+	physicalKeyboardMappingResId="@xml/kn_physical"
 	index="1"/>
 		<Keyboard 
 	id="cec241d0-76f4-11e0-a1f0-0800200c9a68" 

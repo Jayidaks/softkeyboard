@@ -24,9 +24,10 @@ public final class R {
         public static final int numerals=0x7f050003;
     }
     public static final class xml {
-        public static final int dictionaries=0x7f030000;
-        public static final int keyboards=0x7f030001;
-        public static final int number=0x7f030002;
-        public static final int qwerty=0x7f030003;
+        public static final int de_physical=0x7f030000;
+        public static final int dictionaries=0x7f030001;
+        public static final int keyboards=0x7f030002;
+        public static final int number=0x7f030003;
+        public static final int qwerty=0x7f030004;
     }
 }

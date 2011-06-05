@@ -10,13 +10,13 @@
     <Row>
         <Key android:codes="2335,2336"  android:keyLabel="ट" android:popupCharacters="टठ" android:keyEdgeFlags="left"/>
         <Key android:codes="2337,2338" android:keyLabel="ड" android:popupCharacters="डढ"/>
-        <Key android:codes="2374,2375,2318,2319" android:keyLabel="ऎ" android:popupCharacters="ॆेऎए"/>
+        <Key android:codes="2375,2374,2319,2318" android:keyLabel="ए" android:popupCharacters="ेॆएऎ"/>
         <Key android:codes="2352,2371,2315" android:keyLabel="र" android:popupCharacters="ृरऋ"/>
         <Key android:codes="2340,2341" android:keyLabel="त" android:popupCharacters="तथ"/>
         <Key android:codes="2351,2376,2320" android:keyLabel="य" android:popupCharacters="ैयऐ"/>
         <Key android:codes="2369,2370,2313,2314" android:keyLabel="उ" android:popupCharacters="ुूउऊ" />
         <Key android:codes="2367,2368,2311,2312" android:keyLabel="इ" android:popupCharacters="िीइई"/>
-        <Key android:codes="2378,2379,2322,2323" android:keyLabel="ऒ" android:popupCharacters="ॊोऒओ"/>
+        <Key android:codes="2379,2378,2323,2322" android:keyLabel="ओ" android:popupCharacters="ोॊओऒ"/>
         <Key android:codes="2346,2347" android:keyLabel="प" android:popupCharacters="पफ" android:keyEdgeFlags="right" />
     </Row>
     

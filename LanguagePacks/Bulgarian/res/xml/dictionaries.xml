@@ -14,5 +14,5 @@
 		nameResId="@string/bulgarian_dictionary" 
 		type="binary" 
 		dictionaryAssertName="bg_binary.mp3" 
-		description="Created with atg2d"/>
+		description="Created by archivator"/>
 </Dictionaries>

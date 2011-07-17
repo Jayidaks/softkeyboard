@@ -8,5 +8,5 @@
 	dictionaryAssertName := the binary data holder
 	description := some text you would like to add.
 	 -->
-	<Dictionary nameResId="@string/dutch_dictionary" locale="nl" id="1204353c-cad5-466f-9dc3-c7ea44f2c4e6" type="binary" dictionaryAssertName="nl_binary.mp3" description=""/>
+	<Dictionary nameResId="@string/dutch_dictionary" locale="nl" id="1204353c-cad5-466f-9dc3-c7ea44f2c4e6" type="binary" dictionaryAssertName="nl_binary.mp3" description="CyanogenMod Gingerbread dictionary"/>
 </Dictionaries>

@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AnySoftKeyboard - Greek Language Pack</string>
     <string name="keyboard">Greek keyboard</string>
+    <string name="dictionary">Greek dictionary</string>
 </resources>

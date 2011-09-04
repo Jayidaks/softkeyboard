@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.anysoftkeyboard.languagepack.french"
-      android:versionName="20100819" android:versionCode="8">
+      android:versionCode="9" android:versionName="20110905">
     <application android:icon="@drawable/flag" android:label="@string/app_name">
     	<receiver android:exported="true" android:name=".KeyboardBroadcastReceiver">
     		<intent-filter> 

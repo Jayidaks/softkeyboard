@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Dictionaries>
 	<Dictionary nameResId="@string/dictionary" locale="lv"
-		id="" type="binary"
+		id="af743fc2-311c-40a6-b0ff-55721bc11cd0" type="binary"
 		dictionaryAssertName="lv_binary.mp3" description="@string/lv_dictionary_description" />
 </Dictionaries>

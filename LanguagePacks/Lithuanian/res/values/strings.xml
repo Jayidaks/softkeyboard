@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources>
-    <string name="app_name">AnySoftKeyboard - Lithuanian Language Pack</string>
-    <string name="lt_keyboard">Lithuanian</string>
-    <string name="dictionary">Lithuanian</string>
-    <string name="lt_qwerty_description">QWERTY Lithuanian keyboard</string>
-    
-    <string name="lt_keyboard_accents">Lithuanian with accents</string>
-</resources>

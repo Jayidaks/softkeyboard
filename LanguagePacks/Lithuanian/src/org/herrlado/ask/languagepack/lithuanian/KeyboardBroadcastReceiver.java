@@ -1,15 +1,8 @@
 package org.herrlado.ask.languagepack.lithuanian;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.anysoftkeyboard.api.LanguageChangeddBroadcastReceiver;
 
-
-public class KeyboardBroadcastReceiver extends BroadcastReceiver {
-
-	@Override
-	public void onReceive(Context context, Intent intent) {
-		
-	}
+public class KeyboardBroadcastReceiver extends
+		LanguageChangeddBroadcastReceiver {
 
 }

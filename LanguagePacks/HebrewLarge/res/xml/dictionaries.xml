@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionaries>
+	<Dictionary nameResId="@string/dictionary" locale="iw" id="8c3c95a2-0c49-40b1-a9a4-91dcb3b319a8" type="binary_resource"
+	dictionaryResourceId="@array/heb_large_dict_array" autoTextResourceId="@xml/he_autotext" 
+	description="Hebrew dictionary based Mila (Tehcnion)"/>	
+</Dictionaries>

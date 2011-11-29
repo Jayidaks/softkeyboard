@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="fr_large_dict_array">
+    <array name="fr_xlarge_dict_array">
         <item>@raw/fr_main_1</item>
         <item>@raw/fr_main_2</item>
+        <item>@raw/fr_main_3</item>
+        <item>@raw/fr_main_4</item>
     </array>
 </resources>

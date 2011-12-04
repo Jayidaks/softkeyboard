@@ -13,19 +13,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!-- 
-
-        <item name="keyPreviewLayout">@layout/key_preview</item>
-        <item name="keyPreviewOffset">@dimen/key_preview_offset</item>
-        <item name="keyPreviewHeight">@dimen/key_preview_height</item>
--->
 <resources>
     <style name="ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_background_holo</item>
     	<item name="keyBackground">@drawable/btn_keyboard_key_ics</item>
     	
+        <item name="keyTextSize">@dimen/key_text_size</item>
         <item name="keyTextStyle">bold</item>
         <item name="keyTextColor">#FFFFFFFF</item>
+        <item name="labelTextSize">@dimen/key_label_text_size</item>
         
         <item name="shadowColor">#BB000000</item>
         <item name="shadowRadius">0px</item>
@@ -41,6 +37,17 @@
     	
     	<!-- suggestion strip -->
     	<item name="suggestionBackgroundImage">@drawable/keyboard_suggest_strip_holo</item>
+    	<item name="suggestionStripHeight">@dimen/candidate_strip_height</item>
+    	<item name="suggestionTextSize">@dimen/candidate_font_height</item>
+
+	<!-- key heights -->
+	<item name="keyNormalHeight">@dimen/default_key_height</item>
+    	<item name="keySmallHeight">@dimen/default_key_half_height</item>
+    	<item name="keyLargeHeight">@dimen/default_key_tall_height</item>
+
+	<!-- key gaps -->    	
+	<item name="keyHorizontalGap">@dimen/default_key_horizontal_gap</item>
+	<item name="keyVerticalGap">@dimen/default_key_vertical_gap</item>
     </style>
     <style name="ICSAnyKeyboardPopupTheme" parent="@style/ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_popup_panel_background_holo</item>

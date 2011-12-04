@@ -12,7 +12,7 @@
 		id="60c260c8-c126-43a6-838f-43be3a3e15fa" 
 		locale="bg"
 		nameResId="@string/bulgarian_dictionary" 
-		type="binary" 
-		dictionaryAssertName="bg_binary.mp3" 
+		type="binary_resource" 
+		dictionaryResourceId="@raw/bg_main"
 		description="Created by archivator"/>
 </Dictionaries>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="bg_large_dict_array">
+        <item>@raw/bg_main1</item>
+        <item>@raw/bg_main2</item>
+        <item>@raw/bg_main3</item>
+        <item>@raw/bg_main4</item>
+        <item>@raw/bg_main5</item>
+    </array>
+</resources>

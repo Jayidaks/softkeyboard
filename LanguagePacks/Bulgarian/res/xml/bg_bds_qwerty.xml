@@ -19,7 +19,7 @@
     </Row>
     
     <Row android:keyWidth="9.09%p">
-        <Key android:codes="1100,1117" android:keyLabel="" android:keyEdgeFlags="left"/>
+        <Key android:codes="1100,1117" android:keyLabel="" android:popupCharacters="&#1117;" android:keyEdgeFlags="left"/>
         <Key android:codes="1103" android:keyLabel=""/>
         <Key android:codes="1072" android:keyLabel=""/>
         <Key android:codes="1086" android:keyLabel=""/>

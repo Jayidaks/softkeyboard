@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <array name="heb_large_dict_array">
-        <item>@raw/heb_main_1</item>
-        <item>@raw/heb_main_2</item>
-    </array>
-</resources>

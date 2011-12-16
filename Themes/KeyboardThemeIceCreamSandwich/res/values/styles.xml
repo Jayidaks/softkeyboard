@@ -14,6 +14,16 @@
      limitations under the License.
 -->
 <resources>
+	<style name="ICSAnyKeyboardIconsTheme">
+		<!-- should support normal, android:state_pressed, feedback, android:state_pressed+feedback, android:state_checked, state_checked+feedback -->
+		<item name="iconKeyShift">@drawable/ics_key_shift_set</item>
+		<!-- should support normal, feedback -->
+		<item name="iconKeyBackspace">@drawable/ics_key_delete_set</item>
+		<!-- should support normal, feedback -->
+		<item name="iconKeySpace">@drawable/ics_key_space_set</item>
+		<!-- should support normal, key_type_feedback, action_done, action_done+key_type_feedback, action_search, action_search+key_type_feedback, action_go, action_go+key_type_feedback  -->
+		<item name="iconKeyAction">@drawable/ics_key_action_set</item>
+	</style>
     <style name="ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_background_holo</item>
     	<item name="keyBackground">@drawable/btn_keyboard_key_ics</item>
@@ -48,15 +58,6 @@
 		<!-- key gaps -->    	
 		<item name="keyHorizontalGap">@dimen/default_key_horizontal_gap</item>
 		<item name="keyVerticalGap">@dimen/default_key_vertical_gap</item>
-		
-		<!-- should support normal, android:state_pressed, feedback, android:state_pressed+feedback, android:state_checked, state_checked+feedback -->
-		<item name="iconKeyShift">@drawable/ics_key_shift_set</item>
-		<!-- should support normal, feedback -->
-		<item name="iconKeyBackspace">@drawable/ics_key_delete_set</item>
-		<!-- should support normal, feedback -->
-		<item name="iconKeySpace">@drawable/ics_key_space_set</item>
-		<!-- should support normal, key_type_feedback, action_done, action_done+key_type_feedback, action_search, action_search+key_type_feedback, action_go, action_go+key_type_feedback  -->
-		<item name="iconKeyAction">@drawable/ics_key_action_set</item>
     </style>
     <style name="ICSAnyKeyboardPopupTheme" parent="@style/ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_popup_panel_background_holo</item>

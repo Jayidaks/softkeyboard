@@ -31,6 +31,7 @@
         <item name="keyTextSize">@dimen/key_text_size</item>
         <item name="keyTextStyle">bold</item>
         <item name="keyTextColor">#FFFFFFFF</item>
+        <item name="hintTextColor">#FF999999</item>
         <item name="labelTextSize">@dimen/key_label_text_size</item>
         
         <item name="shadowColor">#BB000000</item>

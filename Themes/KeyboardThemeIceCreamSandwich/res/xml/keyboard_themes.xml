@@ -5,6 +5,7 @@
         nameResId="@string/ics_keyboard_theme_name"
         themeRes="@style/ICSAnyKeyboardTheme"
         popupThemeRes="@style/ICSAnyKeyboardPopupTheme"
+        iconsThemeRes="@style/ICSAnyKeyboardIconsTheme"
         themeScreenshot="@drawable/ics_theme_screenshot"
         description="@string/ics_keyboard_theme_description"
         index="1"/>

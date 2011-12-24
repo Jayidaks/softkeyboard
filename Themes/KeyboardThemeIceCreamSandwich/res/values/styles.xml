@@ -23,6 +23,8 @@
 		<item name="iconKeySpace">@drawable/ics_key_space_set</item>
 		<!-- should support normal, key_type_feedback, action_done, action_done+key_type_feedback, action_search, action_search+key_type_feedback, action_go, action_go+key_type_feedback  -->
 		<item name="iconKeyAction">@drawable/ics_key_action_set</item>
+		<!-- should support normal, feedback -->
+		<item name="iconKeyMic">@drawable/ics_key_mic_set</item>
 	</style>
     <style name="ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_background_holo</item>

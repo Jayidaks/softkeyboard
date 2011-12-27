@@ -25,6 +25,8 @@
 		<item name="iconKeyAction">@drawable/ics_key_action_set</item>
 		<!-- should support normal, feedback -->
 		<item name="iconKeyMic">@drawable/ics_key_mic_set</item>
+		<!-- should support normal, feedback -->
+		<item name="iconKeySettings">@drawable/ics_key_settings_set</item>
 	</style>
     <style name="ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_background_holo</item>
@@ -61,6 +63,9 @@
 		<!-- key gaps -->    	
 		<item name="keyHorizontalGap">@dimen/default_key_horizontal_gap</item>
 		<item name="keyVerticalGap">@dimen/default_key_vertical_gap</item>
+    </style>
+    <style name="ICSAnyKeyboardThemeNoHint" parent="@style/ICSAnyKeyboardTheme">
+        <item name="hintTextSize">0px</item>
     </style>
     <style name="ICSAnyKeyboardPopupTheme" parent="@style/ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_popup_panel_background_holo</item>

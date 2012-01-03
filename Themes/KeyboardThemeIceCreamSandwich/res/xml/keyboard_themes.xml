@@ -9,13 +9,4 @@
         themeScreenshot="@drawable/ics_theme_screenshot"
         description="@string/ics_keyboard_theme_description"
         index="1"/>
-	<KeyboardTheme
-        id="f96e55d0-11eb-11e1-be50-0800200c9a60"
-        nameResId="@string/ics_keyboard_theme_no_hint_name"
-        themeRes="@style/ICSAnyKeyboardThemeNoHint"
-        popupThemeRes="@style/ICSAnyKeyboardPopupTheme"
-        iconsThemeRes="@style/ICSAnyKeyboardIconsTheme"
-        themeScreenshot="@drawable/ics_theme_screenshot"
-        description="@string/ics_keyboard_theme_description"
-        index="2"/>
 </KeyboardThemes>

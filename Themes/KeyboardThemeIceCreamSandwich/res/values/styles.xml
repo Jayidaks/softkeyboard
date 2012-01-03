@@ -64,9 +64,6 @@
 		<item name="keyHorizontalGap">@dimen/default_key_horizontal_gap</item>
 		<item name="keyVerticalGap">@dimen/default_key_vertical_gap</item>
     </style>
-    <style name="ICSAnyKeyboardThemeNoHint" parent="@style/ICSAnyKeyboardTheme">
-        <item name="hintTextSize">0px</item>
-    </style>
     <style name="ICSAnyKeyboardPopupTheme" parent="@style/ICSAnyKeyboardTheme">
         <item name="android:background">@drawable/keyboard_popup_panel_background_holo</item>
     	<item name="keyBackground">@drawable/btn_keyboard_key_popup_ics</item>

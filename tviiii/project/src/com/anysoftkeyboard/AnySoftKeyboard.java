@@ -59,6 +59,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.anysoftkeyboard.GlobalTranslatorLoader.TranslatorLoadDoneListener;
 import com.anysoftkeyboard.api.KeyCodes;
 import com.anysoftkeyboard.devicespecific.Clipboard;
 import com.anysoftkeyboard.dictionaries.AddableDictionary;
@@ -72,6 +73,7 @@ import com.anysoftkeyboard.keyboards.AnyKeyboard;
 import com.anysoftkeyboard.keyboards.AnyKeyboard.AnyKey;
 import com.anysoftkeyboard.keyboards.AnyKeyboard.HardKeyboardTranslator;
 import com.anysoftkeyboard.keyboards.GenericKeyboard;
+import com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler;
 import com.anysoftkeyboard.keyboards.Keyboard.Key;
 import com.anysoftkeyboard.keyboards.KeyboardAddOnAndBuilder;
 import com.anysoftkeyboard.keyboards.KeyboardSwitcher;
@@ -83,6 +85,7 @@ import com.anysoftkeyboard.keyboards.views.CandidateView;
 import com.anysoftkeyboard.keyboards.views.OnKeyboardActionListener;
 import com.anysoftkeyboard.quicktextkeys.QuickTextKey;
 import com.anysoftkeyboard.quicktextkeys.QuickTextKeyFactory;
+import com.anysoftkeyboard.receivers.KeyPressSimulationRequestReceiver;
 import com.anysoftkeyboard.receivers.PackagesChangedReceiver;
 import com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver;
 import com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver.SoundPreferencesChangedListener;
@@ -100,7 +103,7 @@ import com.menny.android.anysoftkeyboard.R;
  */
 public class AnySoftKeyboard extends InputMethodService implements
 		OnKeyboardActionListener,
-		OnSharedPreferenceChangeListener, AnyKeyboardContextProvider, SoundPreferencesChangedListener {
+		OnSharedPreferenceChangeListener, AnyKeyboardContextProvider, SoundPreferencesChangedListener, TranslatorLoadDoneListener {
 	private final static String TAG = "ASK";
 	
 	//private final static int SWIPE_CORD = -2;
@@ -259,6 +262,10 @@ public class AnySoftKeyboard extends InputMethodService implements
 	private final boolean mConnectbotTabHack = true;
 
 	private VoiceInput mVoiceRecognitionTrigger;
+
+	private HardKeyboardSequenceHandler mGlobalPhysicalKeysTranslator;
+
+	private GlobalTranslatorLoader mGlobalTranslatorLoader;
 /*
 	public static AnySoftKeyboard getInstance() {
 		return INSTANCE;
@@ -298,6 +305,8 @@ public class AnySoftKeyboard extends InputMethodService implements
         registerReceiver(mSoundPreferencesChangedReceiver, mSoundPreferencesChangedReceiver.createFilterToRegisterOn());
         //register to receive packages changes
         registerReceiver(mPackagesChangedReceiver, mPackagesChangedReceiver.createFilterToRegisterOn());
+        //register for TViiii key press requests
+        registerReceiver(mKeyPressRequestReceiver, mKeyPressRequestReceiver.createFilterToRegisterOn());
         
 		mVibrator = ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE));
 		// setStatusIcon(R.drawable.ime_qwerty);
@@ -321,6 +330,14 @@ public class AnySoftKeyboard extends InputMethodService implements
 		mVoiceRecognitionTrigger = AnyApplication.getDeviceSpecific().createVoiceInput(this);
 		
 		TutorialsProvider.showChangeLogIfNeeded(getApplicationContext());
+		
+		mGlobalPhysicalKeysTranslator = null;
+		mGlobalTranslatorLoader = new GlobalTranslatorLoader(this);
+		mGlobalTranslatorLoader.load();
+	}
+	
+	public void onDone(HardKeyboardSequenceHandler translator) {
+		mGlobalPhysicalKeysTranslator = translator;
 	}
 
 	@Override
@@ -351,9 +368,11 @@ public class AnySoftKeyboard extends InputMethodService implements
 		
         unregisterReceiver(mSoundPreferencesChangedReceiver);
         unregisterReceiver(mPackagesChangedReceiver);
+        unregisterReceiver(mKeyPressRequestReceiver);
         
         mInputMethodManager.hideStatusIcon(mImeToken);
         
+        mGlobalTranslatorLoader.stop();
 		super.onDestroy();
 	}
 
@@ -966,22 +985,45 @@ public class AnySoftKeyboard extends InputMethodService implements
 						}
 
 						keyTranslator.translatePhysicalCharacter(mHardKeyboardAction);
-
+						
 						if (DEBUG) Log.v(TAG, "Hard Keyboard Action after translation: Key code: "
 											+ mHardKeyboardAction.getKeyCode()
 											+ ", changed: "
 											+ mHardKeyboardAction.getKeyCodeWasChanged());
 						if (mHardKeyboardAction.getKeyCodeWasChanged()) {
-							final int translatedChar = mHardKeyboardAction
-									.getKeyCode();
-							// typing my own.
-							onKey(translatedChar, null, -1, new int[] { translatedChar }, true/*simualting fromUI*/);
+							final int translatedChar = mHardKeyboardAction.getKeyCode();
+							if (translatedChar > 0)
+							{
+								// typing my own.
+								onKey(translatedChar, null, -1, new int[] { translatedChar }, true/*simualting fromUI*/);
+							}
 							// my handling
 							// we are at a regular key press, so we'll update
 							// our meta-state member
 							mMetaState = MyMetaKeyKeyListener.adjustMetaAfterKeypress(mMetaState);
 							if (DEBUG) Log.d(TAG+"-meta-key", getMetaKeysStates("onKeyDown after adjust - translated"));
 							return true;
+						}
+						else
+						{
+							//let see if the global translator wants to do something
+							//note: the global translator supports only single characters!
+							if (mGlobalPhysicalKeysTranslator != null)
+							{
+								final int translatedChar = mGlobalPhysicalKeysTranslator.getCurrentCharacter(mHardKeyboardAction.getKeyCode(), this);
+								if (translatedChar != 0)
+								{
+									// typing my own.
+									if (translatedChar > 0) 
+										onKey(translatedChar, null, -1, new int[] { translatedChar }, true/*simualting fromUI*/);
+									// my handling
+									// we are at a regular key press, so we'll update
+									// our meta-state member
+									mMetaState = MyMetaKeyKeyListener.adjustMetaAfterKeypress(mMetaState);
+									if (DEBUG) Log.d(TAG+"-meta-key", getMetaKeysStates("onKeyDown after adjust - translated"));
+									return true;
+								}
+							}
 						}
 					}
 				} finally {
@@ -2665,6 +2707,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 	// receive ringer mode changes to detect silent mode
     private final SoundPreferencesChangedReceiver mSoundPreferencesChangedReceiver = new SoundPreferencesChangedReceiver(this);
     private final PackagesChangedReceiver mPackagesChangedReceiver = new PackagesChangedReceiver(this);
+    private final KeyPressSimulationRequestReceiver mKeyPressRequestReceiver = new KeyPressSimulationRequestReceiver(this);
     
     // update flags for silent mode
     public void updateRingerMode() {

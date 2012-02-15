@@ -1,10 +1,15 @@
 package com.anysoftkeyboard.keyboards;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+
+import android.content.Intent;
 
 public class KeyEventStateMachine {
 	
 	public static final int	KEYCODE_FIRST_CHAR = -4097;
+	
+	private final HashMap<Integer, Intent> mIntents = new HashMap<Integer, Intent>();
 	
 	private final class KeyEventTransition {
 		
@@ -21,7 +26,7 @@ public class KeyEventStateMachine {
 	private final class KeyEventState {
 		
 		private LinkedList<KeyEventTransition> transitions;
-		private int result;
+		private int result = 0;
 
 		KeyEventState() {
 			this.result = 0;
@@ -205,6 +210,14 @@ public class KeyEventStateMachine {
 		return next;
 	}
 	
+	public void addSequence(int[] sequence, Intent intent) {
+		final int intentKey = -1 * (mIntents.size()+1);
+		
+		mIntents.put(intentKey, intent);
+		
+		addSequence(sequence, intentKey);
+	}
+	
 	public void addSequence(int[] sequence, int result) {
 		KeyEventState c = this.start;
 		for (int i = 0; i < sequence.length; i++) {
@@ -321,6 +334,11 @@ public class KeyEventStateMachine {
 		return this.sequenceLength;
 	}
 
+	public Intent getIntentForKey(int key)
+	{
+		return mIntents.get(key);
+	}
+	
 	public void reset() {
 		while (this.walker.hasItem()) 
 			this.walkerunused.putItem(this.walker.getItem());

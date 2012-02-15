@@ -139,6 +139,7 @@ public class TViiiiLoginReceiver extends BroadcastReceiver {
                 }
             }
         }
+        inputConfig.close();
 		//hopefully, a commit will trigger re-read by listeners
 		editor.commit();
 	}

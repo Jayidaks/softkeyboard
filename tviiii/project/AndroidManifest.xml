@@ -15,10 +15,7 @@
 	<application android:label="@string/ime_name" android:icon="@drawable/ic_launcher"
 	    android:hardwareAccelerated="true" android:installLocation="internalOnly"
 		android:name=".AnyApplication"  android:backupAgent="com.anysoftkeyboard.backup.AnyBackupAgent" android:restoreAnyVersion="true">
-		<!-- used to backup the settings and SQL to the cloud -->
-		<meta-data android:name="com.google.android.backup.api_key"
-			android:value="AEdPqrEAAAAILlrSpiqigog3iJt3BwYxzNXMUzqgGV_dJ1EPDQ" />
-		
+				
 		<!-- this is the IME with the pointer to the settings ui (xml/method) -->
 		<service android:permission="android.permission.BIND_INPUT_METHOD" android:name=".SoftKeyboard">
 	        <intent-filter>
@@ -27,13 +24,20 @@
 	        <meta-data android:name="android.view.im" android:resource="@xml/method" />
 	    </service>
 	    
+		<!-- this is the login/configuration receiver. Unlike other receivers, it should always be ready -->
+		<receiver android:name="com.anysoftkeyboard.receivers.TViiiiLoginReceiver" android:exported="true">
+			<intent-filter>
+				<action android:name="com.tviiii.api.LOGIN" />
+			</intent-filter>
+        </receiver>
 		<!-- ui activities -->
 		<!-- settings ui activities -->
 		<activity android:name="com.menny.android.anysoftkeyboard.MainSettings" android:label="@string/settings_app_name" android:icon="@drawable/ic_launcher_settings">
-		    <intent-filter>
+		    <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+             -->
 	    </activity>
 	    <activity android:name="com.anysoftkeyboard.ui.settings.MainSettings" android:label="@string/settings_app_name" android:icon="@drawable/ic_launcher_settings">
 	    </activity>

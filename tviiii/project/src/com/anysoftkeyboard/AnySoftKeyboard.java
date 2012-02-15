@@ -27,7 +27,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -89,7 +88,6 @@ import com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver;
 import com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver.SoundPreferencesChangedListener;
 import com.anysoftkeyboard.theme.KeyboardTheme;
 import com.anysoftkeyboard.theme.KeyboardThemeFactory;
-import com.anysoftkeyboard.ui.settings.MainSettings;
 import com.anysoftkeyboard.ui.tutorials.TutorialsProvider;
 import com.anysoftkeyboard.utils.ModifierKeyState;
 import com.anysoftkeyboard.utils.Workarounds;
@@ -1460,7 +1458,8 @@ public class AnySoftKeyboard extends InputMethodService implements
 			}
 			break;
 		case KeyCodes.SETTINGS:
-			showOptionsMenu();
+			//Smart-Net don't want access to Settings
+			//showOptionsMenu();
 			break;
 		case KeyCodes.SPLIT_LAYOUT:
 		case KeyCodes.MERGE_LAYOUT:
@@ -2804,7 +2803,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 				+ "_override_dictionary";
 		return mappingSettingsKey;
 	}
-
+/*
 	private void launchSettings() {
 		handleClose();
 		Intent intent = new Intent();
@@ -2933,7 +2932,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 		window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
 		mOptionsDialog.show();
 	}
-
+*/
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 

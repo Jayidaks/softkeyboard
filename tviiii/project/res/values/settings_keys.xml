@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- DO NOT TRANSLATE -->
+	<!-- settings keys -->
+	<!-- 
+    <string name="settings_key_top_keyboard_row_id">top_keyboard_row_id</string>
+     -->
+    <string name="settings_key_physical_keyboard_change_notification_type">physical_keyboard_change_notification_type</string>
+    <string name="settings_key_vibrate_on_key_press_duration">vibrate_on_key_press_duration</string>
+    <string name="settings_key_sound_on">sound_on</string>
+    
+    <string name="settings_key_key_press_shows_preview_popup">key_press_preview_popup</string>
+    
+    <string name="settings_key_lang_key_shows_popup">lang_key_shows_popup</string>
+    
+    <string name="settings_key_show_hint_text_key">settings_key_show_hint_text_key</string>
+    
+    <string name="settings_key_emoticon_default_text">settings_key_emoticon_default_text</string>
+    <string name="settings_key_smiley_icon_on_smileys_key">settings_key_smiley_icon_on_smileys_key</string>
+    
+    <string name="settings_key_emoticon_long_press_opens_popup">emoticon_long_press_opens_popup</string>
+     
+    <string name="settings_key_show_version_notification">settings_key_show_version_notification</string>
+    
+    <string name="settings_key_show_tips_notification">settings_key_show_tips_notification</string>
+    
+    <string name="settings_key_show_settings_app">settings_key_show_settings_app</string>
+    
+    <string name="settings_key_use_16_keys_symbols_keyboards">settings_key_use_16_keys_symbols_keyboards</string>
+    
+    <string name="settings_key_landscape_fullscreen">settings_key_landscape_fullscreen</string>
+    <string name="settings_key_portrait_fullscreen">settings_key_portrait_fullscreen</string>
+    
+    <string name="settings_key_use_backword">settings_key_use_backword</string>
+    
+    <string name="settings_key_cycle_all_symbols">settings_key_cycle_all_symbols</string>
+        
+    <string name="settings_key_use_volume_key_for_left_right">settings_key_use_volume_key_for_left_right</string>
+
+  	<string name="settings_key_use_camera_key_for_backspace_backword">settings_key_use_camera_key_for_backspace_backword</string>
+  	
+  	<string name="settings_key_use_user_dictionary">settings_key_use_user_dictionary</string>
+  	<string name="settings_key_use_auto_dictionary">settings_key_use_auto_dictionary</string>
+  	<string name="settings_key_use_contacts_dictionary">settings_key_use_contacts_dictionary</string>
+
+	<string name="settings_key_active_quick_text_key">settings_key_active_quick_text_key</string>
+	
+	<string name="settings_key_ext_kbd_top_row_key">settings_key_ext_kbd_top_row_key</string>
+	<string name="settings_key_ext_kbd_bottom_row_key">settings_key_ext_kbd_bottom_row_key</string>
+	<string name="settings_key_ext_kbd_ext_ketboard_key">settings_key_ext_kbd_ext_ketboard_key</string>
+	<string name="settings_key_ext_kbd_hidden_bottom_row_key">settings_key_ext_kbd_hidden_bottom_row_key</string>
+	
+	<string name="settings_key_keyboard_theme_key">settings_key_keyboard_theme_key</string>
+	
+	<string name="settings_key_hide_soft_when_physical">settings_key_hide_soft_when_physical</string>
+	
+	<string name="settings_key_is_sticky_extesion_keyboard">settings_key_is_sticky_extesion_keyboard</string>
+	<string name="settings_key_is_extesion_keyboard_above_keyboard">settings_key_is_extesion_keyboard_above_keyboard</string>
+	
+	<string name="settings_key_swipe_velocity_threshold">settings_key_swipe_velocity_threshold</string>
+	<!-- these values are normalized. -->
+	<string-array name="settings_key_swipe_velocity_threshold_values">
+		<item>220</item>
+		<item>300</item>
+		<item>380</item>
+		<item>460</item>
+		<item>540</item>
+	</string-array>
+   	
+    <string-array name="settings_key_swipe_velocity_threshold_names">
+    	<item>@string/settings_swipe_velocity_very_slow</item>
+		<item>@string/settings_swipe_velocity_slow</item>
+		<item>@string/settings_swipe_velocity_normal</item>
+		<item>@string/settings_swipe_velocity_fast</item>
+		<item>@string/settings_swipe_velocity_very_fast</item>
+    </string-array>
+	
+	<string name="settings_key_swipe_distance_threshold">settings_key_swipe_distance_threshold</string>
+	<string-array name="settings_key_swipe_distance_threshold_values">
+		<item>60</item>
+		<item>100</item>
+		<item>160</item>
+		<item>220</item>
+		<item>300</item>
+	</string-array>
+    <string-array name="settings_key_swipe_distance_threshold_names">
+    	<item>@string/settings_swipe_distance_very_short</item>
+		<item>@string/settings_swipe_distance_short</item>
+		<item>@string/settings_swipe_distance_normal</item>
+		<item>@string/settings_swipe_distance_long</item>
+		<item>@string/settings_swipe_distance_very_long</item>
+    </string-array>
+	
+    <string name="settings_key_multitap_timeout">settings_key_multitap_timeout</string>
+	<string-array name="settings_key_multitap_timeout_values">
+	    <item>0</item>
+		<item>450</item>
+		<item>600</item>
+		<item>700</item>
+		<item>800</item>
+		<item>1050</item>
+		<item>1000000</item>
+	</string-array>
+	<string-array name="settings_key_multitap_timeout_names">
+	    <item>@string/settings_multitap_timeout_disabled</item>
+		<item>@string/settings_multitap_timeout_faster</item>
+		<item>@string/settings_multitap_timeout_fast</item>
+		<item>@string/settings_multitap_timeout_normal</item>
+		<item>@string/settings_multitap_timeout_slow</item>
+		<item>@string/settings_multitap_timeout_slower</item>
+		<item>@string/settings_multitap_timeout_never</item>
+	</string-array>
+	
+	<string name="settings_key_long_press_timeout">settings_key_long_press_timeout</string>
+	<string-array name="settings_key_long_press_timeout_values">
+		<item>100</item>
+		<item>250</item>
+		<item>350</item>
+		<item>450</item>
+		<item>600</item>
+		<item>1000000</item>
+	</string-array>
+	
+	<string-array name="settings_key_long_press_timeout_names">
+		<item>@string/settings_long_press_timeout_faster</item>
+		<item>@string/settings_long_press_timeout_fast</item>
+		<item>@string/settings_long_press_timeout_normal</item>
+		<item>@string/settings_long_press_timeout_slow</item>
+		<item>@string/settings_long_press_timeout_slower</item>
+		<item>@string/settings_long_press_timeout_never</item>
+	</string-array>
+	
+	<string-array name="pref_list_empty_types">
+	</string-array>
+	<string-array name="pref_list_empty_values">
+	</string-array>
+	
+	<string name="settings_key_workaround_disable_rtl_fix">settings_key_workaround_disable_rtl_fix</string>
+	
+	<string name="settings_key_default_split_state">settings_key_default_split_state</string>
+	<string-array name="settings_key_default_split_state_values">
+		<item>merged_always</item>
+		<item>split_in_landscape</item>
+		<item>split_always</item>
+	</string-array>
+	<string-array name="settings_key_default_split_state_names">
+		<item>@string/settings_split_state_merged_always</item>
+		<item>@string/settings_split_state_split_in_landscape</item>
+		<item>@string/settings_split_state_split_always</item>
+	</string-array>
+	<!-- added a _ to handle a preference tpye change from int to string -->
+	<string name="settings_key_min_length_for_word_correction__">settings_key_min_length_for_word_correction__</string>
+</resources>

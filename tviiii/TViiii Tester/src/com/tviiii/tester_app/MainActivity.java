@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.net.URI;
 import java.util.HashMap;
+import java.util.Random;
 
 import com.tviiii.tester_app.R;
 
@@ -73,6 +74,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		findViewById(R.id.do_login_test_button).setOnClickListener(this);
 		findViewById(R.id.do_remapping_test_button).setOnClickListener(this);
+		findViewById(R.id.do_key_press_test_button).setOnClickListener(this);
 		
 		final Dialog progress = createSpinningDialog("Reading defaults");
 		progress.show();
@@ -175,6 +177,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.do_remapping_test_button:
 			startRemappingBroadcastTest();
 			break;
+		case R.id.do_key_press_test_button:
+			startKeyPressBroadcastTest();
+			break;
 		}
 	}
 
@@ -237,7 +242,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		new AsyncTask<String, Void, Void>()
 		{
 			Exception backgroundException = null;
-			final File configFile = new File(Environment.getExternalStorageDirectory(), "ask_remapping.xml");
+			int randomPostFix = new Random().nextInt(Integer.MAX_VALUE);
+			
+			final File configFile = new File(Environment.getExternalStorageDirectory(), "ask_remapping_"+randomPostFix+".xml");
 			
 			@Override
 			protected Void doInBackground(String... params) {
@@ -277,6 +284,31 @@ public class MainActivity extends Activity implements OnClickListener {
 				}
 			};
 		}.execute(remappingFileContent);
+	}
+	
+
+	
+	private void startKeyPressBroadcastTest() {
+		try
+		{
+			EditText keyPressEditor = (EditText)findViewById(R.id.key_code_to_send);
+			String keyCode = keyPressEditor.getEditableText().toString();
+			keyPressEditor.setText("");
+			keyPressEditor.requestFocus();
+			int keyCodeToSend = Integer.parseInt(keyCode);
+			Intent keyPressRequired = new Intent("com.anysoftkeyboard.PRESS_KEY");
+			keyPressRequired.putExtra("key_code", keyCodeToSend);
+			getApplicationContext().sendBroadcast(keyPressRequired);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+					.setTitle("Error")
+					.setMessage("Failed to do key press test due to: "+e.getMessage())
+					.create();
+			dialog.show();
+		}
 	}
 
 

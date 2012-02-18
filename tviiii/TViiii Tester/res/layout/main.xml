@@ -40,6 +40,13 @@
 		        android:textColor="@android:color/black"/>
 		    <Button android:id="@+id/do_remapping_test_button" android:layout_width="fill_parent" android:layout_height="wrap_content"
 		        android:text="Do Remapping Test"/>
+		    
+		    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Send key press test. Enter key code value to send:"/>
+		    <EditText android:id="@+id/key_code_to_send"
+		        android:layout_height="wrap_content" android:layout_width="fill_parent"/>
+		    <Button android:id="@+id/do_key_press_test_button" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Do Key Press Test"/>
         </LinearLayout>
     </ScrollView>    
 </LinearLayout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PhysicalTranslation>
-	<SequenceMapping keySequence="KEYCODE_BUTTON_A" targetKeyCode="KEYCODE_B" />
-	<SequenceMapping keySequence="KEYCODE_BUTTON_BACK"/>
+	<SequenceMapping keySequence="KEYCODE_A" targetKeyCode="KEYCODE_B" />
+	<SequenceMapping keySequence="KEYCODE_BACK"/>
 	<SequenceMapping keySequence="KEYCODE_VOLUME_DOWN">
 		<!-- if the sender is a broadcast receiver -->
 		<intent

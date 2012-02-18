@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LookAndFeel>
+	<!-- keyboards -->
+	<Configuration key="keyboard_c7535083-4fe6-49dc-81aa-c5438a1a343a" type="boolean" value="false"/>
+	<Configuration key="keyboard_7263630a-3284-4f46-8137-eef38adb5649" type="boolean" value="false"/>
+	<Configuration key="keyboard_12335055-4aa6-49dc-8456-c7d38a1a5123" type="boolean" value="true"/>
+	<Configuration key="keyboard_8958fb12-6558-4e96-9aa6-0e90101570b3" type="boolean" value="true"/>
+	
+	<!-- height factor -->
+	<Configuration key="zoom_factor_keys_in_landscape" type="string" value="1.5"/>
+	
+	<!-- lang popup -->
+	<Configuration key="lang_key_shows_popup" type="boolean" value="true"/>
+	
+	<!-- theme -->
+	<Configuration key="settings_key_keyboard_theme_key" type="string" value="79809d30-2919-4ae6-a9ec-94fd4bb6bd92"/>
+</LookAndFeel>

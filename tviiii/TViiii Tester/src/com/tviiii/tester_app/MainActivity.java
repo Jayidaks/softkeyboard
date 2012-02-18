@@ -18,6 +18,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Editable;
+import android.text.method.KeyListener;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,13 +42,44 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		mKeyCodeText = (TextView)findViewById(R.id.key_code_text);
 		
+		EditText testingBox = (EditText)findViewById(R.id.key_code_testing_box);
+		testingBox.setKeyListener(new KeyListener() {
+			
+			@Override
+			public boolean onKeyUp(View view, Editable text, int keyCode, KeyEvent event) {
+				return false;
+			}
+			
+			@Override
+			public boolean onKeyOther(View view, Editable text, KeyEvent event) {
+				return false;
+			}
+			
+			@Override
+			public boolean onKeyDown(View view, Editable text, int keyCode,
+					KeyEvent event) {
+				return false;
+			}
+			
+			@Override
+			public int getInputType() {
+				return 0;
+			}
+			
+			@Override
+			public void clearMetaKeyState(View view, Editable content, int states) {
+			}
+		});
+		
 		findViewById(R.id.do_login_test_button).setOnClickListener(this);
+		findViewById(R.id.do_remapping_test_button).setOnClickListener(this);
 		
 		final Dialog progress = createSpinningDialog("Reading defaults");
 		progress.show();
 		new AsyncTask<Void, Void, Void>()
 		{
 			CharSequence loginFileContent = "";
+			CharSequence remappingFileContent = "";
 			
 			@Override
 			protected Void doInBackground(Void... params) {
@@ -86,6 +119,18 @@ public class MainActivity extends Activity implements OnClickListener {
 		            
 					in.close();
 					loginFileContent = buffer;
+					
+					in = new BufferedReader(new InputStreamReader(getAssets().open("remapping_file_content.txt")));
+
+					buffer = new StringBuilder();
+
+		            while ((line = in.readLine()) != null)
+		            {
+		                buffer.append(line).append('\n');
+		            }
+		            
+					in.close();
+					remappingFileContent = buffer;
 				}
 				catch(Exception e){
 					e.printStackTrace();
@@ -97,6 +142,9 @@ public class MainActivity extends Activity implements OnClickListener {
 				progress.dismiss();
 				EditText loginFileContentEditor = (EditText)findViewById(R.id.login_file_content);
 				loginFileContentEditor.setText(loginFileContent);
+				
+				EditText remappingFileContentEditor = (EditText)findViewById(R.id.remapping_file_content);
+				remappingFileContentEditor.setText(remappingFileContent);
 			};
 		}.execute();
 	}
@@ -123,6 +171,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		{
 		case R.id.do_login_test_button:
 			startLoginBroadcastTest();
+			break;
+		case R.id.do_remapping_test_button:
+			startRemappingBroadcastTest();
 			break;
 		}
 	}
@@ -176,6 +227,56 @@ public class MainActivity extends Activity implements OnClickListener {
 				}
 			};
 		}.execute(loginFileContent);
+	}
+	
+	private void startRemappingBroadcastTest() {
+		EditText remappingFileContentEditor = (EditText)findViewById(R.id.remapping_file_content);
+		String remappingFileContent = remappingFileContentEditor.getEditableText().toString();
+		final Dialog progress = createSpinningDialog("Remapping test");
+		
+		new AsyncTask<String, Void, Void>()
+		{
+			Exception backgroundException = null;
+			final File configFile = new File(Environment.getExternalStorageDirectory(), "ask_remapping.xml");
+			
+			@Override
+			protected Void doInBackground(String... params) {
+				String fileContent = params[0];
+				try
+				{
+					configFile.delete();
+					FileWriter writer = new FileWriter(configFile, false);
+					writer.write(fileContent);
+					writer.flush();
+					writer.close();
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+					backgroundException = e;
+				}
+				return null;
+			}
+			
+			protected void onPostExecute(Void result) {
+				progress.dismiss();
+				if (backgroundException != null)
+				{
+					AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+							.setTitle("Error")
+							.setMessage("Failed to do remapping test due to: "+backgroundException.getMessage())
+							.create();
+					dialog.show();
+				}
+				else
+				{
+					Intent remappingRequired = new Intent("com.tviiii.api.KEY_REMAPPING");
+					URI askConfigFile = configFile.toURI();
+					remappingRequired.putExtra("anysoftkeyboard_config_file_uri", askConfigFile);
+					getApplicationContext().sendBroadcast(remappingRequired);
+				}
+			};
+		}.execute(remappingFileContent);
 	}
 
 

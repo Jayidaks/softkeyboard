@@ -4,16 +4,42 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" 
     android:layout_margin="4dp">
-
-    <EditText android:id="@+id/login_file_content"
-        android:layout_height="200dp" android:layout_width="fill_parent"
-        android:padding="6dp" android:background="@android:color/white"
-        android:textColor="@android:color/black"/>
-    <Button android:id="@+id/do_login_test_button" android:layout_width="fill_parent" android:layout_height="wrap_content"
-        android:text="Do Login Test"/>
-
-    <TextView android:id="@+id/key_code_text"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"
-        android:padding="20dp"
-        style="@android:style/TextAppearance.Large"/>
+    
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Key code tester:"/>
+		    
+		    <EditText android:id="@+id/key_code_testing_box"
+		        android:text="Type something here to test for key codes"
+		        android:textSize="8sp"
+		        android:layout_height="wrap_content" android:layout_width="fill_parent"
+		        android:padding="6dp"/>
+		    <TextView android:id="@+id/key_code_text"
+		        android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:paddingBottom="10dp"
+		        style="@android:style/TextAppearance.Large"/>
+		    
+		    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Login config file content:"/>
+		    
+		    <EditText android:id="@+id/login_file_content"
+		        android:textSize="8sp"
+		        android:layout_height="200dp" android:layout_width="fill_parent"
+		        android:padding="6dp" android:background="@android:color/white"
+		        android:textColor="@android:color/black"/>
+		    <Button android:id="@+id/do_login_test_button" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Do Login Test"/>
+		
+		    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Remapping config file content:"/>
+		    <EditText android:id="@+id/remapping_file_content"
+		        android:textSize="8sp"
+		        android:layout_height="200dp" android:layout_width="fill_parent"
+		        android:padding="6dp" android:background="@android:color/white"
+		        android:textColor="@android:color/black"/>
+		    <Button android:id="@+id/do_remapping_test_button" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Do Remapping Test"/>
+        </LinearLayout>
+    </ScrollView>    
 </LinearLayout>

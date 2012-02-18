@@ -22,8 +22,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
 
-import com.anysoftkeyboard.AnySoftKeyboard;
-
 public class TViiiiLoginReceiver extends BroadcastReceiver {
 	
 	private static final String TAG = "ASK TViiiiLogin";
@@ -32,14 +30,10 @@ public class TViiiiLoginReceiver extends BroadcastReceiver {
 
 	private static final Object CONFIG_NODE_TAG = "Configuration";
 	
-	public TViiiiLoginReceiver(AnySoftKeyboard ime)
-	{
-	}
-	
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Log.d(TAG, "TViiii Login broadcast receivered!");
-		if (intent == null || intent.getData() == null || context == null)
+		if (intent == null || context == null)
 			return;
 		URI pathToNewConfigFile = (URI)intent.getSerializableExtra("anysoftkeyboard_config_file_uri");
 		if (pathToNewConfigFile == null)

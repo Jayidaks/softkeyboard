@@ -2,24 +2,30 @@ package com.anysoftkeyboard;
 
 import java.io.File;
 import java.io.FileReader;
+import java.net.URI;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import android.os.Environment;
+import android.util.Log;
 
 import com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler;
 
 public class GlobalTranslatorLoader {
 
-	private static final String GLOBAL_REMAPPER_CONFIG = "ask_global_hardware_keys_remapping.xml";
+	private static final String TAG = "ASK GlobalTranslatorLoader";
+	
 	public static interface TranslatorLoadDoneListener
 	{
 		void onDone(HardKeyboardSequenceHandler translator);
 	}
 	
+	private final URI mRemappingFile;
 	private final TranslatorLoadDoneListener mListener;
+	
 	private boolean mShouldRun = false;
+	private int mErrorsLeft = 10;
+	
 	private final Thread mThread = new Thread()
 	{
 		public void run() {
@@ -27,8 +33,9 @@ public class GlobalTranslatorLoader {
 		}
 	};
 	
-	public GlobalTranslatorLoader(TranslatorLoadDoneListener listener)
+	public GlobalTranslatorLoader(URI remappingFile, TranslatorLoadDoneListener listener)
 	{
+		mRemappingFile = remappingFile;
 		mListener = listener;
 	}
 	
@@ -39,8 +46,7 @@ public class GlobalTranslatorLoader {
 		{
 			try
 			{
-				File fileFolder = Environment.getExternalStorageDirectory();
-				File configFile = new File(fileFolder, GLOBAL_REMAPPER_CONFIG);
+				File configFile = new File(mRemappingFile);
 				
 				XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 				XmlPullParser xml = factory.newPullParser();
@@ -53,13 +59,22 @@ public class GlobalTranslatorLoader {
 			catch(Exception e)
 			{
 				e.printStackTrace();
-				synchronized (mThread) {
-					try {
-						mThread.wait(1000);
-					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+				mErrorsLeft--;
+				if (mErrorsLeft >= 0)
+				{
+					synchronized (mThread) {
+						try {
+							mThread.wait(1000);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
+				}
+				else
+				{
+					Log.e(TAG, "Failed to load global physical keys translator. Giving up!");
+					mShouldRun = false;
 				}
 			}
 		}

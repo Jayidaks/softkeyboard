@@ -16,6 +16,7 @@
 
 package com.anysoftkeyboard;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -91,7 +92,6 @@ import com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver;
 import com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver.SoundPreferencesChangedListener;
 import com.anysoftkeyboard.theme.KeyboardTheme;
 import com.anysoftkeyboard.theme.KeyboardThemeFactory;
-import com.anysoftkeyboard.ui.tutorials.TutorialsProvider;
 import com.anysoftkeyboard.utils.ModifierKeyState;
 import com.anysoftkeyboard.utils.Workarounds;
 import com.anysoftkeyboard.voice.VoiceInput;
@@ -148,8 +148,6 @@ public class AnySoftKeyboard extends InputMethodService implements
 
 	private ModifierKeyState mShiftKeyState = new ModifierKeyState();
 	private ModifierKeyState mControlKeyState = new ModifierKeyState();
-	
-	private boolean mTipsCalled = false;
 	
 	private AnyKeyboardView mInputView;
 	private CandidateView mCandidateView;
@@ -329,11 +327,16 @@ public class AnySoftKeyboard extends InputMethodService implements
 		
 		mVoiceRecognitionTrigger = AnyApplication.getDeviceSpecific().createVoiceInput(this);
 		
-		TutorialsProvider.showChangeLogIfNeeded(getApplicationContext());
+		//TutorialsProvider.showChangeLogIfNeeded(getApplicationContext());
 		
 		mGlobalPhysicalKeysTranslator = null;
-		mGlobalTranslatorLoader = new GlobalTranslatorLoader(this);
-		mGlobalTranslatorLoader.load();
+		String path = sp.getString("global_translator_path_key", "");
+		File remappingFile = new File(path);
+		if (remappingFile.exists())
+		{
+			mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this);
+			mGlobalTranslatorLoader.load();
+		}
 	}
 	
 	public void onDone(HardKeyboardSequenceHandler translator) {
@@ -459,7 +462,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 		}
 		
 
-		
+		/*
 		if (!mTipsCalled && mConfig.getShowTipsNotification() && TutorialsProvider.shouldShowTips(getApplicationContext()))
 		{
 			View tipsNotification = candidateViewContainer.findViewById(R.id.tips_notification_on_candidates);
@@ -476,7 +479,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 				});
 			}
 		}
-		
+		*/
 		return candidateViewContainer;
 	}
 	
@@ -2784,8 +2787,6 @@ public class AnySoftKeyboard extends InputMethodService implements
 		if (mSuggest != null) mSuggest.setMinimumWordLengthForCorrection(mMinimumWordCorrectionLength);
 		
 		setInitialCondensedState(getResources().getConfiguration());
-		
-		 
 	}
 
 	private void setDictionariesForCurrentKeyboard() {
@@ -3055,6 +3056,17 @@ public class AnySoftKeyboard extends InputMethodService implements
 		{
 			//in some cases we do want to force keyboards recreations
 			resetKeyboardView(key.equals(getString(R.string.settings_key_keyboard_theme_key)));
+		}
+		
+		if (key.equals("global_translator_path_key"))
+		{
+			String path = sharedPreferences.getString(key, "");
+			File remappingFile = new File(path);
+			if (remappingFile.exists())
+			{
+				mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this);
+				mGlobalTranslatorLoader.load();
+			}
 		}
 	}
 

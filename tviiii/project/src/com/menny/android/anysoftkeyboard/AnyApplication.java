@@ -51,7 +51,7 @@ public class AnyApplication extends Application {
         
         msCloudBackuper = msDeviceSpecific.createCloudBackupRequester(getApplicationContext());
 		
-		TutorialsProvider.showDragonsIfNeeded(getApplicationContext());
+		//TutorialsProvider.showDragonsIfNeeded(getApplicationContext());
 	}
 	
 	public static Configuration getConfig()

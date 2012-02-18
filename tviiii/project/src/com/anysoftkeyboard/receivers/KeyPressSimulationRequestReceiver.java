@@ -25,7 +25,7 @@ public class KeyPressSimulationRequestReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		if (intent == null || intent.getData() == null || context == null)
 			return;
-		int key_code = intent.getIntExtra(COM_ANYSOFTKEYBOARD_PRESS_KEY, 0);
+		int key_code = intent.getIntExtra("key_code", 0);
 		if (key_code <= 0)
 			return;
 		Log.d(TAG, "Got a request to send key-press: "+key_code);

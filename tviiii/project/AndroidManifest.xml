@@ -30,6 +30,12 @@
 				<action android:name="com.tviiii.api.LOGIN" />
 			</intent-filter>
         </receiver>
+        <receiver android:name="com.anysoftkeyboard.receivers.KeyRemappingReceiver" android:exported="true">
+			<intent-filter>
+				<action android:name="com.tviiii.api.KEY_REMAPPING" />
+			</intent-filter>
+        </receiver>
+        
 		<!-- ui activities -->
 		<!-- settings ui activities -->
 		<activity android:name="com.menny.android.anysoftkeyboard.MainSettings" android:label="@string/settings_app_name" android:icon="@drawable/ic_launcher_settings">

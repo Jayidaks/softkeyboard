@@ -146,10 +146,12 @@ public class HardKeyboardSequenceHandler
                 	final String targetChar = attrs.getAttributeValue(null, XML_TARGET_ATTRIBUTE);
                 	final String targetCharCode = attrs.getAttributeValue(null, XML_TARGET_CHAR_CODE_ATTRIBUTE);
                     final Integer target;
-                    if (targetCharCode == null)
+                    if (targetChar != null)
                     	target = new Integer((int)targetChar.charAt(0));
-                    else
+                    else if (targetCharCode != null)
                     	target = new Integer(Integer.parseInt(targetCharCode));
+                    else
+                    	target = -1;
                     	
                 	//asserting
                     if ((keyCodes == null) || (keyCodes.length == 0) || (target == null))

@@ -48,18 +48,34 @@ public class MainActivity extends Activity implements OnClickListener {
 			
 			@Override
 			public boolean onKeyUp(View view, Editable text, int keyCode, KeyEvent event) {
-				return false;
+				logKeyCode(keyCode);
+				return true;
 			}
 			
 			@Override
 			public boolean onKeyOther(View view, Editable text, KeyEvent event) {
-				return false;
+				logKeyCode(event.getKeyCode());
+				return true;
 			}
 			
 			@Override
 			public boolean onKeyDown(View view, Editable text, int keyCode,
 					KeyEvent event) {
-				return false;
+				logKeyCode(keyCode);				
+				return true;
+			}
+
+			protected void logKeyCode(int keyCode) {
+				String log = "Key pressed! Value "+keyCode+", which is ";
+				if (mKeyCodeNames.containsKey(keyCode))
+				{
+					log += mKeyCodeNames.get(keyCode);
+				}
+				else
+				{
+					log += "AN UNKNOWN API KEYCODE!";
+				}
+				mKeyCodeText.setText(log);
 			}
 			
 			@Override
@@ -149,22 +165,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				remappingFileContentEditor.setText(remappingFileContent);
 			};
 		}.execute();
-	}
-	
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		String text = "Key pressed! Value "+keyCode+", which is ";
-		if (mKeyCodeNames.containsKey(keyCode))
-		{
-			text += mKeyCodeNames.get(keyCode);
-		}
-		else
-		{
-			text += "UNKNOWN API KEYCODE!";
-		}
-		mKeyCodeText.setText(text);
-		
-		return super.onKeyDown(keyCode, event);
 	}
 	
 	@Override

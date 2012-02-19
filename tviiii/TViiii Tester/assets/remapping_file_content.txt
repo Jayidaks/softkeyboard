@@ -3,10 +3,13 @@
 	<SequenceMapping keySequence="KEYCODE_A" targetKeyCode="KEYCODE_B" />
 	<SequenceMapping keySequence="KEYCODE_BACK"/>
 	<SequenceMapping keySequence="KEYCODE_VOLUME_DOWN">
-		<!-- if the sender is a broadcast receiver -->
-		<intent
-			android:action="com.tviiii.rf.SEND">
-			<extra android:name="RF_FREQ" android:value="0x67FF" />
+		<intent action="com.tviiii.rf.SEND">
+			<extra name="RF_FREQ" value="0x67FF" />
+		</intent>
+	</SequenceMapping>
+	<SequenceMapping keySequence="KEYCODE_SEARCH">
+		<intent action="com.anysoftkeyboard.PRESS_KEY">
+			<extra name="key_code" value="33" />
 		</intent>
 	</SequenceMapping>
 </PhysicalTranslation>

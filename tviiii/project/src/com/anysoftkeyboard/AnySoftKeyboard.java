@@ -334,7 +334,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 		File remappingFile = new File(path);
 		if (remappingFile.exists())
 		{
-			mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this);
+			mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this, getResources());
 			mGlobalTranslatorLoader.load();
 		}
 	}
@@ -868,42 +868,8 @@ public class AnySoftKeyboard extends InputMethodService implements
 					+ ((event.getMetaState() & KeyEvent.META_ALT_ON) != 0)
 					+ " Repeats:" + event.getRepeatCount());
 
-		switch (keyCode) {
-		/**** SPEACIAL translated HW keys
-		 * If you add new keys here, do not forget to add to the 
-		 */
-		case KeyEvent.KEYCODE_CAMERA:
-		     if(shouldTranslateSpecialKeys && mConfig.useCameraKeyForBackspaceBackword()){
-		        handleBackword(getCurrentInputConnection());
-		        return true;
-		     }
-		     // DO NOT DELAY CAMERA KEY with unneeded checks in default mark
-		     return super.onKeyDown(keyCode, event);
-		case KeyEvent.KEYCODE_FOCUS:
-		     if(shouldTranslateSpecialKeys && mConfig.useCameraKeyForBackspaceBackword()){
-		    	 handleDeleteLastCharacter(false);
-		    	 return true;
-		     }
-		     // DO NOT DELAY FOCUS KEY with unneeded checks in default mark
-		     return super.onKeyDown(keyCode, event);
-		case KeyEvent.KEYCODE_VOLUME_UP:
-             if(shouldTranslateSpecialKeys && mConfig.useVolumeKeyForLeftRight()){
-            	 sendDownUpKeyEvents(KeyEvent.KEYCODE_DPAD_LEFT);
-		     	return true;
-             } 
-             // DO NOT DELAY VOLUME UP KEY with unneeded checks in default mark
-             return super.onKeyDown(keyCode, event);
-		case KeyEvent.KEYCODE_VOLUME_DOWN:
-	        if(shouldTranslateSpecialKeys && mConfig.useVolumeKeyForLeftRight()){
-				sendDownUpKeyEvents(KeyEvent.KEYCODE_DPAD_RIGHT);
-				return true;
-	        }
-	        // DO NOT DELAY VOLUME DOWN KEY with unneeded checks in default mark
-	        return super.onKeyDown(keyCode, event);
-        /**** END of SPEACIAL translated HW keys code section
-		 * 
-		 */
-		case KeyEvent.KEYCODE_BACK:
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+		{
 			if (event.getRepeatCount() == 0 && mInputView != null) {
 				if (mInputView.handleBack()) {
 					// consuming the meta keys
@@ -917,15 +883,13 @@ public class AnySoftKeyboard extends InputMethodService implements
 					}
 					mMetaState = 0;
 					return true;
-				} /*
-				 * else if (mTutorial != null) { mTutorial.close(); mTutorial =
-				 * null; }
-				 */
+				} 
 			}
-			break;
+		}
+		switch (keyCode) {
 		case 0x000000cc://API 14: KeyEvent.KEYCODE_LANGUAGE_SWITCH
 			switchToNextPhysicalKeyboard(ic);
-            return true;
+            return super.onKeyDown(keyCode, event);
 		case KeyEvent.KEYCODE_SHIFT_LEFT:
         case KeyEvent.KEYCODE_SHIFT_RIGHT:
             if (event.isAltPressed() && Workarounds.isAltSpaceLangSwitchNotPossible()) {
@@ -964,7 +928,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 				    if(mConfig.useBackword() && keyCode == KeyEvent.KEYCODE_DEL && event.isShiftPressed()){
                         handleBackword(ic);
                         return true;
-				    } else if (event.isPrintingKey()) {
+				    } else {
 						onPhysicalKeyboardKeyPressed();
 						mHardKeyboardAction.initializeAction(event, mMetaState);
 						// http://article.gmane.org/gmane.comp.handhelds.openmoko.android-freerunner/629
@@ -1013,7 +977,9 @@ public class AnySoftKeyboard extends InputMethodService implements
 							//note: the global translator supports only single characters!
 							if (mGlobalPhysicalKeysTranslator != null)
 							{
+								Log.d(TAG, "Trying global physical keys translator on "+mHardKeyboardAction.getKeyCode());
 								final int translatedChar = mGlobalPhysicalKeysTranslator.getCurrentCharacter(mHardKeyboardAction.getKeyCode(), this);
+								Log.d(TAG, "Global physical keys translator gave me "+translatedChar);
 								if (translatedChar != 0)
 								{
 									// typing my own.
@@ -1108,18 +1074,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		switch (keyCode) {
-        //Issue 248
-		case KeyEvent.KEYCODE_VOLUME_DOWN:
-	    case KeyEvent.KEYCODE_VOLUME_UP:
-	        if(isInputViewShown() == false){
-	            return super.onKeyUp(keyCode, event);
-	        }
-	        if(mConfig.useVolumeKeyForLeftRight()){
-	            //no need of vol up/down sound
-	        	updateShiftKeyState(getCurrentInputEditorInfo());
-	            return true;
-	        }
-		case KeyEvent.KEYCODE_DPAD_DOWN:
+        case KeyEvent.KEYCODE_DPAD_DOWN:
 		case KeyEvent.KEYCODE_DPAD_UP:
 		case KeyEvent.KEYCODE_DPAD_LEFT:
 		case KeyEvent.KEYCODE_DPAD_RIGHT:
@@ -1128,8 +1083,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 			// return true;
 			// }
 			// Enable shift key and DPAD to do selections
-			if (mInputView != null && mInputView.isShown()
-					&& mInputView.isShifted()) {
+			if (mInputView != null && mInputView.isShown() && mInputView.isShifted()) {
 				event = new KeyEvent(event.getDownTime(), event.getEventTime(),
 						event.getAction(), event.getKeyCode(), event
 								.getRepeatCount(), event.getDeviceId(), event
@@ -1151,7 +1105,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 			mMetaState = MyMetaKeyKeyListener.handleKeyUp(mMetaState, keyCode,
 					event);
 			if (DEBUG)
-				Log.d("AnySoftKeyboard-meta-key", getMetaKeysStates("onKeyUp"));
+				Log.d(TAG, getMetaKeysStates("onKeyUp"));
 			setInputConnectionMetaStateAsCurrentMetaKeyKeyListenerState();
 			break;
 		}
@@ -3064,7 +3018,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 			File remappingFile = new File(path);
 			if (remappingFile.exists())
 			{
-				mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this);
+				mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this, getResources());
 				mGlobalTranslatorLoader.load();
 			}
 		}

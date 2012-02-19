@@ -99,11 +99,13 @@ com.menny.android.anysoftkeyboard.AnyApplication
 com.anysoftkeyboard.voice.ServiceHelper
 com.anysoftkeyboard.AnySoftKeyboard
 com.menny.android.anysoftkeyboard.SoftKeyboard
+com.anysoftkeyboard.receivers.TViiiiLoginReceiver
 com.anysoftkeyboard.api.LanguageChangeddBroadcastReceiver
-com.anysoftkeyboard.receivers.AnySoftKeyboardInstalledReceiver
 com.anysoftkeyboard.api.LayoutChangedBroadcastReceiver
+com.anysoftkeyboard.receivers.KeyRemappingReceiver
 com.anysoftkeyboard.receivers.PackagesChangedReceiver
 com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver
+com.anysoftkeyboard.receivers.KeyPressSimulationRequestReceiver
 com.anysoftkeyboard.backup.AnyBackupAgent
 com.anysoftkeyboard.ui.MySeekBarPreference
 com.anysoftkeyboard.ui.tutorials.BaseTutorialActivity: void onCloseClicked(android.view.View)

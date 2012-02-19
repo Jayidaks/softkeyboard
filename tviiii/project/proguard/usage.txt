@@ -9,7 +9,9 @@ com.anysoftkeyboard.AnySoftKeyboard:
     private static final java.lang.String KEYBOARD_NOTIFICATION_ALWAYS
     private static final java.lang.String KEYBOARD_NOTIFICATION_ON_PHYSICAL
     private static final java.lang.String KEYBOARD_NOTIFICATION_NEVER
-    3019:3034:public void appendCharactersToInput(java.lang.CharSequence)
+    3075:3090:public void appendCharactersToInput(java.lang.CharSequence)
+    3133:3135:public void showToastMessage(int,boolean)
+    3138:3143:private void showToastMessage(java.lang.CharSequence,boolean)
 com.anysoftkeyboard.AnySoftKeyboard$3:
     private static final long DOUBLE_TAP_TIMEOUT
 com.anysoftkeyboard.ChewbaccaUncaughtExceptionHandler:
@@ -22,6 +24,8 @@ com.anysoftkeyboard.ConfigurationImpl:
     private static final java.lang.String CONFIGURATION_VERSION
     531:531:public int getDeviceOrientation()
     614:614:public boolean drawExtensionKeyboardAboveMainKeyboard()
+com.anysoftkeyboard.GlobalTranslatorLoader:
+    private static final java.lang.String TAG
 com.anysoftkeyboard.WordComposer:
     private static final java.lang.String CHEWBACCAONTHEDRUMS
     52:59:WordComposer(com.anysoftkeyboard.WordComposer)
@@ -147,6 +151,7 @@ com.anysoftkeyboard.dictionaries.ExternalDictionaryFactory:
     private static final java.lang.String XML_ASSETS_ATTRIBUTE
     private static final java.lang.String XML_RESOURCE_ATTRIBUTE
     private static final java.lang.String XML_AUTO_TEXT_RESOURCE_ATTRIBUTE
+    32:32:public static java.util.ArrayList getAllAvailableExternalDictionaries(android.content.Context)
 com.anysoftkeyboard.dictionaries.FallbackUserDictionary$FallBackSQLite:
     private static final java.lang.String DB_NAME
     private static final java.lang.String TABLE_NAME
@@ -202,6 +207,7 @@ com.anysoftkeyboard.keyboards.DictionarySelector
 com.anysoftkeyboard.keyboards.ExternalAnyKeyboard:
     public static final int KEYCODE_EXTENSION_KEYBOARD
     private static final java.lang.String TAG
+com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler:
     private static final java.lang.String XML_TRANSLATION_TAG
     private static final java.lang.String XML_QWERTY_ATTRIBUTE
     private static final java.lang.String XML_SEQUENCE_TAG
@@ -210,9 +216,11 @@ com.anysoftkeyboard.keyboards.ExternalAnyKeyboard:
     private static final java.lang.String XML_SHIFT_ATTRIBUTE
     private static final java.lang.String XML_TARGET_ATTRIBUTE
     private static final java.lang.String XML_TARGET_CHAR_CODE_ATTRIBUTE
+    56:57:public void addSequence(int[],android.content.Intent)
 com.anysoftkeyboard.keyboards.KeyEventStateMachine:
     public static final int KEYCODE_FIRST_CHAR
     private static final int MAX_NFA_DIVIDES
+    214:219:public void addSequence(int[],android.content.Intent)
 com.anysoftkeyboard.keyboards.Keyboard:
     static final java.lang.String TAG
     private static final java.lang.String TAG_KEYBOARD
@@ -370,9 +378,14 @@ com.anysoftkeyboard.quicktextkeys.QuickTextKeyFactory:
     private static final java.lang.String XML_KEY_LABEL_RES_ID_ATTRIBUTE
     private static final java.lang.String XML_KEY_OUTPUT_TEXT_RES_ID_ATTRIBUTE
     private static final java.lang.String XML_ICON_PREVIEW_RES_ID_ATTRIBUTE
-com.anysoftkeyboard.receivers.AnySoftKeyboardInstalledReceiver:
+com.anysoftkeyboard.receivers.KeyPressSimulationRequestReceiver:
+    private static final java.lang.String COM_ANYSOFTKEYBOARD_PRESS_KEY
+    private static final java.lang.String TAG
+com.anysoftkeyboard.receivers.KeyRemappingReceiver:
     private static final java.lang.String TAG
 com.anysoftkeyboard.receivers.PackagesChangedReceiver:
+    private static final java.lang.String TAG
+com.anysoftkeyboard.receivers.TViiiiLoginReceiver:
     private static final java.lang.String TAG
 com.anysoftkeyboard.theme.KeyboardTheme:
     35:35:public int getThemeScreenshotResId()
@@ -398,6 +411,7 @@ com.anysoftkeyboard.ui.settings.AddOnSelector:
     private static final int DIALOG_NO_EXTERNAL_PACKS_FOR_NOW
 com.anysoftkeyboard.ui.settings.MainSettings:
     private static final java.lang.String TAG
+    private static final int DIALOG_WELCOME
 com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity:
     private static final java.lang.String INSTANCE_KEY_DIALOG_EDITING_WORD
     private static final java.lang.String INSTANCE_KEY_ADDED_WORD
@@ -408,14 +422,13 @@ com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity:
 com.anysoftkeyboard.ui.tutorials.ChangeLogActivity:
     public static final java.lang.String EXTRA_SHOW_ALL_LOGS
     private static final java.lang.String TAG
+com.anysoftkeyboard.ui.tutorials.IntentToLaunch
 com.anysoftkeyboard.ui.tutorials.TipsActivity:
     private static final java.lang.String TAG
     public static final java.lang.String EXTRA_SHOW_ALL_TIPS
-com.anysoftkeyboard.ui.tutorials.TutorialsProvider:
-    private static final java.lang.String TUTORIALS_SP_FILENAME
+com.anysoftkeyboard.ui.tutorials.TutorialsProvider
+com.anysoftkeyboard.ui.tutorials.WelcomeHowToNoticeActivity:
     private static final java.lang.String ASK_HAS_BEEN_ENABLED_BEFORE
-    private static final java.lang.String TAG
-    private static final int TUTORIALS_NOTIFICATION_ID_BASE
 com.anysoftkeyboard.utils.IMEUtil:
     38:41:public static void cancelTask(android.os.AsyncTask,boolean)
     82:82:public static boolean hasMultipleEnabledIMEs(android.content.Context)

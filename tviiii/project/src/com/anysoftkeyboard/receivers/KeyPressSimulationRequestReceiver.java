@@ -23,25 +23,25 @@ public class KeyPressSimulationRequestReceiver extends BroadcastReceiver {
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		if (intent == null || intent.getData() == null || context == null)
+		if (intent == null || context == null)
 			return;
-		int key_code = intent.getIntExtra("key_code", 0);
-		if (key_code <= 0)
+		Object key_code = intent.getExtras().get("key_code");
+		if (key_code == null)
 			return;
-		Log.d(TAG, "Got a request to send key-press: "+key_code);
+		String key_code_string = key_code.toString();
+		int key_code_value = Integer.parseInt(key_code_string);
+		
+		if (key_code_value <= 0)
+			return;
+		Log.d(TAG, "Got a request to send key-press: "+key_code_value);
 		//this could be a fail! Since it has a SOFT_KEYBOARD flag.
-		mIme.sendDownUpKeyEvents(key_code);
+		mIme.sendDownUpKeyEvents(key_code_value);
 	}
 
 	public IntentFilter createFilterToRegisterOn() {
 		
-		IntentFilter filter = new IntentFilter();
-		filter.addCategory(Intent.CATEGORY_DEFAULT);
-		
+		IntentFilter filter = new IntentFilter();		
 		filter.addAction(COM_ANYSOFTKEYBOARD_PRESS_KEY);
-		
-		filter.addDataScheme("package");
-		
 		return filter;
 	}
 }

@@ -9,63 +9,66 @@ com.anysoftkeyboard.AnySoftKeyboard -> com.anysoftkeyboard.AnySoftKeyboard:
     com.anysoftkeyboard.Configuration mConfig -> f
     com.anysoftkeyboard.utils.ModifierKeyState mShiftKeyState -> g
     com.anysoftkeyboard.utils.ModifierKeyState mControlKeyState -> h
-    boolean mTipsCalled -> i
-    com.anysoftkeyboard.keyboards.views.AnyKeyboardView mInputView -> j
-    com.anysoftkeyboard.keyboards.views.CandidateView mCandidateView -> k
-    long mLastDictionaryRefresh -> l
-    int mMinimumWordCorrectionLength -> m
-    com.anysoftkeyboard.dictionaries.Suggest mSuggest -> n
-    android.view.inputmethod.CompletionInfo[] mCompletions -> o
-    android.app.AlertDialog mOptionsDialog -> p
-    android.app.AlertDialog mQuickTextKeyDialog -> q
+    com.anysoftkeyboard.keyboards.views.AnyKeyboardView mInputView -> i
+    com.anysoftkeyboard.keyboards.views.CandidateView mCandidateView -> j
+    long mLastDictionaryRefresh -> k
+    int mMinimumWordCorrectionLength -> l
+    com.anysoftkeyboard.dictionaries.Suggest mSuggest -> m
+    android.view.inputmethod.CompletionInfo[] mCompletions -> n
+    android.app.AlertDialog mOptionsDialog -> o
+    android.app.AlertDialog mQuickTextKeyDialog -> p
     com.anysoftkeyboard.keyboards.KeyboardSwitcher mKeyboardSwitcher -> a
-    com.anysoftkeyboard.keyboards.physical.HardKeyboardActionImpl mHardKeyboardAction -> r
-    long mMetaState -> s
-    java.util.HashSet mSentenceSeparators -> t
-    com.anysoftkeyboard.dictionaries.AddableDictionary mUserDictionary -> u
-    com.anysoftkeyboard.dictionaries.AutoDictionary mAutoDictionary -> v
-    java.lang.StringBuilder mComposing -> w
-    com.anysoftkeyboard.WordComposer mWord -> x
-    int mOrientation -> y
-    int mCommittedLength -> z
-    boolean mPredicting -> A
-    java.lang.CharSequence mBestWord -> B
-    boolean mPredictionLandscape -> C
-    boolean mPredictionOn -> D
-    boolean mCompletionOn -> E
-    boolean mAutoSpace -> F
-    boolean mAutoCorrectOn -> G
-    boolean mCapsLock -> H
-    boolean mSmileyOnShortPress -> I
-    java.lang.String mOverrideQuickTextText -> J
-    boolean mAutoCap -> K
-    boolean mQuickFixes -> L
-    boolean mShowSuggestions -> M
-    boolean mAutoComplete -> N
-    java.lang.String mKeyboardChangeNotificationType -> O
-    boolean mJustAccepted -> P
-    java.lang.CharSequence mJustRevertedSeparator -> Q
-    android.media.AudioManager mAudioManager -> R
-    boolean mSilentMode -> S
-    boolean mSoundOn -> T
-    int mSoundVolume -> U
-    android.os.Vibrator mVibrator -> V
-    int mVibrationDuration -> W
-    boolean mKeyboardInCondensedMode -> X
-    android.os.Handler mHandler -> Y
-    boolean mJustAddedAutoSpace -> Z
-    boolean mLastCharacterWasShifted -> aa
+    com.anysoftkeyboard.keyboards.physical.HardKeyboardActionImpl mHardKeyboardAction -> q
+    long mMetaState -> r
+    java.util.HashSet mSentenceSeparators -> s
+    com.anysoftkeyboard.dictionaries.AddableDictionary mUserDictionary -> t
+    com.anysoftkeyboard.dictionaries.AutoDictionary mAutoDictionary -> u
+    java.lang.StringBuilder mComposing -> v
+    com.anysoftkeyboard.WordComposer mWord -> w
+    int mOrientation -> x
+    int mCommittedLength -> y
+    boolean mPredicting -> z
+    java.lang.CharSequence mBestWord -> A
+    boolean mPredictionLandscape -> B
+    boolean mPredictionOn -> C
+    boolean mCompletionOn -> D
+    boolean mAutoSpace -> E
+    boolean mAutoCorrectOn -> F
+    boolean mCapsLock -> G
+    boolean mSmileyOnShortPress -> H
+    java.lang.String mOverrideQuickTextText -> I
+    boolean mAutoCap -> J
+    boolean mQuickFixes -> K
+    boolean mShowSuggestions -> L
+    boolean mAutoComplete -> M
+    java.lang.String mKeyboardChangeNotificationType -> N
+    boolean mJustAccepted -> O
+    java.lang.CharSequence mJustRevertedSeparator -> P
+    android.media.AudioManager mAudioManager -> Q
+    boolean mSilentMode -> R
+    boolean mSoundOn -> S
+    int mSoundVolume -> T
+    android.os.Vibrator mVibrator -> U
+    int mVibrationDuration -> V
+    boolean mKeyboardInCondensedMode -> W
+    android.os.Handler mHandler -> X
+    boolean mJustAddedAutoSpace -> Y
+    boolean mLastCharacterWasShifted -> Z
     android.os.IBinder mImeToken -> b
-    android.view.inputmethod.InputMethodManager mInputMethodManager -> ab
-    boolean mConnectbotTabHack -> ac
-    com.anysoftkeyboard.voice.VoiceInput mVoiceRecognitionTrigger -> ad
-    com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver mSoundPreferencesChangedReceiver -> ae
-    com.anysoftkeyboard.receivers.PackagesChangedReceiver mPackagesChangedReceiver -> af
-    android.view.inputmethod.InputConnection mEditingInput -> ag
-    android.widget.TextView mCandidateCloseText -> ah
-    int[] $SWITCH_TABLE$com$anysoftkeyboard$dictionaries$TextEntryState$State -> ai
+    android.view.inputmethod.InputMethodManager mInputMethodManager -> aa
+    boolean mConnectbotTabHack -> ab
+    com.anysoftkeyboard.voice.VoiceInput mVoiceRecognitionTrigger -> ac
+    com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler mGlobalPhysicalKeysTranslator -> ad
+    com.anysoftkeyboard.GlobalTranslatorLoader mGlobalTranslatorLoader -> ae
+    com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver mSoundPreferencesChangedReceiver -> af
+    com.anysoftkeyboard.receivers.PackagesChangedReceiver mPackagesChangedReceiver -> ag
+    com.anysoftkeyboard.receivers.KeyPressSimulationRequestReceiver mKeyPressRequestReceiver -> ah
+    android.view.inputmethod.InputConnection mEditingInput -> ai
+    android.widget.TextView mCandidateCloseText -> aj
+    int[] $SWITCH_TABLE$com$anysoftkeyboard$dictionaries$TextEntryState$State -> ak
     android.inputmethodservice.AbstractInputMethodService$AbstractInputMethodImpl onCreateInputMethodInterface() -> onCreateInputMethodInterface
     void onCreate() -> onCreate
+    void onDone(com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler) -> a
     void onUnbindInput() -> onUnbindInput
     void onDestroy() -> onDestroy
     void onFinishInputView(boolean) -> onFinishInputView
@@ -76,27 +79,27 @@ com.anysoftkeyboard.AnySoftKeyboard -> com.anysoftkeyboard.AnySoftKeyboard:
     void onUpdateSelection(int,int,int,int,int,int) -> onUpdateSelection
     void hideWindow() -> hideWindow
     void onDisplayCompletions(android.view.inputmethod.CompletionInfo[]) -> onDisplayCompletions
-    void clearSuggestions() -> k
+    void clearSuggestions() -> j
     void setSuggestions(java.util.List,boolean,boolean,boolean) -> a
     void onComputeInsets(android.inputmethodservice.InputMethodService$Insets) -> onComputeInsets
     boolean onEvaluateFullscreenMode() -> onEvaluateFullscreenMode
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     void switchToNextPhysicalKeyboard(android.view.inputmethod.InputConnection) -> a
-    void notifyKeyboardChangeIfNeeded() -> l
+    void notifyKeyboardChangeIfNeeded() -> k
     boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
     java.lang.String getMetaKeysStates(java.lang.String) -> c
     void addToDictionaries(java.lang.CharSequence,int) -> a
     void commitTyped(android.view.inputmethod.InputConnection) -> b
     void updateShiftKeyState(android.view.inputmethod.EditorInfo) -> a
-    void swapPunctuationAndSpace() -> m
+    void swapPunctuationAndSpace() -> l
     boolean addWordToDictionary(java.lang.String) -> a
     boolean isAlphabet(int) -> d
     void onMultiTap() -> a
     void onKey(int,com.anysoftkeyboard.keyboards.Keyboard$Key,int,int[],boolean) -> a
-    boolean isConnectbot() -> n
-    void sendTab() -> o
+    boolean isConnectbot() -> m
+    void sendTab() -> n
     void setKeyboardStuffBeforeSetToView(com.anysoftkeyboard.keyboards.AnyKeyboard) -> a
-    void showLanguageSelectionDialog() -> p
+    void showLanguageSelectionDialog() -> o
     void onText(java.lang.CharSequence) -> a
     boolean isBackwordStopChar(int) -> e
     void handleBackword(android.view.inputmethod.InputConnection) -> c
@@ -105,11 +108,11 @@ com.anysoftkeyboard.AnySoftKeyboard -> com.anysoftkeyboard.AnySoftKeyboard:
     void handleShift(boolean) -> h
     void abortCorrection(boolean) -> i
     void handleCharacter(int,com.anysoftkeyboard.keyboards.Keyboard$Key,int,int[]) -> a
-    void handleClose() -> q
+    void handleClose() -> p
     void postUpdateSuggestions(long) -> a
     void pickSuggestionManually(int,java.lang.CharSequence) -> a
     void revertLastWord(boolean) -> j
-    void setNextSuggestions() -> r
+    void setNextSuggestions() -> q
     boolean isWordSeparator(int) -> f
     void nextKeyboard(android.view.inputmethod.EditorInfo,com.anysoftkeyboard.keyboards.KeyboardSwitcher$NextKeyboardType) -> a
     void setKeyboardFinalStuff(android.view.inputmethod.EditorInfo,com.anysoftkeyboard.keyboards.KeyboardSwitcher$NextKeyboardType,com.anysoftkeyboard.keyboards.AnyKeyboard) -> a
@@ -122,74 +125,54 @@ com.anysoftkeyboard.AnySoftKeyboard -> com.anysoftkeyboard.AnySoftKeyboard:
     void onPress(int) -> a
     void onRelease(int) -> b
     void updateRingerMode() -> d
-    void loadSettings() -> s
-    void setDictionariesForCurrentKeyboard() -> t
-    java.lang.String getDictionaryOverrideKey(com.anysoftkeyboard.keyboards.AnyKeyboard) -> b
+    void loadSettings() -> r
+    void setDictionariesForCurrentKeyboard() -> s
     void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
     void setInitialCondensedState(android.content.res.Configuration) -> a
     void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
     void deleteLastCharactersFromInput(int) -> c
     android.content.SharedPreferences getSharedPreferences() -> e
-    void showToastMessage$2563266() -> f
-    void showToastMessage$609c24db(java.lang.CharSequence) -> b
     void onLowMemory() -> onLowMemory
-    void startInputConnectionEdit() -> g
-    void endInputConnectionEdit() -> h
+    void startInputConnectionEdit() -> f
+    void endInputConnectionEdit() -> g
     void showQuickTextKeyPopupKeyboard(com.anysoftkeyboard.quicktextkeys.QuickTextKey) -> a
     void showQuickTextKeyPopupList(com.anysoftkeyboard.quicktextkeys.QuickTextKey) -> b
     void promoteToUserDictionary$505cff1c(java.lang.String) -> b
-    com.anysoftkeyboard.WordComposer getCurrentWord() -> i
+    com.anysoftkeyboard.WordComposer getCurrentWord() -> h
     boolean onEvaluateInputViewShown() -> onEvaluateInputViewShown
-    void onCancel() -> j
+    void onCancel() -> i
     void resetKeyboardView(boolean) -> e
     void access$0(com.anysoftkeyboard.AnySoftKeyboard) -> a
     void access$1$9d3ed9b(com.anysoftkeyboard.AnySoftKeyboard) -> b
     com.anysoftkeyboard.keyboards.views.CandidateView access$2(com.anysoftkeyboard.AnySoftKeyboard) -> c
     android.widget.TextView access$3(com.anysoftkeyboard.AnySoftKeyboard) -> d
     void access$4$9d429ab(com.anysoftkeyboard.AnySoftKeyboard) -> e
-    void access$5$9d3ed9b(com.anysoftkeyboard.AnySoftKeyboard) -> f
-    int[] $SWITCH_TABLE$com$anysoftkeyboard$dictionaries$TextEntryState$State() -> u
-    void access$7(com.anysoftkeyboard.AnySoftKeyboard,android.view.inputmethod.EditorInfo,com.anysoftkeyboard.keyboards.KeyboardSwitcher$NextKeyboardType,com.anysoftkeyboard.keyboards.AnyKeyboard) -> a
-    void access$8$5bf0a0bf(com.anysoftkeyboard.AnySoftKeyboard,java.lang.CharSequence) -> a
-    void access$9(com.anysoftkeyboard.AnySoftKeyboard) -> g
-    void access$10(com.anysoftkeyboard.AnySoftKeyboard) -> h
-    void access$11(com.anysoftkeyboard.AnySoftKeyboard) -> i
-com.anysoftkeyboard.AnySoftKeyboard$1 -> com.anysoftkeyboard.j:
+    int[] $SWITCH_TABLE$com$anysoftkeyboard$dictionaries$TextEntryState$State() -> t
+    void access$6(com.anysoftkeyboard.AnySoftKeyboard,android.view.inputmethod.EditorInfo,com.anysoftkeyboard.keyboards.KeyboardSwitcher$NextKeyboardType,com.anysoftkeyboard.keyboards.AnyKeyboard) -> a
+com.anysoftkeyboard.AnySoftKeyboard$1 -> com.anysoftkeyboard.i:
     com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
-com.anysoftkeyboard.AnySoftKeyboard$2 -> com.anysoftkeyboard.i:
+com.anysoftkeyboard.AnySoftKeyboard$2 -> com.anysoftkeyboard.h:
     com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
     void attachToken(android.os.IBinder) -> attachToken
-com.anysoftkeyboard.AnySoftKeyboard$3 -> com.anysoftkeyboard.n:
+com.anysoftkeyboard.AnySoftKeyboard$3 -> com.anysoftkeyboard.m:
     long mFirstClickTime -> a
     com.anysoftkeyboard.AnySoftKeyboard this$0 -> b
     void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.AnySoftKeyboard$4 -> com.anysoftkeyboard.m:
-    com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
-    void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.AnySoftKeyboard$5 -> com.anysoftkeyboard.l:
+com.anysoftkeyboard.AnySoftKeyboard$4 -> com.anysoftkeyboard.l:
     com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
     java.lang.CharSequence[] val$items -> b
     java.lang.CharSequence[] val$ids -> c
     void onClick(android.content.DialogInterface,int) -> onClick
-com.anysoftkeyboard.AnySoftKeyboard$6 -> com.anysoftkeyboard.k:
-    com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
-    java.lang.String val$dictionaryOverridingKey -> b
-    java.lang.CharSequence[] val$items -> c
-    java.lang.CharSequence[] val$ids -> d
-    void onClick(android.content.DialogInterface,int) -> onClick
-com.anysoftkeyboard.AnySoftKeyboard$7 -> com.anysoftkeyboard.g:
-    com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
-    void onClick(android.content.DialogInterface,int) -> onClick
-com.anysoftkeyboard.AnySoftKeyboard$8 -> com.anysoftkeyboard.h:
+com.anysoftkeyboard.AnySoftKeyboard$5 -> com.anysoftkeyboard.k:
     com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
     com.anysoftkeyboard.quicktextkeys.QuickTextKey val$key -> b
     boolean setViewValue(android.view.View,java.lang.Object,java.lang.String) -> setViewValue
-com.anysoftkeyboard.AnySoftKeyboard$9 -> com.anysoftkeyboard.f:
+com.anysoftkeyboard.AnySoftKeyboard$6 -> com.anysoftkeyboard.j:
     com.anysoftkeyboard.AnySoftKeyboard this$0 -> a
     android.widget.SimpleAdapter val$a -> b
     void onClick(android.content.DialogInterface,int) -> onClick
-com.anysoftkeyboard.ChewbaccaUncaughtExceptionHandler -> com.anysoftkeyboard.e:
+com.anysoftkeyboard.ChewbaccaUncaughtExceptionHandler -> com.anysoftkeyboard.g:
     java.lang.Thread$UncaughtExceptionHandler mOsDefaultHandler -> a
     android.content.Context mApp -> b
     void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
@@ -317,7 +300,21 @@ com.anysoftkeyboard.ConfigurationImpl -> com.anysoftkeyboard.c:
     boolean workaround_alwaysUseDrawText() -> J
     java.lang.String getInitialKeyboardSplitState() -> K
     boolean getShowHintTextOnKeys() -> c
-com.anysoftkeyboard.WordComposer -> com.anysoftkeyboard.d:
+com.anysoftkeyboard.GlobalTranslatorLoader -> com.anysoftkeyboard.n:
+    java.net.URI mRemappingFile -> a
+    com.anysoftkeyboard.GlobalTranslatorLoader$TranslatorLoadDoneListener mListener -> b
+    boolean mShouldRun -> c
+    int mErrorsLeft -> d
+    java.lang.Thread mThread -> e
+    void loadTranslator() -> a
+    void load() -> b
+    void stop() -> c
+com.anysoftkeyboard.GlobalTranslatorLoader$1 -> com.anysoftkeyboard.f:
+    com.anysoftkeyboard.GlobalTranslatorLoader this$0 -> a
+    void run() -> run
+com.anysoftkeyboard.GlobalTranslatorLoader$TranslatorLoadDoneListener -> com.anysoftkeyboard.d:
+    void onDone(com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler) -> a
+com.anysoftkeyboard.WordComposer -> com.anysoftkeyboard.e:
     java.util.ArrayList mCodes -> a
     java.lang.String mPreferredWord -> b
     java.lang.StringBuilder mTypedWord -> c
@@ -613,7 +610,6 @@ com.anysoftkeyboard.dictionaries.DictionarySQLiteConnection$DictionaryWord -> co
 com.anysoftkeyboard.dictionaries.ExternalDictionaryFactory -> com.anysoftkeyboard.dictionaries.a:
     com.anysoftkeyboard.dictionaries.ExternalDictionaryFactory msInstance -> b
     java.util.HashMap mBuildersByLocale -> c
-    java.util.ArrayList getAllAvailableExternalDictionaries(android.content.Context) -> a
     com.anysoftkeyboard.dictionaries.DictionaryAddOnAndBuilder getDictionaryBuilderById(java.lang.String,android.content.Context) -> a
     com.anysoftkeyboard.dictionaries.DictionaryAddOnAndBuilder getDictionaryBuilderByLocale(java.lang.String,android.content.Context) -> b
     void clearAddOnList() -> a
@@ -900,8 +896,6 @@ com.anysoftkeyboard.keyboards.ExternalAnyKeyboard -> com.anysoftkeyboard.keyboar
     com.anysoftkeyboard.keyboardextensions.KeyboardExtension mExtensionLayout -> k
     void setExtensionLayout$1ba72e20() -> u
     com.anysoftkeyboard.keyboardextensions.KeyboardExtension getExtensionLayout() -> v
-    com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler createPhysicalTranslatorFromResourceId(android.content.Context,int) -> a
-    int[] getKeyCodesFromPhysicalSequence(java.lang.String) -> a
     java.lang.String getDefaultDictionaryLocale() -> e
     java.lang.String getKeyboardPrefId() -> o
     int getKeyboardIconResId() -> j
@@ -917,26 +911,27 @@ com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler -> com.anysoftkeyboard
     int[] msQwerty -> a
     long mLastTypedKeyEventTime -> b
     com.anysoftkeyboard.keyboards.KeyEventStateMachine mCurrentSequence -> c
-    void addQwertyTranslation(java.lang.String) -> a
     void addSequence(int[],int) -> a
-    void addShiftSequence(int[],int) -> b
-    void addAltSequence(int[],int) -> c
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$State addNewKey(int) -> b
     boolean addSpecialKey(int) -> a
     int getCurrentCharacter(int,com.anysoftkeyboard.AnyKeyboardContextProvider) -> a
+    com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler createPhysicalTranslatorFromXmlPullParser(org.xmlpull.v1.XmlPullParser) -> a
+    int[] getKeyCodesFromPhysicalSequence(java.lang.String) -> a
 com.anysoftkeyboard.keyboards.KeyEventStateMachine -> com.anysoftkeyboard.keyboards.aa:
-    com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState start -> a
-    com.anysoftkeyboard.keyboards.KeyEventStateMachine$RingBuffer walker -> b
-    com.anysoftkeyboard.keyboards.KeyEventStateMachine$RingBuffer walkerhelper -> c
-    com.anysoftkeyboard.keyboards.KeyEventStateMachine$RingBuffer walkerunused -> d
-    int sequenceLength -> e
-    int resultChar -> f
+    java.util.HashMap mIntents -> a
+    com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState start -> b
+    com.anysoftkeyboard.keyboards.KeyEventStateMachine$RingBuffer walker -> c
+    com.anysoftkeyboard.keyboards.KeyEventStateMachine$RingBuffer walkerhelper -> d
+    com.anysoftkeyboard.keyboards.KeyEventStateMachine$RingBuffer walkerunused -> e
+    int sequenceLength -> f
+    int resultChar -> g
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState addNextState(com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState,int) -> a
     void addSequence(int[],int) -> a
     void addSpecialKeySequence(int[],int,int) -> a
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$State addKeyCode(int) -> a
     int getCharacter() -> a
     int getSequenceLength() -> b
+    android.content.Intent getIntentForKey(int) -> b
     void reset() -> c
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState access$0(com.anysoftkeyboard.keyboards.KeyEventStateMachine) -> a
 com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState -> com.anysoftkeyboard.keyboards.l:
@@ -1350,7 +1345,7 @@ com.anysoftkeyboard.keyboards.views.AnyKeyboardBaseView$1 -> com.anysoftkeyboard
     void onKey(int,com.anysoftkeyboard.keyboards.Keyboard$Key,int,int[],boolean) -> a
     void onMultiTap() -> a
     void onText(java.lang.CharSequence) -> a
-    void onCancel() -> j
+    void onCancel() -> i
     void onSwipeLeft(boolean) -> b
     void onSwipeRight(boolean) -> a
     void onSwipeUp(boolean) -> d
@@ -1359,8 +1354,8 @@ com.anysoftkeyboard.keyboards.views.AnyKeyboardBaseView$1 -> com.anysoftkeyboard
     void onSeparate() -> c
     void onPress(int) -> a
     void onRelease(int) -> b
-    void endInputConnectionEdit() -> h
-    void startInputConnectionEdit() -> g
+    void endInputConnectionEdit() -> g
+    void startInputConnectionEdit() -> f
 com.anysoftkeyboard.keyboards.views.AnyKeyboardBaseView$PointerQueue -> com.anysoftkeyboard.keyboards.views.j:
     java.util.LinkedList mQueue -> a
     void add(com.anysoftkeyboard.keyboards.views.PointerTracker) -> a
@@ -1498,15 +1493,15 @@ com.anysoftkeyboard.keyboards.views.OnKeyboardActionListener -> com.anysoftkeybo
     void onKey(int,com.anysoftkeyboard.keyboards.Keyboard$Key,int,int[],boolean) -> a
     void onMultiTap() -> a
     void onText(java.lang.CharSequence) -> a
-    void onCancel() -> j
+    void onCancel() -> i
     void onSwipeLeft(boolean) -> b
     void onSwipeRight(boolean) -> a
     void onSwipeDown(boolean) -> c
     void onSwipeUp(boolean) -> d
     void onPinch() -> b
     void onSeparate() -> c
-    void startInputConnectionEdit() -> g
-    void endInputConnectionEdit() -> h
+    void startInputConnectionEdit() -> f
+    void endInputConnectionEdit() -> g
 com.anysoftkeyboard.keyboards.views.PointerTracker -> com.anysoftkeyboard.keyboards.views.k:
     int mPointerId -> a
     int mDelayBeforeKeyRepeatStart -> b
@@ -1630,8 +1625,16 @@ com.anysoftkeyboard.quicktextkeys.QuickTextKeyFactory -> com.anysoftkeyboard.c.a
     com.anysoftkeyboard.quicktextkeys.QuickTextKey getCurrentQuickTextKey(com.anysoftkeyboard.AnyKeyboardContextProvider) -> a
     java.util.ArrayList getAllAvailableQuickKeys(android.content.Context) -> a
     com.anysoftkeyboard.addons.AddOn createConcreateAddOn(android.content.Context,java.lang.String,int,java.lang.String,int,android.util.AttributeSet) -> a
-com.anysoftkeyboard.receivers.AnySoftKeyboardInstalledReceiver -> com.anysoftkeyboard.receivers.AnySoftKeyboardInstalledReceiver:
+com.anysoftkeyboard.receivers.KeyPressSimulationRequestReceiver -> com.anysoftkeyboard.receivers.KeyPressSimulationRequestReceiver:
+    com.anysoftkeyboard.AnySoftKeyboard mIme -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.anysoftkeyboard.receivers.KeyRemappingReceiver -> com.anysoftkeyboard.receivers.KeyRemappingReceiver:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.anysoftkeyboard.receivers.KeyRemappingReceiver$1 -> com.anysoftkeyboard.receivers.a:
+    com.anysoftkeyboard.receivers.KeyRemappingReceiver this$0 -> a
+    android.content.Context val$context -> b
+    java.lang.Void doInBackground(java.net.URI[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 com.anysoftkeyboard.receivers.PackagesChangedReceiver -> com.anysoftkeyboard.receivers.PackagesChangedReceiver:
     com.anysoftkeyboard.AnySoftKeyboard mIme -> a
     java.lang.StringBuffer mSB -> b
@@ -1639,8 +1642,18 @@ com.anysoftkeyboard.receivers.PackagesChangedReceiver -> com.anysoftkeyboard.rec
 com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver -> com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver:
     com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver$SoundPreferencesChangedListener mListener -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver$SoundPreferencesChangedListener -> com.anysoftkeyboard.receivers.a:
+com.anysoftkeyboard.receivers.SoundPreferencesChangedReceiver$SoundPreferencesChangedListener -> com.anysoftkeyboard.receivers.b:
     void updateRingerMode() -> d
+com.anysoftkeyboard.receivers.TViiiiLoginReceiver -> com.anysoftkeyboard.receivers.TViiiiLoginReceiver:
+    java.lang.Object ROOT_NODE_TAG -> a
+    java.lang.Object CONFIG_NODE_TAG -> b
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void loadConfig(android.content.Context,java.net.URI) -> a
+com.anysoftkeyboard.receivers.TViiiiLoginReceiver$1 -> com.anysoftkeyboard.receivers.c:
+    com.anysoftkeyboard.receivers.TViiiiLoginReceiver this$0 -> a
+    android.content.Context val$context -> b
+    java.lang.Void doInBackground(java.net.URI[]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 com.anysoftkeyboard.theme.KeyboardTheme -> com.anysoftkeyboard.a.a:
     int mThemeResId -> a
     int mPopupThemeResId -> b
@@ -1700,7 +1713,7 @@ com.anysoftkeyboard.ui.settings.AddOnSelector -> com.anysoftkeyboard.ui.settings
     java.util.List getAllAvailableAddOns() -> d
     int getPrefsLayoutResId() -> c
     int getAddonsListPrefKeyResId() -> b
-com.anysoftkeyboard.ui.settings.AddOnSelector$1 -> com.anysoftkeyboard.ui.settings.d:
+com.anysoftkeyboard.ui.settings.AddOnSelector$1 -> com.anysoftkeyboard.ui.settings.f:
     com.anysoftkeyboard.ui.settings.AddOnSelector this$0 -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
 com.anysoftkeyboard.ui.settings.BottomRowSelector -> com.anysoftkeyboard.ui.settings.BottomRowSelector:
@@ -1727,12 +1740,20 @@ com.anysoftkeyboard.ui.settings.Keyboards -> com.anysoftkeyboard.ui.settings.Key
     android.preference.PreferenceCategory mKeyboardsGroup -> a
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
-com.anysoftkeyboard.ui.settings.Keyboards$1 -> com.anysoftkeyboard.ui.settings.g:
+com.anysoftkeyboard.ui.settings.Keyboards$1 -> com.anysoftkeyboard.ui.settings.i:
     com.anysoftkeyboard.ui.settings.Keyboards this$0 -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
 com.anysoftkeyboard.ui.settings.MainSettings -> com.anysoftkeyboard.ui.settings.MainSettings:
     void onCreate(android.os.Bundle) -> onCreate
     android.content.pm.PackageInfo getPackageInfo(android.content.Context) -> a
+    void onResume() -> onResume
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+com.anysoftkeyboard.ui.settings.MainSettings$1 -> com.anysoftkeyboard.ui.settings.c:
+    com.anysoftkeyboard.ui.settings.MainSettings this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.anysoftkeyboard.ui.settings.MainSettings$2 -> com.anysoftkeyboard.ui.settings.b:
+    com.anysoftkeyboard.ui.settings.MainSettings this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
 com.anysoftkeyboard.ui.settings.QuickTextKeys -> com.anysoftkeyboard.ui.settings.QuickTextKeys:
     java.lang.String getAdditionalMarketQueryString() -> a
     int getAddonsListPrefKeyResId() -> b
@@ -1774,28 +1795,28 @@ com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity -> com.anysoftkeybo
     android.widget.Spinner access$8(com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity) -> d
     void access$9(com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity,java.lang.String) -> d
     boolean access$10(com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity) -> e
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$1 -> com.anysoftkeyboard.ui.settings.l:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$1 -> com.anysoftkeyboard.ui.settings.n:
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity this$0 -> a
     void onItemSelected(android.widget.AdapterView,android.view.View,int,long) -> onItemSelected
     void onNothingSelected(android.widget.AdapterView) -> onNothingSelected
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$1$1 -> com.anysoftkeyboard.ui.settings.f:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$1$1 -> com.anysoftkeyboard.ui.settings.h:
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$1 this$1 -> a
     java.lang.Void doInBackground$10299ca() -> b
     void applyResults$a83c79c() -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$2 -> com.anysoftkeyboard.ui.settings.j:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$2 -> com.anysoftkeyboard.ui.settings.l:
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$3 -> com.anysoftkeyboard.ui.settings.k:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$3 -> com.anysoftkeyboard.ui.settings.m:
     java.util.ArrayList mLangsList -> a
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity this$0 -> b
     void applyResults$a83c79c() -> a
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$4 -> com.anysoftkeyboard.ui.settings.h:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$4 -> com.anysoftkeyboard.ui.settings.j:
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity this$0 -> a
     android.widget.EditText val$editText -> b
     void onClick(android.content.DialogInterface,int) -> onClick
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$5 -> com.anysoftkeyboard.ui.settings.i:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$5 -> com.anysoftkeyboard.ui.settings.k:
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
 com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter -> com.anysoftkeyboard.ui.settings.a:
@@ -1806,15 +1827,15 @@ com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter -> com.an
     int getSectionForPosition(int) -> getSectionForPosition
     java.lang.Object[] getSections() -> getSections
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter$1 -> com.anysoftkeyboard.ui.settings.c:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter$1 -> com.anysoftkeyboard.ui.settings.e:
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter this$1 -> a
     java.lang.String val$word -> b
     void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter$2 -> com.anysoftkeyboard.ui.settings.b:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter$2 -> com.anysoftkeyboard.ui.settings.d:
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAdapter this$1 -> a
     java.lang.String val$word -> b
     void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAsyncTask -> com.anysoftkeyboard.ui.settings.e:
+com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity$MyAsyncTask -> com.anysoftkeyboard.ui.settings.g:
     android.app.ProgressDialog progresDialog -> a
     com.anysoftkeyboard.ui.settings.UserDictionaryEditorActivity this$0 -> b
     void onPreExecute() -> onPreExecute
@@ -1837,12 +1858,6 @@ com.anysoftkeyboard.ui.tutorials.ChangeLogActivity -> com.anysoftkeyboard.ui.tut
 com.anysoftkeyboard.ui.tutorials.ChangeLogActivity$1 -> com.anysoftkeyboard.ui.tutorials.a:
     com.anysoftkeyboard.ui.tutorials.ChangeLogActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.ui.tutorials.IntentToLaunch -> com.anysoftkeyboard.ui.tutorials.b:
-    android.content.Intent IntentToStart -> a
-    int NotificationIcon -> b
-    int NotificationTitle -> c
-    int NotificationText -> d
-    int NotificationID -> e
 com.anysoftkeyboard.ui.tutorials.TestersNoticeActivity -> com.anysoftkeyboard.ui.tutorials.TestersNoticeActivity:
     int getLayoutResId() -> a
     int getTitleResId() -> b
@@ -1856,21 +1871,13 @@ com.anysoftkeyboard.ui.tutorials.TipsActivity -> com.anysoftkeyboard.ui.tutorial
     void onCreate(android.os.Bundle) -> onCreate
     void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     void onResume() -> onResume
-    void getTipsLayouts(android.content.Context,boolean,java.util.ArrayList,android.content.SharedPreferences) -> a
     void showTip() -> c
     void setClickHandler(android.view.View) -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
     void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.ui.tutorials.TipsActivity$1 -> com.anysoftkeyboard.ui.tutorials.d:
+com.anysoftkeyboard.ui.tutorials.TipsActivity$1 -> com.anysoftkeyboard.ui.tutorials.b:
     com.anysoftkeyboard.ui.tutorials.TipsActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.anysoftkeyboard.ui.tutorials.TutorialsProvider -> com.anysoftkeyboard.ui.tutorials.c:
-    void showDragonsIfNeeded(android.content.Context) -> a
-    void showHowToActivateIfNeeded(android.content.Context) -> b
-    void showChangeLogIfNeeded(android.content.Context) -> c
-    boolean firstTestersTimeVersionLoaded(android.content.Context) -> d
-    int getPackageVersion(android.content.Context) -> e
-    void showNotificationIcon(android.content.Context,com.anysoftkeyboard.ui.tutorials.IntentToLaunch) -> a
 com.anysoftkeyboard.ui.tutorials.WelcomeHowToNoticeActivity -> com.anysoftkeyboard.ui.tutorials.WelcomeHowToNoticeActivity:
     int getLayoutResId() -> a
     int getTitleResId() -> b

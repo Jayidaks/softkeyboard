@@ -2,6 +2,8 @@ package com.anysoftkeyboard.keyboards;
 
 import java.io.IOException;
 import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -9,6 +11,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import com.anysoftkeyboard.api.KeyCodes;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
@@ -25,6 +28,8 @@ public class HardKeyboardSequenceHandler
 		KeyEvent.KEYCODE_A,KeyEvent.KEYCODE_S,KeyEvent.KEYCODE_D,KeyEvent.KEYCODE_F,KeyEvent.KEYCODE_G,KeyEvent.KEYCODE_H,KeyEvent.KEYCODE_J,KeyEvent.KEYCODE_K,KeyEvent.KEYCODE_L,
 		KeyEvent.KEYCODE_Z,KeyEvent.KEYCODE_X,KeyEvent.KEYCODE_C,KeyEvent.KEYCODE_V,KeyEvent.KEYCODE_B,KeyEvent.KEYCODE_N,KeyEvent.KEYCODE_M
 	};
+
+	private static final String TAG = "HardKeyboardSequenceHandler";
 	
 	//See 'getSequenceCharacter' function for usage for msSequenceLivingTime and mLastTypedKeyEventTime.
 	//private static final long msSequenceLivingTime = 600;
@@ -53,6 +58,7 @@ public class HardKeyboardSequenceHandler
 	}
 
 	public void addSequence(int[] sequence, Intent intent) {
+		Log.d(TAG, "seq "+sequence[0]+" will produce intent "+intent);
 		this.mCurrentSequence.addSequence(sequence, intent);
 	}
 	
@@ -93,6 +99,7 @@ public class HardKeyboardSequenceHandler
 				Intent intent = mCurrentSequence.getIntentForKey(mappedChar);
 				if (intent != null)
 				{
+					Log.d(TAG, "Broadcasting intent "+intent);
 					inputHandler.getApplicationContext().sendBroadcast(intent);
 				}
 			}
@@ -115,15 +122,27 @@ public class HardKeyboardSequenceHandler
 	private static final String XML_SHIFT_ATTRIBUTE = "shiftModifier";
 	private static final String XML_TARGET_ATTRIBUTE = "targetChar";
 	private static final String XML_TARGET_CHAR_CODE_ATTRIBUTE = "targetCharCode";
+	private static final String XML_TARGET_KEY_CODE_ATTRIBUTE = "targetKeyCode";
 	
 
-	public static HardKeyboardSequenceHandler createPhysicalTranslatorFromXmlPullParser(XmlPullParser parser) throws NumberFormatException, XmlPullParserException, IOException {
+	public static HardKeyboardSequenceHandler createPhysicalTranslatorFromXmlPullParser(XmlPullParser parser, Resources resources) throws NumberFormatException, XmlPullParserException, IOException {
 		HardKeyboardSequenceHandler translator = new HardKeyboardSequenceHandler();
 		
 		final String TAG = "ASK Hard Translation Parser";
 		
 		int event;
         boolean inTranslations = false;
+        boolean inSequence = false;
+        boolean inIntent = false;
+        
+        int[] keyCodes = null;
+    	boolean isAlt = false;
+    	boolean isShift = false;
+    	String targetChar = null;
+    	String targetCharCode = null;
+    	String targetKeyCode = null;
+    	String intentAction = null;
+    	HashMap<String, String> mIntentExtras = new HashMap<String, String>();
         while ((event = parser.next()) != XmlPullParser.END_DOCUMENT)
         {
         	String tag = parser.getName();
@@ -137,22 +156,77 @@ public class HardKeyboardSequenceHandler
                 }
                 else if (inTranslations && XML_SEQUENCE_TAG.equals(tag))
                 {
-                	//if (AnySoftKeyboardConfiguration.getInstance().getDEBUG()) Log.d(TAG, "Starting parsing "+XML_SEQUENCE_TAG);
+                	inSequence = true;
                 	AttributeSet attrs = Xml.asAttributeSet(parser);
 
-                	final int[] keyCodes = getKeyCodesFromPhysicalSequence(attrs.getAttributeValue(null, XML_KEYS_ATTRIBUTE));
-                	final boolean isAlt = attrs.getAttributeBooleanValue(null, XML_ALT_ATTRIBUTE, false);
-                	final boolean isShift = attrs.getAttributeBooleanValue(null, XML_SHIFT_ATTRIBUTE, false);
-                	final String targetChar = attrs.getAttributeValue(null, XML_TARGET_ATTRIBUTE);
-                	final String targetCharCode = attrs.getAttributeValue(null, XML_TARGET_CHAR_CODE_ATTRIBUTE);
-                    final Integer target;
+                	keyCodes = getKeyCodesFromPhysicalSequence(attrs.getAttributeValue(null, XML_KEYS_ATTRIBUTE));
+                	isAlt = attrs.getAttributeBooleanValue(null, XML_ALT_ATTRIBUTE, false);
+                	isShift = attrs.getAttributeBooleanValue(null, XML_SHIFT_ATTRIBUTE, false);
+                	targetChar = attrs.getAttributeValue(null, XML_TARGET_ATTRIBUTE);
+                	targetCharCode = attrs.getAttributeValue(null, XML_TARGET_CHAR_CODE_ATTRIBUTE);
+                	targetKeyCode = attrs.getAttributeValue(null, XML_TARGET_KEY_CODE_ATTRIBUTE);
+                	intentAction = null;
+                	mIntentExtras.clear();
+                }
+                else if (inTranslations && inSequence && "intent".equals(tag))
+                {
+                	inIntent = true;
+                	AttributeSet attrs = Xml.asAttributeSet(parser);
+                	intentAction = attrs.getAttributeValue(null, "action");
+                }
+                else if (inTranslations && inSequence && inIntent && "extra".equals(tag))
+                {
+                	AttributeSet attrs = Xml.asAttributeSet(parser);
+                	/*
+                	<intent
+        			android:action="com.tviiii.rf.SEND">
+        			<extra android:name="RF_FREQ" android:value="0x67FF" />
+        		</intent>*/
+                	String name = attrs.getAttributeValue(null, "name");
+                	String value = attrs.getAttributeValue(null, "value");
+                	mIntentExtras.put(name, value);
+                }
+            }
+            else if (event == XmlPullParser.END_TAG) {
+            	if (XML_TRANSLATION_TAG.equals(tag)) {
+                	inTranslations = false;
+                	//if (AnySoftKeyboardConfiguration.getInstance().getDEBUG()) Log.d(TAG, "Finished parsing "+XML_TRANSLATION_TAG);
+                	break;
+                }
+            	else if (inIntent && "intent".equals(tag))
+            	{
+            		inIntent = false;
+            	}
+            	else if (inTranslations && XML_SEQUENCE_TAG.equals(tag))
+                {
+            		inSequence = false;
+            		
+            		final Integer target;
                     if (targetChar != null)
+                    {
                     	target = new Integer((int)targetChar.charAt(0));
+                    }
                     else if (targetCharCode != null)
+                    {
                     	target = new Integer(Integer.parseInt(targetCharCode));
+                    }
+                    else if (targetKeyCode != null)
+                    {
+                    	int[] keyCodesValues = getKeyCodesFromPhysicalSequence(targetKeyCode);
+                    	if (keyCodes.length > 0)
+                    	{
+                    		KeyEvent keyEvent = new KeyEvent(KeyEvent.ACTION_DOWN, keyCodesValues[0]);
+                    		target = new Integer(keyEvent.getUnicodeChar());
+                    	}
+                    	else
+                    	{
+                    		target = -1;
+                    	}
+                    }
                     else
+                    {
                     	target = -1;
-                    	
+                    }
                 	//asserting
                     if ((keyCodes == null) || (keyCodes.length == 0) || (target == null))
                     {
@@ -163,7 +237,18 @@ public class HardKeyboardSequenceHandler
                     	if (!isAlt && !isShift)
                     	{
                         	//if (AnySoftKeyboardConfiguration.getInstance().getDEBUG()) Log.d(TAG, "Physical translation details: keys:"+printInts(keyCodes)+" target:"+target);
-                        	translator.addSequence(keyCodes, target.intValue());
+                    		if (intentAction != null)
+                    		{
+                    			Intent intent = new Intent(intentAction);
+                    			for (Entry<String, String> pair : mIntentExtras.entrySet()) {
+									intent.putExtra(pair.getKey(), pair.getValue());
+								}
+                    			translator.addSequence(keyCodes, intent);
+                    		}
+                    		else
+                    		{
+                    			translator.addSequence(keyCodes, target.intValue());
+                    		}
                     	}
                     	else if (isAlt)
                     	{
@@ -176,17 +261,6 @@ public class HardKeyboardSequenceHandler
                         	translator.addShiftSequence(keyCodes, target.intValue());
                     	}
                     }
-                }
-            }
-            else if (event == XmlPullParser.END_TAG) {
-            	if (XML_TRANSLATION_TAG.equals(tag)) {
-                	inTranslations = false;
-                	//if (AnySoftKeyboardConfiguration.getInstance().getDEBUG()) Log.d(TAG, "Finished parsing "+XML_TRANSLATION_TAG);
-                	break;
-                }
-            	else if (inTranslations && XML_SEQUENCE_TAG.equals(tag))
-                {
-            		//if (AnySoftKeyboardConfiguration.getInstance().getDEBUG()) Log.d(TAG, "Finished parsing "+XML_SEQUENCE_TAG);
                 }
             }
         }

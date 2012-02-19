@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import android.content.Intent;
+import android.util.Log;
 
 public class KeyEventStateMachine {
 	
@@ -129,6 +130,8 @@ public class KeyEventStateMachine {
 	}
 
 	private static final int MAX_NFA_DIVIDES = 30;
+
+	private static final String TAG = "KeyEventStateMachine";
 	
 	class RingBuffer {
 		
@@ -211,14 +214,17 @@ public class KeyEventStateMachine {
 	}
 	
 	public void addSequence(int[] sequence, Intent intent) {
-		final int intentKey = -1 * (mIntents.size()+1);
+		final int intentKey = -1 * (mIntents.size()+1024);
 		
 		mIntents.put(intentKey, intent);
+		
+		Log.d(TAG, "Adding intent "+intent+" with key "+intentKey);
 		
 		addSequence(sequence, intentKey);
 	}
 	
 	public void addSequence(int[] sequence, int result) {
+		Log.d(TAG, "Adding "+sequence[0]+" to be "+result);
 		KeyEventState c = this.start;
 		for (int i = 0; i < sequence.length; i++) {
 			c = this.addNextState(c, sequence[i]);

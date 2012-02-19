@@ -61,7 +61,7 @@ public class ExternalAnyKeyboard extends AnyKeyboard implements HardKeyboardTran
 		    XmlPullParser parser = context.getResources().getXml(qwertyTranslationId);
 		    HardKeyboardSequenceHandler translator = null;
 			try {
-				translator = HardKeyboardSequenceHandler.createPhysicalTranslatorFromXmlPullParser(parser);
+				translator = HardKeyboardSequenceHandler.createPhysicalTranslatorFromXmlPullParser(parser, context.getResources());
 			} catch (NumberFormatException e) {
 				translator = null;
 				e.printStackTrace();

@@ -7,6 +7,7 @@ import java.net.URI;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import android.content.res.Resources;
 import android.util.Log;
 
 import com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler;
@@ -32,11 +33,13 @@ public class GlobalTranslatorLoader {
 			loadTranslator();
 		}
 	};
+	private final Resources mResources;
 	
-	public GlobalTranslatorLoader(URI remappingFile, TranslatorLoadDoneListener listener)
+	public GlobalTranslatorLoader(URI remappingFile, TranslatorLoadDoneListener listener, Resources res)
 	{
 		mRemappingFile = remappingFile;
 		mListener = listener;
+		mResources = res;
 	}
 	
 	protected void loadTranslator() {
@@ -53,7 +56,7 @@ public class GlobalTranslatorLoader {
 				FileReader inputConfig = new FileReader(configFile);
 				xml.setInput(inputConfig);
 				
-				handler = HardKeyboardSequenceHandler.createPhysicalTranslatorFromXmlPullParser(xml);
+				handler = HardKeyboardSequenceHandler.createPhysicalTranslatorFromXmlPullParser(xml, mResources);
 				mShouldRun = false;
 			}
 			catch(Exception e)

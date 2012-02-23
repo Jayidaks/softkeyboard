@@ -9,20 +9,24 @@ com.anysoftkeyboard.AnySoftKeyboard:
     private static final java.lang.String KEYBOARD_NOTIFICATION_ALWAYS
     private static final java.lang.String KEYBOARD_NOTIFICATION_ON_PHYSICAL
     private static final java.lang.String KEYBOARD_NOTIFICATION_NEVER
-    3075:3090:public void appendCharactersToInput(java.lang.CharSequence)
-    3133:3135:public void showToastMessage(int,boolean)
-    3138:3143:private void showToastMessage(java.lang.CharSequence,boolean)
+    3029:3044:public void appendCharactersToInput(java.lang.CharSequence)
+    3087:3089:public void showToastMessage(int,boolean)
+    3092:3097:private void showToastMessage(java.lang.CharSequence,boolean)
 com.anysoftkeyboard.AnySoftKeyboard$3:
     private static final long DOUBLE_TAP_TIMEOUT
 com.anysoftkeyboard.ChewbaccaUncaughtExceptionHandler:
     private static final java.lang.String TAG
 com.anysoftkeyboard.Configuration:
     public abstract int getDeviceOrientation()
+    public abstract boolean useVolumeKeyForLeftRight()
+    public abstract boolean useCameraKeyForBackspaceBackword()
     public abstract boolean drawExtensionKeyboardAboveMainKeyboard()
 com.anysoftkeyboard.ConfigurationImpl:
     static final java.lang.String TAG
     private static final java.lang.String CONFIGURATION_VERSION
     531:531:public int getDeviceOrientation()
+    594:594:public boolean useCameraKeyForBackspaceBackword()
+    598:598:public boolean useVolumeKeyForLeftRight()
     614:614:public boolean drawExtensionKeyboardAboveMainKeyboard()
 com.anysoftkeyboard.GlobalTranslatorLoader:
     private static final java.lang.String TAG
@@ -208,6 +212,7 @@ com.anysoftkeyboard.keyboards.ExternalAnyKeyboard:
     public static final int KEYCODE_EXTENSION_KEYBOARD
     private static final java.lang.String TAG
 com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler:
+    private static final java.lang.String TAG
     private static final java.lang.String XML_TRANSLATION_TAG
     private static final java.lang.String XML_QWERTY_ATTRIBUTE
     private static final java.lang.String XML_SEQUENCE_TAG
@@ -216,11 +221,11 @@ com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler:
     private static final java.lang.String XML_SHIFT_ATTRIBUTE
     private static final java.lang.String XML_TARGET_ATTRIBUTE
     private static final java.lang.String XML_TARGET_CHAR_CODE_ATTRIBUTE
-    56:57:public void addSequence(int[],android.content.Intent)
+    private static final java.lang.String XML_TARGET_KEY_CODE_ATTRIBUTE
 com.anysoftkeyboard.keyboards.KeyEventStateMachine:
     public static final int KEYCODE_FIRST_CHAR
     private static final int MAX_NFA_DIVIDES
-    214:219:public void addSequence(int[],android.content.Intent)
+    private static final java.lang.String TAG
 com.anysoftkeyboard.keyboards.Keyboard:
     static final java.lang.String TAG
     private static final java.lang.String TAG_KEYBOARD

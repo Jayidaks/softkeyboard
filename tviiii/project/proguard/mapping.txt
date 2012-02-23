@@ -206,17 +206,15 @@ com.anysoftkeyboard.Configuration -> com.anysoftkeyboard.a:
     boolean use16KeysSymbolsKeyboards() -> x
     boolean useBackword() -> y
     boolean getCycleOverAllSymbols() -> z
-    boolean useVolumeKeyForLeftRight() -> A
-    boolean useCameraKeyForBackspaceBackword() -> B
-    boolean useContactsDictionary() -> C
-    boolean useAutoDictionary() -> D
-    boolean isStickyExtensionKeyboard() -> E
-    int getSwipeVelocityThreshold() -> F
-    int getSwipeDistanceThreshold() -> G
-    int getLongPressTimeout() -> H
-    int getMultiTapTimeout() -> I
-    boolean workaround_alwaysUseDrawText() -> J
-    java.lang.String getInitialKeyboardSplitState() -> K
+    boolean useContactsDictionary() -> A
+    boolean useAutoDictionary() -> B
+    boolean isStickyExtensionKeyboard() -> C
+    int getSwipeVelocityThreshold() -> D
+    int getSwipeDistanceThreshold() -> E
+    int getLongPressTimeout() -> F
+    int getMultiTapTimeout() -> G
+    boolean workaround_alwaysUseDrawText() -> H
+    java.lang.String getInitialKeyboardSplitState() -> I
 com.anysoftkeyboard.ConfigurationImpl -> com.anysoftkeyboard.c:
     android.content.Context mContext -> a
     java.lang.String mDomainText -> b
@@ -288,17 +286,15 @@ com.anysoftkeyboard.ConfigurationImpl -> com.anysoftkeyboard.c:
     boolean use16KeysSymbolsKeyboards() -> x
     boolean useBackword() -> y
     boolean getCycleOverAllSymbols() -> z
-    boolean useCameraKeyForBackspaceBackword() -> B
-    boolean useVolumeKeyForLeftRight() -> A
-    boolean useContactsDictionary() -> C
-    boolean useAutoDictionary() -> D
-    boolean isStickyExtensionKeyboard() -> E
-    int getSwipeDistanceThreshold() -> G
-    int getSwipeVelocityThreshold() -> F
-    int getLongPressTimeout() -> H
-    int getMultiTapTimeout() -> I
-    boolean workaround_alwaysUseDrawText() -> J
-    java.lang.String getInitialKeyboardSplitState() -> K
+    boolean useContactsDictionary() -> A
+    boolean useAutoDictionary() -> B
+    boolean isStickyExtensionKeyboard() -> C
+    int getSwipeDistanceThreshold() -> E
+    int getSwipeVelocityThreshold() -> D
+    int getLongPressTimeout() -> F
+    int getMultiTapTimeout() -> G
+    boolean workaround_alwaysUseDrawText() -> H
+    java.lang.String getInitialKeyboardSplitState() -> I
     boolean getShowHintTextOnKeys() -> c
 com.anysoftkeyboard.GlobalTranslatorLoader -> com.anysoftkeyboard.n:
     java.net.URI mRemappingFile -> a
@@ -306,6 +302,7 @@ com.anysoftkeyboard.GlobalTranslatorLoader -> com.anysoftkeyboard.n:
     boolean mShouldRun -> c
     int mErrorsLeft -> d
     java.lang.Thread mThread -> e
+    android.content.res.Resources mResources -> f
     void loadTranslator() -> a
     void load() -> b
     void stop() -> c
@@ -911,12 +908,13 @@ com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler -> com.anysoftkeyboard
     int[] msQwerty -> a
     long mLastTypedKeyEventTime -> b
     com.anysoftkeyboard.keyboards.KeyEventStateMachine mCurrentSequence -> c
+    void addQwertyTranslation(java.lang.String) -> a
     void addSequence(int[],int) -> a
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$State addNewKey(int) -> b
     boolean addSpecialKey(int) -> a
     int getCurrentCharacter(int,com.anysoftkeyboard.AnyKeyboardContextProvider) -> a
-    com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler createPhysicalTranslatorFromXmlPullParser(org.xmlpull.v1.XmlPullParser) -> a
-    int[] getKeyCodesFromPhysicalSequence(java.lang.String) -> a
+    com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler createPhysicalTranslatorFromXmlPullParser$30b790c1(org.xmlpull.v1.XmlPullParser) -> a
+    int[] getKeyCodesFromPhysicalSequence(java.lang.String) -> b
 com.anysoftkeyboard.keyboards.KeyEventStateMachine -> com.anysoftkeyboard.keyboards.aa:
     java.util.HashMap mIntents -> a
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState start -> b
@@ -926,6 +924,7 @@ com.anysoftkeyboard.keyboards.KeyEventStateMachine -> com.anysoftkeyboard.keyboa
     int sequenceLength -> f
     int resultChar -> g
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState addNextState(com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState,int) -> a
+    void addSequence(int[],android.content.Intent) -> a
     void addSequence(int[],int) -> a
     void addSpecialKeySequence(int[],int,int) -> a
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$State addKeyCode(int) -> a

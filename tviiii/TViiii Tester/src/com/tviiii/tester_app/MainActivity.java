@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.net.URI;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Random;
 
 import com.tviiii.tester_app.R;
@@ -21,6 +22,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
 import android.text.method.KeyListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -91,6 +93,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		findViewById(R.id.do_login_test_button).setOnClickListener(this);
 		findViewById(R.id.do_remapping_test_button).setOnClickListener(this);
 		findViewById(R.id.do_key_press_test_button).setOnClickListener(this);
+		findViewById(R.id.key_code_dump_button).setOnClickListener(this);
 		
 		final Dialog progress = createSpinningDialog("Reading defaults");
 		progress.show();
@@ -180,9 +183,68 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.do_key_press_test_button:
 			startKeyPressBroadcastTest();
 			break;
+		case R.id.key_code_dump_button:
+			dumpKeyCodes();
+			break;
 		}
 	}
 
+
+	private void dumpKeyCodes() {
+		final Dialog progress = createSpinningDialog("Saving keycodes...");
+
+		new AsyncTask<Void, Void, Void>()
+		{
+			Exception backgroundException = null;
+			final File configFile = new File(Environment.getExternalStorageDirectory(), "key_codes.csv");
+			
+			@Override
+			protected Void doInBackground(Void... params) {
+				try
+				{
+					configFile.delete();
+					FileWriter writer = new FileWriter(configFile, false);
+					writer.write("Key Code Value, Key Code Name");
+					writer.write('\n');
+					for(Entry<Integer, String> pair: mKeyCodeNames.entrySet())
+					{
+						String content = pair.getKey().toString()+","+pair.getValue();
+						Log.i(TAG, content);
+						writer.write(content);
+						writer.write('\n');
+					}
+					writer.flush();
+					writer.close();
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+					backgroundException = e;
+				}
+				return null;
+			}
+			
+			protected void onPostExecute(Void result) {
+				progress.dismiss();
+				if (backgroundException != null)
+				{
+					AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+							.setTitle("Error")
+							.setMessage("Failed to do keycode dumping due to: "+backgroundException.getMessage())
+							.create();
+					dialog.show();
+				}
+				else
+				{
+					AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+							.setTitle("Done")
+							.setMessage("Dumped key code values to: "+configFile.getAbsolutePath())
+							.create();
+					dialog.show();
+				}
+			};
+		}.execute();
+	}
 
 	private void startLoginBroadcastTest() {
 		EditText loginFileContentEditor = (EditText)findViewById(R.id.login_file_content);

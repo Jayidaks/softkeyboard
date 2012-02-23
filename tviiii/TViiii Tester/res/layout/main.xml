@@ -7,9 +7,10 @@
     
     <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
         <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
-            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+            <Button android:id="@+id/key_code_dump_button" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		        android:text="Dump keycodes"/>
+		    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
 		        android:text="Key code tester:"/>
-		    
 		    <EditText android:id="@+id/key_code_testing_box"
 		        android:text="Type something here to test for key codes"
 		        android:textSize="8sp"

@@ -824,9 +824,13 @@ public class AnySoftKeyboard extends InputMethodService implements
 
 	@Override
 	public boolean onKeyDown(final int keyCode, KeyEvent event) {
-//		if (DEBUG)
-//		{
-//			Log.d(TAG, "onKeyDown:"+keyCode+" flags:"+event.getFlags());
+		
+		onPhysicalKeyboardKeyPressed();
+		mHardKeyboardAction.initializeAction(event, mMetaState);
+		
+		if (DEBUG)
+		{
+			Log.d(TAG, "onKeyDown:"+keyCode+" flags:"+event.getFlags());
 //			
 //			if (mInputView == null)
 //			{
@@ -841,7 +845,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 //						"isFocused:"+mInputView.isFocused()+"\n"+
 //						"isShown:"+mInputView.isShown()+"\n");
 //			}
-//		}
+		}
 		final boolean shouldTranslateSpecialKeys = isInputViewShown();
 		if(DEBUG){
 			Log.d(TAG, "isInputViewShown="+shouldTranslateSpecialKeys);
@@ -917,6 +921,27 @@ public class AnySoftKeyboard extends InputMethodService implements
 			if (!mConfig.getUseRepeatingKeys() && event.getRepeatCount() > 0)
 				return true;
 
+			//let see if the global translator wants to do something
+			//note: the global translator supports only single characters!
+			if (mGlobalPhysicalKeysTranslator != null)
+			{
+				Log.d(TAG, "Trying global physical keys translator on "+mHardKeyboardAction.getKeyCode());
+				final int translatedChar = mGlobalPhysicalKeysTranslator.getCurrentCharacter(mHardKeyboardAction.getKeyCode(), this);
+				Log.d(TAG, "Global physical keys translator gave me "+translatedChar);
+				if (translatedChar != 0)
+				{
+					// typing my own.
+					if (translatedChar > 0) 
+						onKey(translatedChar, null, -1, new int[] { translatedChar }, true/*simualting fromUI*/);
+					// my handling
+					// we are at a regular key press, so we'll update
+					// our meta-state member
+					mMetaState = MyMetaKeyKeyListener.adjustMetaAfterKeypress(mMetaState);
+					if (DEBUG) Log.d(TAG+"-meta-key", getMetaKeysStates("onKeyDown after adjust - translated"));
+					return true;
+				}
+			}
+			
 			if (mKeyboardSwitcher.isCurrentKeyboardPhysical()) {
 				// sometimes, the physical keyboard will delete input, and then
 				// add some.
@@ -929,8 +954,6 @@ public class AnySoftKeyboard extends InputMethodService implements
                         handleBackword(ic);
                         return true;
 				    } else {
-						onPhysicalKeyboardKeyPressed();
-						mHardKeyboardAction.initializeAction(event, mMetaState);
 						// http://article.gmane.org/gmane.comp.handhelds.openmoko.android-freerunner/629
 						AnyKeyboard current = mKeyboardSwitcher.getCurrentKeyboard();
 
@@ -970,29 +993,6 @@ public class AnySoftKeyboard extends InputMethodService implements
 							mMetaState = MyMetaKeyKeyListener.adjustMetaAfterKeypress(mMetaState);
 							if (DEBUG) Log.d(TAG+"-meta-key", getMetaKeysStates("onKeyDown after adjust - translated"));
 							return true;
-						}
-						else
-						{
-							//let see if the global translator wants to do something
-							//note: the global translator supports only single characters!
-							if (mGlobalPhysicalKeysTranslator != null)
-							{
-								Log.d(TAG, "Trying global physical keys translator on "+mHardKeyboardAction.getKeyCode());
-								final int translatedChar = mGlobalPhysicalKeysTranslator.getCurrentCharacter(mHardKeyboardAction.getKeyCode(), this);
-								Log.d(TAG, "Global physical keys translator gave me "+translatedChar);
-								if (translatedChar != 0)
-								{
-									// typing my own.
-									if (translatedChar > 0) 
-										onKey(translatedChar, null, -1, new int[] { translatedChar }, true/*simualting fromUI*/);
-									// my handling
-									// we are at a regular key press, so we'll update
-									// our meta-state member
-									mMetaState = MyMetaKeyKeyListener.adjustMetaAfterKeypress(mMetaState);
-									if (DEBUG) Log.d(TAG+"-meta-key", getMetaKeysStates("onKeyDown after adjust - translated"));
-									return true;
-								}
-							}
 						}
 					}
 				} finally {
@@ -1073,6 +1073,11 @@ public class AnySoftKeyboard extends InputMethodService implements
 	
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (DEBUG)
+		{
+			Log.d(TAG, "onKeyUp:"+keyCode+" flags:"+event.getFlags());
+		}
+		
 		switch (keyCode) {
         case KeyEvent.KEYCODE_DPAD_DOWN:
 		case KeyEvent.KEYCODE_DPAD_UP:

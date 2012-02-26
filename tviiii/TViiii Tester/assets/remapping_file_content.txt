@@ -2,6 +2,7 @@
 <PhysicalTranslation>
 	<SequenceMapping keySequence="KEYCODE_A" targetKeyCode="KEYCODE_B" />
 	<SequenceMapping keySequence="KEYCODE_BACK"/>
+	<SequenceMapping keySequence="KEYCODE_C" targetKeyCode="KEYCODE_NOTIFICATION" />
 	<SequenceMapping keySequence="KEYCODE_VOLUME_DOWN">
 		<intent action="com.tviiii.rf.SEND">
 			<extra name="RF_FREQ" value="0x67FF" />

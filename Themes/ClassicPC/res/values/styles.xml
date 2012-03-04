@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<!-- Copyright (C) 2012 AnySoftKeyboard
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,25 +15,23 @@
 -->
 <resources>
 	<style name="PCAnyKeyboardTheme">
+        <item name="android:background">@drawable/pc_background</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_pc</item>
     	
         <item name="keyTextSize">@dimen/key_text_size</item>
         <item name="keyTextStyle">bold</item>
-        <item name="keyTextColor">#FFFFFFFF</item>
-        <item name="hintTextColor">#FF999999</item>
+        <item name="keyTextColor">#FF000000</item>
+        <item name="hintTextColor">#FF333333</item>
         <item name="labelTextSize">@dimen/key_label_text_size</item>
         
         <item name="shadowColor">#BB000000</item>
         <item name="shadowRadius">0px</item>
         <item name="shadowOffsetX">0px</item>
         <item name="shadowOffsetY">0px</item>
-        <item name="backgroundDimAmount">0.5</item>
+        <item name="backgroundDimAmount">0.7</item>
         
-        <!-- key preview (feeback) -->
-        <item name="keyPreviewBackground">@drawable/keyboard_key_feedback_pc</item>
-    	<item name="keyPreviewTextColor">#FFFFFFFF</item>
-    	<item name="keyPreviewTextSize">32sp</item>
-    	<item name="keyPreviewLabelTextSize">22sp</item>
+        <!-- key preview (feeback) - none -->
+    	<item name="keyPreviewTextSize">0px</item>
     	
     	<!-- key heights -->
 		<item name="keyNormalHeight">@dimen/default_key_height</item>
@@ -45,6 +43,7 @@
 		<item name="keyVerticalGap">@dimen/default_key_vertical_gap</item>
     </style>
     <style name="PCAnyKeyboardPopupTheme" parent="@style/PCAnyKeyboardTheme">
+        <item name="android:background">@drawable/popup_background</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_popup_pc</item>
         <!-- this will say "no preview" -->
     	<item name="keyPreviewTextSize">0px</item>

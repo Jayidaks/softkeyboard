@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-	<Keyboard nameResId="@string/keyboard" iconResId="@drawable/ic_stat_sd" layoutResId="@xml/sd_qwerty" id="eafb4ffa-4c4e-4c1e-933f-14091a12e8ca" defaultDictionaryLocale="sd"  description="Created by Menny Even Danan" index="1"/>
+	<Keyboard nameResId="@string/keyboard" iconResId="@drawable/ic_stat_sd" layoutResId="@xml/sd_qwerty" id="eafb4ffa-4c4e-4c1e-933f-14091a12e8ca" defaultDictionaryLocale="sd"  description="Created by Zubair Ahmed" index="1"/>
 </Keyboards>

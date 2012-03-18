@@ -25,7 +25,7 @@ public class GlobalTranslatorLoader {
 	private final TranslatorLoadDoneListener mListener;
 	
 	private boolean mShouldRun = false;
-	private int mErrorsLeft = 10;
+	private int mErrorsLeft = 100;
 	
 	private final Thread mThread = new Thread()
 	{

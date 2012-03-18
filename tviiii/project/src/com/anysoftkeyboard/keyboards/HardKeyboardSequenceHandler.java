@@ -12,6 +12,7 @@ import com.anysoftkeyboard.api.KeyCodes;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
@@ -30,6 +31,8 @@ public class HardKeyboardSequenceHandler
 	};
 
 	private static final String TAG = "HardKeyboardSequenceHandler";
+
+	private static final String ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT = "ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT";
 	
 	//See 'getSequenceCharacter' function for usage for msSequenceLivingTime and mLastTypedKeyEventTime.
 	//private static final long msSequenceLivingTime = 600;
@@ -101,8 +104,16 @@ public class HardKeyboardSequenceHandler
 				{
 					for(Intent intent : intents)
 					{
-						Log.d(TAG, "Broadcasting intent "+intent);
-						inputHandler.getApplicationContext().sendBroadcast(intent);
+						if (TextUtils.isEmpty(intent.getStringExtra(ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT)))
+						{
+							Log.d(TAG, "Broadcasting intent "+intent);
+							inputHandler.getApplicationContext().sendBroadcast(intent);
+						}
+						else
+						{
+							Log.d(TAG, "startActivity intent "+intent);
+							inputHandler.getApplicationContext().startActivity(intent);
+						}
 					}
 				}
 			}
@@ -174,7 +185,26 @@ public class HardKeyboardSequenceHandler
                 {
                 	inIntent = true;
                 	AttributeSet attrs = Xml.asAttributeSet(parser);
-                	Intent intent = new Intent(attrs.getAttributeValue(null, "action"));
+                	String startActivity = attrs.getAttributeValue(null, "startActivity");
+                	String action = attrs.getAttributeValue(null, "action");
+                	String pkg = attrs.getAttributeValue(null, "package");
+                	String activityClass = attrs.getAttributeValue(null, "class");
+                	
+                	final Intent intent;
+                	if (!TextUtils.isEmpty(action))
+                	{
+                		intent = new Intent(action);
+                	}
+                	else if (!TextUtils.isEmpty(pkg) && !TextUtils.isEmpty(activityClass))
+                	{
+                		intent = new Intent();
+                		intent.setClassName(pkg, activityClass);
+                	}
+                	else throw new RuntimeException("Intent should either have 'action' or 'package' and 'class' attributes!");
+                	
+                	if (!TextUtils.isEmpty(startActivity) && startActivity.equals("true"))
+                		intent.putExtra(ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT, ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT);
+                	
                 	intents.add(intent);
                 }
                 else if (inTranslations && inSequence && inIntent && "extra".equals(tag))
@@ -189,6 +219,18 @@ public class HardKeyboardSequenceHandler
                 	String value = attrs.getAttributeValue(null, "value");
                 	Intent intent = intents.get(intents.size() - 1);
                 	intent.putExtra(name, value);
+                }
+                else if (inTranslations && inSequence && inIntent && "category".equals(tag))
+                {
+                	AttributeSet attrs = Xml.asAttributeSet(parser);
+                	/*
+                	<intent
+        			android:action="com.tviiii.rf.SEND">
+        			<extra android:name="RF_FREQ" android:value="0x67FF" />
+        		</intent>*/
+                	String value = attrs.getAttributeValue(null, "value");
+                	Intent intent = intents.get(intents.size() - 1);
+                	intent.addCategory(value);
                 }
             }
             else if (event == XmlPullParser.END_TAG) {

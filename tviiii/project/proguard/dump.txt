@@ -74975,7 +74975,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 305):
+Constant Pool (count = 303):
   - String [ will produce intents ]
   - String ['targetCharacters' should be the same lenght as the latin QWERTY keys strings: ]
   - String [,]
@@ -75052,10 +75052,9 @@ Constant Pool (count = 305):
   - Methodref [com/anysoftkeyboard/keyboards/aa.b (I)Ljava/util/List;]
   - Methodref [com/anysoftkeyboard/keyboards/aa.c ()V]
   - Methodref [com/anysoftkeyboard/keyboards/x.<init> ()V]
-  - Methodref [com/anysoftkeyboard/keyboards/x.a (Ljava/lang/String;)V]
+  - Methodref [com/anysoftkeyboard/keyboards/x.a (Ljava/lang/String;)[I]
   - Methodref [com/anysoftkeyboard/keyboards/x.a ([II)V]
   - Methodref [com/anysoftkeyboard/keyboards/x.b (I)Lcom/anysoftkeyboard/keyboards/k;]
-  - Methodref [com/anysoftkeyboard/keyboards/x.b (Ljava/lang/String;)[I]
   - Methodref [com/menny/android/anysoftkeyboard/AnyApplication.a ()Lcom/anysoftkeyboard/a;]
   - Methodref [java/lang/Character.toUpperCase (C)C]
   - Methodref [java/lang/Class.getField (Ljava/lang/String;)Ljava/lang/reflect/Field;]
@@ -75100,7 +75099,7 @@ Constant Pool (count = 305):
   + NameAndType [a ()I]
   + NameAndType [a ()Lcom/anysoftkeyboard/a;]
   + NameAndType [a (I)Lcom/anysoftkeyboard/keyboards/k;]
-  + NameAndType [a (Ljava/lang/String;)V]
+  + NameAndType [a (Ljava/lang/String;)[I]
   + NameAndType [a ([II)V]
   + NameAndType [a ([III)V]
   + NameAndType [a ([ILjava/util/List;)V]
@@ -75114,7 +75113,6 @@ Constant Pool (count = 305):
   + NameAndType [b ()I]
   + NameAndType [b (I)Lcom/anysoftkeyboard/keyboards/k;]
   + NameAndType [b (I)Ljava/util/List;]
-  + NameAndType [b (Ljava/lang/String;)[I]
   + NameAndType [b J]
   + NameAndType [c ()V]
   + NameAndType [c (I)V]
@@ -75292,7 +75290,7 @@ Fields (count = 3):
     Access flags: 0x12
       = private final com.anysoftkeyboard.keyboards.aa c
 
-Methods (count = 9):
+Methods (count = 8):
   - Method:       <clinit>()V
     Access flags: 0x8
       = static void <clinit>()
@@ -75415,7 +75413,7 @@ Methods (count = 9):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 23, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] invokespecial #88
+      [1] invokespecial #87
         - Methodref [java/lang/Object.<init> ()V]
       [4] aload_0 v0
       [5] new #31
@@ -75426,93 +75424,11 @@ Methods (count = 9):
       [12] putfield #58
         - Fieldref [com/anysoftkeyboard/keyboards/x.c Lcom/anysoftkeyboard/keyboards/aa;]
       [15] aload_0 v0
-      [16] invokestatic #99
+      [16] invokestatic #98
         - Methodref [java/lang/System.currentTimeMillis ()J]
       [19] putfield #57
         - Fieldref [com/anysoftkeyboard/keyboards/x.b J]
       [22] return
-      Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 0):
-  + Method:       a(Ljava/lang/String;)V
-    Access flags: 0x2
-      = private void a(java.lang.String)
-    Class member attributes (count = 1):
-    + Code attribute instructions (code length = 105, locals = 5, stack = 5):
-      [0] getstatic #56
-        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
-      [3] arraylength
-      [4] aload_1 v1
-      [5] invokevirtual #92
-        - Methodref [java/lang/String.length ()I]
-      [8] ificmpeq +29 (target=37)
-      [11] new #47
-        - Class [java/security/InvalidParameterException]
-      [14] dup
-      [15] new #44
-        - Class [java/lang/StringBuilder]
-      [18] dup
-      [19] ldc #2
-        - String ['targetCharacters' should be the same lenght as the latin QWERTY keys strings: ]
-      [21] invokespecial #94
-        - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [24] getstatic #56
-        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
-      [27] invokevirtual #96
-        - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [30] invokevirtual #98
-        - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [33] invokespecial #101
-        - Methodref [java/security/InvalidParameterException.<init> (Ljava/lang/String;)V]
-      [36] athrow
-      [37] iconst_0
-      [38] istore_2 v2
-      [39] goto +57 (target=96)
-      [42] getstatic #56
-        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
-      [45] iload_2 v2
-      [46] iaload
-      [47] i2c
-      [48] istore_3 v3
-      [49] aload_1 v1
-      [50] iload_2 v2
-      [51] invokevirtual #90
-        - Methodref [java/lang/String.charAt (I)C]
-      [54] dup
-      [55] istore v4
-      [57] ifle +36 (target=93)
-      [60] aload_0 v0
-      [61] iconst_1
-      [62] newarray 10
-      [64] dup
-      [65] iconst_0
-      [66] iload_3 v3
-      [67] iastore
-      [68] iload v4
-      [70] invokespecial #78
-        - Methodref [com/anysoftkeyboard/keyboards/x.a ([II)V]
-      [73] aload_0 v0
-      [74] iconst_2
-      [75] newarray 10
-      [77] dup
-      [78] iconst_0
-      [79] iconst_m1
-      [80] iastore
-      [81] dup
-      [82] iconst_1
-      [83] iload_3 v3
-      [84] iastore
-      [85] iload v4
-      [87] invokestatic #82
-        - Methodref [java/lang/Character.toUpperCase (C)C]
-      [90] invokespecial #78
-        - Methodref [com/anysoftkeyboard/keyboards/x.a ([II)V]
-      [93] iinc v2, 1
-      [96] iload_2 v2
-      [97] getstatic #56
-        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
-      [100] arraylength
-      [101] ificmplt -59 (target=42)
-      [104] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a([II)V
@@ -75535,7 +75451,7 @@ Methods (count = 9):
       = private com.anysoftkeyboard.keyboards.k b(int)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 44, locals = 4, stack = 4):
-      [0] invokestatic #99
+      [0] invokestatic #98
         - Methodref [java/lang/System.currentTimeMillis ()J]
       [3] dup2
       [4] lstore_2 v2
@@ -75543,9 +75459,9 @@ Methods (count = 9):
       [6] getfield #57
         - Fieldref [com/anysoftkeyboard/keyboards/x.b J]
       [9] lsub
-      [10] invokestatic #81
+      [10] invokestatic #80
         - Methodref [com/menny/android/anysoftkeyboard/AnyApplication.a ()Lcom/anysoftkeyboard/a;]
-      [13] invokeinterface #105
+      [13] invokeinterface #104
         - InterfaceMethodref [com/anysoftkeyboard/a.G ()I]
       [18] i2l
       [19] lcmp
@@ -75622,16 +75538,16 @@ Methods (count = 9):
       [41] astore_3 v3
       [42] ifnull +76 (target=118)
       [45] aload_3 v3
-      [46] invokeinterface #113
+      [46] invokeinterface #112
         - InterfaceMethodref [java/util/List.size ()I]
       [51] ifle +67 (target=118)
       [54] aload_3 v3
-      [55] invokeinterface #112
+      [55] invokeinterface #111
         - InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
       [60] astore v4
       [62] goto +46 (target=108)
       [65] aload v4
-      [67] invokeinterface #109
+      [67] invokeinterface #108
         - InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
       [72] checkcast #24
         - Class [android/content/Intent]
@@ -75643,24 +75559,24 @@ Methods (count = 9):
       [81] dup
       [82] ldc #5
         - String [Broadcasting intent ]
-      [84] invokespecial #94
+      [84] invokespecial #93
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [87] aload_3 v3
-      [88] invokevirtual #96
+      [88] invokevirtual #95
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [91] invokevirtual #98
+      [91] invokevirtual #97
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [94] invokestatic #62
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [97] pop
       [98] aload_2 v2
-      [99] invokeinterface #107
+      [99] invokeinterface #106
         - InterfaceMethodref [com/anysoftkeyboard/b.getApplicationContext ()Landroid/content/Context;]
       [104] aload_3 v3
       [105] invokevirtual #59
         - Methodref [android/content/Context.sendBroadcast (Landroid/content/Intent;)V]
       [108] aload v4
-      [110] invokeinterface #108
+      [110] invokeinterface #107
         - InterfaceMethodref [java/util/Iterator.hasNext ()Z]
       [115] ifne -50 (target=65)
       [118] aload_0 v0
@@ -75675,7 +75591,7 @@ Methods (count = 9):
       [129] ifle +10 (target=139)
       [132] aload_2 v2
       [133] iload_3 v3
-      [134] invokeinterface #106
+      [134] invokeinterface #105
         - InterfaceMethodref [com/anysoftkeyboard/b.c (I)V]
       [139] iload_1 v1
       [140] ireturn
@@ -75687,7 +75603,7 @@ Methods (count = 9):
     Access flags: 0x9
       = public static com.anysoftkeyboard.keyboards.x a(org.xmlpull.v1.XmlPullParser)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 681, locals = 15, stack = 5):
+    + Code attribute instructions (code length = 797, locals = 17, stack = 5):
       [0] new #33
         - Class [com/anysoftkeyboard/keyboards/x]
       [3] dup
@@ -75712,404 +75628,480 @@ Methods (count = 9):
       [29] astore v10
       [31] aconst_null
       [32] astore v11
-      [34] new #48
-        - Class [java/util/ArrayList]
-      [37] dup
-      [38] invokespecial #102
-        - Methodref [java/util/ArrayList.<init> ()V]
-      [41] astore v12
-      [43] goto +624 (target=667)
-      [46] aload_0 v0
-      [47] invokeinterface #114
+      [34] aconst_null
+      [35] astore v12
+      [37] goto +746 (target=783)
+      [40] aload_0 v0
+      [41] invokeinterface #113
         - InterfaceMethodref [org/xmlpull/v1/XmlPullParser.getName ()Ljava/lang/String;]
-      [52] astore v13
-      [54] iload_2 v2
-      [55] iconst_2
-      [56] ificmpne +275 (target=331)
-      [59] ldc #8
+      [46] astore v13
+      [48] iload_2 v2
+      [49] iconst_2
+      [50] ificmpne +397 (target=447)
+      [53] ldc #8
         - String [PhysicalTranslation]
-      [61] aload v13
-      [63] invokevirtual #91
+      [55] aload v13
+      [57] invokevirtual #90
         - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [66] ifeq +32 (target=98)
-      [69] iconst_1
-      [70] istore_3 v3
-      [71] aload_0 v0
-      [72] invokestatic #64
+      [60] ifeq +145 (target=205)
+      [63] iconst_1
+      [64] istore_3 v3
+      [65] aload_0 v0
+      [66] invokestatic #64
         - Methodref [android/util/Xml.asAttributeSet (Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;]
-      [75] aconst_null
-      [76] ldc #9
+      [69] aconst_null
+      [70] ldc #9
         - String [QwertyTranslation]
-      [78] invokeinterface #104
+      [72] invokeinterface #103
         - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [83] dup
-      [84] astore v13
-      [86] ifnull +581 (target=667)
-      [89] aload_1 v1
-      [90] aload v13
-      [92] invokespecial #77
-        - Methodref [com/anysoftkeyboard/keyboards/x.a (Ljava/lang/String;)V]
-      [95] goto +572 (target=667)
-      [98] iload_3 v3
-      [99] ifeq +95 (target=194)
-      [102] ldc #10
-        - String [SequenceMapping]
-      [104] aload v13
-      [106] invokevirtual #91
-        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [109] ifeq +85 (target=194)
-      [112] iconst_1
-      [113] istore v4
-      [115] aload_0 v0
-      [116] invokestatic #64
-        - Methodref [android/util/Xml.asAttributeSet (Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;]
-      [119] dup
-      [120] astore_2 v2
-      [121] aconst_null
-      [122] ldc #15
-        - String [keySequence]
-      [124] invokeinterface #104
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [129] invokestatic #80
-        - Methodref [com/anysoftkeyboard/keyboards/x.b (Ljava/lang/String;)[I]
-      [132] astore v6
-      [134] aload_2 v2
-      [135] aconst_null
-      [136] ldc #12
-        - String [altModifier]
-      [138] iconst_0
-      [139] invokeinterface #103
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeBooleanValue (Ljava/lang/String;Ljava/lang/String;Z)Z]
-      [144] istore v7
-      [146] aload_2 v2
-      [147] aconst_null
-      [148] ldc #18
-        - String [shiftModifier]
-      [150] iconst_0
-      [151] invokeinterface #103
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeBooleanValue (Ljava/lang/String;Ljava/lang/String;Z)Z]
-      [156] istore v8
-      [158] aload_2 v2
-      [159] aconst_null
-      [160] ldc #19
-        - String [targetChar]
-      [162] invokeinterface #104
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [167] astore v9
-      [169] aload_2 v2
-      [170] aconst_null
-      [171] ldc #20
-        - String [targetCharCode]
-      [173] invokeinterface #104
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [178] astore v10
-      [180] aload_2 v2
-      [181] aconst_null
-      [182] ldc #21
-        - String [targetKeyCode]
-      [184] invokeinterface #104
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [189] astore v11
-      [191] goto +476 (target=667)
-      [194] iload_3 v3
-      [195] ifeq +57 (target=252)
-      [198] iload v4
-      [200] ifeq +52 (target=252)
-      [203] ldc #14
-        - String [intent]
-      [205] aload v13
-      [207] invokevirtual #91
-        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [210] ifeq +42 (target=252)
-      [213] iconst_1
-      [214] istore v5
-      [216] aload_0 v0
-      [217] invokestatic #64
-        - Methodref [android/util/Xml.asAttributeSet (Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;]
-      [220] astore_2 v2
-      [221] new #24
-        - Class [android/content/Intent]
-      [224] dup
-      [225] aload_2 v2
-      [226] aconst_null
-      [227] ldc #11
-        - String [action]
-      [229] invokeinterface #104
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [234] invokespecial #60
-        - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
-      [237] astore v13
-      [239] aload v12
-      [241] aload v13
-      [243] invokeinterface #110
-        - InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
-      [248] pop
-      [249] goto +418 (target=667)
-      [252] iload_3 v3
-      [253] ifeq +414 (target=667)
-      [256] iload v4
-      [258] ifeq +409 (target=667)
-      [261] iload v5
-      [263] ifeq +404 (target=667)
-      [266] ldc #13
-        - String [extra]
-      [268] aload v13
-      [270] invokevirtual #91
-        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [273] ifeq +394 (target=667)
-      [276] aload_0 v0
-      [277] invokestatic #64
-        - Methodref [android/util/Xml.asAttributeSet (Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;]
-      [280] dup
-      [281] astore_2 v2
-      [282] aconst_null
-      [283] ldc #16
-        - String [name]
-      [285] invokeinterface #104
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [290] astore v13
-      [292] aload_2 v2
-      [293] aconst_null
-      [294] ldc #22
-        - String [value]
-      [296] invokeinterface #104
-        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [301] astore_2 v2
-      [302] aload v12
-      [304] aload v12
-      [306] invokeinterface #113
-        - InterfaceMethodref [java/util/List.size ()I]
-      [311] iconst_1
-      [312] isub
-      [313] invokeinterface #111
-        - InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
-      [318] checkcast #24
-        - Class [android/content/Intent]
-      [321] aload v13
-      [323] aload_2 v2
-      [324] invokevirtual #61
-        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
-      [327] pop
-      [328] goto +339 (target=667)
-      [331] iload_2 v2
-      [332] iconst_3
-      [333] ificmpne +334 (target=667)
-      [336] ldc #8
-        - String [PhysicalTranslation]
-      [338] aload v13
-      [340] invokevirtual #91
-        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [343] ifne +336 (target=679)
-      [346] iload v5
-      [348] ifeq +19 (target=367)
-      [351] ldc #14
-        - String [intent]
-      [353] aload v13
-      [355] invokevirtual #91
-        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [358] ifeq +9 (target=367)
-      [361] iconst_0
-      [362] istore v5
-      [364] goto +303 (target=667)
-      [367] iload_3 v3
-      [368] ifeq +299 (target=667)
-      [371] ldc #10
-        - String [SequenceMapping]
-      [373] aload v13
-      [375] invokevirtual #91
-        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [378] ifeq +289 (target=667)
-      [381] iconst_0
-      [382] istore v4
-      [384] aload v9
-      [386] ifnull +20 (target=406)
-      [389] new #39
-        - Class [java/lang/Integer]
-      [392] dup
-      [393] aload v9
-      [395] iconst_0
-      [396] invokevirtual #90
-        - Methodref [java/lang/String.charAt (I)C]
-      [399] invokespecial #84
-        - Methodref [java/lang/Integer.<init> (I)V]
-      [402] astore_2 v2
-      [403] goto +83 (target=486)
-      [406] aload v10
-      [408] ifnull +19 (target=427)
-      [411] new #39
-        - Class [java/lang/Integer]
-      [414] dup
-      [415] aload v10
-      [417] invokestatic #86
-        - Methodref [java/lang/Integer.parseInt (Ljava/lang/String;)I]
-      [420] invokespecial #84
-        - Methodref [java/lang/Integer.<init> (I)V]
-      [423] astore_2 v2
-      [424] goto +62 (target=486)
-      [427] aload v11
-      [429] ifnull +52 (target=481)
-      [432] aload v11
-      [434] invokestatic #80
-        - Methodref [com/anysoftkeyboard/keyboards/x.b (Ljava/lang/String;)[I]
-      [437] astore v13
-      [439] aload v6
-      [441] arraylength
-      [442] ifle +31 (target=473)
-      [445] new #28
-        - Class [android/view/KeyEvent]
-      [448] dup
-      [449] iconst_0
-      [450] aload v13
-      [452] iconst_0
-      [453] iaload
-      [454] invokespecial #65
-        - Methodref [android/view/KeyEvent.<init> (II)V]
-      [457] astore_2 v2
-      [458] new #39
-        - Class [java/lang/Integer]
-      [461] dup
-      [462] aload_2 v2
-      [463] invokevirtual #66
-        - Methodref [android/view/KeyEvent.getUnicodeChar ()I]
-      [466] invokespecial #84
-        - Methodref [java/lang/Integer.<init> (I)V]
-      [469] astore_2 v2
-      [470] goto +16 (target=486)
-      [473] iconst_m1
-      [474] invokestatic #87
-        - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
-      [477] astore_2 v2
-      [478] goto +8 (target=486)
-      [481] iconst_m1
-      [482] invokestatic #87
-        - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
-      [485] astore_2 v2
-      [486] aload v6
-      [488] ifnull +13 (target=501)
-      [491] aload v6
-      [493] arraylength
-      [494] ifeq +7 (target=501)
-      [497] aload_2 v2
-      [498] ifnonnull +14 (target=512)
-      [501] ldc #4
-        - String [ASK Hard Translation Parser]
-      [503] ldc #7
-        - String [Physical translator sequence does not include mandatory fields keySequence or targetChar]
-      [505] invokestatic #63
-        - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
-      [508] pop
-      [509] goto +158 (target=667)
-      [512] iload v7
-      [514] ifne +95 (target=609)
-      [517] iload v8
-      [519] ifne +90 (target=609)
-      [522] aload v12
-      [524] invokeinterface #113
-        - InterfaceMethodref [java/util/List.size ()I]
-      [529] ifle +67 (target=596)
-      [532] aload_1 v1
-      [533] aload v6
-      [535] aload v12
-      [537] astore v14
-      [539] astore v13
-      [541] astore_2 v2
-      [542] ldc #6
-        - String [HardKeyboardSequenceHandler]
-      [544] new #44
+      [77] dup
+      [78] astore v13
+      [80] ifnull +703 (target=783)
+      [83] aload_1 v1
+      [84] aload v13
+      [86] astore v13
+      [88] astore_2 v2
+      [89] getstatic #56
+        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
+      [92] arraylength
+      [93] aload v13
+      [95] invokevirtual #91
+        - Methodref [java/lang/String.length ()I]
+      [98] ificmpeq +29 (target=127)
+      [101] new #47
+        - Class [java/security/InvalidParameterException]
+      [104] dup
+      [105] new #44
         - Class [java/lang/StringBuilder]
-      [547] dup
-      [548] ldc #17
-        - String [seq ]
-      [550] invokespecial #94
+      [108] dup
+      [109] ldc #2
+        - String ['targetCharacters' should be the same lenght as the latin QWERTY keys strings: ]
+      [111] invokespecial #93
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [553] aload v13
-      [555] iconst_0
-      [556] iaload
-      [557] invokevirtual #95
-        - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-      [560] ldc #1
-        - String [ will produce intents ]
-      [562] invokevirtual #97
-        - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [565] aload v14
-      [567] invokeinterface #113
-        - InterfaceMethodref [java/util/List.size ()I]
-      [572] invokevirtual #95
-        - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-      [575] invokevirtual #98
+      [114] getstatic #56
+        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
+      [117] invokevirtual #95
+        - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
+      [120] invokevirtual #97
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [578] invokestatic #62
-        - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
-      [581] pop
-      [582] aload_2 v2
-      [583] getfield #58
-        - Fieldref [com/anysoftkeyboard/keyboards/x.c Lcom/anysoftkeyboard/keyboards/aa;]
-      [586] aload v13
-      [588] aload v14
-      [590] invokevirtual #72
-        - Methodref [com/anysoftkeyboard/keyboards/aa.a ([ILjava/util/List;)V]
-      [593] goto +74 (target=667)
-      [596] aload_1 v1
-      [597] aload v6
-      [599] aload_2 v2
-      [600] invokevirtual #85
-        - Methodref [java/lang/Integer.intValue ()I]
-      [603] invokespecial #78
+      [123] invokespecial #100
+        - Methodref [java/security/InvalidParameterException.<init> (Ljava/lang/String;)V]
+      [126] athrow
+      [127] iconst_0
+      [128] istore v14
+      [130] goto +63 (target=193)
+      [133] getstatic #56
+        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
+      [136] iload v14
+      [138] iaload
+      [139] i2c
+      [140] istore v15
+      [142] aload v13
+      [144] iload v14
+      [146] invokevirtual #89
+        - Methodref [java/lang/String.charAt (I)C]
+      [149] dup
+      [150] istore v16
+      [152] ifle +38 (target=190)
+      [155] aload_2 v2
+      [156] iconst_1
+      [157] newarray 10
+      [159] dup
+      [160] iconst_0
+      [161] iload v15
+      [163] iastore
+      [164] iload v16
+      [166] invokespecial #78
         - Methodref [com/anysoftkeyboard/keyboards/x.a ([II)V]
-      [606] goto +61 (target=667)
-      [609] iload v7
-      [611] ifeq +29 (target=640)
-      [614] aload_1 v1
-      [615] aload v6
-      [617] aload_2 v2
-      [618] invokevirtual #85
-        - Methodref [java/lang/Integer.intValue ()I]
-      [621] istore v14
-      [623] astore v13
-      [625] getfield #58
+      [169] aload_2 v2
+      [170] iconst_2
+      [171] newarray 10
+      [173] dup
+      [174] iconst_0
+      [175] iconst_m1
+      [176] iastore
+      [177] dup
+      [178] iconst_1
+      [179] iload v15
+      [181] iastore
+      [182] iload v16
+      [184] invokestatic #81
+        - Methodref [java/lang/Character.toUpperCase (C)C]
+      [187] invokespecial #78
+        - Methodref [com/anysoftkeyboard/keyboards/x.a ([II)V]
+      [190] iinc v14, 1
+      [193] iload v14
+      [195] getstatic #56
+        - Fieldref [com/anysoftkeyboard/keyboards/x.a [I]
+      [198] arraylength
+      [199] ificmplt -66 (target=133)
+      [202] goto +581 (target=783)
+      [205] iload_3 v3
+      [206] ifeq +104 (target=310)
+      [209] ldc #10
+        - String [SequenceMapping]
+      [211] aload v13
+      [213] invokevirtual #90
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [216] ifeq +94 (target=310)
+      [219] iconst_1
+      [220] istore v4
+      [222] aload_0 v0
+      [223] invokestatic #64
+        - Methodref [android/util/Xml.asAttributeSet (Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;]
+      [226] astore_2 v2
+      [227] new #48
+        - Class [java/util/ArrayList]
+      [230] dup
+      [231] invokespecial #101
+        - Methodref [java/util/ArrayList.<init> ()V]
+      [234] astore v12
+      [236] aload_2 v2
+      [237] aconst_null
+      [238] ldc #15
+        - String [keySequence]
+      [240] invokeinterface #103
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [245] invokestatic #77
+        - Methodref [com/anysoftkeyboard/keyboards/x.a (Ljava/lang/String;)[I]
+      [248] astore v6
+      [250] aload_2 v2
+      [251] aconst_null
+      [252] ldc #12
+        - String [altModifier]
+      [254] iconst_0
+      [255] invokeinterface #102
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeBooleanValue (Ljava/lang/String;Ljava/lang/String;Z)Z]
+      [260] istore v7
+      [262] aload_2 v2
+      [263] aconst_null
+      [264] ldc #18
+        - String [shiftModifier]
+      [266] iconst_0
+      [267] invokeinterface #102
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeBooleanValue (Ljava/lang/String;Ljava/lang/String;Z)Z]
+      [272] istore v8
+      [274] aload_2 v2
+      [275] aconst_null
+      [276] ldc #19
+        - String [targetChar]
+      [278] invokeinterface #103
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [283] astore v9
+      [285] aload_2 v2
+      [286] aconst_null
+      [287] ldc #20
+        - String [targetCharCode]
+      [289] invokeinterface #103
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [294] astore v10
+      [296] aload_2 v2
+      [297] aconst_null
+      [298] ldc #21
+        - String [targetKeyCode]
+      [300] invokeinterface #103
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [305] astore v11
+      [307] goto +476 (target=783)
+      [310] iload_3 v3
+      [311] ifeq +57 (target=368)
+      [314] iload v4
+      [316] ifeq +52 (target=368)
+      [319] ldc #14
+        - String [intent]
+      [321] aload v13
+      [323] invokevirtual #90
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [326] ifeq +42 (target=368)
+      [329] iconst_1
+      [330] istore v5
+      [332] aload_0 v0
+      [333] invokestatic #64
+        - Methodref [android/util/Xml.asAttributeSet (Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;]
+      [336] astore_2 v2
+      [337] new #24
+        - Class [android/content/Intent]
+      [340] dup
+      [341] aload_2 v2
+      [342] aconst_null
+      [343] ldc #11
+        - String [action]
+      [345] invokeinterface #103
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [350] invokespecial #60
+        - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+      [353] astore v13
+      [355] aload v12
+      [357] aload v13
+      [359] invokeinterface #109
+        - InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
+      [364] pop
+      [365] goto +418 (target=783)
+      [368] iload_3 v3
+      [369] ifeq +414 (target=783)
+      [372] iload v4
+      [374] ifeq +409 (target=783)
+      [377] iload v5
+      [379] ifeq +404 (target=783)
+      [382] ldc #13
+        - String [extra]
+      [384] aload v13
+      [386] invokevirtual #90
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [389] ifeq +394 (target=783)
+      [392] aload_0 v0
+      [393] invokestatic #64
+        - Methodref [android/util/Xml.asAttributeSet (Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;]
+      [396] dup
+      [397] astore_2 v2
+      [398] aconst_null
+      [399] ldc #16
+        - String [name]
+      [401] invokeinterface #103
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [406] astore v13
+      [408] aload_2 v2
+      [409] aconst_null
+      [410] ldc #22
+        - String [value]
+      [412] invokeinterface #103
+        - InterfaceMethodref [android/util/AttributeSet.getAttributeValue (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
+      [417] astore_2 v2
+      [418] aload v12
+      [420] aload v12
+      [422] invokeinterface #112
+        - InterfaceMethodref [java/util/List.size ()I]
+      [427] iconst_1
+      [428] isub
+      [429] invokeinterface #110
+        - InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
+      [434] checkcast #24
+        - Class [android/content/Intent]
+      [437] aload v13
+      [439] aload_2 v2
+      [440] invokevirtual #61
+        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [443] pop
+      [444] goto +339 (target=783)
+      [447] iload_2 v2
+      [448] iconst_3
+      [449] ificmpne +334 (target=783)
+      [452] ldc #8
+        - String [PhysicalTranslation]
+      [454] aload v13
+      [456] invokevirtual #90
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [459] ifne +336 (target=795)
+      [462] iload v5
+      [464] ifeq +19 (target=483)
+      [467] ldc #14
+        - String [intent]
+      [469] aload v13
+      [471] invokevirtual #90
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [474] ifeq +9 (target=483)
+      [477] iconst_0
+      [478] istore v5
+      [480] goto +303 (target=783)
+      [483] iload_3 v3
+      [484] ifeq +299 (target=783)
+      [487] ldc #10
+        - String [SequenceMapping]
+      [489] aload v13
+      [491] invokevirtual #90
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [494] ifeq +289 (target=783)
+      [497] iconst_0
+      [498] istore v4
+      [500] aload v9
+      [502] ifnull +20 (target=522)
+      [505] new #39
+        - Class [java/lang/Integer]
+      [508] dup
+      [509] aload v9
+      [511] iconst_0
+      [512] invokevirtual #89
+        - Methodref [java/lang/String.charAt (I)C]
+      [515] invokespecial #83
+        - Methodref [java/lang/Integer.<init> (I)V]
+      [518] astore_2 v2
+      [519] goto +83 (target=602)
+      [522] aload v10
+      [524] ifnull +19 (target=543)
+      [527] new #39
+        - Class [java/lang/Integer]
+      [530] dup
+      [531] aload v10
+      [533] invokestatic #85
+        - Methodref [java/lang/Integer.parseInt (Ljava/lang/String;)I]
+      [536] invokespecial #83
+        - Methodref [java/lang/Integer.<init> (I)V]
+      [539] astore_2 v2
+      [540] goto +62 (target=602)
+      [543] aload v11
+      [545] ifnull +52 (target=597)
+      [548] aload v11
+      [550] invokestatic #77
+        - Methodref [com/anysoftkeyboard/keyboards/x.a (Ljava/lang/String;)[I]
+      [553] astore v13
+      [555] aload v6
+      [557] arraylength
+      [558] ifle +31 (target=589)
+      [561] new #28
+        - Class [android/view/KeyEvent]
+      [564] dup
+      [565] iconst_0
+      [566] aload v13
+      [568] iconst_0
+      [569] iaload
+      [570] invokespecial #65
+        - Methodref [android/view/KeyEvent.<init> (II)V]
+      [573] astore_2 v2
+      [574] new #39
+        - Class [java/lang/Integer]
+      [577] dup
+      [578] aload_2 v2
+      [579] invokevirtual #66
+        - Methodref [android/view/KeyEvent.getUnicodeChar ()I]
+      [582] invokespecial #83
+        - Methodref [java/lang/Integer.<init> (I)V]
+      [585] astore_2 v2
+      [586] goto +16 (target=602)
+      [589] iconst_m1
+      [590] invokestatic #86
+        - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
+      [593] astore_2 v2
+      [594] goto +8 (target=602)
+      [597] iconst_m1
+      [598] invokestatic #86
+        - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
+      [601] astore_2 v2
+      [602] aload v6
+      [604] ifnull +13 (target=617)
+      [607] aload v6
+      [609] arraylength
+      [610] ifeq +7 (target=617)
+      [613] aload_2 v2
+      [614] ifnonnull +14 (target=628)
+      [617] ldc #4
+        - String [ASK Hard Translation Parser]
+      [619] ldc #7
+        - String [Physical translator sequence does not include mandatory fields keySequence or targetChar]
+      [621] invokestatic #63
+        - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
+      [624] pop
+      [625] goto +158 (target=783)
+      [628] iload v7
+      [630] ifne +95 (target=725)
+      [633] iload v8
+      [635] ifne +90 (target=725)
+      [638] aload v12
+      [640] invokeinterface #112
+        - InterfaceMethodref [java/util/List.size ()I]
+      [645] ifle +67 (target=712)
+      [648] aload_1 v1
+      [649] aload v6
+      [651] aload v12
+      [653] astore v14
+      [655] astore v13
+      [657] astore_2 v2
+      [658] ldc #6
+        - String [HardKeyboardSequenceHandler]
+      [660] new #44
+        - Class [java/lang/StringBuilder]
+      [663] dup
+      [664] ldc #17
+        - String [seq ]
+      [666] invokespecial #93
+        - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
+      [669] aload v13
+      [671] iconst_0
+      [672] iaload
+      [673] invokevirtual #94
+        - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
+      [676] ldc #1
+        - String [ will produce intents ]
+      [678] invokevirtual #96
+        - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [681] aload v14
+      [683] invokeinterface #112
+        - InterfaceMethodref [java/util/List.size ()I]
+      [688] invokevirtual #94
+        - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
+      [691] invokevirtual #97
+        - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [694] invokestatic #62
+        - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
+      [697] pop
+      [698] aload_2 v2
+      [699] getfield #58
         - Fieldref [com/anysoftkeyboard/keyboards/x.c Lcom/anysoftkeyboard/keyboards/aa;]
-      [628] aload v13
-      [630] bipush -6
-      [632] iload v14
-      [634] invokevirtual #71
-        - Methodref [com/anysoftkeyboard/keyboards/aa.a ([III)V]
-      [637] goto +30 (target=667)
-      [640] iload v8
-      [642] ifeq +25 (target=667)
-      [645] aload_1 v1
-      [646] aload v6
-      [648] aload_2 v2
-      [649] invokevirtual #85
+      [702] aload v13
+      [704] aload v14
+      [706] invokevirtual #72
+        - Methodref [com/anysoftkeyboard/keyboards/aa.a ([ILjava/util/List;)V]
+      [709] goto +74 (target=783)
+      [712] aload_1 v1
+      [713] aload v6
+      [715] aload_2 v2
+      [716] invokevirtual #84
         - Methodref [java/lang/Integer.intValue ()I]
-      [652] istore v14
-      [654] astore v13
-      [656] getfield #58
+      [719] invokespecial #78
+        - Methodref [com/anysoftkeyboard/keyboards/x.a ([II)V]
+      [722] goto +61 (target=783)
+      [725] iload v7
+      [727] ifeq +29 (target=756)
+      [730] aload_1 v1
+      [731] aload v6
+      [733] aload_2 v2
+      [734] invokevirtual #84
+        - Methodref [java/lang/Integer.intValue ()I]
+      [737] istore v14
+      [739] astore v13
+      [741] getfield #58
         - Fieldref [com/anysoftkeyboard/keyboards/x.c Lcom/anysoftkeyboard/keyboards/aa;]
-      [659] aload v13
-      [661] iconst_m1
-      [662] iload v14
-      [664] invokevirtual #71
+      [744] aload v13
+      [746] bipush -6
+      [748] iload v14
+      [750] invokevirtual #71
         - Methodref [com/anysoftkeyboard/keyboards/aa.a ([III)V]
-      [667] aload_0 v0
-      [668] invokeinterface #115
+      [753] goto +30 (target=783)
+      [756] iload v8
+      [758] ifeq +25 (target=783)
+      [761] aload_1 v1
+      [762] aload v6
+      [764] aload_2 v2
+      [765] invokevirtual #84
+        - Methodref [java/lang/Integer.intValue ()I]
+      [768] istore v14
+      [770] astore v13
+      [772] getfield #58
+        - Fieldref [com/anysoftkeyboard/keyboards/x.c Lcom/anysoftkeyboard/keyboards/aa;]
+      [775] aload v13
+      [777] iconst_m1
+      [778] iload v14
+      [780] invokevirtual #71
+        - Methodref [com/anysoftkeyboard/keyboards/aa.a ([III)V]
+      [783] aload_0 v0
+      [784] invokeinterface #114
         - InterfaceMethodref [org/xmlpull/v1/XmlPullParser.next ()I]
-      [673] dup
-      [674] istore_2 v2
-      [675] iconst_1
-      [676] ificmpne -630 (target=46)
-      [679] aload_1 v1
-      [680] areturn
+      [789] dup
+      [790] istore_2 v2
+      [791] iconst_1
+      [792] ificmpne -752 (target=40)
+      [795] aload_1 v1
+      [796] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       b(Ljava/lang/String;)[I
+  + Method:       a(Ljava/lang/String;)[I
     Access flags: 0xa
-      = private static int[] b(java.lang.String)
+      = private static int[] a(java.lang.String)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 71, locals = 4, stack = 4):
       [0] aload_0 v0
       [1] ldc #3
         - String [,]
-      [3] invokevirtual #93
+      [3] invokevirtual #92
         - Methodref [java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;]
       [6] dup
       [7] astore_0 v0
@@ -76124,7 +76116,7 @@ Methods (count = 9):
       [19] aload_0 v0
       [20] iload_2 v2
       [21] aaload
-      [22] invokestatic #86
+      [22] invokestatic #85
         - Methodref [java/lang/Integer.parseInt (Ljava/lang/String;)I]
       [25] iastore
       [26] goto +34 (target=60)
@@ -76138,10 +76130,10 @@ Methods (count = 9):
       [36] ldc #28
         - Class [android/view/KeyEvent]
       [38] aload_3 v3
-      [39] invokevirtual #83
+      [39] invokevirtual #82
         - Methodref [java/lang/Class.getField (Ljava/lang/String;)Ljava/lang/reflect/Field;]
       [42] aconst_null
-      [43] invokevirtual #100
+      [43] invokevirtual #99
         - Methodref [java/lang/reflect/Field.getInt (Ljava/lang/Object;)I]
       [46] iastore
       [47] goto +13 (target=60)
@@ -76150,7 +76142,7 @@ Methods (count = 9):
         - Class [java/lang/RuntimeException]
       [54] dup
       [55] aload_0 v0
-      [56] invokespecial #89
+      [56] invokespecial #88
         - Methodref [java/lang/RuntimeException.<init> (Ljava/lang/Throwable;)V]
       [59] athrow
       [60] iinc v2, 1

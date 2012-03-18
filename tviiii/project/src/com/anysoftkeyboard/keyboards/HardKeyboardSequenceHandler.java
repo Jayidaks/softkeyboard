@@ -144,7 +144,7 @@ public class HardKeyboardSequenceHandler
     	String targetChar = null;
     	String targetCharCode = null;
     	String targetKeyCode = null;
-    	List<Intent> intents = new ArrayList<Intent>();
+    	List<Intent> intents = null;
         while ((event = parser.next()) != XmlPullParser.END_DOCUMENT)
         {
         	String tag = parser.getName();
@@ -160,7 +160,9 @@ public class HardKeyboardSequenceHandler
                 {
                 	inSequence = true;
                 	AttributeSet attrs = Xml.asAttributeSet(parser);
-
+                	
+                	intents =  new ArrayList<Intent>();
+                	
                 	keyCodes = getKeyCodesFromPhysicalSequence(attrs.getAttributeValue(null, XML_KEYS_ATTRIBUTE));
                 	isAlt = attrs.getAttributeBooleanValue(null, XML_ALT_ATTRIBUTE, false);
                 	isShift = attrs.getAttributeBooleanValue(null, XML_SHIFT_ATTRIBUTE, false);

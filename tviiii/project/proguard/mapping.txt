@@ -908,13 +908,12 @@ com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler -> com.anysoftkeyboard
     int[] msQwerty -> a
     long mLastTypedKeyEventTime -> b
     com.anysoftkeyboard.keyboards.KeyEventStateMachine mCurrentSequence -> c
-    void addQwertyTranslation(java.lang.String) -> a
     void addSequence(int[],int) -> a
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$State addNewKey(int) -> b
     boolean addSpecialKey(int) -> a
     int getCurrentCharacter(int,com.anysoftkeyboard.AnyKeyboardContextProvider) -> a
     com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler createPhysicalTranslatorFromXmlPullParser$30b790c1(org.xmlpull.v1.XmlPullParser) -> a
-    int[] getKeyCodesFromPhysicalSequence(java.lang.String) -> b
+    int[] getKeyCodesFromPhysicalSequence(java.lang.String) -> a
 com.anysoftkeyboard.keyboards.KeyEventStateMachine -> com.anysoftkeyboard.keyboards.aa:
     java.util.HashMap mIntents -> a
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState start -> b

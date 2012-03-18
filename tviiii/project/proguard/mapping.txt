@@ -864,7 +864,7 @@ com.anysoftkeyboard.keyboards.AnyKeyboard$HardKeyboardAction -> com.anysoftkeybo
     void setNewKeyCode(int) -> a
 com.anysoftkeyboard.keyboards.AnyKeyboard$HardKeyboardTranslator -> com.anysoftkeyboard.keyboards.s:
     void translatePhysicalCharacter(com.anysoftkeyboard.keyboards.AnyKeyboard$HardKeyboardAction) -> a
-com.anysoftkeyboard.keyboards.AnyKeyboard$KeyboardMetadata -> com.anysoftkeyboard.keyboards.d:
+com.anysoftkeyboard.keyboards.AnyKeyboard$KeyboardMetadata -> com.anysoftkeyboard.keyboards.e:
     int keysCount -> a
     int rowHeight -> b
     int rowWidth -> c
@@ -924,13 +924,13 @@ com.anysoftkeyboard.keyboards.KeyEventStateMachine -> com.anysoftkeyboard.keyboa
     int sequenceLength -> f
     int resultChar -> g
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState addNextState(com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState,int) -> a
-    void addSequence(int[],android.content.Intent) -> a
+    void addSequence(int[],java.util.List) -> a
     void addSequence(int[],int) -> a
     void addSpecialKeySequence(int[],int,int) -> a
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$State addKeyCode(int) -> a
     int getCharacter() -> a
     int getSequenceLength() -> b
-    android.content.Intent getIntentForKey(int) -> b
+    java.util.List getIntentForKey(int) -> b
     void reset() -> c
     com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState access$0(com.anysoftkeyboard.keyboards.KeyEventStateMachine) -> a
 com.anysoftkeyboard.keyboards.KeyEventStateMachine$KeyEventState -> com.anysoftkeyboard.keyboards.l:
@@ -1099,7 +1099,7 @@ com.anysoftkeyboard.keyboards.KeyboardFactory -> com.anysoftkeyboard.keyboards.h
     java.util.ArrayList getAllAvailableKeyboards(android.content.Context) -> a
     java.util.ArrayList getEnabledKeyboards(com.anysoftkeyboard.AnyKeyboardContextProvider) -> a
     com.anysoftkeyboard.addons.AddOn createConcreateAddOn(android.content.Context,java.lang.String,int,java.lang.String,int,android.util.AttributeSet) -> a
-com.anysoftkeyboard.keyboards.KeyboardSwitcher -> com.anysoftkeyboard.keyboards.e:
+com.anysoftkeyboard.keyboards.KeyboardSwitcher -> com.anysoftkeyboard.keyboards.d:
     java.lang.String TAG -> a
     com.anysoftkeyboard.keyboards.AnyKeyboard[] EMPTY_AnyKeyboards -> b
     int KEYBOARDMODE_NORMAL -> c

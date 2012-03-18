@@ -2,6 +2,7 @@ package com.anysoftkeyboard.keyboards;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 import android.content.Intent;
 import android.util.Log;
@@ -10,7 +11,7 @@ public class KeyEventStateMachine {
 	
 	public static final int	KEYCODE_FIRST_CHAR = -4097;
 	
-	private final HashMap<Integer, Intent> mIntents = new HashMap<Integer, Intent>();
+	private final HashMap<Integer, List<Intent> > mIntents = new HashMap<Integer, List<Intent> >();
 	
 	private final class KeyEventTransition {
 		
@@ -213,12 +214,12 @@ public class KeyEventStateMachine {
 		return next;
 	}
 	
-	public void addSequence(int[] sequence, Intent intent) {
+	public void addSequence(int[] sequence, List<Intent> intents) {
 		final int intentKey = -1 * (mIntents.size()+1024);
 		
-		mIntents.put(intentKey, intent);
+		mIntents.put(intentKey, intents);
 		
-		Log.d(TAG, "Adding intent "+intent+" with key "+intentKey);
+		Log.d(TAG, "Adding intents "+intents.size()+" with key "+intentKey);
 		
 		addSequence(sequence, intentKey);
 	}
@@ -340,7 +341,7 @@ public class KeyEventStateMachine {
 		return this.sequenceLength;
 	}
 
-	public Intent getIntentForKey(int key)
+	public List<Intent> getIntentForKey(int key)
 	{
 		return mIntents.get(key);
 	}

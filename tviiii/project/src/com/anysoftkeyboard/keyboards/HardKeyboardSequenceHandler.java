@@ -2,8 +2,8 @@ package com.anysoftkeyboard.keyboards;
 
 import java.io.IOException;
 import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map.Entry;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -57,9 +57,9 @@ public class HardKeyboardSequenceHandler
 		}
 	}
 
-	public void addSequence(int[] sequence, Intent intent) {
-		Log.d(TAG, "seq "+sequence[0]+" will produce intent "+intent);
-		this.mCurrentSequence.addSequence(sequence, intent);
+	public void addSequence(int[] sequence, List<Intent> intents) {
+		Log.d(TAG, "seq "+sequence[0]+" will produce intents "+intents.size());
+		this.mCurrentSequence.addSequence(sequence, intents);
 	}
 	
 	public void addSequence(int[] sequence, int result) {
@@ -96,11 +96,14 @@ public class HardKeyboardSequenceHandler
 			int mappedChar = mCurrentSequence.getCharacter();
 			if (mappedChar < 0)
 			{
-				Intent intent = mCurrentSequence.getIntentForKey(mappedChar);
-				if (intent != null)
+				List<Intent> intents = mCurrentSequence.getIntentForKey(mappedChar);
+				if (intents != null && intents.size() > 0)
 				{
-					Log.d(TAG, "Broadcasting intent "+intent);
-					inputHandler.getApplicationContext().sendBroadcast(intent);
+					for(Intent intent : intents)
+					{
+						Log.d(TAG, "Broadcasting intent "+intent);
+						inputHandler.getApplicationContext().sendBroadcast(intent);
+					}
 				}
 			}
 			final int charactersToDelete = mCurrentSequence.getSequenceLength() - 1;
@@ -141,8 +144,7 @@ public class HardKeyboardSequenceHandler
     	String targetChar = null;
     	String targetCharCode = null;
     	String targetKeyCode = null;
-    	String intentAction = null;
-    	HashMap<String, String> mIntentExtras = new HashMap<String, String>();
+    	List<Intent> intents = new ArrayList<Intent>();
         while ((event = parser.next()) != XmlPullParser.END_DOCUMENT)
         {
         	String tag = parser.getName();
@@ -165,14 +167,13 @@ public class HardKeyboardSequenceHandler
                 	targetChar = attrs.getAttributeValue(null, XML_TARGET_ATTRIBUTE);
                 	targetCharCode = attrs.getAttributeValue(null, XML_TARGET_CHAR_CODE_ATTRIBUTE);
                 	targetKeyCode = attrs.getAttributeValue(null, XML_TARGET_KEY_CODE_ATTRIBUTE);
-                	intentAction = null;
-                	mIntentExtras.clear();
                 }
                 else if (inTranslations && inSequence && "intent".equals(tag))
                 {
                 	inIntent = true;
                 	AttributeSet attrs = Xml.asAttributeSet(parser);
-                	intentAction = attrs.getAttributeValue(null, "action");
+                	Intent intent = new Intent(attrs.getAttributeValue(null, "action"));
+                	intents.add(intent);
                 }
                 else if (inTranslations && inSequence && inIntent && "extra".equals(tag))
                 {
@@ -184,7 +185,8 @@ public class HardKeyboardSequenceHandler
         		</intent>*/
                 	String name = attrs.getAttributeValue(null, "name");
                 	String value = attrs.getAttributeValue(null, "value");
-                	mIntentExtras.put(name, value);
+                	Intent intent = intents.get(intents.size() - 1);
+                	intent.putExtra(name, value);
                 }
             }
             else if (event == XmlPullParser.END_TAG) {
@@ -237,13 +239,9 @@ public class HardKeyboardSequenceHandler
                     	if (!isAlt && !isShift)
                     	{
                         	//if (AnySoftKeyboardConfiguration.getInstance().getDEBUG()) Log.d(TAG, "Physical translation details: keys:"+printInts(keyCodes)+" target:"+target);
-                    		if (intentAction != null)
+                    		if (intents.size() > 0)
                     		{
-                    			Intent intent = new Intent(intentAction);
-                    			for (Entry<String, String> pair : mIntentExtras.entrySet()) {
-									intent.putExtra(pair.getKey(), pair.getValue());
-								}
-                    			translator.addSequence(keyCodes, intent);
+                    			translator.addSequence(keyCodes, intents);
                     		}
                     		else
                     		{

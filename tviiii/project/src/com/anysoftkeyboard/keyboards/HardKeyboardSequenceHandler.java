@@ -200,11 +200,14 @@ public class HardKeyboardSequenceHandler
                 		intent = new Intent();
                 		intent.setClassName(pkg, activityClass);
                 	}
-                	else throw new RuntimeException("Intent should either have 'action' or 'package' and 'class' attributes!");
+                	else 
+                		throw new RuntimeException("Intent should either have 'action' or 'package' and 'class' attributes!");
                 	
                 	if (!TextUtils.isEmpty(startActivity) && startActivity.equals("true"))
+                	{
+                		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 		intent.putExtra(ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT, ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT);
-                	
+                	}
                 	intents.add(intent);
                 }
                 else if (inTranslations && inSequence && inIntent && "extra".equals(tag))

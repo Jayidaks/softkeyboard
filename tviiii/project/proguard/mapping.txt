@@ -508,7 +508,7 @@ com.anysoftkeyboard.dictionaries.AutoDictionary -> com.anysoftkeyboard.dictionar
 com.anysoftkeyboard.dictionaries.AutoDictionary$DatabaseHelper -> com.anysoftkeyboard.dictionaries.i:
     void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
     void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
-com.anysoftkeyboard.dictionaries.AutoDictionary$UpdateDbTask -> com.anysoftkeyboard.dictionaries.y:
+com.anysoftkeyboard.dictionaries.AutoDictionary$UpdateDbTask -> com.anysoftkeyboard.dictionaries.z:
     java.util.HashMap mMap -> a
     com.anysoftkeyboard.dictionaries.AutoDictionary$DatabaseHelper mDbHelper -> b
     java.lang.String mLocale -> c
@@ -779,7 +779,7 @@ com.anysoftkeyboard.dictionaries.UserDictionaryBase$Node -> com.anysoftkeyboard.
     int frequency -> b
     boolean terminal -> c
     com.anysoftkeyboard.dictionaries.UserDictionaryBase$NodeArray children -> d
-com.anysoftkeyboard.dictionaries.UserDictionaryBase$NodeArray -> com.anysoftkeyboard.dictionaries.z:
+com.anysoftkeyboard.dictionaries.UserDictionaryBase$NodeArray -> com.anysoftkeyboard.dictionaries.y:
     com.anysoftkeyboard.dictionaries.UserDictionaryBase$Node[] data -> a
     int length -> b
 com.anysoftkeyboard.keyboardextensions.KeyboardExtension -> com.anysoftkeyboard.b.a:

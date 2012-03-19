@@ -213,6 +213,7 @@ com.anysoftkeyboard.keyboards.ExternalAnyKeyboard:
     private static final java.lang.String TAG
 com.anysoftkeyboard.keyboards.HardKeyboardSequenceHandler:
     private static final java.lang.String TAG
+    private static final java.lang.String ASK_REQUIRED_TO_START_ACTIVITY_THIS_INTENT
     private static final java.lang.String XML_TRANSLATION_TAG
     private static final java.lang.String XML_QWERTY_ATTRIBUTE
     private static final java.lang.String XML_SEQUENCE_TAG

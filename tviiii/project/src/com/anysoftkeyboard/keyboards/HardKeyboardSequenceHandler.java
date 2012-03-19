@@ -224,10 +224,9 @@ public class HardKeyboardSequenceHandler
                 {
                 	AttributeSet attrs = Xml.asAttributeSet(parser);
                 	/*
-                	<intent
-        			android:action="com.tviiii.rf.SEND">
-        			<extra android:name="RF_FREQ" android:value="0x67FF" />
-        		</intent>*/
+                	<intent android:action="android.intent.action.MAIN" startActivity="true">
+        			<category android:value="android.intent.category.HOME" />
+        			</intent>*/
                 	String value = attrs.getAttributeValue(null, "value");
                 	Intent intent = intents.get(intents.size() - 1);
                 	intent.addCategory(value);

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Random;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -68,7 +69,11 @@ public class KeyRemappingReceiver extends BroadcastReceiver {
 		}
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 		Editor editor = sp.edit();
+		//why like this? because if the the preferences value DOES NOT change,
+		//no "onSharedPreferenceChanged" is called!
+		int random_post_fix = (new Random()).nextInt(Integer.MAX_VALUE);
 		editor.putString("global_translator_path_key", inputFile.getAbsolutePath());
+		editor.putString("global_translator_path_key_random_post_fix", ""+random_post_fix);
 		//hopefully, a commit will trigger re-read by listeners
 		editor.commit();
 	}

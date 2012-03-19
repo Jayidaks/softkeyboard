@@ -45,11 +45,21 @@ public class GlobalTranslatorLoader {
 	protected void loadTranslator() {
 		HardKeyboardSequenceHandler handler = null;
 		
+		synchronized (mThread) {
+			try {
+				mThread.wait(1000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
 		while(mShouldRun)
 		{
 			try
 			{
 				File configFile = new File(mRemappingFile);
+				Log.d(TAG, "Reading remapping file: "+configFile.getAbsolutePath());
 				
 				XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 				XmlPullParser xml = factory.newPullParser();

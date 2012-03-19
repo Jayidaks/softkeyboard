@@ -117,7 +117,7 @@ public class AnySoftKeyboard extends InputMethodService implements
     private static final String NOTIFY_LAYOUT_SWITCH_NOTIFICATION_FLAGS = "notification_flags";
     private static final String NOTIFY_LAYOUT_SWITCH_NOTIFICATION_TITLE = "notification_title";
 	*/
-	private final boolean TRACE_SDCARD = false;
+	private final boolean TRACE_SDCARD = true;
 
 	private static final int MSG_UPDATE_SUGGESTIONS = 0;
 	//private static final int MSG_START_TUTORIAL = 1;
@@ -292,6 +292,8 @@ public class AnySoftKeyboard extends InputMethodService implements
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		if (TRACE_SDCARD)
+			Debug.startMethodTracing("anysoftkeyboard_log.trace");
 		// super.showStatusIcon(R.drawable.icon_8_key);
 		Log.i(TAG, "****** AnySoftKeyboard service started.");
 		Thread.setDefaultUncaughtExceptionHandler(new ChewbaccaUncaughtExceptionHandler(getApplication().getBaseContext(), null));
@@ -331,11 +333,16 @@ public class AnySoftKeyboard extends InputMethodService implements
 		
 		mGlobalPhysicalKeysTranslator = null;
 		String path = sp.getString("global_translator_path_key", "");
-		File remappingFile = new File(path);
-		if (remappingFile.exists())
+		if (!TextUtils.isEmpty(path))
 		{
+			Log.d(TAG, "Remapping file setting was found: "+path);
+			File remappingFile = new File(path);
 			mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this, getResources());
 			mGlobalTranslatorLoader.load();
+		}
+		else
+		{
+			Log.d(TAG, "No remapping file setting was found (it is empty)!");
 		}
 	}
 	
@@ -376,6 +383,10 @@ public class AnySoftKeyboard extends InputMethodService implements
         mInputMethodManager.hideStatusIcon(mImeToken);
         
         mGlobalTranslatorLoader.stop();
+        
+        if (TRACE_SDCARD)
+			Debug.stopMethodTracing();
+        
 		super.onDestroy();
 	}
 
@@ -628,8 +639,6 @@ public class AnySoftKeyboard extends InputMethodService implements
 			//this will release memory
 			setDictionariesForCurrentKeyboard();
 		}
-		if (TRACE_SDCARD)
-			Debug.startMethodTracing("anysoftkeyboard_log.trace");
 	}
 
 	@Override
@@ -713,10 +722,7 @@ public class AnySoftKeyboard extends InputMethodService implements
 	}
 
 	@Override
-	public void hideWindow() {
-		if (TRACE_SDCARD)
-			Debug.stopMethodTracing();
-		
+	public void hideWindow() {		
 		if (mOptionsDialog != null && mOptionsDialog.isShowing()) {
 			mOptionsDialog.dismiss();
 			mOptionsDialog = null;
@@ -3017,12 +3023,14 @@ public class AnySoftKeyboard extends InputMethodService implements
 			resetKeyboardView(key.equals(getString(R.string.settings_key_keyboard_theme_key)));
 		}
 		
-		if (key.equals("global_translator_path_key"))
+		if (key.startsWith("global_translator_path_key"))
 		{
-			String path = sharedPreferences.getString(key, "");
+			String path = sharedPreferences.getString("global_translator_path_key", "");
 			File remappingFile = new File(path);
 			if (remappingFile.exists())
 			{
+				if (mGlobalTranslatorLoader != null)
+					mGlobalTranslatorLoader.stop();
 				mGlobalTranslatorLoader = new GlobalTranslatorLoader(remappingFile.toURI(), this, getResources());
 				mGlobalTranslatorLoader.load();
 			}

@@ -9,9 +9,9 @@ com.anysoftkeyboard.AnySoftKeyboard:
     private static final java.lang.String KEYBOARD_NOTIFICATION_ALWAYS
     private static final java.lang.String KEYBOARD_NOTIFICATION_ON_PHYSICAL
     private static final java.lang.String KEYBOARD_NOTIFICATION_NEVER
-    3034:3049:public void appendCharactersToInput(java.lang.CharSequence)
-    3092:3094:public void showToastMessage(int,boolean)
-    3097:3102:private void showToastMessage(java.lang.CharSequence,boolean)
+    3042:3057:public void appendCharactersToInput(java.lang.CharSequence)
+    3100:3102:public void showToastMessage(int,boolean)
+    3105:3110:private void showToastMessage(java.lang.CharSequence,boolean)
 com.anysoftkeyboard.AnySoftKeyboard$3:
     private static final long DOUBLE_TAP_TIMEOUT
 com.anysoftkeyboard.ChewbaccaUncaughtExceptionHandler:

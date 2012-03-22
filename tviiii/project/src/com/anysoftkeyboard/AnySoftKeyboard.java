@@ -117,7 +117,7 @@ public class AnySoftKeyboard extends InputMethodService implements
     private static final String NOTIFY_LAYOUT_SWITCH_NOTIFICATION_FLAGS = "notification_flags";
     private static final String NOTIFY_LAYOUT_SWITCH_NOTIFICATION_TITLE = "notification_title";
 	*/
-	private final boolean TRACE_SDCARD = true;
+	private final boolean TRACE_SDCARD = false;
 
 	private static final int MSG_UPDATE_SUGGESTIONS = 0;
 	//private static final int MSG_START_TUTORIAL = 1;

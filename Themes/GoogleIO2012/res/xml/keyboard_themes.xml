@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KeyboardThemes>
+	<KeyboardTheme
+        id="f79367a0-77ee-11e1-b0c4-0800200c9a66"
+        nameResId="@string/io2012_keyboard_theme_name"
+        themeRes="@style/IO2012AnyKeyboardTheme"
+        popupThemeRes="@style/IO2012AnyKeyboardPopupTheme"
+        themeScreenshot="@drawable/io2012_theme_screenshot"
+        description="@string/io2012_keyboard_theme_description"
+        index="1"/>
+</KeyboardThemes>

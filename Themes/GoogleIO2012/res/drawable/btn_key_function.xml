@@ -3,11 +3,11 @@
 	<item>
 		<shape
 		    android:shape="rectangle">
-		    <padding android:top="@dimen/key_top_inset"
-			    android:right="@dimen/key_right_inset"
-			    android:bottom="@dimen/key_bottom_inset"
-			    android:left="@dimen/key_left_inset"/>
-		    <solid android:color="#4B8EF9"/>
+		    <padding android:top="@dimen/key_corner_radius"
+			    android:right="@dimen/key_corner_radius"
+			    android:bottom="@dimen/key_corner_radius"
+			    android:left="@dimen/key_corner_radius"/>
+		    <solid android:color="#B04B8EF9"/>
 		    <stroke android:width="1px" android:color="#000"/>
 		    <corners android:radius="@dimen/key_corner_radius"/>
 		</shape>

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anysoftkeyboard.theme.googlio2012"
     android:versionCode="1"
-    android:versionName="1.0.0-201200327" >
+    android:versionName="1.0.0-201200328" >
 
     <uses-sdk android:minSdkVersion="4" />
 

@@ -15,7 +15,7 @@
 -->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:ask="http://schemas.android.com/apk/res/com.anysoftkeyboard.theme.lg">
+	xmlns:ask="http://schemas.android.com/apk/res/com.anysoftkeyboard.theme.three_d">
 
     <!-- Functional keys. -->
 

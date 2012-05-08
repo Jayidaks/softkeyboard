@@ -5,7 +5,7 @@
         nameResId="@string/keyboard_theme_name"
         themeRes="@style/AnyKeyboardTheme"
         popupThemeRes="@style/AnyKeyboardPopupTheme"
-        themeScreenshot="@drawable/background"
+        themeScreenshot="@drawable/screenshot_keyboard"
         description="@string/keyboard_theme_description"
         index="1"/>
 </KeyboardThemes>

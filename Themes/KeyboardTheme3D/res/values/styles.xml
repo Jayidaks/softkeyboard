@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <resources>
-	<style name="LGAnyKeyboardTheme">
+	<style name="AnyKeyboardTheme">
         <item name="android:background">@drawable/background</item>
         <item name="keyBackground">@drawable/btn_keyboard_key</item>
     	
@@ -39,7 +39,7 @@
 		<item name="keyHorizontalGap">@dimen/default_key_horizontal_gap</item>
 		<item name="keyVerticalGap">@dimen/default_key_vertical_gap</item>
     </style>
-    <style name="LGAnyKeyboardPopupTheme" parent="@style/LGAnyKeyboardTheme">
+    <style name="AnyKeyboardPopupTheme" parent="@style/AnyKeyboardTheme">
         <item name="android:background">@drawable/popup_background</item>
         <!-- this will say "no preview" -->
     	<item name="keyPreviewTextSize">0px</item>

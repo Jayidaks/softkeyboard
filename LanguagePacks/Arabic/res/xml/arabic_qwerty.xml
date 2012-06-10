@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Keyboard android:keyWidth="10.000002%p" android:keyHeight="@dimen/key_height" android:horizontalGap="0.0px" android:verticalGap="0.0px"
+<Keyboard 
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <Row android:keyWidth="10.000002%p">
+    <Row>
         <Key android:codes="1590" android:popupCharacters="ًٌٍَُِّْ" android:keyEdgeFlags="left" android:keyLabel="ض" />
         <Key android:codes="1589" android:keyLabel="ص" />
         <Key android:codes="1602" android:keyLabel="ق" />
@@ -13,7 +13,7 @@
         <Key android:codes="1581" android:keyLabel="ح" />
         <Key android:codes="1580" android:popupCharacters="چ" android:keyEdgeFlags="right" android:keyLabel="ج" />
     </Row>
-    <Row android:keyWidth="10.000002%p">
+    <Row>
         <Key android:codes="1588" android:keyEdgeFlags="left" android:keyLabel="ش" />
         <Key android:codes="1587" android:keyLabel="س" />
         <Key android:codes="1610" android:popupCharacters="ىئ" android:keyLabel="ي" />
@@ -25,7 +25,7 @@
         <Key android:codes="1605" android:keyLabel="م" />
         <Key android:codes="1603" android:popupCharacters="گ" android:keyEdgeFlags="right" android:keyLabel="ك" />
     </Row>
-    <Row android:keyWidth="10.000002%p">
+    <Row>
         <Key android:codes="1592" android:popupCharacters="؟،؛" android:keyEdgeFlags="left" android:keyLabel="ظ" />
         <Key android:codes="1591" android:keyLabel="ط" />
         <Key android:codes="1584" android:keyLabel="ذ" />

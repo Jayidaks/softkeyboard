@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboards>
-    <Keyboard nameResId="@string/arabic_keyboard" iconResId="@drawable/ar" layoutResId="@xml/arabic_qwerty" id="141e77eb-bbe9-4e04-b1cc-8b6fd99a5f09" defaultDictionaryLocale="ar" description="Created by Yahya Hamidaddin" index="1" />
+    <Keyboard nameResId="@string/arabic_keyboard" iconResId="@drawable/ar" layoutResId="@xml/arabic_qwerty" id="141e77eb-bbe9-4e04-b1cc-8b6fd99a5f09" defaultDictionaryLocale="ar" physicalKeyboardMappingResId="@xml/ar_physical" description="Created by Yahya Hamidaddin - Physical Keyboard Layout added by Ghooo" index="1" />
 </Keyboards>

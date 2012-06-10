@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by: Ghooo -->
+<!-- ghooo.ghooo@gmail.com -->
+
+<PhysicalTranslation QwertyTranslation="\u0636\u0635\u062B\u0642\u0641\u063A\u0639\u0647\u062E\u062D\u0634\u0633\u064A\u0628\u0644\u0627\u062A\u0646\u0645\u0626\u0621\u0624\u0631\uFEFB\u0649\u0629">
+	<!-- keycode_A -->
+	<SequenceMapping keySequence="29" shiftModifier="true" targetChar="&#x650;"/>
+	<!-- keycode_B -->
+	<SequenceMapping keySequence="30" shiftModifier="true" targetChar="&#xFEF5;"/>
+	<!-- keycode_C -->
+	<SequenceMapping keySequence="31" shiftModifier="true" targetChar="&#x7D;"/>
+	<!-- keycode_D -->
+	<SequenceMapping keySequence="32" shiftModifier="true" targetChar="&#x5D;"/>
+	<!-- keycode_E -->
+	<SequenceMapping keySequence="33" shiftModifier="true" targetChar="&#x64F;"/>
+	<!-- keycode_F -->
+	<SequenceMapping keySequence="34" shiftModifier="true" targetChar="&#x5B;"/>
+	<!-- keycode_G -->
+	<SequenceMapping keySequence="35" shiftModifier="true" targetChar="&#xFEF7;"/>
+	<!-- keycode_H -->
+	<SequenceMapping keySequence="36" shiftModifier="true" targetChar="&#x623;"/>
+	<!-- keycode_I -->
+	<SequenceMapping keySequence="37" shiftModifier="true" targetChar="&#xF7;"/>
+	<!-- keycode_J -->
+	<SequenceMapping keySequence="38" shiftModifier="true" targetChar="&#x640;"/>
+	<!-- keycode_K -->
+	<SequenceMapping keySequence="39" shiftModifier="true" targetChar="&#x60C;"/>
+	<!-- keycode_L -->
+	<SequenceMapping keySequence="40" shiftModifier="true" targetChar="&#x2F;"/>
+	<!-- keycode_M -->
+	<SequenceMapping keySequence="41" shiftModifier="true" targetChar="&#x2019;"/>
+	<!-- keycode_N -->
+	<SequenceMapping keySequence="42" shiftModifier="true" targetChar="&#x622;"/>
+	<!-- keycode_O -->
+	<SequenceMapping keySequence="43" shiftModifier="true" targetChar="&#xD7;"/>
+	<!-- keycode_P -->
+	<SequenceMapping keySequence="44" shiftModifier="true" targetChar="&#x61B;"/>
+	<!-- keycode_Q -->
+	<SequenceMapping keySequence="45" shiftModifier="true" targetChar="&#x64E;"/>
+	<!-- keycode_R -->
+	<SequenceMapping keySequence="46" shiftModifier="true" targetChar="&#x64C;"/>
+	<!-- keycode_S -->
+	<SequenceMapping keySequence="47" shiftModifier="true" targetChar="&#x64D;"/>
+	<!-- keycode_T -->
+	<SequenceMapping keySequence="48" shiftModifier="true" targetChar="&#xFEF9;"/>
+	<!-- keycode_U -->
+	<SequenceMapping keySequence="49" shiftModifier="true" targetChar="&#x2018;"/>
+	<!-- keycode_V -->
+	<SequenceMapping keySequence="50" shiftModifier="true" targetChar="&#x7B;"/>
+	<!-- keycode_W -->
+	<SequenceMapping keySequence="51" shiftModifier="true" targetChar="&#x64B;"/>
+	<!-- keycode_X -->
+	<SequenceMapping keySequence="52" shiftModifier="true" targetChar="&#x652;"/>
+	<!-- keycode_Y -->
+	<SequenceMapping keySequence="53" shiftModifier="true" targetChar="&#x625;"/>
+	<!-- keycode_Z -->
+	<SequenceMapping keySequence="54" shiftModifier="true" targetChar="&#x7E;"/>
+	<!-- keycode_[ -->
+	<SequenceMapping keySequence="71" targetChar="&#x62C;"/> <!-- [ is mapped to Geim -->
+	<SequenceMapping keySequence="71" shiftModifier="true" targetChar="&#x3C;"/>
+	<!-- keycode_] -->
+	<SequenceMapping keySequence="72" targetChar="&#x62F;"/> <!-- ] is mapped to Daal -->
+	<SequenceMapping keySequence="72" shiftModifier="true" targetChar="&#x3E;"/>
+	<!-- keycode_; -->
+	<SequenceMapping keySequence="74" targetChar="&#x643;"/> <!-- ; is mapped to Kaaf -->
+	<SequenceMapping keySequence="74" shiftModifier="true" targetChar="&#x3A;"/>
+	<!-- keycode_' -->
+	<SequenceMapping keySequence="75" targetChar="&#x637;"/> <!-- ' is mapped to Taa -->
+	<SequenceMapping keySequence="75" shiftModifier="true" targetChar="&#x22;"/>
+	<!-- keycode_, -->
+	<SequenceMapping keySequence="55" targetChar="&#x648;"/> <!-- , is mapped to Waw -->
+	<SequenceMapping keySequence="55" shiftModifier="true" targetChar="&#x2C;"/>
+	<!-- keycode_. -->
+	<SequenceMapping keySequence="56" targetChar="&#x632;"/> <!-- . is mapped to Zai -->
+	<SequenceMapping keySequence="56" shiftModifier="true" targetChar="&#x2E;"/>
+	<!-- keycode_/ -->
+	<SequenceMapping keySequence="76" targetChar="&#x638;"/> <!-- / is mapped to Zaa -->
+	<SequenceMapping keySequence="76" shiftModifier="true" targetChar="&#x61F;"/>
+	<!-- keycode_` -->
+	<SequenceMapping keySequence="0" targetChar="&#x630;"/> <!-- ` is mapped to Zal -->
+	<SequenceMapping keySequence="0" shiftModifier="true" targetChar="&#x651;"/>
+	
+
+</PhysicalTranslation>

@@ -1,0 +1,1 @@
+How to build AnySoftKeyboard wiki can be found here: https://github.com/AnySoftKeyboard/AnySoftKeyboard/wiki/How-to-Build-AnySoftKeyboard
